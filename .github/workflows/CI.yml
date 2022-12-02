@@ -31,7 +31,7 @@ jobs:
           version: ${{ matrix.version }}
           arch: ${{ matrix.arch }}
       - uses: julia-actions/cache@v1
-      - uses: julia-actions/julia-buildpkg@v1
+      - uses: julia-actions/julia-buildpkg@v1  # I have no build step?
       - uses: julia-actions/julia-runtest@v1
   docs:
     name: Documentation
@@ -53,3 +53,6 @@ jobs:
             using PkgDepGraph
             DocMeta.setdocmeta!(PkgDepGraph, :DocTestSetup, :(using PkgDepGraph); recursive=true)
             doctest(PkgDepGraph)'
+        # Wait, why is this setdocmeta! here again??
+        # Ah ok, maybe cause the gh action above, docdeploy,
+        # does mkdocs and deploy; but not doctest.
