@@ -3,5 +3,11 @@ uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 authors = ["Tomas Fiers <tomas.fiers@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+URIs = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
+
 [compat]
 julia = "1.2"
