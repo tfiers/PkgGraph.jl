@@ -1,9 +1,9 @@
-# PkgDepGraph
+# PkgGraph
 <!-- Add .jl, djeez -->
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tfiers.github.io/PkgDepGraph.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tfiers.github.io/PkgDepGraph.jl/dev/)
-[![Build Status](https://github.com/tfiers/PkgDepGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/tfiers/PkgDepGraph.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tfiers.github.io/PkgGraph.jl/stable/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tfiers.github.io/PkgGraph.jl/dev/)
+[![Build Status](https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain)
 <!-- No 'dev' docs badge please. Also is 'latest commit' or sth not better. And 'Stable' rather just the last release version!!
 God. 
 And a "build status" button? blegh.

@@ -1,4 +1,4 @@
-module PkgDepGraph
+module PkgGraph
 
 # Write your package code here.
 

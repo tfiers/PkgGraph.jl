@@ -1,6 +1,6 @@
-using PkgDepGraph
+using PkgGraph
 using Test
 
-@testset "PkgDepGraph.jl" begin
+@testset "PkgGraph.jl" begin
     # Write your tests here.
 end

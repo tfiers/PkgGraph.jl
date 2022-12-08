@@ -50,9 +50,9 @@ jobs:
       - run: |
           julia --project=docs -e '
             using Documenter: DocMeta, doctest
-            using PkgDepGraph
-            DocMeta.setdocmeta!(PkgDepGraph, :DocTestSetup, :(using PkgDepGraph); recursive=true)
-            doctest(PkgDepGraph)'
+            using PkgGraph
+            DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
+            doctest(PkgGraph)'
         # Wait, why is this setdocmeta! here again??
         # Ah ok, maybe cause the gh action above, docdeploy,
         # does mkdocs and deploy; but not doctest.
