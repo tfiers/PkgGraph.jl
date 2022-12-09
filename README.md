@@ -62,7 +62,7 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 
 <br>
 
-## 🔧 More
+## ➕ More
 
 See the [![][docbadge]][docs] for more info.
 
