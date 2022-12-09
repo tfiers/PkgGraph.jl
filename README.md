@@ -46,7 +46,7 @@ If the directory is not specified, a `tempdir()` is used.
 
 ## 📦 Installation
 
-You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).
+You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
 You can then use it in any project, without having to install it in that project.
 
 One way to do this is to run – from any environment:
