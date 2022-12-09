@@ -20,8 +20,8 @@ This will open the browser to [this url][dotlink], which renders the following i
 The given package (here: [Unitful][unitful]) must be installed in the currently activated project for this to work.[^1]
 
 [^1]: Note that `PkgGraph` does not have to be installed in the same project as the one whose packages
-you want to visualize: you can switch projects (using `] activate`)
-_after_ `PkgGraph` has been imported. Also see [Installation](#installation).
+you want to visualize: you can switch projects (using `] activate`) _after_ `PkgGraph` has been imported.
+Also see [Installation](#installation) for an even easier way.
 
 [dotlink]: …
 [unitful]: https://github.com/PainterQubits/Unitful.jl
