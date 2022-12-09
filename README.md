@@ -29,7 +29,7 @@ If you are offline, and you have [Graphviz `dot`](https://graphviz.org) installe
 ```julia
 julia> PkgGraph.create("Unitful")
 ```
-This will call `dot` to visualize the dependency graph, and then open the new image with your default image viewer.
+This will call `dot` to visualize the dependency graph, and then open the created image with your default image viewer.
 
 <!-- /for-inclusion-in-docs -->
 
