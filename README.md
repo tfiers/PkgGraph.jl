@@ -76,7 +76,7 @@ If you want to customize this package's functionality, there are some helper fun
 <br>
 
 
-## 👩‍💻 For contributors
+## 👩‍💻 Development
 
 Does the latest commit on main ("dev", unstable) pass all tests, and do the dev docs build succesfully? Answer:
 
