@@ -40,7 +40,8 @@ using Documenter
 
     @test_throws(
         "The given package (ThisPkgDoesNotExist) must be installed in the active project",
-        depgraph("ThisPkgDoesNotExist")
+        depgraph("ThisPkgDoesNotExist"),
+        skip = (VERSION < v"1.8")  # Julia v1.7 does not support error string matching
     )
 
     @test is_dot_available() isa Bool
