@@ -2,36 +2,36 @@ using PkgGraph
 using Documenter
 # I want newest Documenter (gh logo repo link :))
 # https://github.com/JuliaDocs/Documenter.jl/blob/master/CHANGELOG.md
-# Manifest is committed so fine to do once.
+# Manifest is committed, so fine to add a dev version manually.
 
+on_github = (get(ENV, "CI", "") == "true")  # This is set by GitHub itself.
 
-DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
-# This is from here: https://github.com/JuliaCI/PkgTemplates.jl/issues/232
-# But I didn't have any trouble with running doctests before?
-
-makedocs(;
-    modules=[PkgGraph],
-    authors="Tomas Fiers <tomas.fiers@gmail.com> and contributors",
-    # Is this needed? Where?
-    repo="https://github.com/tfiers/PkgGraph.jl/blob/{commit}{path}#{line}",
-    # ↪ makedocs does this automatically for a gh remote
-    sitename="PkgGraph.jl",
-    format=Documenter.HTML(;
-        prettyurls=get(ENV, "CI", "false") == "true",
-        # ↪ when local, no /pagename/index.html. ok ig.
-        canonical="https://tfiers.github.io/PkgGraph.jl",
-        edit_link="main",
-        footer=nothing,  # yee
+makedocs(
+    modules = [PkgGraph],
+    # ↪ `makedocs` gives a warning if it finds any docstrings in these modules that aren't
+    #    included in the markdown.
+    sitename = "PkgGraph.jl",
+    # ↪ Displayed in page title and navbar.
+    doctest = false,
+    # ↪ Done in runtests.jl (CI always builds docs and runs test together anyway).
+    #   Plus, faster doc rebuilds when writing docs locally.
+    format = Documenter.HTML(;
+        prettyurls = on_github,
+        # ↪ When local, no `/pagename/index.html`
+        canonical = "https://tfiers.github.io/PkgGraph.jl/stable",
+        # ↪ Hint for search engines that this version is where they should send users.
+        edit_link = "main",
+        # ↪ Instead of current commit hash. Let 'em edit main.
+        footer = nothing,  # Normally "Powered by …"
     ),
     pages=[
         "Home" => "index.md",
     ],
-    # doctest is true by default
-    # Is doctest not better in test. For fast doc build feedback loop.
 )
 
-deploydocs(;
-    repo="github.com/tfiers/PkgGraph.jl",
-    devbranch="main",
-)
-# Shouldn't this only be done in CI.
+if on_github
+    deploydocs(;
+        repo = "github.com/tfiers/PkgGraph.jl",
+        devbranch = "main",
+    )
+end

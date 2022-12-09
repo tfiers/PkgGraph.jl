@@ -18,3 +18,9 @@ in any case, i had this nicely in prev repo's.
 A nice documentation badge with a book somewhere.
 And sth about last commit test success or the like as well.
 -->
+
+Build docs locally:
+```julia
+pkg> activate docs
+julia> include("docs/make.jl")
+```
