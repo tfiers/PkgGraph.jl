@@ -19,7 +19,6 @@ jobs:
       matrix:
         version:
           - '1.7'
-          - '1.8'
           - 'nightly'
         os:
           - ubuntu-latest
@@ -48,12 +47,4 @@ jobs:
       - uses: julia-actions/julia-docdeploy@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          julia --project=docs -e '
-            using Documenter: DocMeta, doctest
-            using PkgGraph
-            DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
-            doctest(PkgGraph)'
-        # Wait, why is this setdocmeta! here again??
-        # Ah ok, maybe cause the gh action above, docdeploy,
-        # does mkdocs and deploy; but not doctest.
+      # (No need to run doctest, test does that).
