@@ -48,7 +48,8 @@ which you might find useful if you want to hack on this package's functionality.
 
 Does the latest commit on main ("dev", unstable) pass all tests, and do the dev docs build succesfully?
 
-[![Build Status][CI-badge][CI-link]
+[![Build Status][CI-badge]][CI-link]
+
 [CI-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
 [CI-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
 
