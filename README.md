@@ -78,14 +78,17 @@ If you want to customize this package's functionality, there are some helper fun
 
 ## 👩‍💻 Development
 
-Does the latest commit on main ("dev", unstable) pass all tests, and do the dev docs build succesfully? Answer:
-
-[![Build Status][CI-badge]][CI-link]
+| For the latest commit on `main`: | <sub>aka "dev", unstable</sub> |
+|---------------------------------:|--------------------------------|
+|               Do all tests pass? | [![][tests-badge]][tests-link] |
+|               Do the docs build? | [![][mkdoc-badge]][mkdoc-link] |
 
 <!-- must have empty line before these -->
-[CI-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
-[CI-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
-
+[tests-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
+[tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
+<!-- todo, update these -->
+[mkdoc-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
+[mkdoc-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
 
 ### Build docs locally
 In the project root:
