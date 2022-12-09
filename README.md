@@ -3,7 +3,7 @@
 <!-- The following part of this ReadMe will be re-used in the docs homepage (for DRY purposes) -->
 <!-- for-inclusion-in-docs: -->
 
-Tiny tool to visualize the dependency graphs of Julia packages.
+Tiny tool to visualize the dependency graph of a Julia package.
 
 ### Example
 
