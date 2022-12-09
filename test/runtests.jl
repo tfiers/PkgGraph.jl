@@ -38,16 +38,12 @@ using Documenter
     @test depgraph_url("TOML") == "https://edotor.net/?engine=dot#" * urlencoded
 
 
-    @test_throws(
-        "The given package (ThisPkgDoesNotExist) must be installed in the active project",
-        depgraph("ThisPkgDoesNotExist"),
-        skip = (VERSION < v"1.8")  # Julia v1.7 does not support error string matching
-    )
+    if VERSION ≥ v"1.8"  # Julia v1.7 does not support error string matching
+        @test_throws(
+            "The given package (DinnaeExist) must be installed in the active project",
+            depgraph("DinnaeExist")
+        )
+    end
 
     @test is_dot_available() isa Bool
-    # backup = ENV["PATH"]
-    # ENV["PATH"] = ""
-    # @test_throws "`dot` program not found on `PATH`" depgraph_local("TOML")
-    # ENV["PATH"] = backup
-    # Doesn't work: where/which is not on Path then either.
 end
