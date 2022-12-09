@@ -18,13 +18,12 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.2'
-          - '1.5'
+          - '1.6'
+          - '1.7'
           - '1.8'
           - 'nightly'
         os:
           - ubuntu-latest
-          - macos-latest
         arch:
           - x64
     steps:
