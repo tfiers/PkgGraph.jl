@@ -30,7 +30,6 @@ This will open the browser to [this url][dotlink], which renders the following i
 [dotlink]: …
 [unitful]: https://github.com/PainterQubits/Unitful.jl
 
-<br>
 
 ## 💻 Local rendering
 
@@ -42,7 +41,6 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 
 If the directory is not specified, a `tempdir()` is used.
 
-<br>
 
 ## 📦 Installation
 
@@ -60,7 +58,6 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 
 <!-- /for-inclusion-in-docs -->
 
-<br>
 
 ## ➕ More
 
