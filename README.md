@@ -17,11 +17,11 @@ This will open the browser to [this url][dotlink], which renders the following i
 `{image, with sans-serif}`
 <!-- also add dotlink, below  -->
 
-The given package (here: [Unitful][unitful]) must be installed in the currently activated project for this to work.[^1]
-
-[^1]: Note that `PkgGraph` does not have to be installed in the same project as the one whose packages
-you want to visualize: you can switch projects (using `] activate`) _after_ `PkgGraph` has been imported.
-Also see [Installation](#installation) for an even easier way.
+<sub>The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.\
+Note that `PkgGraph` does not have to be installed in the same project:
+you can switch projects _after_ `PkgGraph` has been imported (using `] activate`).\
+Also see [Installation](#installation) for an even easier way, without having to switch projects.
+</sub>
 
 [dotlink]: …
 [unitful]: https://github.com/PainterQubits/Unitful.jl
@@ -29,26 +29,29 @@ Also see [Installation](#installation) for an even easier way.
 
 ## Local rendering
 
-If you are offline, and you have [Graphviz `dot`](https://graphviz.org) installed and available on your PATH, you can use
+If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
 ```julia
-julia> PkgGraph.create("Unitful")
+julia> PkgGraph.create("Unitful", dir=".", fmt=:svg)
 ```
-This will call `dot` to visualize the dependency graph, and then open the created image with your default image viewer.
+This will create an image with `dot`, save it to the current directory, and open it with your default image viewer.
+
+If the directory is not specified, a `tempdir()` is used.
 
 
 ## Installation
 
-It might be useful to have `PkgGraph` installed in your base environment (e.g. `v1.8`).
+You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).
 You can then use it in any project, without having to install it in that project.
 
-One way to do this is to type
+One way to do this (from any environment):
 ```
 julia> using PkgGraph
 ```
-It will warn that the package is not found, and offer to install it.
-**Type `o`** and choose your base environment (e.g. `v1.8`).
+If the package is not found, Julia will offer to install it.
 
-You can then call `using PkgGraph` from anywhere, without having to activate the base environment.
+**Type `o`** and choose your base environment.
+
+You can then call `using PkgGraph` from anywhere, without having to activate the base env.
 
 <!-- /for-inclusion-in-docs -->
 
@@ -58,7 +61,7 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 See the [documentation][docs] for more.
 
 There are some utility functions (used by the above high-level commands)
-which you might find useful if you want to hack on this package's functionality.
+which you might find useful if you want to customize this package's functionality.
 
 [docs]: https://tfiers.github.io/PkgGraph.jl/
 
