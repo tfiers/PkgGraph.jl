@@ -1,25 +1,48 @@
-# PkgGraph
-<!-- Add .jl, djeez -->
+# PkgGraph.jl &nbsp; [![](https://img.shields.io/badge/📕_Documentation-blue)][docs]
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://tfiers.github.io/PkgGraph.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://tfiers.github.io/PkgGraph.jl/dev/)
-[![Build Status](https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain)
-<!-- No 'dev' docs badge please. Also is 'latest commit' or sth not better. And 'Stable' rather just the last release version!!
-God. 
-And a "build status" button? blegh.
-Hm no ok, it's fine, it's useful: did tests of last commit succeed (and doc build).
-But then don't call it Build youknow.
-ehwell, fine.
-maybe "CI"
-or "Test & build docs | last commit".
-or just fuckin nothing (although hm no, a shortcut is useful).
+Visualize the dependency graph of a Julia package.
 
-in any case, i had this nicely in prev repo's.
-A nice documentation badge with a book somewhere.
-And sth about last commit test success or the like as well.
--->
 
-Build docs locally:
+## Usage
+
+```julia
+julia> using PkgGraph
+
+julia> PkgGraph.open("Unitful")
+```
+If  the given package (here: [Unitful][uful]) is installed in the active project, this will open the browser [to here][dotlink], which renders the following image:
+
+[uful]: https://github.com/PainterQubits/Unitful.jl
+[dotlink]: …
+
+[dotlink & image, with sans-serif]
+
+
+If you are offline, and you have [Graphviz `dot`](graphviz.org) installed and available on your PATH, you can use
+```julia
+julia> PkgGraph.create("Unitful")
+```
+This will call `dot` to visualize the dependency graph, and then open the new image with your default image viewer.
+
+See the [documentation][docs] for more info.\
+There are some lower level functions that might be useful if you want to hack on this package's functionality.
+
+[docs]: https://tfiers.github.io/PkgGraph.jl/
+
+<br>
+
+---
+
+## For contributors
+
+Does the latest commit on main ("dev", unstable) pass all tests, and do the dev docs build succesfully?
+
+[![Build Status][CI-badge]]([CI-link])
+
+[CI-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
+[CI-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
+
+### Build docs locally
 ```julia
 pkg> activate docs
 julia> include("docs/make.jl")
