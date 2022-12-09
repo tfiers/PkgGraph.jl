@@ -17,15 +17,20 @@ This will open the browser to [this url][dotlink], which renders the following i
 `{image, with sans-serif}`
 <!-- also add dotlink, below  -->
 
-<sub>The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.\
-Note that `PkgGraph` does not have to be installed in the same project however:
-you can switch projects _after_ `PkgGraph` has been imported (using `] activate`).\
-Also see [Installation](#-installation) for an even easier way, without having to switch projects.
-</sub>
+<details>
+  
+  The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.
+
+  Note that `PkgGraph` does not have to be installed in the same project however:\
+  you can switch projects _after_ `PkgGraph` has been imported (using `] activate`).
+
+  Also see [Installation](#-installation) for an even easier way, without having to switch projects.
+</details>
 
 [dotlink]: …
 [unitful]: https://github.com/PainterQubits/Unitful.jl
 
+<br>
 
 ## 💻 Local rendering
 
@@ -37,6 +42,7 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 
 If the directory is not specified, a `tempdir()` is used.
 
+<br>
 
 ## 📦 Installation
 
@@ -48,19 +54,20 @@ One way to do this (from any environment):
 julia> using PkgGraph
 ```
 If the package is not found, Julia will offer to install it.\
-**Type `o`** and choose your base environment.
+**Type '`o`' to choose** your base environment.
 
 You can then call `using PkgGraph` from anywhere, without having to activate the base env.
 
 <!-- /for-inclusion-in-docs -->
 
+<br>
 
 ## 🔧 More
 
 See the [![][docbadge]][docs] for more info.
 
-There are some utility functions (used by the above high-level commands)
-that you might find useful if you want to customize this package's functionality.
+If you want to customize this package's functionality, there are some helper functions
+(used by the above high-level commands) that you might find useful.
 
 [docbadge]: https://img.shields.io/badge/📕_Documentation-blue
 [docs]: https://tfiers.github.io/PkgGraph.jl/
