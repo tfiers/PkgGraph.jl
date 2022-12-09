@@ -53,10 +53,10 @@ const rendering_urls = [
     "http://magjac.com/graphviz-visual-editor/?dot=",  # Linked from graphviz.org. Many features.
     "https://edotor.net/?engine=dot#",
 ]
-default_rendering_url::String = first(rendering_urls)
+const rendering_url = Ref(first(rendering_urls))
 
 """
-    depgraph_url(pkgname; renderer = default_rendering_url)
+    depgraph_url(pkgname)
 
 Create a URL at which the dependency graph of `pkgname` is rendered as an image, using an
 online Graphviz rendering service.
@@ -64,16 +64,24 @@ online Graphviz rendering service.
 ## How it works
 The dependency graph of `pkgname` is created locally, and converted to a string in the
 Graphviz DOT format (see [`deps_as_DOT`](@ref)). This string is URL-encoded, and appended to
-a partly-complete URL that is specified by the `renderer` keyword argument.
-
-The default renderer is the first entry in the global `rendering_urls` list. To use a
-different rendering website, supply the `renderer` keyword argument, or set the mutable
-global `default_rendering_url`.
+a partly-complete URL, which is by default the first entry in the `PkgGraph.rendering_urls`
+list. To use a different rendering website, use [`set_rendering_url`](@ref).
 """
-depgraph_url(pkgname; renderer = default_rendering_url) = begin
+depgraph_url(pkgname) = begin
     dotstr = deps_as_DOT(pkgname)
-    url = renderer * escapeuri(dotstr)
+    url = rendering_url[] * escapeuri(dotstr)
 end
+
+"""
+    set_rendering_url(new)
+
+Set the base url that will be used by [`depgraph`](@ref) and [`depgraph_url`](@ref) to the
+given `new` url.
+
+See `PkgGraph.rendering_urls` for some options.
+"""
+set_rendering_url(new) = (rendering_url[] = new)
+
 
 
 """
@@ -112,7 +120,7 @@ create_depgraph(pkgname) = begin
     if rootpkg ∉ keys(packages)
         error("""
         The given package ($pkgname) must be installed in the active project
-        (which is currently `$(curproj.path)`)""")
+        (which is currently `$(active_project())`)""")
     end
     deps = []
     add_deps_of(name) = begin
@@ -141,6 +149,8 @@ Build a string that represents the given directed graph in the Graphviz DOT form
 ## Example:
 
 ```jldoctest
+julia> using PkgGraph: to_DOT_str
+
 julia> edges = [:A => :B, "yes" => "no"];
 
 julia> to_DOT_str(edges) |> println
