@@ -65,10 +65,10 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 
 ## ➕ More
 
+If you want something a bit different than what this package offers, there are some helper functions you might find useful.
+
 See the [![][docbadge]][docs] for more info.
 
-If you want to customize this package's functionality, there are some helper functions
-(used by the above high-level commands) that you might find useful.
 
 [docbadge]: https://img.shields.io/badge/📕_Documentation-blue
 [docs]: https://tfiers.github.io/PkgGraph.jl/
@@ -93,13 +93,24 @@ For the latest commit on `main` (aka "dev", unstable):
 [doctt-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml/badge.svg
 [mkdoc-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml/badge.svg
 
+### Test
 
-### Build docs locally
+To run tests locally, run, in the project root:
+```julia
+pkg> activate .
+pkg> test
+```
 
-In the project root:
+To run doctests:
+```julia
+pkg> activate docs
+julia> include("docs/doctest.jl")
+```
+
+### Docs
+
+To build docs locally, run, in the project root:
 ```julia
 pkg> activate docs
 julia> include("docs/make.jl")
 ```
-
-To run doctests, same thing, but include `docs/doctest.jl` instead.
