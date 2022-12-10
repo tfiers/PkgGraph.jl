@@ -76,13 +76,11 @@ If you want to customize this package's functionality, there are some helper fun
 
 ## 👩‍💻 Development
 
-<!-- https://www.tablesgenerator.com/markdown_tables > File > Paste table -->
+For the latest commit on `main` (aka "dev", unstable):
 
-| For the latest commit on `main`: | <sub>aka "dev", unstable</sub> |
-|---------------------------------:|--------------------------------|
-|               Do the tests pass? | [![][tests-badg]][tests-link]  |
-|               Do the docs build? | [![][mkdoc-badg]][mkdoc-link]  |
-|            Do the doctests pass? | [![][doctt-badg]][doctt-link]  |
+[![][tests-badg]][tests-link]
+[![][mkdoc-badg]][mkdoc-link]
+[![][doctt-badg]][doctt-link]
 
 <!-- must have empty line before these -->
 [tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
