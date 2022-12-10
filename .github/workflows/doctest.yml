@@ -1,4 +1,4 @@
-name: doctest
+name: Doctest
 
 # Run doctests when either docs or src change (but not tests/).
 on:
@@ -9,7 +9,7 @@ on:
       - src/**
       - docs/**
       - Project.toml
-      - .github/workflows/doctest.yml
+      - .github/workflows/Doctest.yml
     tags: ['*']
   pull_request:
 
@@ -21,7 +21,6 @@ concurrency:
 
 jobs:
   doctest:
-    name: Doctest [${{ github.event_name }}]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

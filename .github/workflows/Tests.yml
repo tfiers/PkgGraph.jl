@@ -1,4 +1,4 @@
-name: test
+name: Tests
 
 # Do not run tests* when docs change.
 #
@@ -10,7 +10,7 @@ on:
       - src/**
       - test/**
       - Project.toml
-      - .github/workflows/test.yml
+      - .github/workflows/Tests.yml
     tags: ['*']
   pull_request:
   # There doesn't seem to be a way to reuse the above paths filter here too, without
@@ -26,7 +26,7 @@ concurrency:
 
 jobs:
   test:
-    name: Tests - Julia ${{ matrix.version }} [${{ github.event_name }}]
+    name: Julia ${{ matrix.version }}
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
