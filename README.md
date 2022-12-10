@@ -25,6 +25,7 @@ This will open the browser to [this url][dotlink], which renders the following i
   you can switch projects _after_ `PkgGraph` has been imported (using `] activate`).
 
   Also see [Installation](#-installation) for an even easier way, without having to switch projects.
+
 </details>
 
 [dotlink]: …
@@ -70,24 +71,30 @@ If you want to customize this package's functionality, there are some helper fun
 [docs]: https://tfiers.github.io/PkgGraph.jl/
 
 
-<br>
 
+<br>
 
 ## 👩‍💻 Development
 
+<!-- https://www.tablesgenerator.com/markdown_tables > File > Paste table -->
+
 | For the latest commit on `main`: | <sub>aka "dev", unstable</sub> |
 |---------------------------------:|--------------------------------|
-|               Do all tests pass? | [![][tests-badge]][tests-link] |
-|               Do the docs build? | [![][mkdoc-badge]][mkdoc-link] |
+|               Do the tests pass? | [![][tests-badg]][tests-link]  |
+|               Do the docs build? | [![][mkdoc-badg]][mkdoc-link]  |
+|            Do the doctests pass? | [![][doctt-badg]][doctt-link]  |
 
 <!-- must have empty line before these -->
-[tests-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
-[tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
-<!-- todo, update these -->
-[mkdoc-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml/badge.svg?branch=main
-[mkdoc-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/CI.yml?query=branch%3Amain
+[tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
+[doctt-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml
+[mkdoc-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml
+[tests-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
+[doctt-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml/badge.svg
+[mkdoc-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml/badge.svg
+
 
 ### Build docs locally
+
 In the project root:
 ```julia
 pkg> activate docs
