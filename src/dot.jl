@@ -24,7 +24,7 @@ deps_as_DOT(pkgname) = depgraph(pkgname) |> to_DOT_str
 
 
 """
-    to_DOT_str(edges)
+    to_DOT_str(edges; indent = 4)
 
 Build a string that represents the given directed graph in the
 [Graphviz DOT format](https://graphviz.org/doc/info/lang.html).
@@ -32,16 +32,14 @@ Build a string that represents the given directed graph in the
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph: to_DOT_str
-
 julia> empty!(PkgGraph.style);
 
 julia> edges = [:A => :B, "yes" => "no"];
 
-julia> to_DOT_str(edges) |> println
+julia> PkgGraph.to_DOT_str(edges, indent = 2) |> println
 digraph {
-    A -> B
-    yes -> no
+  A -> B
+  yes -> no
 }
 ```
 """
