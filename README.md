@@ -84,7 +84,7 @@ See the [![][docbadge]][docs] for more info.
 
 ## 👩‍💻 Development
 
-For the latest commit on `main` (aka "dev", unstable):
+For the latest commit on `main` (aka "dev", unstable): does the documentation build successfully, and do all tests and doctests pass?
 
 [![][tests-badg]][tests-link]
 [![][mkdoc-badg]][mkdoc-link]
