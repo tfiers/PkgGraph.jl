@@ -29,4 +29,4 @@ jobs:
           version: '1.8'
       - uses: julia-actions/cache@v1
       - working-directory: docs
-        run: julia --project=. doctest.jl
+        run: julia --color=yes --project=. doctest.jl
