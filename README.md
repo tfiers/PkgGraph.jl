@@ -14,8 +14,11 @@ julia> PkgGraph.open(:Unitful)
 ```
 This will open the browser to [this url][dotlink], which renders the following image:
 
-`{image, with sans-serif}`
-<!-- also add dotlink, below  -->
+<!-- Generated with `PkgGraph.create("Unitful", dir="docs", fmt=:png)` -->
+<img src="docs/Unitful-deps.png"
+     width=680
+     alt="Dependency graph of Unitful, rendered with Graphviz dot">
+
 
 <details>
   
@@ -28,8 +31,8 @@ This will open the browser to [this url][dotlink], which renders the following i
 
 </details>
 
-[dotlink]: …
 [unitful]: https://github.com/PainterQubits/Unitful.jl
+[dotlink]: https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A
 
 
 ## 💻 Local rendering
@@ -98,3 +101,5 @@ In the project root:
 pkg> activate docs
 julia> include("docs/make.jl")
 ```
+
+To run doctests, same thing, but include `docs/doctest.jl` instead.

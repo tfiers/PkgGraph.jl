@@ -7,6 +7,8 @@ Create the dependency graph of `pkgname` and render it as a Graphviz DOT string.
 Example output (truncated), for `"Unitful"`:
 ```
 digraph {
+    node [fontname = "sans-serif"]
+    edge [arrowsize = 0.88]
     Unitful -> ConstructionBase
     ConstructionBase -> LinearAlgebra
     LinearAlgebra -> Libdl
@@ -32,6 +34,8 @@ Build a string that represents the given directed graph in the
 ```jldoctest
 julia> using PkgGraph: to_DOT_str
 
+julia> empty!(PkgGraph.style);
+
 julia> edges = [:A => :B, "yes" => "no"];
 
 julia> to_DOT_str(edges) |> println
@@ -41,11 +45,34 @@ digraph {
 }
 ```
 """
-function to_DOT_str(edges)
+function to_DOT_str(edges; indent = 4)
     lines = ["digraph {"]  # DIrected graph
+    tab = " "^indent
+    for line in style
+        push!(lines, tab * line)
+    end
     for (m, n) in edges
-        push!(lines, "    $m -> $n")
+        push!(lines, tab * "$m -> $n")
     end
     push!(lines, "}\n")
     return join(lines, "\n")
 end
+
+"""
+    style
+
+A list of strings used in constructing the `"digraph"` string in [`to_DOT_str`](@ref). They
+are insterted as lines just before the graph edge lines.
+
+To use the default Graphviz style, call:
+```
+empty!(PkgGraph.style)
+```
+
+See [Graphviz Attributes](https://graphviz.org/doc/info/attrs.html) for more info on how dot
+graphs can be styled.
+"""
+const style = [
+    "node [fontname = \"sans-serif\"]",
+    "edge [arrowsize = 0.88]",
+]
