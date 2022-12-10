@@ -1,0 +1,38 @@
+name: docs
+
+# Build docs when anything changes except tests/
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - test/**
+    tags: ['*']
+  pull_request:
+
+# See test.yml for explanations of options.
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  docs:
+    name: Documentation [${{ github.event_name }}]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: '1'
+      - uses: julia-actions/cache@v1
+      - uses: julia-actions/julia-docdeploy@v1
+        with:
+          install-package: false
+          # Skips the ]dev of PkgGraph -- we've done that ourself already.
+          # Hopefully fixes "ERROR: expected package `Documenter` to exist at path …"
+          # (https://github.com/tfiers/PkgGraph.jl/actions/runs/3658037391/jobs/6182319791)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

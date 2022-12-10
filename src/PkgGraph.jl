@@ -143,8 +143,8 @@ packages_in_active_manifest() = packages_in(manifest(active_project()))
 """
     to_DOT_str(edges)
 
-Build a string that represents the given directed graph in the Graphviz DOT format
-(https://graphviz.org/doc/info/lang.html).
+Build a string that represents the given directed graph in the
+[Graphviz DOT format](https://graphviz.org/doc/info/lang.html).
 
 ## Example:
 

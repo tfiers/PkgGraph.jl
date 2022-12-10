@@ -3,13 +3,8 @@ using PkgGraph: depgraph, depgraph_url, rendering_urls, set_rendering_url,
                 deps_as_DOT, create_depgraph, to_DOT_str,
                 depgraph_local, is_dot_available
 using Test
-using Documenter
 
 @testset "PkgGraph.jl" begin
-
-    doctest(PkgGraph)
-    # ↪ Comment out if doing iterative retests.
-    #   (Documenter takes long to start up).
 
     @test create_depgraph("TOML") == [
         "TOML" => "Dates",

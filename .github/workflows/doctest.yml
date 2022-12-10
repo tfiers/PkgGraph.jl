@@ -1,0 +1,33 @@
+name: doctest
+
+# Run doctests when either docs or src change (but not tests/).
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/**
+      - docs/**
+      - Project.toml
+      - .github/workflows/doctest.yml
+    tags: ['*']
+  pull_request:
+
+# See test.yml for explanations of options.
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  doctest:
+    name: Doctest [${{ github.event_name }}]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.8'
+      - uses: julia-actions/cache@v1
+      - working-directory: docs
+        run: julia --project=. doctest.jl

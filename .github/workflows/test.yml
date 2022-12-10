@@ -1,0 +1,46 @@
+name: test
+
+# Do not run tests* when docs change.
+#
+# * more specifically, the non-doctest tests.
+on:
+  push:
+    branches: ['main']
+    paths:
+      - src/**
+      - test/**
+      - Project.toml
+      - .github/workflows/test.yml
+    tags: ['*']
+  pull_request:
+  # There doesn't seem to be a way to reuse the above paths filter here too, without
+  # copy-pasting: https://stackoverflow.com/q/62113095
+
+concurrency:
+  # With 'concurrency', only a single workflow in the same group will run at a time.
+  group: ${{ github.workflow }}-${{ github.ref }}  # `ref` is the branch name.
+  # When pushing multiple new commits, only the newest commit will be built.
+  # An in-progress build will finish running first..
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+  # ..unless it's on a pull-request branch, then in-progress builds are cancelled.
+
+jobs:
+  test:
+    name: Tests - Julia ${{ matrix.version }} [${{ github.event_name }}]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - '1.7'
+          - 'nightly'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: ${{ matrix.version }}
+      - uses: julia-actions/cache@v1
+      - uses: julia-actions/julia-runtest@v1
+        with:
+          annotate: true
+          # ↪ Adds inline 'annotations' in PR reviews, which point to failing tests.
