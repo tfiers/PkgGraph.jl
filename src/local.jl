@@ -1,10 +1,10 @@
 
 """
-create(pkgname; dir = tempdir(), fmt = :png)
+    create(pkgname; dir = tempdir(), fmt = :png)
 
 Render the dependency graph of the given package as an image in `dir`, and open it with your
-default image viewer. Uses the external program '`dot`' (https://graphviz.org), which must
-be available on `PATH`.
+default image viewer. Uses the external program '`dot`' ([graphviz.org](https://graphviz.org)),
+which must be available on `PATH`.
 
 `fmt` is an output file format supported by dot, such as svg or png.
 """

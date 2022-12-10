@@ -1,8 +1,8 @@
 """
 Visualize the dependency graph of a Julia package.
 
-Use `PkgGraph.open` to view the graph in the browser,
-or `PkgGraph.create` to generate an image locally.
+Use [`PkgGraph.open`](@ref) to view the graph in the browser,
+or [`PkgGraph.create`](@ref) to generate an image locally.
 """
 module PkgGraph
 

@@ -8,7 +8,7 @@ The given package must be installed in the currently active project.
 To render the dependency graph using a local Graphviz `dot` installation (instead of an
 online Graphviz renderer), use [`create`](@ref).
 
-For more info, see [`depgraph_url`](@ref).
+For more info, see [`url`](@ref).
 """
 open(pkgname) = begin
     DefaultApplication.open(url(pkgname))
@@ -27,7 +27,7 @@ const base_url = Ref(first(base_urls))
 """
     set_base_url(new)
 
-Set the rendering website that will be used by [`open`](@ref) and [`depgraph_url`](@ref) to
+Set the rendering website that will be used by [`open`](@ref) and [`url`](@ref) to
 the given `new` url.
 
 See `PkgGraph.base_urls` for some options.
@@ -36,7 +36,7 @@ set_base_url(new) = (base_url[] = new)
 
 
 """
-    depgraph_url(pkgname)
+    url(pkgname)
 
 Create a URL at which the dependency graph of `pkgname` is rendered as an image, using an
 online Graphviz rendering service.

@@ -1,14 +1,4 @@
-```@meta
-CurrentModule = PkgGraph
-```
 
-# PkgGraph
+# PkgGraph.jl
 
-Documentation for [PkgGraph](https://github.com/tfiers/PkgGraph.jl).
-
-```@index
-```
-
-```@autodocs
-Modules = [PkgGraph]
-```
+{include sections from ../readme.md …}
