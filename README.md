@@ -36,7 +36,7 @@ This will open the browser to [this url][dotlink], which renders the following i
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
 ```julia
-julia> PkgGraph.create("Unitful", dir=".", fmt=:svg)
+julia> PkgGraph.create(:Unitful, dir=".", fmt=:svg)
 ```
 This will create an SVG image with `dot`, save it to the current directory, and open it with your default image viewer.
 

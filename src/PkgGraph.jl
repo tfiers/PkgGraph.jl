@@ -1,3 +1,9 @@
+"""
+Visualize the dependency graph of a Julia package.
+
+Use `PkgGraph.open` to view the graph in the browser,
+or `PkgGraph.create` to generate an image locally.
+"""
 module PkgGraph
 
 using Pkg
@@ -10,7 +16,5 @@ include("depgraph.jl")
 include("dot.jl")
 include("local.jl")
 include("online.jl")
-
-# (No exports)
 
 end
