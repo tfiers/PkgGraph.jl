@@ -1,0 +1,33 @@
+
+"""
+    deps = depgraph(pkgname)
+
+Build a graph of the dependencies of the given package, using the active project's Manifest
+file.
+
+The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs.
+"""
+depgraph(pkgname) = begin
+    rootpkg = string(pkgname)
+    packages = packages_in_active_manifest()
+    if rootpkg ∉ keys(packages)
+        error("""
+        The given package ($pkgname) must be installed in the active project
+        (which is currently `$(active_project())`)""")
+    end
+    deps = []
+    add_deps_of(name) = begin
+        pkg_info = only(packages[name])  # Two packages with same name not supported.
+        direct_deps = get(pkg_info, "deps", [])
+        for dep in direct_deps
+            push!(deps, name => dep)
+            add_deps_of(dep)
+        end
+    end
+    add_deps_of(rootpkg)
+    return unique!(deps)  # Could use a SortedSet instead; but this spares a pkg load.
+end
+
+manifest(proj_path) = replace(proj_path, "Project.toml" => "Manifest.toml")
+packages_in(manifest) = TOML.parsefile(manifest)["deps"]
+packages_in_active_manifest() = packages_in(manifest(active_project()))
