@@ -1,11 +1,16 @@
+
 # Changelog
 
-This document lists the different versions of `PkgGraph`, and summarizes the changes in each one.<sup>[1]</sup>
+This document summarizes the changes that were introduced in each new version of _PkgGraph.jl_.
 
-The version numbers roughly follow [SemVer](https://semver.org/).
+> Thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
+
+The version numbers roughly follow [SemVer](https://semver.org/):
 - <details>
 
-  The version format is `major.minor.patch`, with the latter two `0` if not specified.\
+  The version format is `major.minor.patch`,\
+  with the latter two '`0`' if not specified.
+
   For versions ≥ 1.0, we try to guarantee the following:
     - `major` version increases are breaking
       - i.e. they can make existing code error;
@@ -13,15 +18,12 @@ The version numbers roughly follow [SemVer](https://semver.org/).
       - i.e. they are backwards compatible.
     - `patch` versions are for e.g. bugfixes.
 
-  Before `v1` (so at `v0.x`), minor version increases may be breaking too (and mostly are).
+  Before `v1` (so at `v0.x`), minor versions may be breaking too (and mostly are).
   </details>
 
-<sup>[1]</sup>
-Thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
+-------------
 
----
-
-
+<br>
 
 ## Unreleased
 
@@ -41,12 +43,14 @@ Possible categories:
 
 
 
----
+<br>
+
 ## `v0.1` (2022-12-12)
 
 [Repo at version][@v0.1] | [Diff. w/ previous][diff-v0.1]
 
-The first automated tests were added. And they found bugs:
+The first automated tests were added.\
+And they found bugs:
 
 ### Fixed
 
@@ -65,7 +69,8 @@ The first automated tests were added. And they found bugs:
 
 
 
----
+<br>
+
 ## Pre-history
 
 [Repo at code-import][@import] (2022-12-09)
