@@ -56,10 +56,12 @@ This will get you the
 
 ![Latest release](https://img.shields.io/github/v/release/tfiers/githyperlink?label=Latest%20release) -->
 
-> `PkgGraph.jl` is pending addition to the General registry. In the meantime, you can install from git:
+> `PkgGraph.jl` is pending addition to the General registry ([PR][regPR]). In the meantime, you can install from git:
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
+
+[regPR]: https://github.com/JuliaRegistries/General/pull/73784
 
 You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
 You can then use it in any project, without having to install it in that project.
@@ -117,7 +119,6 @@ For the latest commit on `main` (aka "dev", unstable):
 | ![](https://img.shields.io/badge/Build%20%26%20deploy%20docs-passing-success?logo=github) |
 -->
 
-
 ### Test
 
 To run tests locally, run, in the project root:
@@ -139,3 +140,17 @@ To build docs locally, run, in the project root:
 pkg> activate docs
 julia> include("docs/make.jl")
 ```
+
+### Releasing a new version
+
+- In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section as
+  "`vX.Y.Z (yyyy-mm-dd)`", and add a new, empty "`Unreleased`" section.
+  <!-- Could be automated prolly; add a step in Register.yml -->
+- Click the _Run workflow_ button [here][regCI], and bump the relevant version
+  component. This will create a commit that updates the version in `Project.toml`, and
+  add a comment on that commit that opens a PR in the General registry.
+  - Major bumps make existing code error
+  - Minor bumps do not, but introduce new functionality
+  - Patch bumps are for e.g. bugfixes
+
+[regCI]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml
