@@ -15,7 +15,7 @@ julia> PkgGraph.open(:Unitful)
 This will open the browser to [this url][dotlink], which renders the following image:
 
 <!-- Generated with `PkgGraph.create("Unitful", dir="docs", fmt=:png)` -->
-<img src="docs/Unitful-deps.png"
+<img src="docs/img/Unitful-deps.svg"
      width=680
      alt="Dependency graph of Unitful, rendered with Graphviz dot">
 
