@@ -106,7 +106,7 @@ See the [![][docbadge]][docs] for more info.
 <!-- For after first release: -->
 <!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
 
-For the latest commit on `main` (aka "dev", unstable, unreleased):
+For the latest commit on `main` (aka "dev", unstable, and unreleased):
 
 | [![][tests-CI-badge]][tests-CI] | [![docs-CI-badge][]][docs-CI] |
 |---------------------------------|-------------------------------|
@@ -122,8 +122,8 @@ and build the documentation.
 
 ### Releasing a new version
 
-1. In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section for the
-   new release, and add a new, empty "`Unreleased`" section above.
+1. In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section to be
+   the new version's, and add a new, empty "`Unreleased`" section above.
    <!-- Could be automated prolly; add a step in Register.yml -->
 2. Click the _Run workflow_ button [here][regCI], and bump the relevant version
    component. This will create a commit that updates the version in `Project.toml`, and

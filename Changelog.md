@@ -3,7 +3,7 @@
 
 This document summarizes the changes that were introduced in each new version of _PkgGraph.jl_.
 
-> Thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
+> With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
 
 The version numbers roughly follow [SemVer](https://semver.org/):
 - <details>
@@ -17,7 +17,9 @@ The version numbers roughly follow [SemVer](https://semver.org/):
     - `minor` version increases are not
       - i.e. they are backwards compatible.
     - `patch` versions are for e.g. bugfixes.
-
+  
+  <br>
+  
   Before `v1` (so at `v0.x`), minor versions may be breaking too (and mostly are).
   </details>
 
