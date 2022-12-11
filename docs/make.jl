@@ -31,8 +31,7 @@ makedocs(
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
     sitename = "PkgGraph.jl",
     # ↪ Displayed in page title and navbar.
-    doctest = isdefined(Main, :run_doctest) ? run_doctest : true,
-    # ↪ See the docs readme
+    doctest = true,
     format = Documenter.HTML(;
         prettyurls = on_github,
         # ↪ When local, generate `/pagename.html`s, not `/pagename`s (i.e. not
