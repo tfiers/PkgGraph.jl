@@ -56,7 +56,8 @@ This will get you the
 
 ![Latest release](https://img.shields.io/github/v/release/tfiers/githyperlink?label=Latest%20release) -->
 
-> `PkgGraph.jl` is pending addition to the General registry ([PR][regPR]). In the meantime, you can install from git:
+> `PkgGraph` is pending addition to the General registry.\
+> Until [this PR][regPR] is merged, you can install from git:
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
@@ -75,12 +76,18 @@ If the package is not found, Julia will offer to install it.\
 
 You can then call `using PkgGraph` from anywhere, without having to activate the base env. -->
 
+### Versions
+
+See [`Changelog.md`](Changelog.md) for a list of versions and the changes in each.
+
+
 <!-- /for-inclusion-in-docs -->
 
 
 ## ➕ More
 
-If you want something a bit different than what this package offers, there are some helper functions you might find useful.
+If you want something a bit different than what the above end-user interface offers,
+there are some helper functions you might find useful.
 
 See the [![][docbadge]][docs] for more info.
 
@@ -97,60 +104,29 @@ See the [![][docbadge]][docs] for more info.
 <!-- For after first release: -->
 <!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
 
-For the latest commit on `main` (aka "dev", unstable):
+For the latest commit on `main` (aka "dev", unstable, unreleased):
 
-| [![][-----tests-badge]][------tests-link] |
-|------------------------------------------:|
-| [![][---doctest-badge]][----doctest-link] |
-| [![][-docdeploy-badge]][--docdeploy-link] |
+| [![][tests-CI-badge]][tests-CI] | [![docs-CI-badge][]][docs-CI] |
+|---------------------------------|-------------------------------|
 
 <!-- Must have empty line before linkdefs. -->
-[------tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
-[----doctest-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml
-[--docdeploy-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml
-[-----tests-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
-[---doctest-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml/badge.svg
-[-docdeploy-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml/badge.svg
+[docs-CI]:        https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml
+[tests-CI]:       https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
+[docs-CI-badge]:  https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg
+[tests-CI-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
 
-<!--To test wording:
-|                       ![](https://img.shields.io/badge/Tests-passing-success?logo=github) |
-|------------------------------------------------------------------------------------------:|
-|                     ![](https://img.shields.io/badge/Doctest-passing-success?logo=github) |
-| ![](https://img.shields.io/badge/Build%20%26%20deploy%20docs-passing-success?logo=github) |
--->
+### Tests & docs
 
-### Test
-
-To run tests locally, run, in the project root:
-```julia
-pkg> activate .
-pkg> test
-```
-
-To run doctests:
-```julia
-pkg> activate docs
-julia> include("docs/doctest.jl")
-```
-
-### Docs
-
-To build docs locally, run, in the project root:
-```julia
-pkg> activate docs
-julia> include("docs/make.jl")
-```
+See the readmes in [`test/`](test) and [`docs/`](docs) for how to locally run the tests
+and build the documentation.
 
 ### Releasing a new version
 
-- In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section as
-  "`vX.Y.Z (yyyy-mm-dd)`", and add a new, empty "`Unreleased`" section.
-  <!-- Could be automated prolly; add a step in Register.yml -->
-- Click the _Run workflow_ button [here][regCI], and bump the relevant version
-  component. This will create a commit that updates the version in `Project.toml`, and
-  add a comment on that commit that opens a PR in the General registry.
-  - Major bumps make existing code error
-  - Minor bumps do not, but introduce new functionality
-  - Patch bumps are for e.g. bugfixes
+1. In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section for the
+   new release, and add a new, empty "`Unreleased`" section above.
+   <!-- Could be automated prolly; add a step in Register.yml -->
+2. Click the _Run workflow_ button [here][regCI], and bump the relevant version
+   component. This will create a commit that updates the version in `Project.toml`, and
+   add a comment on that commit that opens a PR in the General registry.
 
 [regCI]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml

@@ -1,7 +1,7 @@
 name: Tests
 
-# Do not run tests/ when docs change.
-# (There is a separate CI for doctest).
+# Do not run tests when docs change.
+# (Note that there is a separate CI for doctest).
 on:
   push:
     branches: ['main']

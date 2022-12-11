@@ -1,18 +1,15 @@
-name: Build & deploy docs
+name: Docs
 
-# Build docs when anything changes except test/
+# Build docs when anything changes except the tests.
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
     paths-ignore:
       - test/**
     tags: ['*']
   pull_request:
 
-# See Tests.yml for explanations of options.
-
-concurrency:
+concurrency:  # See Tests.yml for explanation.
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
 
@@ -28,6 +25,8 @@ jobs:
           version: '1'
       - uses: julia-actions/cache@v1
       - run: julia --project=docs -e 'using Pkg; Pkg.instantiate()'
+        # ↪ This is necessary because we use an unreleased version of Documenter.
+        #    Relevant thread of mine: https://discourse.julialang.org/t/91498/
       - uses: julia-actions/julia-docdeploy@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
