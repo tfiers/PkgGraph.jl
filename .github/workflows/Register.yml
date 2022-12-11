@@ -1,9 +1,14 @@
+
+# Provides a 'Run Workflow' button [at https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml]
+# that makes a commit with an updated version in Project.toml, and then comments on that
+# commit with `@JuliaRegistrator register`, to create a PR in the General registry.
+
 name: Register Package
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: Version to register or component to bump
+        description: 'Version to register (provide all three components) or component to bump (major|minor|patch):'
         required: true
 jobs:
   register:
