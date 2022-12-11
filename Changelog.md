@@ -19,7 +19,7 @@ The version numbers roughly follow [SemVer](https://semver.org/):
     - `patch` versions are for e.g. bugfixes.
   
   <br>
-  
+
   Before `v1` (so at `v0.x`), minor versions may be breaking too (and mostly are).
   </details>
 
@@ -60,14 +60,15 @@ And they found bugs:
     - So we go the RefValue way.\
       → new `set_rendering_url(…)` end-user function.
 
-- Error during creation of error message when requested package is not in active project. 
-  [Fix](https://github.com/tfiers/PkgGraph.jl/commit/f70e5aa#r92719993)
-  (scroll up a bit).
+- When requested package is not in active project:\
+  Error during creation of error message.
+  - [Fix](https://github.com/tfiers/PkgGraph.jl/commit/f70e5aa#r92719993)
+    (scroll up a bit).
 
 ### Misc
 
 - Pin down minimum supported Julia version (~~1.2~~ → 1.7)
-  - 1.6 is possible but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
+  - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
 
 
 
