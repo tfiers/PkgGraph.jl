@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - test/**
+      - tests/**
     tags: ['*']
   pull_request:
 
