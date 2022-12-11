@@ -84,19 +84,28 @@ See the [![][docbadge]][docs] for more info.
 
 ## 👩‍💻 Development
 
-For the latest commit on `main` (aka "dev", unstable), do all tests and doctests pass, and does the documentation build successfully?
+For the latest commit on `main` (aka "dev", unstable):
 
-[![][tests-badg]][tests-link]
-[![][mkdoc-badg]][mkdoc-link]
-[![][doctt-badg]][doctt-link]
+| [![][-----tests-badge]][------tests-link] |
+|------------------------------------------:|
+| [![][---doctest-badge]][----doctest-link] |
+| [![][-docdeploy-badge]][--docdeploy-link] |
 
-<!-- must have empty line before these -->
-[tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
-[doctt-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml
-[mkdoc-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml
-[tests-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
-[doctt-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml/badge.svg
-[mkdoc-badg]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml/badge.svg
+<!-- Must have empty line before linkdefs. -->
+[------tests-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
+[----doctest-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml
+[--docdeploy-link]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml
+[-----tests-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
+[---doctest-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Doctest.yml/badge.svg
+[-docdeploy-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Documentation.yml/badge.svg
+
+<!--To test wording:
+|                       ![](https://img.shields.io/badge/Tests-passing-success?logo=github) |
+|------------------------------------------------------------------------------------------:|
+|                     ![](https://img.shields.io/badge/Doctest-passing-success?logo=github) |
+| ![](https://img.shields.io/badge/Build%20%26%20deploy%20docs-passing-success?logo=github) |
+-->
+
 
 ### Test
 

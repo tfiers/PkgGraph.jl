@@ -13,7 +13,7 @@ on:
     tags: ['*']
   pull_request:
 
-# See test.yml for explanations of options.
+# See Tests.yml for explanations of options.
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

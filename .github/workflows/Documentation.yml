@@ -1,4 +1,4 @@
-name: Documentation
+name: Build & deploy docs
 
 # Build docs when anything changes except tests/
 on:
@@ -10,7 +10,7 @@ on:
     tags: ['*']
   pull_request:
 
-# See test.yml for explanations of options.
+# See Tests.yml for explanations of options.
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
