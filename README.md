@@ -47,8 +47,16 @@ If the directory is not specified, a `tempdir()` is used.
 
 
 ## 📦 Installation
+<!-- 
+`PkgGraph` is available in the General registry and can be installed with
+```
+pkg> add PkgGraph
+```
+This will get you the
 
-> PkgGraph is pending addition to the General registry. In the meantime you can install from git:
+![Latest release](https://img.shields.io/github/v/release/tfiers/githyperlink?label=Latest%20release) -->
+
+> `PkgGraph.jl` is pending addition to the General registry. In the meantime, you can install from git:
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
@@ -56,14 +64,14 @@ pkg> add https://github.com/tfiers/PkgGraph.jl
 You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
 You can then use it in any project, without having to install it in that project.
 
-One way to do this is to run – from any environment:
+<!-- One way to do this is to run – from any environment:
 ```
 julia> using PkgGraph
 ```
 If the package is not found, Julia will offer to install it.\
 **Type '`o`' to choose** your base environment.
 
-You can then call `using PkgGraph` from anywhere, without having to activate the base env.
+You can then call `using PkgGraph` from anywhere, without having to activate the base env. -->
 
 <!-- /for-inclusion-in-docs -->
 
@@ -83,6 +91,9 @@ See the [![][docbadge]][docs] for more info.
 <br>
 
 ## 👩‍💻 Development
+
+<!-- For after first release: -->
+<!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
 
 For the latest commit on `main` (aka "dev", unstable):
 
