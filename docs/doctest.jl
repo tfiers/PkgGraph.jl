@@ -1,4 +1,4 @@
-on_github = (get(ENV, "CI", "") == "true")  # This is set by GitHub itself.
+on_github = (get(ENV, "GITHUB_ACTIONS", "") == "true")
 
 if on_github
     using Pkg

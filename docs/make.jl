@@ -4,7 +4,7 @@ using Documenter
 # https://github.com/JuliaDocs/Documenter.jl/blob/master/CHANGELOG.md
 # Manifest is committed, so fine to add a dev version manually.
 
-on_github = (get(ENV, "CI", "") == "true")  # This is set by GitHub itself.
+on_github = (get(ENV, "GITHUB_ACTIONS", "") == "true")
 
 makedocs(
     modules = [PkgGraph],
