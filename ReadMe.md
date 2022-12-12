@@ -28,7 +28,8 @@ This will open the browser to [this url][dotlink], which renders the following i
   Note that `PkgGraph` does not have to be installed in the same project however:\
   you can switch projects _after_ `PkgGraph` has been imported (using `pkg> activate …`).
 
-  Even easier is to install `PkgGraph` in your base environment (see [Installation](#-installation)), so you don't have to switch projects at all.
+  Even easier is to install `PkgGraph` in your base environment (see [Global install](#global-install)),
+  so you don't have to switch projects at all.
 
 </details>
 
@@ -61,23 +62,27 @@ The code tries to be modular. So if you want something a bit different from what
 <br>
 
 ## 📦 Installation
-<!-- 
+
 `PkgGraph` is available in the General registry and can be installed with
 ```
 pkg> add PkgGraph
 ```
--->
+This gives you `v0.1`, which is [kinda broken](https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1).
 
-> `PkgGraph` is pending addition to the General registry.
-> Until [this PR][regPR] is merged, you can install from git:
+While waiting for `v0.2` to be released, you can install a more up-to-date version using git:
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
+If you do not want a moving `main` revision in your Manifest,
+you can use e.g. the following commit, to get a fixed dependency:
+```
+pkg> add https://github.com/tfiers/PkgGraph.jl#fe17ba2
+```
 
-[regPR]: https://github.com/JuliaRegistries/General/pull/73784
+### Global install
 
 You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
-You can then use it in any project, without having to install it in that project.
+You can then use it in any project, without having to install it in that project or always having to switch projects.
 
 <!-- One way to do this is to run – from any environment:
 ```
