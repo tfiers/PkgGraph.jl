@@ -1,38 +1,19 @@
 
 """
-    open(pkgname)
+    base_urls
 
-Open the browser to an image of `pkgname`'s dependency graph.\\
-The given package must be installed in the currently active project.
+A list of websites that can render Graphviz dot-formatted strings. See [`url`](@ref).
 
-To render the dependency graph using a local Graphviz `dot` installation (instead of an
-online Graphviz renderer), use [`create`](@ref).
-
-For more info, see [`url`](@ref).
+```@eval
+@show base_urls
+```
 """
-open(pkgname) = begin
-    DefaultApplication.open(url(pkgname))
-    # ↪ Passing a url opens the browser on all platforms. (Even though that is undocumented:
-    #   https://github.com/tpapp/DefaultApplication.jl/issues/12)
-    return nothing
-end
-
 const base_urls = [
     "https://dreampuf.github.io/GraphvizOnline/#",     # Default
     "http://magjac.com/graphviz-visual-editor/?dot=",  # Linked from graphviz.org. Many features.
     "https://edotor.net/?engine=dot#",
 ]
 const base_url = Ref(first(base_urls))
-
-"""
-    set_base_url(new)
-
-Set the rendering website that will be used by [`open`](@ref) and [`url`](@ref) to
-the given `new` url.
-
-See `PkgGraph.base_urls` for some options.
-"""
-set_base_url(new) = (base_url[] = new)
 
 
 """

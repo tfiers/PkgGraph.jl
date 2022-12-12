@@ -1,5 +1,5 @@
 using PkgGraph
-using PkgGraph: depgraph, deps_as_DOT, url, is_dot_available
+using PkgGraph.Internals
 using Test
 
 @testset "PkgGraph.jl" begin

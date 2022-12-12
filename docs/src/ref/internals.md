@@ -1,22 +1,31 @@
 
+```@meta
+CurrentModule = PkgGraph.Internals
+```
+
 # Internals
 
 ## Creating a dependency graph
 
 ```@docs
-PkgGraph.depgraph
+depgraph
 ```
 
 ## DOT strings
 
 ```@docs
-PkgGraph.deps_as_DOT
-PkgGraph.to_DOT_str
-PkgGraph.style
+deps_as_DOT
+to_DOT_str
+style
 ```
 
 ## Online rendering
 
 ```@docs
-PkgGraph.url
+url
+base_urls
+```
+
+```@eval
+
 ```

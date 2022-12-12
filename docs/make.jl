@@ -46,8 +46,10 @@ makedocs(
     ),
     pages=[
         "Home" => "index.md",
-        "usage.md",
-        "internals.md",
+        "Reference" => [
+            "ref/high-level.md",
+            "ref/internals.md",
+        ],
         "background.md",
     ],
 )
