@@ -26,9 +26,9 @@ This will open the browser to [this url][dotlink], which renders the following i
   The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.
 
   Note that `PkgGraph` does not have to be installed in the same project however:\
-  you can switch projects _after_ `PkgGraph` has been imported (using `] activate`).
+  you can switch projects _after_ `PkgGraph` has been imported (using `pkg> activate …`).
 
-  Also see [Installation](#-installation) for an even easier way, without having to switch projects.
+  Even easier is to install `PkgGraph` in your base environment (see [Installation](#-installation)), so you don't have to switch projects at all.
 
 </details>
 
@@ -37,7 +37,7 @@ This will open the browser to [this url][dotlink], which renders the following i
 <!-- link shortener? -->
 
 
-## 💻 Local rendering
+### Local rendering
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
 ```julia
@@ -48,17 +48,30 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 If the directory is not specified, a `tempdir()` is used.
 
 
+### More
+
+If you want something a bit different than what the above interface offers,
+there are some helper functions you might find useful.
+
+See the [![][docbadge]][docs] for more info.
+
+
+[docbadge]: https://img.shields.io/badge/📕_Documentation-blue
+[docs]: https://tfiers.github.io/PkgGraph.jl/
+
+
+
+<br>
+
 ## 📦 Installation
 <!-- 
 `PkgGraph` is available in the General registry and can be installed with
 ```
 pkg> add PkgGraph
 ```
-This will get you the
+-->
 
-![Latest release](https://img.shields.io/github/v/release/tfiers/githyperlink?label=Latest%20release) -->
-
-> `PkgGraph` is pending addition to the General registry.\
+> `PkgGraph` is pending addition to the General registry.
 > Until [this PR][regPR] is merged, you can install from git:
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl
@@ -82,20 +95,8 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 
 See [`Changelog.md`](Changelog.md) for a list of package versions, and the changes introduced in each.
 
+<!-- ![Latest release](https://img.shields.io/github/v/release/tfiers/PkgGraph?label=Latest%20release) -->
 
-<!-- /for-inclusion-in-docs -->
-
-
-## ➕ More
-
-If you want something a bit different than what the above end-user interface offers,
-there are some helper functions you might find useful.
-
-See the [![][docbadge]][docs] for more info.
-
-
-[docbadge]: https://img.shields.io/badge/📕_Documentation-blue
-[docs]: https://tfiers.github.io/PkgGraph.jl/
 
 
 
@@ -122,8 +123,8 @@ and build the documentation.
 
 ### Releasing a new version
 
-1. In [`Changelog.md`](Changelog.md), rename the existing "`Unreleased`" section to be
-   the new version's, and add a new, empty "`Unreleased`" section above.
+1. In [`Changelog.md`](Changelog.md), rename the existing "Unreleased" section to be
+   the new version's, and add a new, empty "Unreleased" section above.
    <!-- Could be automated prolly; add a step in Register.yml -->
 2. Click the _Run workflow_ button [here][regCI], and bump the relevant version
    component. This will create a commit that updates the version in `Project.toml`, and
