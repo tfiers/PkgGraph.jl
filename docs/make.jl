@@ -1,31 +1,32 @@
 
+originally_active_proj = Base.active_project()
+
 using Pkg
 Pkg.activate(@__DIR__)
 
 on_github = (get(ENV, "GITHUB_ACTIONS", "") == "true")
-build_dir_exists = isdir(joinpath(@__DIR__, "build"))
+first_run = !isdefined(Main, :first_run_complete)
 
-# For developers building docs locally, we don't want to always instantiate automatically
-# (→ slower builds). The following is a heuristic for whether the docs env might not be
-# instantiated yet. (If it is, no problem. If it's not, the imports will (might) error).
-if !on_github && !build_dir_exists
-    Pkg.instantiate()
+if !on_github
+    first_run && print("Loading Revise … ")
+    using Revise
+    first_run && println("done")
+    build_dir_exists = isdir(joinpath(@__DIR__, "build"))
+    if !build_dir_exists
+        println("Instantiating docs/Manifest.toml")
+        Pkg.instantiate()  # See ReadMe
+    end
 end
 
 using PkgGraph
 using Documenter
-# I want newest Documenter (gh logo repo link :))
-# https://github.com/JuliaDocs/Documenter.jl/blob/master/CHANGELOG.md
-# We ran
-#
-#   (docs) pkg> add https://github.com/JuliaDocs/Documenter.jl`
-#
-# manually one time; but that's fine, because docs/Manifest.toml is committed.
 
-# Configure doctests to not need `using PkgGraph` in every example.
-DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
+if first_run
+    # Configure doctests to not need `using PkgGraph` in every example.
+    DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
+end
 
-println("Running mkdocs")
+println("Running makedocs")
 makedocs(
     modules = [PkgGraph],
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
@@ -59,8 +60,11 @@ if on_github
     )
 end
 
-if !isdefined(Main, :docs_already_opened)
+# Open browser to the generated docs the first time this script is run (included).
+if first_run && !on_github
     using DefaultApplication
     DefaultApplication.open(joinpath(@__DIR__, "build", "index.html"))
-    docs_already_opened = true;
+    first_run_complete = true
 end
+
+Pkg.activate(originally_active_proj)
