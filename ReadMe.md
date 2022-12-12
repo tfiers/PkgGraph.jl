@@ -48,12 +48,9 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 If the directory is not specified, a `tempdir()` is used.
 
 
-## More
+## Customization
 
-If you want something a bit different than what the above interface offers,
-there are some helper functions you might find useful.
-
-See the [![][docbadge]][docs] for more info.
+The code tries to be modular. So if you want something a bit different from what the above interface offers, you might be able to compose it from different internal functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 
 [docbadge]: https://img.shields.io/badge/📕_Documentation-blue
