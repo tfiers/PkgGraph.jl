@@ -37,7 +37,7 @@ This will open the browser to [this url][dotlink], which renders the following i
 <!-- link shortener? -->
 
 
-### Local rendering
+## Local rendering
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
 ```julia
@@ -48,7 +48,7 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 If the directory is not specified, a `tempdir()` is used.
 
 
-### More
+## More
 
 If you want something a bit different than what the above interface offers,
 there are some helper functions you might find useful.
