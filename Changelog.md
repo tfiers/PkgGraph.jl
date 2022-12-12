@@ -43,13 +43,12 @@ Possible categories:
 
 `{to backfill}`
 
-
+[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 
 <br>
 
-## `v0.1` (2022-12-12)
 
-[Repo at version][@v0.1] | [Diff. w/ previous][diff-v0.1]
+## v0.1  &nbsp;<sub>[![][v01-date-badge]][v01-release]</sub>
 
 The first automated tests were added.\
 And they found bugs:
@@ -70,6 +69,9 @@ And they found bugs:
 - Pin down minimum supported Julia version (~~1.2~~ → 1.7)
   - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
 
+[v01-date-badge]: https://img.shields.io/badge/Released_on-2022--12--12-blue
+[v01-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1
+
 
 
 <br>
@@ -82,15 +84,6 @@ PkgGraph.jl started with code imported from [tfiers/julia-sketches][sketches]
 (`pkg-deps-graphs`).\
 That project was started on 2022-11-06 ([commit history][pre-hist]).
 
+[@import]:  https://github.com/tfiers/PkgGraph.jl/tree/sketch-import
 [sketches]: https://github.com/tfiers/julia-sketches
 [pre-hist]: https://github.com/tfiers/julia-sketches/commits/main/pkg-deps-graph
-
-
-
-<!--Links-->
-
-[@import]: https://github.com/tfiers/PkgGraph.jl/tree/sketch-import
-[@v0.1]:   https://github.com/tfiers/PkgGraph.jl/tree/v0.1
-
-[diff-v0.1]:       https://github.com/tfiers/PkgGraph.jl/compare/sketch-import...v0.1
-[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
