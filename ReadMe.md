@@ -74,7 +74,7 @@ While waiting for `v0.2` to be released, you can install a more up-to-date versi
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
 If you do not want a moving `main` revision in your Manifest,
-you can use e.g. the following commit, to get a fixed dependency:
+you can use a fixed commit that passes CI. E.g,
 ```
 pkg> add https://github.com/tfiers/PkgGraph.jl#fe17ba2
 ```
@@ -82,16 +82,18 @@ pkg> add https://github.com/tfiers/PkgGraph.jl#fe17ba2
 ### Global install
 
 You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
-You can then use it in any project, without having to install it in that project or always having to switch projects.
+You can then use it in any project, without having to install it in that project, or always having to switch projects.
 
-<!-- One way to do this is to run – from any environment:
+<!-- 
+One way to do this is to run – from any environment:
 ```
 julia> using PkgGraph
 ```
 If the package is not found, Julia will offer to install it.\
 **Type '`o`' to choose** your base environment.
 
-You can then call `using PkgGraph` from anywhere, without having to activate the base env. -->
+You can then call `using PkgGraph` from anywhere, without having to activate the base env.
+-->
 
 ### Versions
 
