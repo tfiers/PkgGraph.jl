@@ -6,6 +6,13 @@ Build a graph of the dependencies of the given package, using the active project
 file.
 
 The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs.
+
+## Example
+# ```jldoctest
+# julia> using PkgGraph.Internals
+
+# julia> depgraph()
+# ```
 """
 depgraph(pkgname) = begin
     rootpkg = string(pkgname)

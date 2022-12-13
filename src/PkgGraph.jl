@@ -9,11 +9,10 @@ module PkgGraph
 
 module Internals
 
-using Pkg
+using DefaultApplication
+using URIs: escapeuri
 using TOML
 using Base: active_project
-using URIs: escapeuri
-using DefaultApplication
 
 include("depgraph.jl")
 export depgraph,

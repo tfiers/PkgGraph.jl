@@ -42,6 +42,7 @@ Possible categories:
 -->
 
 `{to backfill}`
+- Removed `Pkg` dependency
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 
