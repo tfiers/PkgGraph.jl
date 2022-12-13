@@ -113,17 +113,17 @@ See [`Changelog.md`](Changelog.md) for a list of package versions, and the chang
 
 For the latest commit on `main` (aka "dev", unstable, and unreleased):
 
-| [![][tests-CI-badge]][tests-CI] | [![docs-CI-badge][]][docs-CI] |
-|---------------------------------|-------------------------------|
+[![][tests-CI-badge]][tests-CI]
+[![][docs-CI-badge]][docs-CI]
 
 <!-- Must have empty line before linkdefs. -->
-[docs-CI]:        https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml
-[tests-CI]:       https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
-[docs-CI-badge]:  https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg
 [tests-CI-badge]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg
+[docs-CI-badge]:  https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg
+[tests-CI]:       https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
+[docs-CI]:        https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml
 
-See the readmes in [`test/`](test) and [`docs/`](docs) for how to locally run the tests
-and build the documentation.
+See the readmes in `test/` and `docs/` for how to locally [run the tests](test/ReadMe.md)
+and [build the documentation](docs/ReadMe.md).
 
 ### Releasing a new version
 
