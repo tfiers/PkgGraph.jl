@@ -127,11 +127,11 @@ and [build the documentation](docs/ReadMe.md).
 
 ### Releasing a new version
 
-1. In [`Changelog.md`](Changelog.md), rename the existing "Unreleased" section to be
-   the new version's, and add a new, empty "Unreleased" section above.
+1. Roll-over [the changelog](Changelog.md): rename the existing "Unreleased"
+   section to the new version, and add a new, empty one above it.
    <!-- Could be automated prolly; add a step in Register.yml -->
 2. Click the _Run workflow_ button [here][regCI], and bump the relevant version
-   component. This will create a commit that updates the version in `Project.toml`, and
-   add a comment on that commit that opens a PR in the General registry.
+   component. This will 1) create a commit that updates the version in `Project.toml`,
+   and 2) create a comment on that commit that opens a PR in the General registry.
 
 [regCI]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml
