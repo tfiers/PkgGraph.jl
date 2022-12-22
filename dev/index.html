@@ -1,2 +1,78 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · PkgGraph.jl</title><script data-outdated-warner src="assets/warner.js"></script><link rel="canonical" href="https://tfiers.github.io/PkgGraph.jl/stable/"/><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>PkgGraph.jl</a></span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="ref/high-level/">High-level</a></li><li><a class="tocitem" href="ref/internals/">Internals</a></li></ul></li><li><a class="tocitem" href="background/">Background</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl" title="View the repository on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fas"></span></a><a class="docs-settings-button docs-navbar-link fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button docs-navbar-link fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1 id="PkgGraph.jl"><a class="docs-heading-anchor" href="#PkgGraph.jl">PkgGraph.jl</a><a id="PkgGraph.jl-1"></a><a class="docs-heading-anchor-permalink" href="#PkgGraph.jl" title="Permalink"></a></h1><p>{include sections from ../readme.md …}</p></article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/high-level/">High-level »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Tuesday 20 December 2022 08:45">Tuesday 20 December 2022</span>. Using Julia version 1.8.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · PkgGraph.jl</title><script data-outdated-warner src="assets/warner.js"></script><link rel="canonical" href="https://tfiers.github.io/PkgGraph.jl/stable/"/><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>PkgGraph.jl</a></span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="ref/high-level/">High-level</a></li><li><a class="tocitem" href="ref/internals/">Internals</a></li></ul></li><li><a class="tocitem" href="background/">Background</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl" title="View the repository on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fas"></span></a><a class="docs-settings-button docs-navbar-link fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button docs-navbar-link fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1>PkgGraph.jl   <a href="https://tfiers.github.io/PkgGraph.jl/"><img src="https://img.shields.io/badge/%F0%9F%93%95_Documentation-blue" alt="" /></a></h1>
+<p>Tiny tool to visualize the dependency graph of a Julia package.</p>
+<h3>Example</h3>
+<pre><code class="language-julia">julia&gt; using PkgGraph
+
+julia&gt; PkgGraph.open(:Unitful)
+</code></pre>
+<p>This will open the browser to <a href="https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A">this url</a>, which renders the following image:</p>
+<!-- Generated with `PkgGraph.create("Unitful", dir="docs", fmt=:png)` -->
+<p><img src="docs/img/Unitful-deps.svg"
+width=680
+alt="Dependency graph of Unitful, rendered with Graphviz dot"></p>
+<details>
+<p>The given package (here: <a href="https://github.com/PainterQubits/Unitful.jl">Unitful</a>) must be installed in the currently active project for this to work.</p>
+<p>Note that <code>PkgGraph</code> does not have to be installed in the same project however:<br />
+you can switch projects <em>after</em> <code>PkgGraph</code> has been imported (using <code>pkg&gt; activate …</code>).</p>
+<p>Even easier is to install <code>PkgGraph</code> in your base environment (see <a href="#global-install">Global install</a>),
+so you don't have to switch projects at all.</p>
+</details>
+<h2>Local rendering</h2>
+<p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use</p>
+<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, dir=&quot;.&quot;, fmt=:svg)
+</code></pre>
+<p>This will create an SVG image with <code>dot</code>, save it to the current directory, and open it with your default image viewer.</p>
+<p>If the directory is not specified, a <code>tempdir()</code> is used.</p>
+<h2>Customization</h2>
+<p>The code tries to be modular. So if you want something a bit different from what the above interface offers, you might be able to compose it from different internal functions: see the Reference section in the <sub><a href="https://tfiers.github.io/PkgGraph.jl/"><img src="https://img.shields.io/badge/%F0%9F%93%95_Documentation-blue" alt="" /></a></sub>.</p>
+<br>
+<h2>📦 Installation</h2>
+<p><code>PkgGraph</code> is available in the General registry and can be installed with</p>
+<pre><code>pkg&gt; add PkgGraph
+</code></pre>
+<p>This gives you <code>v0.1</code>, which is <a href="https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1">kinda broken</a>.</p>
+<p>While waiting for <code>v0.2</code> to be released, you can install a more up-to-date version using git:</p>
+<pre><code>pkg&gt; add https://github.com/tfiers/PkgGraph.jl
+</code></pre>
+<p>If you do not want a moving <code>main</code> revision in your Manifest,
+you can use a fixed commit that passes CI. E.g,</p>
+<pre><code>pkg&gt; add https://github.com/tfiers/PkgGraph.jl#fe17ba2
+</code></pre>
+<h3>Global install</h3>
+<p>You might want to install <code>PkgGraph</code> in your base environment (e.g. <code>v1.8</code>).<br />
+You can then use it in any project, without having to install it in that project, or always having to switch projects.</p>
+<!-- 
+One way to do this is to run – from any environment:
+```
+julia> using PkgGraph
+```
+If the package is not found, Julia will offer to install it.\
+**Type '`o`' to choose** your base environment.
+
+You can then call `using PkgGraph` from anywhere, without having to activate the base env.
+-->
+<h3>Versions</h3>
+<p>See <a href="Changelog.md"><code>Changelog.md</code></a> for a list of package versions, and the changes introduced in each.</p>
+<!-- ![Latest release](https://img.shields.io/github/v/release/tfiers/PkgGraph?label=Latest%20release) -->
+<br>
+<h2>👩‍💻 Development</h2>
+<!-- For after first release: -->
+<!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
+<p>For the latest commit on <code>main</code> (aka &quot;dev&quot;, unstable, and unreleased):</p>
+<p><a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg" alt="" /></a>
+<a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg" alt="" /></a></p>
+<!-- Must have empty line before linkdefs. -->
+<p>See the readmes in <code>test/</code> and <code>docs/</code> for how to locally <a href="test/ReadMe.md">run the tests</a>
+and <a href="docs/ReadMe.md">build the documentation</a>.</p>
+<h3>Releasing a new version</h3>
+<ol>
+<li>Roll-over <a href="Changelog.md">the changelog</a>: rename the existing &quot;Unreleased&quot;
+section to the new version, and add a new, empty one above it.
+<!-- Could be automated prolly; add a step in Register.yml -->
+</li>
+<li>Click the <em>Run workflow</em> button <a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml">here</a>, and bump the relevant version
+component. This will 1) create a commit that updates the version in <code>Project.toml</code>,
+and 2) create a comment on that commit that opens a PR in the General registry.</li>
+</ol>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/high-level/">High-level »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Thursday 22 December 2022 22:44">Thursday 22 December 2022</span>. Using Julia version 1.8.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
