@@ -2,7 +2,7 @@
 
 julia_version = "1.8.1"
 manifest_format = "2.0"
-project_hash = "9851eb092cd92c8f465d6232bc15bea0c7eb5174"
+project_hash = "735496208f96d9f7398511a4838d0b781d7b5e2c"
 
 [[deps.ANSIColoredPrinters]]
 git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
@@ -29,6 +29,17 @@ deps = ["InteractiveUtils", "UUIDs"]
 git-tree-sha1 = "3bf60ba2fae10e10f70d53c070424e40a820dac2"
 uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
 version = "1.1.2"
+
+[[deps.CommonMark]]
+deps = ["Crayons", "JSON", "URIs"]
+git-tree-sha1 = "86cce6fd164c26bad346cc51ca736e692c9f553c"
+uuid = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
+version = "0.8.7"
+
+[[deps.Crayons]]
+git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
+uuid = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
+version = "4.1.1"
 
 [[deps.Dates]]
 deps = ["Printf"]

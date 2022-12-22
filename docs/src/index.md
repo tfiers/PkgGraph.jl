@@ -1,4 +1,2 @@
 
-# PkgGraph.jl
-
-{include sections from ../readme.md …}
+{this is overwritten by a version of the ReadMe in make.jl}

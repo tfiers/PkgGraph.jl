@@ -18,8 +18,8 @@ if !on_github
     end
 end
 
-using PkgGraph
-using Documenter
+@showtime using PkgGraph
+@showtime using Documenter
 
 if first_run
     # Configure doctests to not need `using PkgGraph` in every example.
@@ -54,6 +54,8 @@ makedocs(
     ],
 )
 
+include(joinpath(@__DIR__, "insert_readme_in_docs.jl"))
+
 if on_github
     deploydocs(;
         repo = "github.com/tfiers/PkgGraph.jl",
@@ -66,7 +68,8 @@ end
 if first_run && !on_github
     using DefaultApplication
     DefaultApplication.open(joinpath(@__DIR__, "build", "index.html"))
-    first_run_complete = true
 end
 
 Pkg.activate(originally_active_proj)
+
+first_run_complete = true
