@@ -15,12 +15,12 @@ cp(orig_dir, moddir, force = true)
 # Regex for substrings like "[blah]": an opening `[`,
 # then anything that's not a closing `]`, and a closing `]`.
 # Capture contents in a (group).
-bracketed = r"\[([^\]]*)\]"
+bracketed = r"\[([^\]]+)\]"
 
 # "Hello [blah][1] more. \n\n[1]: …"
 aliased = bracketed * bracketed
 
-linkdef = r": +(http\S*).*\n"
+linkdef = r": +(http\S+).*\n"
 # ↪ `\S`: _not_ a whitespace char
 #   Note that this ignores footnotes (eg "[^1]: This is footnote text").
 
