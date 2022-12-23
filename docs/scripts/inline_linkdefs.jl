@@ -1,8 +1,9 @@
 # Documenter can't do proper (CommonMark) markdown parsing yet.
 # This is a hack so I can use the more modern feature in my src/ .md's anyway.
 
-orig_dir = joinpath(@__DIR__, "src")
-moddir = joinpath(@__DIR__, "src-mod")
+parentdir = dirname
+orig_dir = joinpath(parentdir(@__DIR__), "src")
+moddir = joinpath(parentdir(@__DIR__), "src-mod")
 cp(orig_dir, moddir, force = true)
 
 

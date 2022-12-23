@@ -2,14 +2,14 @@
 println("Inserting repo ReadMe as docs Home page")
 
 parentdir = dirname
-readme = joinpath(parentdir(@__DIR__), "ReadMe.md")
+readme = joinpath(parentdir(parentdir(@__DIR__)), "ReadMe.md")
 
 @showtime using CommonMark
 @showtime parser = Parser()
 @showtime ast = open(parser, readme)
 @showtime readme_html = CommonMark.html(ast)
 
-homepage = joinpath(@__DIR__, "build", "index.html")
+homepage = joinpath(parentdir(@__DIR__), "build", "index.html")
 
 # using EzXML
 # doc = readhtml(homepage)
