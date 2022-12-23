@@ -26,8 +26,12 @@ if first_run
     DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
 end
 
+println("Pre-processing src/")
+include(joinpath(@__DIR__, "inline_linkdefs.jl"))
+
 println("Running makedocs")
 makedocs(
+    source = "src-mod",
     modules = [PkgGraph],
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
     sitename = "PkgGraph.jl",
