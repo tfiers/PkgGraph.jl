@@ -27,7 +27,7 @@ if first_run
 end
 
 println("Pre-processing src/")
-include(joinpath(@__DIR__, "scripts", "inline_linkdefs.jl"))
+include("scripts/inline_linkdefs.jl")
 
 println("Running makedocs")
 makedocs(
@@ -58,7 +58,7 @@ makedocs(
     ],
 )
 
-include(joinpath(@__DIR__, "scripts", "insert_readme_in_docs.jl"))
+include("scripts/insert_readme_in_docs.jl")
 
 if on_github
     deploydocs(;
