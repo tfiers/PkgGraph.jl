@@ -42,17 +42,17 @@ makedocs(
         # ↪ When local, generate `/pagename.html`s, not `/pagename`s (i.e. not
         #   `/pagename/index.html`s), so that you don't need a localhost server
         canonical = "https://tfiers.github.io/PkgGraph.jl/stable",
-        # ↪ To not have search engines send users to old versions.
+        # ↪ To not have search engines send users to old versions
         edit_link = "main",
-        # ↪ Instead of current commit hash. Let 'em edit main.
+        # ↪ Instead of current commit hash. Let 'em edit main
         footer = nothing,
         # ↪ Normally "Powered by …"
     ),
     pages=[
         "Home" => "index.md",
         "Reference" => [
-            "ref/high-level.md",
-            "ref/internals.md",
+            "ref/end-user.md",
+            "ref/internal.md",
         ],
         "background.md",
     ],

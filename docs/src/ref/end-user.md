@@ -3,7 +3,7 @@
 CurrentModule = PkgGraph
 ```
 
-# High-level
+# End-user
 
 ```@docs
 PkgGraph

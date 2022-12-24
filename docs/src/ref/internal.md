@@ -3,7 +3,7 @@
 CurrentModule = PkgGraph.Internals
 ```
 
-# Internals
+# Internal
 
 ## Creating a dependency graph
 
