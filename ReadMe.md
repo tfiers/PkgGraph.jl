@@ -34,7 +34,7 @@ This will open the browser to [this url][dotlink], which renders the following i
 [dotlink]: https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A
 
 
-## Local rendering
+### Local rendering
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
 ```julia
@@ -45,7 +45,7 @@ This will create an SVG image with `dot`, save it to the current directory, and 
 If the directory is not specified, a `tempdir()` is used.
 
 
-## Customization
+### Customization
 
 The code tries to be modular. So if you want something a bit different from what the above interface offers, you might be able to compose it from different internal functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
@@ -102,7 +102,7 @@ See [`Changelog.md`](Changelog.md) for a list of package versions, and the chang
 
 <br>
 
-## 👩‍💻 Development
+## Development
 
 <!-- For after first release: -->
 <!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
