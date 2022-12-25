@@ -12,7 +12,7 @@ function apply_adhoc_preprocessing(src)
 
     gh = "https://github.com/tfiers/PkgGraph.jl#unreleased-changes--"
     src = replace(src,
-        ("(see [Unreleased Changes](#unreleased-changes--) below)."
+        ("\n(see [Unreleased Changes](#unreleased-changes--) below)."
         =>"; see [Unreleased Changes]($gh) on GitHub.")
     )
 
