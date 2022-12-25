@@ -7,7 +7,7 @@ readme = relpath(joinpath(parentdir(parentdir(@__DIR__)), "ReadMe.md"))
 include("preprocess_readme/make_links_absolute.jl")
 md = make_links_absolute(read(readme, String))
 
-include("preprocess_readme/ad-hoc-preprocessing.jl")
+include("preprocess_readme/ad-hoc_preprocessing.jl")
 md = apply_adhoc_preprocessing(md)
 
 @showtime using CommonMark
