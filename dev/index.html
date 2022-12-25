@@ -18,13 +18,13 @@ you can switch projects <em>after</em> <code>PkgGraph</code> has been imported (
 <p>Even easier is to install <code>PkgGraph</code> in your base environment (see <a href="#global-install">Global install</a>),
 so you don't have to switch projects at all.</p>
 </details>
-<h2>Local rendering</h2>
+<h3>Local rendering</h3>
 <p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use</p>
 <pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, dir=&quot;.&quot;, fmt=:svg)
 </code></pre>
 <p>This will create an SVG image with <code>dot</code>, save it to the current directory, and open it with your default image viewer.</p>
 <p>If the directory is not specified, a <code>tempdir()</code> is used.</p>
-<h2>Customization</h2>
+<h3>Customization</h3>
 <p>The code tries to be modular. So if you want something a bit different from what the above interface offers, you might be able to compose it from different internal functions: see the Reference section in the <sub><a href="https://tfiers.github.io/PkgGraph.jl/"><img src="https://img.shields.io/badge/%F0%9F%93%95_Documentation-blue" alt="" /></a></sub>.</p>
 <br>
 <h2>📦 Installation</h2>
@@ -56,7 +56,7 @@ You can then call `using PkgGraph` from anywhere, without having to activate the
 <p>See <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md"><code>https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md</code></a> for a list of package versions, and the changes introduced in each.</p>
 <!-- ![Latest release](https://img.shields.io/github/v/release/tfiers/PkgGraph?label=Latest%20release) -->
 <br>
-<h2>👩‍💻 Development</h2>
+<h2>Development</h2>
 <!-- For after first release: -->
 <!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
 <p>For the latest commit on <code>main</code> (aka &quot;dev&quot;, unstable, and unreleased):</p>
@@ -75,4 +75,4 @@ section to the new version, and add a new, empty one above it.
 component. This will 1) create a commit that updates the version in <code>Project.toml</code>,
 and 2) create a comment on that commit that opens a PR in the General registry.</li>
 </ol>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Sunday 25 December 2022 11:16">Sunday 25 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Sunday 25 December 2022 11:35">Sunday 25 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
