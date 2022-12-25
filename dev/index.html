@@ -11,11 +11,12 @@ julia&gt; PkgGraph.open(:Unitful)
 <p><img src="https://raw.githubusercontent.com/tfiers/PkgGraph.jl/main/docs/img/Unitful-deps.svg"
 width=680
 alt="Dependency graph of Unitful, rendered with Graphviz dot"></p>
+<br>
 <details>
 <p>The given package (here: <a href="https://github.com/PainterQubits/Unitful.jl">Unitful</a>) must be installed in the currently active project for this to work.</p>
 <p>Note that <code>PkgGraph</code> does not have to be installed in the same project however:<br />
 you can switch projects <em>after</em> <code>PkgGraph</code> has been imported (using <code>pkg&gt; activate …</code>).</p>
-<p>Even easier is to install <code>PkgGraph</code> in your base environment (see <a href="#global-install">Global install</a>),
+<p>Even easier is to install <code>PkgGraph</code> in your base environment (see <a href="#global-install">Global Install</a>),
 so you don't have to switch projects at all.</p>
 </details>
 <h3>Local rendering</h3>
@@ -25,62 +26,90 @@ so you don't have to switch projects at all.</p>
 <p>This will create an SVG image with <code>dot</code>, save it to the current directory, and open it with your default image viewer.</p>
 <p>If the directory is not specified, a <code>tempdir()</code> is used.</p>
 <h3>Customization</h3>
-<p>The code tries to be modular. So if you want something a bit different from what the above interface offers, you might be able to compose it from different internal functions: see the Reference section in the <sub><a href="https://tfiers.github.io/PkgGraph.jl/"><img src="https://img.shields.io/badge/%F0%9F%93%95_Documentation-blue" alt="" /></a></sub>.</p>
+<p>The code tries to be modular. So if you want something a bit different than what the
+above interface offers, you might be able to compose it from various internal
+functions: see the Reference section in the <sub><a href="https://tfiers.github.io/PkgGraph.jl/"><img src="https://img.shields.io/badge/%F0%9F%93%95_Documentation-blue" alt="" /></a></sub>.</p>
 <br>
-<h2>📦 Installation</h2>
-<p><code>PkgGraph</code> is available in the General registry and can be installed with</p>
+<h2>Installation</h2>
+<p><code>PkgGraph</code> is available in the Julia General registry and can be installed with</p>
 <pre><code>pkg&gt; add PkgGraph
 </code></pre>
-<p>This gives you <code>v0.1</code>, which is <a href="https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1">kinda broken</a>.</p>
-<p>While waiting for <code>v0.2</code> to be released, you can install a more up-to-date version using git:</p>
+<p>This gives you <code>v0.1</code>, which is <a href="https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1">kinda broken</a>.
+While waiting for <code>v0.2</code> to be released, you can install
+a more up-to-date revision by specifying a URL directly
+(see <a href="#unreleased-changes--">Unreleased Changes</a> below).</p>
+<h3>Global Install</h3>
+<p>You might want to install <code>PkgGraph</code> in your base environment (e.g. <code>v1.8</code>).<br />
+You can then use it in any project, without having to install it in that project
+or having to always switch projects.</p>
+<details>
+<p>You can activate your base environment using <code>] activate</code> (i.e. activate 'nothing'),
+and then <code>add PkgGraph</code> there.</p>
+<p>Another way to obtain a global install is to run – from within <em>any</em> environment:</p>
+<pre><code>julia&gt; using PkgGraph
+</code></pre>
+<p>If the package is not found, Julia will offer to install it.<br />
+Type '<code>o</code>' to choose to install it in your base environment.</p>
+</details>
+<h3>Versions    <sub><a href="https://github.com/tfiers/PkgGraph.jl/releases/latest"><img src="https://img.shields.io/github/v/release/tfiers/PkgGraph.jl?label=Latest%20release" alt="" /></a></sub></h3>
+<p>See <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md"><code>https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md</code></a> for a list of package versions, and the changes introduced in each.</p>
+<hr />
+<h3>Unreleased Changes   <sub><a href="https://github.com/tfiers/PkgGraph.jl/releases/latest"><img src="https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest" alt="" /></a></sub></h3>
+<p>CI status for the latest commit on <code>main</code>
+(aka <em>dev</em> and <em>unstable</em>):</p>
+<p><a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg" alt="" /></a> <a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg" alt="" /></a></p>
+<p>You can install <code>PkgGraph</code> at this latest commit using</p>
 <pre><code>pkg&gt; add https://github.com/tfiers/PkgGraph.jl
 </code></pre>
-<p>If you do not want a moving <code>main</code> revision in your Manifest,
-you can use a fixed commit that passes CI. E.g,</p>
+<p>If you, wisely, do not want a moving <code>main</code> revision in your <code>Manifest.toml</code>,
+you can install at a fixed revision (commit) instead.
+Preferably at a <a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml">commit that passed tests</a>.
+For example:</p>
 <pre><code>pkg&gt; add https://github.com/tfiers/PkgGraph.jl#fe17ba2
 </code></pre>
-<h3>Global install</h3>
-<p>You might want to install <code>PkgGraph</code> in your base environment (e.g. <code>v1.8</code>).<br />
-You can then use it in any project, without having to install it in that project, or always having to switch projects.</p>
+<!-- Must have empty line before linkdefs. -->
 <!-- 
-One way to do this is to run – from any environment:
-```
-julia> using PkgGraph
-```
-If the package is not found, Julia will offer to install it.\
-**Type '`o`' to choose** your base environment.
+On the "Commits since [latest release]" button.
 
-You can then call `using PkgGraph` from anywhere, without having to activate the base env.
+Currently the user has to click through on the release page
+(on the gh-generated link "xx commits to main since this release").
+
+We could add a `latest` tag (or branch?).
+It can be automated: https://github.com/marketplace/actions/latest-tag
+
+But moving a tag seems annoying, see https://pakstech.com/blog/move-git-tag/,
+"Pulling after a tag has been edited" (you need to delete the local tag).
+
+So, we rely on this click-through solution,
+with the (undocumented?) `/releases/latest` url.
+
+How does shields.io do this btw? → Via an API call
+(https://github.com/badges/shields/blob/7a38cfe/services/github/github-commits-since.service.js#L138)
 -->
-<h3>Versions</h3>
-<p>See <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md"><code>https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md</code></a> for a list of package versions, and the changes introduced in each.</p>
-<!-- ![Latest release](https://img.shields.io/github/v/release/tfiers/PkgGraph?label=Latest%20release) -->
 <br>
 <h2>Development</h2>
-<!-- For after first release: -->
-<!-- ![Commits since latest release](https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest) -->
-<p>For the latest commit on <code>main</code> (aka &quot;dev&quot;, unstable, and unreleased):</p>
-<p><a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml/badge.svg" alt="" /></a>
-<a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml"><img src="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Docs.yml/badge.svg" alt="" /></a></p>
-<!-- Must have empty line before linkdefs. -->
-<p>See the readmes in <code>test/</code> and <code>docs/</code> for how to locally <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/test/ReadMe.md">run the tests</a>
-and <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/docs/ReadMe.md">build the documentation</a>.</p>
-<h3>Roadmap</h3>
-<p>At the whims of the dev, <em>&quot;Software provided 'as is'&quot;</em>, etc<br />
-I currently manage ideas for improvement with GitHub issues.</p>
-<p>→ See <a href="https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+-label%3A%22%5Ba%5D+priority%3Alow%22+">Issues <sub>with low-priority ones filtered out</sub></a></p>
 <h3>Contributions</h3>
 <p>Well-considered PRs, Issues, and Discussions are welcome.</p>
 <p>Everyone is expected to adhere to the standards for constructive communication
 described in <a href="https://github.com/comob-project/snn-sound-localization/blob/17279f6/Code-of-Conduct.md">this Code of Conduct</a>.</p>
-<h3>Releasing a new version</h3>
+<h3>Roadmap</h3>
+<p>No progress guaranteed, <em>&quot;Software provided 'as is'&quot;</em>, etc.<br />
+Ideas for improvement are currently managed with GitHub Issues.<br />
+See: <a href="https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+-label%3A%22%5Ba%5D+priority%3Alow%22+">Issues <sub>with low-priority ones filtered out</sub></a></p>
+<h3>Guide</h3>
+<p>Check out the code for development using</p>
+<pre><code>pkg&gt; dev PkgGraph
+</code></pre>
+<p>See the readmes <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/test/ReadMe.md">in <code>test/</code></a> and <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/docs/ReadMe.md">in <code>docs/</code></a> for how to locally run the tests
+and build the documentation.</p>
+<p><strong>Releasing a new version</strong></p>
 <ol>
-<li>Roll-over <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md">the changelog</a>: rename the existing &quot;Unreleased&quot;
-section to the new version, and add a new, empty one above it.
+<li>Roll-over the <a href="https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md">changelog</a>: rename the existing 'Unreleased'
+section to the new version. Add a new, empty Unreleased section.
 <!-- Could be automated prolly; add a step in Register.yml -->
 </li>
 <li>Click the <em>Run workflow</em> button <a href="https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml">here</a>, and bump the relevant version
 component. This will 1) create a commit that updates the version in <code>Project.toml</code>,
 and 2) create a comment on that commit that opens a PR in the General registry.</li>
 </ol>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Sunday 25 December 2022 12:11">Sunday 25 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Sunday 25 December 2022 14:55">Sunday 25 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
