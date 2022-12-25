@@ -18,6 +18,9 @@ if !on_github
     end
 end
 
+repo = "tfiers/PkgGraph.jl"
+ref = gitref = "main"
+
 println("Pre-processing src/")
 include("scripts/inline_linkdefs.jl")
 
@@ -58,9 +61,6 @@ makedocs(
         "background.md",
     ],
 )
-
-repo = "tfiers/PkgGraph.jl"
-ref = gitref = "main"
 
 include("scripts/insert_readme_in_docs.jl")
 
