@@ -10,7 +10,8 @@ md = make_links_absolute(read(readme, String))
 @showtime using CommonMark
 @showtime parser = Parser()
 @showtime ast = parser(md)
-@showtime readme_html = CommonMark.html(ast)
+
+readme_html = CommonMark.html(ast)
 
 homepage = relpath(joinpath(parentdir(@__DIR__), "build", "index.html"))
 homepage_html = read(homepage, String)
