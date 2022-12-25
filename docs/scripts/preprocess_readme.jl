@@ -4,7 +4,7 @@ gitref = "main"
 
 function make_links_absolute(src)
     for pat in link_patterns
-        r(s) = replacement(s, pat)
+        r(matched_substr) = replacement(matched_substr, pat)
         src = replace(src, pat=>r)
         # In `replace(str, pat=>r)`, the replacement `r`
         # can be a:
@@ -24,7 +24,7 @@ link_patterns = [
     r"\[[^\]]+\]\((\S+)\)",   # [this](link)
     r"\[[^\]]+\]: +(\S+)",    # [this]: link
 ]
-#               ↪ \S: non-space character
+#                ↪ \S: non-space character
 
 captured_link(m::RegexMatch) = only(m.captures)
 
@@ -43,13 +43,14 @@ is_url(s) = !isnothing(match(r"^https?://\S+", strip(s)))
 is_anchor(s) = startswith(strip(s), "#")
 
 absolute(rellink) = (isbinary(rellink) ? binary_url(rellink)
-                                       : text_url(rellink)
-)
+                                       : text_url(rellink))
+
 isbinary(link) = endswith(lowercase(link), binary_ext)
 binary_ext = r"\.svg|png|jpg|jpeg|gif|webp|mp4|mov|webm|zip|gz|tgz|pdf|pptx|docx|xlsx"
 # From https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files
 
-text_url(r) = (relpath=stripp(r); "https://github.com/$repo/blob/$gitref/$relpath")
-binary_url(r) = (relpath=stripp(r); "https://raw.githubusercontent.com/$repo/$gitref/$relpath")
+binary_url(p) = (path=stripp(p); "https://raw.githubusercontent.com/$repo/$ref/$path")
+text_url(p) = (path=stripp(p); "https://github.com/$repo/blob/$ref/$path")
 stripp(s) = strip(s, '/')
 repo = stripp(repo)
+ref = gitref
