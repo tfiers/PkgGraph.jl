@@ -13,7 +13,8 @@ using Test
     @test deps_as_DOT(:TOML) ==
         """
         digraph {
-            node [fontname = "sans-serif"]
+            bgcolor = "transparent"
+            node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
             edge [arrowsize = 0.88]
             TOML -> Dates
             Dates -> Printf
@@ -21,7 +22,7 @@ using Test
         }
         """
 
-    urlencoded = "digraph%20%7B%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20TOML%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%7D%0A"
+    urlencoded = "digraph%20%7B%0A%20%20%20%20bgcolor%20%3D%20%22transparent%22%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%2C%20style%20%3D%20%22filled%22%2C%20fillcolor%20%3D%20%22white%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20TOML%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%7D%0A"
 
     @test url("TOML") == "https://dreampuf.github.io/GraphvizOnline/#" * urlencoded
 
