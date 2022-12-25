@@ -102,6 +102,7 @@ See [`Changelog.md`](Changelog.md) for a list of package versions, and the chang
 
 <br>
 
+
 ## Development
 
 <!-- For after first release: -->
@@ -120,6 +121,27 @@ For the latest commit on `main` (aka "dev", unstable, and unreleased):
 
 See the readmes in `test/` and `docs/` for how to locally [run the tests](test/ReadMe.md)
 and [build the documentation](docs/ReadMe.md).
+
+
+### Roadmap
+
+At the whims of the dev, _"Software provided 'as is'"_, etc\
+I currently manage ideas for improvement with GitHub issues.
+
+→ See [Issues <sub>with low-priority ones filtered out</sub>][1]
+
+[1]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+-label%3A%22%5Ba%5D+priority%3Alow%22+
+
+
+### Contributions
+
+Well-considered PRs, Issues, and Discussions are welcome.
+
+Everyone is expected to adhere to the standards for constructive communication
+described in [this Code of Conduct][coc].
+
+[coc]: https://github.com/comob-project/snn-sound-localization/blob/17279f6/Code-of-Conduct.md
+
 
 ### Releasing a new version
 
