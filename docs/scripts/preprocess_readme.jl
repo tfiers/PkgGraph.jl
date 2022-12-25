@@ -22,7 +22,7 @@ link_patterns = [
     r"src *= *\"(\S+)\"",     # <img src="link">
     r"href *= *\"(\S+)\"",    # <a href="link">
     r"\[[^\]]+\]\((\S+)\)",   # [this](link)
-    r"\[[^\]]+\]: +(\S+)",    # [this]: link
+    r"\[[^\]]+\]: *(\S+)",    # [this]: link
 ]
 #                ↪ \S: non-space character
 
