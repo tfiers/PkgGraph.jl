@@ -37,7 +37,7 @@ The given package must be installed in the currently active project.
 To render the dependency graph using a local Graphviz `dot` installation (instead of an
 online Graphviz renderer), use [`create`](@ref).
 
-For more info, see [`url`](@ref).
+For more info, see [`PkgGraph.Internals.url`](@ref).
 """
 open(pkgname) = begin
     DefaultApplication.open(url(pkgname))
