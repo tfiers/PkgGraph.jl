@@ -1,9 +1,13 @@
 # Documenter can't do proper (CommonMark) markdown parsing yet.
 # This is a hack so I can use the more modern feature in my src/ .md's anyway.
 
+orig = "src"
+mod = "src-mod"
+
 parentdir = dirname
-orig_dir = joinpath(parentdir(@__DIR__), "src")
-moddir = joinpath(parentdir(@__DIR__), "src-mod")
+docdir = parentdir(@__DIR__)
+orig_dir = joinpath(docdir, orig)
+moddir = joinpath(docdir, mod)
 cp(orig_dir, moddir, force = true)
 
 
@@ -66,7 +70,7 @@ function inline_linkdefs(md)
     end
 end
 
-for (root, dirs, files) in walkdir(moddir)
+for (root, _, files) in walkdir(moddir)
     for filename in files
         if endswith(filename, ".md")
             f = relpath(joinpath(root, filename))
@@ -77,3 +81,23 @@ for (root, dirs, files) in walkdir(moddir)
         end
     end
 end
+
+# After `makedocs` has ran, the 'Edit on GitHub' links
+# point to `src-mod`. So we need to change that back to `src`.
+function correct_edit_links()
+    for (root, _, files) in walkdir(builddir), filename in files
+        if endswith(filename, ".html")
+            f = relpath(joinpath(root, filename))
+            println("Correcting edit link in [$f]")
+            html = read(f, String)
+            corrected = correct_edit_link(html)
+            write(f, corrected)
+        end
+    end
+end
+builddir = joinpath(docdir, "build")
+
+correct_edit_link(html) = replace(html, editlink => substit)
+
+editlink = Regex("(href *= *\"https://github.com/$repo/blob/$ref/docs)/$mod/")
+substit = SubstitutionString("\1/$orig/")

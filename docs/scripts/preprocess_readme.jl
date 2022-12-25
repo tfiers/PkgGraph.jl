@@ -1,7 +1,4 @@
 
-repo = "tfiers/PkgGraph.jl"
-gitref = "main"
-
 function make_links_absolute(src)
     for pat in link_patterns
         r(matched_substr) = replacement(matched_substr, pat)
@@ -51,6 +48,6 @@ binary_ext = r"\.svg|png|jpg|jpeg|gif|webp|mp4|mov|webm|zip|gz|tgz|pdf|pptx|docx
 
 binary_url(p) = (path=stripp(p); "https://raw.githubusercontent.com/$repo/$ref/$path")
 text_url(p) = (path=stripp(p); "https://github.com/$repo/blob/$ref/$path")
+# `repo` and `ref` are defined in make.jl
+
 stripp(s) = strip(s, '/')
-repo = stripp(repo)
-ref = gitref

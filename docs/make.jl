@@ -18,6 +18,10 @@ if !on_github
     end
 end
 
+println("Pre-processing src/")
+include("scripts/inline_linkdefs.jl")
+
+
 @showtime using PkgGraph
 @showtime using Documenter
 
@@ -25,9 +29,6 @@ if first_run
     # Configure doctests to not need `using PkgGraph` in every example.
     DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
 end
-
-println("Pre-processing src/")
-include("scripts/inline_linkdefs.jl")
 
 println("Running makedocs")
 makedocs(
@@ -58,11 +59,19 @@ makedocs(
     ],
 )
 
+repo = "tfiers/PkgGraph.jl"
+ref = gitref = "main"
+
 include("scripts/insert_readme_in_docs.jl")
+
+
+# From `inline_linkdefs.jl`
+correct_edit_links()
+
 
 if on_github
     deploydocs(;
-        repo = "github.com/tfiers/PkgGraph.jl",
+        repo = "github.com/$repo",
         devbranch = "main",
         # ↪ What 'Dev' in the version dropdown points to.
     )
