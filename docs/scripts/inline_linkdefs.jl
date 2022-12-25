@@ -76,8 +76,8 @@ for (root, _, files) in walkdir(moddir)
             f = relpath(joinpath(root, filename))
             println("Reading [$f]")
             src = read(f, String)
-            mod = inline_linkdefs(src)
-            write(f, mod)
+            srcmod = inline_linkdefs(src)
+            write(f, srcmod)
         end
     end
 end
