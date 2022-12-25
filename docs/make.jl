@@ -68,10 +68,12 @@ if on_github
     )
 end
 
-# Open browser to the generated docs the first time this script is run (included).
+# Open browser to the generated docs the first time this script is run / included.
 if first_run && !on_github
-    using DefaultApplication
-    DefaultApplication.open(joinpath(@__DIR__, "build", "index.html"))
+    if Base.prompt("Open results in browser? [y]/n") in ["y", ""]
+        using DefaultApplication
+        DefaultApplication.open(joinpath(@__DIR__, "build", "index.html"))
+    end
 end
 
 Pkg.activate(originally_active_proj)
