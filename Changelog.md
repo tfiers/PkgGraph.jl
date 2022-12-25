@@ -43,6 +43,7 @@ Possible categories:
 
 `{to backfill}`
 - Removed `Pkg` dependency
+- Transparent background for generated images (instead of solid white)
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 

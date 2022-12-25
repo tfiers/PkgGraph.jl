@@ -7,7 +7,8 @@ Create the dependency graph of `pkgname` and render it as a Graphviz DOT string.
 Example output (truncated), for `"Unitful"`:
 ```
 digraph {
-    node [fontname = "sans-serif"]
+    bgcolor = "transparent"
+    node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
     edge [arrowsize = 0.88]
     Unitful -> ConstructionBase
     ConstructionBase -> LinearAlgebra
@@ -71,6 +72,7 @@ See [Graphviz Attributes](https://graphviz.org/doc/info/attrs.html) for more inf
 graphs can be styled.
 """
 const style = [
-    "node [fontname = \"sans-serif\"]",
+    "bgcolor = \"transparent\"",
+    "node [fontname = \"sans-serif\", style = \"filled\", fillcolor = \"white\"]",
     "edge [arrowsize = 0.88]",
 ]
