@@ -6,35 +6,27 @@ or [`PkgGraph.create`](@ref) to generate an image locally.
 """
 module PkgGraph
 
+using DefaultApplication
 
 module Internals
-
-using DefaultApplication
 using URIs: escapeuri
 using TOML
 using Base: active_project
-
 include("depgraph.jl")
 export depgraph,
        packages_in_active_manifest
-
 include("dot.jl")
 export deps_as_DOT,
        to_DOT_str,
        style
-
 include("local.jl")
 export is_dot_available,
        create_DOT_image
-
 include("online.jl")
 export url,
        base_urls
-
 end # module
-
 using .Internals
-
 
 """
     open(pkgname)
