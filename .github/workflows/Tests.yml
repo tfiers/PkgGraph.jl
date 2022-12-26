@@ -33,7 +33,8 @@ jobs:
         version:
           - '1.6'
           - '1.7'
-          - '1'         # = Newest stable Julia version
+          - '1.8'
+          # - '1'         # = Newest stable Julia version
           - 'nightly'
     steps:
       - uses: actions/checkout@v2
