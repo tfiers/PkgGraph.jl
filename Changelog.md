@@ -44,6 +44,9 @@ Possible categories:
 `{to backfill}`
 - Removed `Pkg` dependency
 - Transparent background for generated images (instead of solid white)
+- When no deps: a single node with that exactly that message is drawn
+  (instead of nothing).
+  - Closes #1
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 
