@@ -17,7 +17,7 @@ function create_DOT_image(DOT_str, fmt, path)
 end
 
 nicepath(p) =
-    if startswith(relpath(p), "..")
+    if relpath(p) |> startswith("..")
         abspath(p)
     else
         relpath(p)

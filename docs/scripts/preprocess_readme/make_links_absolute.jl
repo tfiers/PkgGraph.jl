@@ -37,12 +37,12 @@ end
 
 is_url(s) = !isnothing(match(r"^https?://\S+", strip(s)))
 
-is_anchor(s) = startswith(strip(s), "#")
+is_anchor(s) = lstrip(s) |> startswith("#")
 
 absolute(rellink) = (isbinary(rellink) ? binary_url(rellink)
                                        : text_url(rellink))
 
-isbinary(link) = endswith(lowercase(link), binary_ext)
+isbinary(link) = lowercase(link) |> endswith(binary_ext)
 binary_ext = r"\.svg|png|jpg|jpeg|gif|webp|mp4|mov|webm|zip|gz|tgz|pdf|pptx|docx|xlsx"
 # From https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files
 

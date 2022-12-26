@@ -72,7 +72,7 @@ end
 
 for (root, _, files) in walkdir(moddir)
     for filename in files
-        if endswith(filename, ".md")
+        if filename |> endswith(".md")
             f = relpath(joinpath(root, filename))
             println("Reading [$f]")
             src = read(f, String)
@@ -86,7 +86,7 @@ end
 # point to `src-mod`. So we need to change that back to `src`.
 function correct_edit_links()
     for (root, _, files) in walkdir(builddir), filename in files
-        if endswith(filename, ".html")
+        if filename |> endswith(".html")
             f = relpath(joinpath(root, filename))
             println("Correcting edit link in [$f]")
             html = read(f, String)
