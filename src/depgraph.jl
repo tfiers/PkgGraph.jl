@@ -36,5 +36,11 @@ depgraph(pkgname) = begin
 end
 
 manifest(proj_path) = replace(proj_path, "Project.toml" => "Manifest.toml")
-packages_in(manifest) = TOML.parsefile(manifest)["deps"]
+
+if VERSION ≥ v"1.7"
+    packages_in(manifest) = TOML.parsefile(manifest)["deps"]
+else
+    packages_in(manifest) = TOML.parsefile(manifest)
+end
+
 packages_in_active_manifest() = packages_in(manifest(active_project()))

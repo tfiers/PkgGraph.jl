@@ -47,6 +47,7 @@ Possible categories:
 - When no deps: a single node with that exactly that message is drawn
   (instead of nothing).
   - Closes #1
+- Add backwards support for Julia 1.6
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 
