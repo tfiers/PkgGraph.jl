@@ -10,7 +10,7 @@ using Test
         "Printf" => "Unicode"
     ]
 
-    @test deps_as_DOT(:TOML) ==
+    @test deps_as_dot(:TOML) ==
         """
         digraph {
             bgcolor = "transparent"
@@ -26,15 +26,9 @@ using Test
 
     @test url("TOML") == "https://dreampuf.github.io/GraphvizOnline/#" * urlencoded
 
-    PkgGraph.set_base_url(last(PkgGraph.base_urls))
+    @test url("TOML", last(PkgGraph.rendering_websites)) == "https://edotor.net/?engine=dot#" * urlencoded
 
-    @test url("TOML") == "https://edotor.net/?engine=dot#" * urlencoded
-
-    PkgGraph.set_base_url(first(PkgGraph.base_urls))
-
-    empty!(PkgGraph.style)
-
-    @test deps_as_DOT(:TOML) ==
+    @test deps_as_dot(:TOML, style=[]) ==
         """
         digraph {
             TOML -> Dates
@@ -43,7 +37,7 @@ using Test
         }
         """
 
-    @test url("TOML") == "https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20TOML%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%7D%0A"
+    @test url("TOML", style=[]) == "https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20TOML%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%7D%0A"
 
     if VERSION ≥ v"1.8"  # Julia v1.7 does not support error string matching
         @test_throws(
@@ -54,7 +48,7 @@ using Test
 
     @test is_dot_available() isa Bool
 
-    @test deps_as_DOT(:URIs) ==
+    @test deps_as_dot(:URIs, style=[]) ==
         """
         digraph {
             onlynode [label = \" (URIs has no dependencies) \", shape = \"plaintext\"]

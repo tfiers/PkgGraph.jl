@@ -96,3 +96,5 @@ if Base.active_project() ≠ originally_active_proj
 end
 
 first_run_complete = true
+
+nothing  # To not print `true` when `include`ing.

@@ -1,18 +1,28 @@
 
 """
-    deps = depgraph(pkgname)
+    depgraph(pkgname)
 
-Build a graph of the dependencies of the given package, using the active project's Manifest
-file.
+Build a directed graph of the dependencies of the given package, using
+the active project's Manifest file.
 
 The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs.
 
-## Example
-# ```jldoctest
-# julia> using PkgGraph.Internals
+## Example:
 
-# julia> depgraph()
-# ```
+```jldoctest
+julia> using PkgGraph.Internals
+
+julia> depgraph(:Test)
+8-element Vector{Any}:
+             "Test" => "InteractiveUtils"
+ "InteractiveUtils" => "Markdown"
+         "Markdown" => "Base64"
+             "Test" => "Logging"
+             "Test" => "Random"
+           "Random" => "SHA"
+           "Random" => "Serialization"
+             "Test" => "Serialization"
+```
 """
 depgraph(pkgname) = begin
     rootpkg = string(pkgname)
@@ -43,4 +53,10 @@ else
     packages_in(manifest) = TOML.parsefile(manifest)
 end
 
+"""
+    packages_in_active_manifest()
+
+Parsed contents of the 'dependencies' part of the active project's
+`Manifest.toml`.
+"""
 packages_in_active_manifest() = packages_in(manifest(active_project()))

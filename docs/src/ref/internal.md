@@ -5,27 +5,27 @@ CurrentModule = PkgGraph.Internals
 
 # Internal
 
+```@docs
+Internals
+```
+
 ## Creating a dependency graph
 
 ```@docs
 depgraph
+packages_in_active_manifest
 ```
 
 ## DOT strings
 
 ```@docs
-deps_as_DOT
-to_DOT_str
-style
+deps_as_dot
+to_dot_str
+default_style
 ```
 
 ## Online rendering
 
 ```@docs
 url
-base_urls
-```
-
-```@eval
-
 ```

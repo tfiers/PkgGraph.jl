@@ -9,9 +9,9 @@ function is_dot_available()
     return success(proc)
 end
 
-function create_DOT_image(DOT_str, fmt, path)
+function create_dot_image(dot_str, fmt, path)
     dotfile = tempname()
-    write(dotfile, DOT_str)
+    write(dotfile, dot_str)
     run(`dot -T$fmt -o$path $dotfile`)
     println("Created ", nicepath(path))
 end
