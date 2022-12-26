@@ -22,9 +22,9 @@ so you don't have to switch projects at all.</p>
 </details>
 <h3>Local rendering</h3>
 <p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use</p>
-<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, dir=&quot;.&quot;, fmt=:svg)
+<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, &quot;.&quot;, fmt=:svg)
 </code></pre>
-<p>This will create an SVG image with <code>dot</code>, save it to the current directory, and open it with your default image viewer.</p>
+<p>This will call <code>dot</code> to create an SVG image in the current directory (<code>&quot;.&quot;</code>), and will open it with your default image viewer.</p>
 <p>If the directory is not specified, a <code>tempdir()</code> is used.</p>
 <h3>Customization</h3>
 <p>The code tries to be modular. So if you want something a bit different than what the
@@ -51,4 +51,4 @@ and then <code>add PkgGraph</code> there.</p>
 <p>If the package is not found, Julia will offer to install it.<br />
 Type '<code>o</code>' to choose to install it in your base environment.</p>
 </details>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Monday 26 December 2022 00:58">Monday 26 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Monday 26 December 2022 20:08">Monday 26 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
