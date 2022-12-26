@@ -41,13 +41,14 @@ Possible categories:
 ### Security
 -->
 
-`{to backfill}`
 - Removed `Pkg` dependency
 - Transparent background for generated images (instead of solid white)
-- When no deps: a single node with that exactly that message is drawn
-  (instead of nothing).
-  - Closes #1
+- When no deps: a single node with "no deps" is drawn (instead of nothing)
+- Settings (`rendering_website`, `style`) are now set via kwargs and not mutating globals
 - Add backwards support for Julia 1.6
+- ⋮\
+  `{to backfill}`
+
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.1...HEAD
 
