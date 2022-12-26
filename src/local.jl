@@ -13,5 +13,12 @@ function create_DOT_image(DOT_str, fmt, path)
     dotfile = tempname()
     write(dotfile, DOT_str)
     run(`dot -T$fmt -o$path $dotfile`)
-    println("Created ", relpath(path))
+    println("Created ", nicepath(path))
 end
+
+nicepath(p) =
+    if startswith(relpath(p), "..")
+        abspath(p)
+    else
+        relpath(p)
+    end
