@@ -53,4 +53,11 @@ using Test
     end
 
     @test is_dot_available() isa Bool
+
+    @test deps_as_DOT(:URIs) ==
+        """
+        digraph {
+            onlynode [label = \" (URIs has no dependencies) \", shape = \"plaintext\"]
+        }
+        """
 end

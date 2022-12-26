@@ -21,14 +21,20 @@ digraph {
 ```
 For more info, see [`depgraph`](@ref) and [`to_DOT_str`](@ref).
 """
-deps_as_DOT(pkgname) = depgraph(pkgname) |> to_DOT_str
+function deps_as_DOT(pkgname)
+    edges = depgraph(pkgname)
+    emptymsg = "($pkgname has no dependencies)"
+    return to_DOT_str(edges; emptymsg)
+end
 
 
 """
-    to_DOT_str(edges; indent = 4)
+    to_DOT_str(edges; indent = 4, emptymsg = nothing)
 
 Build a string that represents the given directed graph in the
 [Graphviz DOT format](https://graphviz.org/doc/info/lang.html).
+
+If there are no `edges`, a single node with `emptymsg` is created.
 
 ## Example:
 
@@ -44,7 +50,7 @@ digraph {
 }
 ```
 """
-function to_DOT_str(edges; indent = 4)
+function to_DOT_str(edges; indent = 4, emptymsg = nothing)
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
     for line in style
@@ -53,9 +59,15 @@ function to_DOT_str(edges; indent = 4)
     for (m, n) in edges
         push!(lines, tab * "$m -> $n")
     end
-    push!(lines, "}\n")
-    return join(lines, "\n")
+    if !isnothing(emptymsg) && isempty(edges)
+        push!(lines, tab * single_node(emptymsg))
+    end
+    push!(lines, "}")
+    return join(lines, "\n") * "\n"
 end
+
+single_node(text) = "onlynode [label = \" $text \", shape = \"plaintext\"]"
+# ↪ the extra spaces around the text are for some padding in the output png (eg)
 
 """
     style
