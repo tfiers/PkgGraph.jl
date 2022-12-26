@@ -70,14 +70,15 @@ correct_edit_links()
 
 
 if on_github
-    deploydocs(
+    devurl = "dev"
+    deploydocs(;
         repo = "github.com/$repo",
         devbranch = "main",
         # ↪ What 'dev' in the version dropdown points to.
-        devurl = "dev",
-        # ↪ Defining that 'dev' in the version dropdown (and url)
+        devurl,
+        # ↪ The text of that 'dev' in the version dropdown (and in url)
         versions = ["v#.#", devurl => devurl],
-        # ↪ Default, without the `"stable"=>"v^"`.
+        # ↪ Default, but without the `"stable" => "v^"`.
     )
 end
 
