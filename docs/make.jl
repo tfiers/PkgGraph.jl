@@ -70,10 +70,14 @@ correct_edit_links()
 
 
 if on_github
-    deploydocs(;
+    deploydocs(
         repo = "github.com/$repo",
         devbranch = "main",
-        # ↪ What 'Dev' in the version dropdown points to.
+        # ↪ What 'dev' in the version dropdown points to.
+        devurl = "dev",
+        # ↪ Defining that 'dev' in the version dropdown (and url)
+        versions = ["v#.#", devurl => devurl],
+        # ↪ Default, without the `"stable"=>"v^"`.
     )
 end
 
@@ -85,6 +89,9 @@ if first_run && !on_github
     end
 end
 
-Pkg.activate(originally_active_proj)
+if Base.active_project() ≠ originally_active_proj
+    println("Re-activating originally active project")
+    Pkg.activate(originally_active_proj)
+end
 
 first_run_complete = true
