@@ -21,8 +21,12 @@ end
 repo = "tfiers/PkgGraph.jl"
 ref = gitref = "main"
 
+src = "src"
+srcmod = "src-mod"
+
 println("Pre-processing src/")
-include("scripts/inline_linkdefs.jl")
+include("scripts/process_src.jl")
+process_src()
 
 
 @showtime using PkgGraph
@@ -35,7 +39,7 @@ end
 
 println("Running makedocs")
 makedocs(
-    source = "src-mod",
+    source = srcmod,
     modules = [PkgGraph],
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
     sitename = "PkgGraph.jl",
@@ -68,7 +72,7 @@ makedocs(
 include("scripts/insert_readme_in_docs.jl")
 
 
-# From `inline_linkdefs.jl`
+# From `process_src`
 correct_edit_links()
 
 
@@ -87,7 +91,8 @@ end
 
 # Open browser to the generated docs the first time this script is run / included.
 if first_run && !on_github
-    if Base.prompt("Open results in browser? [y]/n") in ["y", ""]
+    msg = "Open freshly built local docs in browser? [y]/n"
+    if Base.prompt(msg) in ["y", ""]
         using DefaultApplication
         DefaultApplication.open(joinpath(@__DIR__, "build", "index.html"))
     end
