@@ -5,12 +5,12 @@
 Create a URL at which the dependency graph of `pkgname` is rendered as an image, using an
 online Graphviz rendering service.
 
-Keyword arguments are passed on to [`deps_as_dot`](@ref) and [`to_dot_str`](@ref).
+Keyword arguments are passed on to [`deps_as_dot`](@ref) / [`to_dot_str`](@ref).
 
 ## How it works
 The dependency graph of `pkgname` is created locally, and converted to a
 string in the Graphviz DOT format. This string is URL-encoded, and
-appended to a partly-complete `base_url`.
+appended to a partly-complete `base_url` (see [`rendering_websites`](@ref)).
 
 ## Example:
 
@@ -26,5 +26,4 @@ url(
     pkgname,
     base_url = first(rendering_websites);
     kw...
-) =
-    base_url * escapeuri(deps_as_dot(pkgname; kw...))
+) = base_url * escapeuri(deps_as_dot(pkgname; kw...))
