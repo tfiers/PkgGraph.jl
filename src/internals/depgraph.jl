@@ -13,7 +13,7 @@ The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs
 julia> using PkgGraph.Internals
 
 julia> depgraph(:Test)
-8-element Vector{Any}:
+8-element Vector{Pair{String, String}}:
              "Test" => "InteractiveUtils"
  "InteractiveUtils" => "Markdown"
          "Markdown" => "Base64"
@@ -32,7 +32,7 @@ depgraph(pkgname) = begin
         The given package ($pkgname) must be installed in the active project
         (which is currently `$(active_project())`)""")
     end
-    deps = []
+    deps = Vector{Pair{String, String}}()
     add_deps_of(name) = begin
         pkg_info = only(packages[name])  # Two packages with same name not supported.
         direct_deps = get(pkg_info, "deps", [])
