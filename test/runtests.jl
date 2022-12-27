@@ -48,6 +48,9 @@ using Test
 
     @test is_dot_available() isa Bool
 
+    @test output_path(:Test, ".", :svg) == joinpath(".", "Test-deps.svg")
+    @test dotcommand(:png, "infile", "outfile") == `dot -Tpng -ooutfile infile`
+
     @test deps_as_dot(:URIs, style=[]) ==
         """
         digraph {

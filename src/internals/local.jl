@@ -1,20 +1,24 @@
 
-function is_dot_available()
+is_dot_available() = begin
     if Sys.iswindows()
         cmd = `where dot`
     else
         cmd = `which dot`
     end
-    proc = run(cmd, wait = false)
-    return success(proc)
+    process = run(cmd, wait = false)
+    success(process)
 end
+
+output_path(pkgname, dir, fmt) = joinpath(dir, "$pkgname-deps.$fmt")
 
 function create_dot_image(dot_str, fmt, path)
     dotfile = tempname()
     write(dotfile, dot_str)
-    run(`dot -T$fmt -o$path $dotfile`)
+    run(dotcommand(fmt, dotfile, path))
     println("Created ", nicepath(path))
 end
+
+dotcommand(fmt, infile, outfile) = `dot -T$fmt -o$outfile $infile`
 
 nicepath(p) =
     if relpath(p) |> startswith("..")

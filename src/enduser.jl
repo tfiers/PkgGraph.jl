@@ -34,8 +34,7 @@ function create(pkgname, dir = tempdir(); fmt = :png)
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
     dotstr = deps_as_dot(pkgname)
-    imgname = "$pkgname-deps.$fmt"
-    imgpath = joinpath(dir, imgname)
+    imgpath = output_path(pkgname, dir, fmt)
     create_dot_image(dotstr, fmt, imgpath)
     DefaultApplication.open(imgpath)
     return nothing

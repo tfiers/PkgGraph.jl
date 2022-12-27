@@ -38,7 +38,9 @@ module Internals
 
     include("internals/local.jl")
     export is_dot_available,
-           create_dot_image
+           create_dot_image,
+           dotcommand,
+           output_path
 
     using URIs: escapeuri
     using ..PkgGraph: rendering_websites
