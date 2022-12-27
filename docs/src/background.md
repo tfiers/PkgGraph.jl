@@ -2,7 +2,7 @@
 # Background
 
 Explanation of choices and tradeoffs, discussion of alternatives, and other
-PkgGraph-related trivia not fitting elsewhere.
+PkgGraph-related trivia.
 
 
 
@@ -77,9 +77,9 @@ providing Julia access to graphviz's C API.
 Not a lot of documentation.
 
 [PkgDependency.jl]: https://github.com/peng1999/PkgDependency.jl
-[PkgDeps.jl]: https://github.com/JuliaEcosystem/PkgDeps.jl
-[Graphviz.jl]: https://github.com/JuliaGraphs/GraphViz.jl
-[Graphviz_jll]: https://github.com/JuliaBinaryWrappers/Graphviz_jll.jl
+[PkgDeps.jl]:       https://github.com/JuliaEcosystem/PkgDeps.jl
+[Graphviz.jl]:      https://github.com/JuliaGraphs/GraphViz.jl
+[Graphviz_jll]:     https://github.com/JuliaBinaryWrappers/Graphviz_jll.jl
 
 
 
@@ -100,13 +100,13 @@ Dagre.js is in part based on `dot`. From their [wiki]:
 > this is it!
 (See also [mentions of the paper in Dagre's codebase][mentions]).
 
-Mermaid has prettier default styling than Graphviz.
-But, I find that Mermaid / Dagre's does a bit worse at graph layout than `dot` does.
+Mermaid has prettier default styling than Graphviz.\
+But, I find that `dot` does a bit better at graph layout than Mermaid / Dagre.
 
 By choosing Graphviz over Mermaid, we trade-off some styling and style-ability¹ 
 for better default DAG layouts.
 
-¹ The default style is not awesome, and many effects are infeasible to achieve.
+¹ The default Graphviz style is not awesome, and many effects are infeasible to achieve.
   (See also the critical note in [Styling Graphviz output](@ref) above).
 
 [Mermaid diagrams]: https://mermaid-js.github.io/mermaid
@@ -141,7 +141,7 @@ From a [2020 Hacker News comment] by one of Graphviz's creators (edited):
 > - it would be a big effort, but move the core algorithms to a framework that supports interaction with layout generation
 
 [Graphviz Discourse forum]: https://forum.graphviz.org/top?period=all
-[their GitLab]: https://gitlab.com/graphviz/graphviz
+[their GitLab]:             https://gitlab.com/graphviz/graphviz
 [2020 Hacker News comment]: https://news.ycombinator.com/item?id=23475225
 
 
