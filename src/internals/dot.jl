@@ -1,6 +1,6 @@
 
 """
-    deps_as_dot(pkgname; kw...)
+    deps_as_dot(pkgname; emptymsg = "(\$pkgname has no dependencies)", kw...)
 
 Create the dependency graph of `pkgname` and render it as a Graphviz DOT string.
 
@@ -29,8 +29,7 @@ deps_as_dot(
     pkgname;
     emptymsg = "($pkgname has no dependencies)",
     kw...
-) =
-   to_dot_str(depgraph(pkgname); emptymsg, kw...)
+) = to_dot_str(depgraph(pkgname); emptymsg, kw...)
 
 
 """
@@ -40,6 +39,8 @@ Build a string that represents the given directed graph in the
 [Graphviz DOT format ↗](https://graphviz.org/doc/info/lang.html).
 
 If there are no `edges`, a single node with `emptymsg` is created.
+If `emptymsg` is `nothing` (default), no nodes are created, and
+the image rendered from the DOT-string will be empty.
 
 `style` is a list of strings, inserted as lines in the output (just
 before the graph edge lines). To use Graphviz's default style, pass
@@ -53,10 +54,18 @@ julia> using PkgGraph.Internals
 
 julia> edges = [:A => :B, "yes" => "no"];
 
-julia> to_dot_str(edges, indent=2, style=[]) |> println
+julia> to_dot_str(edges, indent=2) |> println
 digraph {
+  bgcolor = "transparent"
+  node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
+  edge [arrowsize = 0.88]
   A -> B
   yes -> no
+}
+
+julia> to_dot_str([], emptymsg="(empty graph)", style=[]) |> println
+digraph {
+    onlynode [label = \" (empty graph) \", shape = \"plaintext\"]
 }
 ```
 """
