@@ -2,13 +2,11 @@
 """
     open(pkgname, website = first(rendering_websites))
 
-Open the browser to an image of `pkgname`'s dependency graph.\\
+Open the browser to an image of `pkgname`'s dependency graph.
+
 The given package must be installed in the currently active project.
 
-To render the dependency graph using a local Graphviz `dot` installation
-(instead of an online Graphviz renderer), use [`create`](@ref).
-
-See also [`rendering_websites`](@ref).
+See also [`rendering_websites`](@ref) and [`Internals.url`](@ref).
 """
 function open(pkgname, website = first(rendering_websites))
     DefaultApplication.open(url(pkgname, website))
@@ -22,11 +20,14 @@ end
 """
     create(pkgname, dir = tempdir(); fmt = :png)
 
-Render the dependency graph of the given package as an image in `dir`, and open it with your
-default image viewer. Uses the external program '`dot`' (see [graphviz.org](https://graphviz.org)),
-which must be available on `PATH`.
+Render the dependency graph of the given package as an image in `dir`,
+and open it with your default image viewer. Uses the external program
+'`dot`' (see [graphviz.org](https://graphviz.org)), which must be
+available on `PATH`.
 
 `fmt` is an output file format supported by dot, such as svg or png.
+
+The given package must be installed in the currently active project.
 """
 function create(pkgname, dir = tempdir(); fmt = :png)
     if !is_dot_available()
