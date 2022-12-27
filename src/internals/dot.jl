@@ -33,7 +33,7 @@ deps_as_dot(
 
 
 """
-    to_dot_str(edges; indent = 4, emptymsg = nothing, style = default_style)
+    to_dot_str(edges; style = default_style, indent = 4, emptymsg = nothing)
 
 Build a string that represents the given directed graph in the
 [Graphviz DOT format ↗](https://graphviz.org/doc/info/lang.html).
@@ -45,31 +45,33 @@ the image rendered from the DOT-string will be empty.
 `style` is a list of strings, inserted as lines in the output (just
 before the graph edge lines). To use Graphviz's default style, pass
 `style = []`. For more on how dot-graphs can be styled, see
-['Graphviz Attributes' ↗](https://graphviz.org/doc/info/attrs.html)
+[Styling Graphviz output](@ref).
 
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.Internals
-
 julia> edges = [:A => :B, "yes" => "no"];
 
-julia> to_dot_str(edges, indent=2) |> println
+julia> style = ["node [color = \\"red\\"]"];
+
+julia> using PkgGraph.Internals
+
+julia> to_dot_str(edges; style, indent = 2) |> println
 digraph {
-  bgcolor = "transparent"
-  node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
-  edge [arrowsize = 0.88]
+  node [color = "red"]
   A -> B
   yes -> no
 }
 
-julia> to_dot_str([], emptymsg="(empty graph)", style=[]) |> println
+julia> to_dot_str([], style=[], emptymsg="(empty graph)") |> println
 digraph {
     onlynode [label = \" (empty graph) \", shape = \"plaintext\"]
 }
 ```
+
+See also [`default_style`](@ref).
 """
-function to_dot_str(edges; indent = 4, emptymsg = nothing, style = default_style)
+function to_dot_str(edges; style = default_style, indent = 4, emptymsg = nothing)
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
     for line in style
