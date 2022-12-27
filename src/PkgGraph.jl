@@ -40,15 +40,14 @@ module Internals
     export is_dot_available,
            create_dot_image
 
-    using ..PkgGraph: rendering_websites
     using URIs: escapeuri
+    using ..PkgGraph: rendering_websites
     include("internals/online.jl")
     export url
 end
 
-
-using .Internals
 using DefaultApplication
+using .Internals
 
 include("enduser.jl")
 
