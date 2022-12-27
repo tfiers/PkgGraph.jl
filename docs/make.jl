@@ -51,6 +51,9 @@ makedocs(
         # ↪ Instead of current commit hash. Let 'em edit main
         footer = nothing,
         # ↪ Normally "Powered by …"
+        collapselevel = 3,
+        # ↪ Default: 2. This is alas only for actual pages;
+        #   can't auto-expand intra-page headers in other pages.
     ),
     pages=[
         "Home" => "index.md",
