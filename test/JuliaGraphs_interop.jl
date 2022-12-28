@@ -1,7 +1,10 @@
 
 using PkgGraph
-using Graphs, MetaGraphsNext
 using Test
+
+print("Loading Graphs, MetaGraphsNext … ")
+using Graphs, MetaGraphsNext
+println("done")
 
 edges = PkgGraph.depgraph(:Test)
 
@@ -27,7 +30,7 @@ ds = dijkstra_shortest_paths(g, node(:Test))
 
 io = IOBuffer()
 println(io, "Distance from Test to …")
-for i in vertices(g)
+for i in Graphs.vertices(g)
     pkg = label_for(g, i)
     dist = ds.dists[i]
     print(io, lpad(pkg, maximum(length, packages) + 2))
