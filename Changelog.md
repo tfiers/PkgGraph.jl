@@ -41,20 +41,36 @@ Possible categories:
 ### Security
 -->
 
-- Rename package, from `PkgGraph.jl` to `PkgGraphs.jl`
-- Removed `Pkg` dependency
-- Transparent background for generated images (instead of solid white)
-- When no deps: a single node with "no deps" is drawn (instead of nothing)
-- Settings (`rendering_website`, `style`) are now set via kwargs and not mutating globals
-- Add backwards support for Julia 1.6
-- ⋮\
-  `{to backfill}`
+{empty}
 
 
-[diff-unreleased]: https://github.com/tfiers/PkgGraphs.jl/compare/v0.1...HEAD
+[diff-unreleased]: https://github.com/tfiers/PkgGraphs.jl/compare/v0.2...main
 
 <br>
 
+## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
+
+[v02-date-badge]: https://img.shields.io/badge/Released_on-2022--12--28-blue
+[v02-release]: https://github.com/tfiers/PkgGraphs.jl/releases/tag/v0.2.0
+
+- Rename package, from `PkgGraph.jl` to `PkgGraphs.jl`
+- Rename the end-user API functions:
+  - `depgraph` → `PkgGraphs.open`
+  - `depgraph_local` → `PkgGraphs.create`
+- Organize API, with new `PkgGraphs.Internals` module
+- Add backwards support for Julia 1.6
+- Removed `Pkg` dependency
+- Transparent background for generated images (instead of solid white)
+- When no deps: a single node with "no deps" is drawn (instead of nothing)
+- User settings (`base_url`, `style`) are now set via kwargs and not mutating globals
+- (Docs & infra)
+  - Actual example in ReadMe
+  - Lots (lots) of doc writing
+    - Plus custom markdown (pre)processing scripts :)
+  - This changelog
+
+
+<br>
 
 ## v0.1  &nbsp;<sub>[![][v01-date-badge]][v01-release]</sub>
 
