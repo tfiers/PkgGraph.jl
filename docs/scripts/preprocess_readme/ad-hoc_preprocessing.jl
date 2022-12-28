@@ -1,22 +1,38 @@
 
-function apply_adhoc_preprocessing(src)
+if on_github
+    page_ext = ""
+else
+    page_ext = ".html"
+end
+
+substitutions = [
 
     # Remove link to docs (the badge) from header
-    src = replace(src, " &nbsp; [![][docbadge]][docs]" => "")
+    " &nbsp; [![][docbadge]][docs]" => "",
 
-    page_ext = on_github ? "" : ".html"
-    src = replace(src,
-        ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
-         => "see [`PkgGraphs.Internals`](ref/internal$page_ext).")
-    )
+    ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
+     => "see [`PkgGraphs.Internals`](ref/internal$page_ext)."),
 
-    gh = "https://github.com/tfiers/PkgGraphs.jl#unreleased-changes--"
-    src = replace(src,
-        ("\n(see [Unreleased Changes](#unreleased-changes--) below)."
-        =>"; see [Unreleased Changes]($gh) on GitHub.")
-    )
+    ("\n(see [Unreleased Changes](#unreleased-changes--) below)."
+     =>"; see [Unreleased Changes](https://github.com/tfiers/PkgGraphs.jl#unreleased-changes--) on GitHub."),
 
     # Remove sections at the end
-    src = replace(src, r"### Versions.*$"s => "")
+    r"### Versions.*$"s => "",
     # ↪ `s` flag to have `.` match newlines too
+]
+
+function apply_adhoc_preprocessing(src)
+    for (old, new) in substitutions
+        # Error detection -- for when the readme src is inadvertently
+        # changed later.
+        is_present(old, src) || @warn """
+            Pattern to substitute not found in ReadMe!
+            Pattern: $(repr(old))
+            """
+        src = replace(src, old=>new)
+    end
+    return src
 end
+
+is_present(pattern::AbstractString, s) = (findfirst(pattern, s) ≠ nothing)
+is_present(pattern::Regex, s)          = (match(pattern, s)     ≠ nothing)

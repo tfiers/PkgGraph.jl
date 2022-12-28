@@ -4,8 +4,11 @@ println("Inserting repo ReadMe as docs Home page")
 parentdir = dirname
 readme = relpath(joinpath(parentdir(parentdir(@__DIR__)), "ReadMe.md"))
 
+md_orig = read(readme, String)
+md = deepcopy(md_orig)
+
 include("preprocess_readme/make_links_absolute.jl")
-md = make_links_absolute(read(readme, String))
+md = make_links_absolute(md)
 
 include("preprocess_readme/ad-hoc_preprocessing.jl")
 md = apply_adhoc_preprocessing(md)
