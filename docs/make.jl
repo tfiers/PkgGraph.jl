@@ -18,7 +18,7 @@ if !on_github
     end
 end
 
-repo = "tfiers/PkgGraph.jl"
+repo = "tfiers/PkgGraphs.jl"
 ref = gitref = "main"
 
 src = "src"
@@ -29,27 +29,27 @@ include("scripts/process_src.jl")
 process_src()
 
 
-@showtime using PkgGraph
+@showtime using PkgGraphs
 @showtime using Documenter
 
 if first_run
-    # Configure doctests to not need `using PkgGraph` in every example.
-    DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true)
+    # Configure doctests to not need `using PkgGraphs` in every example.
+    DocMeta.setdocmeta!(PkgGraphs, :DocTestSetup, :(using PkgGraphs); recursive=true)
 end
 
 println("Running makedocs")
 makedocs(
     source = srcmod,
-    modules = [PkgGraph],
+    modules = [PkgGraphs],
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
-    sitename = "PkgGraph.jl",
+    sitename = "PkgGraphs.jl",
     # ↪ Displayed in page title and navbar.
     doctest = true,
     format = Documenter.HTML(;
         prettyurls = on_github,
         # ↪ When local, generate `/pagename.html`s, not `/pagename`s (i.e. not
         #   `/pagename/index.html`s), so that you don't need a localhost server
-        canonical = "https://tfiers.github.io/PkgGraph.jl/stable",
+        canonical = "https://tfiers.github.io/PkgGraphs.jl/stable",
         # ↪ To not have search engines send users to old versions
         edit_link = "main",
         # ↪ Instead of current commit hash. Let 'em edit main
@@ -68,7 +68,7 @@ makedocs(
         "Background" => [
             # This would go in index page ("If I had one!"):
             # Background: Explanation of choices and tradeoffs,
-            # discussion of alternatives, and other PkgGraph-related
+            # discussion of alternatives, and other PkgGraphs-related
             # trivia.
             "bg/usage-tips.md",
             "bg/related-work.md",

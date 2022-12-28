@@ -7,10 +7,10 @@ function apply_adhoc_preprocessing(src)
     page_ext = on_github ? "" : ".html"
     src = replace(src,
         ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
-         => "see [`PkgGraph.Internals`](ref/internal$page_ext).")
+         => "see [`PkgGraphs.Internals`](ref/internal$page_ext).")
     )
 
-    gh = "https://github.com/tfiers/PkgGraph.jl#unreleased-changes--"
+    gh = "https://github.com/tfiers/PkgGraphs.jl#unreleased-changes--"
     src = replace(src,
         ("\n(see [Unreleased Changes](#unreleased-changes--) below)."
         =>"; see [Unreleased Changes]($gh) on GitHub.")

@@ -1,5 +1,5 @@
 
-# Provides a 'Run Workflow' button [at https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml]
+# Provides a 'Run Workflow' button [at https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Register.yml]
 # that makes a commit with an updated version in Project.toml, and then comments on that
 # commit with `@JuliaRegistrator register`, to create a PR in the General registry.
 

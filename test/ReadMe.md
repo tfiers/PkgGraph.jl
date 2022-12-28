@@ -1,4 +1,4 @@
-# Testing `PkgGraph`
+# Testing `PkgGraphs`
 
 To run tests locally, in the project root, do:
 ```julia

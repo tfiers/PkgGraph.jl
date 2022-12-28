@@ -172,7 +172,7 @@ deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markd
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 version = "1.8.0"
 
-[[deps.PkgGraph]]
+[[deps.PkgGraphs]]
 deps = ["DefaultApplication", "TOML", "URIs"]
 path = ".."
 uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"

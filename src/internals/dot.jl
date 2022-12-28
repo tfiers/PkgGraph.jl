@@ -9,7 +9,7 @@ See [`to_dot_str`](@ref) for keyword arguments.
 ## Example:
 
 ```jldoctest
-julia> PkgGraph.deps_as_dot(:Test) |> println
+julia> PkgGraphs.deps_as_dot(:Test) |> println
 digraph {
     bgcolor = "transparent"
     node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
@@ -54,7 +54,7 @@ julia> edges = [:A => :B, "yes" => "no"];
 
 julia> style = ["node [color = \\"red\\"]"];
 
-julia> using PkgGraph.Internals
+julia> using PkgGraphs.Internals
 
 julia> to_dot_str(edges; style, indent = 2) |> println
 digraph {

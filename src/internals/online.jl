@@ -15,10 +15,10 @@ appended to a partly-complete `base_url` (see [`webapps`](@ref)).
 ## Example:
 
 ```jldoctest
-julia> base_url = PkgGraph.webapps[2]
+julia> base_url = PkgGraphs.webapps[2]
 "http://magjac.com/graphviz-visual-editor/?dot="
 
-julia> PkgGraph.url(:TOML, base_url, style=[], indent=0)
+julia> PkgGraphs.url(:TOML, base_url, style=[], indent=0)
 "http://magjac.com/graphviz-visual-editor/?dot=digraph%20%7B%0ATOML%20-%3E%20Dates%0ADates%20-%3E%20Printf%0APrintf%20-%3E%20Unicode%0A%7D%0A"
 ```
 """

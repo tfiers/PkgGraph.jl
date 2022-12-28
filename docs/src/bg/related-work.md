@@ -7,7 +7,7 @@
 
 #### [PkgDependency.jl]
 
-Nice and actively maintained package that does a very similar thing to PkgGraph, and has
+Nice and actively maintained package that does a very similar thing to PkgGraphs, and has
 no non-Julia dependencies. Prints package dependencies as a tree in the REPL. Because
 package dependencies are a DAG and not a tree, there are repeated names in the printout
 (those are marked with a `(*)`).
@@ -27,8 +27,8 @@ Provides the `@dot_str` macro to render dot strings in a notebook.
 
 Recent package, under active development at the time of writing. A beautiful package to
 generate and render dot-strings. Uses Julia's piping syntax. Had I discovered this
-package before writing PkgGraph, I might have used it as a dependency. (Replacing things
-like [`PkgGraph.Internals.to_dot_str`](@ref)).
+package before writing PkgGraphs, I might have used it as a dependency. (Replacing things
+like [`PkgGraphs.Internals.to_dot_str`](@ref)).
 
 
 [PkgDependency.jl]:   https://github.com/peng1999/PkgDependency.jl
@@ -41,26 +41,26 @@ like [`PkgGraph.Internals.to_dot_str`](@ref)).
 
 ## The Graphs.jl ecosystem
 
-PkgGraph does not depend on any of the packages from [JuliaGraphs](https://juliagraphs.org/).
+PkgGraphs does not depend on any of the packages from [JuliaGraphs](https://juliagraphs.org/).
 
 However, you can easily convert the list of package dependencies to a type that supports
 the [graph interface]. You are then able to use the ecosystem's powerful set of graph analysis tools.
 
-See [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) for how to obtain the graph edges and vertices, respectively.
+See [`PkgGraphs.depgraph`](@ref) and [`PkgGraphs.vertices`](@ref) for how to obtain the graph edges and vertices, respectively.
 
 For an example of using Graphs.jl functions on a package dependency DAG, see
-[`PkgGraph.jl/test/JuliaGraphs_interop.jl`][gh], where we analyze the dependency graph
+[`PkgGraphs.jl/test/JuliaGraphs_interop.jl`][gh], where we analyze the dependency graph
 of `Tests`:
 
 ```@raw html
 <img width=400
-     src="https://raw.githubusercontent.com/tfiers/PkgGraph.jl/main/docs/img/Test-deps.svg">
+     src="https://raw.githubusercontent.com/tfiers/PkgGraphs.jl/main/docs/img/Test-deps.svg">
 ```
 
 Some excerpts from that script:
 ```julia
-edges = PkgGraph.depgraph(:Test)
-packages = PkgGraph.vertices(edges)
+edges = PkgGraphs.depgraph(:Test)
+packages = PkgGraphs.vertices(edges)
 
 g = MetaGraph(DiGraph())
 
@@ -89,7 +89,7 @@ Note that we use [MetaGraphsNext.jl] in the script to construct our graph. The
 want text labels.
 
 [graph interface]: https://juliagraphs.org/Graphs.jl/dev/ecosystem/interface/
-[gh]: https://github.com/tfiers/PkgGraph.jl/blob/main/test/JuliaGraphs_interop.jl
+[gh]: https://github.com/tfiers/PkgGraphs.jl/blob/main/test/JuliaGraphs_interop.jl
 [MetaGraphsNext.jl]: https://github.com/JuliaGraphs/MetaGraphsNext.jl
 
 

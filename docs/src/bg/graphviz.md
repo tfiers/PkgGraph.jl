@@ -1,7 +1,7 @@
 
 # Graphviz & DAG visualization
 
-PkgGraph.jl is a glue package: it gathers the package dependency graph, and converts it
+PkgGraphs.jl is a glue package: it gathers the package dependency graph, and converts it
 to a text format that can be read by a [DAG](@ref) visualization program, which then
 does the real work.
 
