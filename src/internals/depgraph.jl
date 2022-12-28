@@ -56,8 +56,26 @@ end
 """
     packages_in_active_manifest()
 
-Parsed contents of the 'dependencies' part of the active project's
-`Manifest.toml`.
+Read and parse the `Manifest.toml` of the active project, and return its
+'deps' table (as a dictionary indexed by package names).
+
+Every entry in this dictionary is a list. This is for when multiple
+packages would share the same name.
+
+## Example:
+
+```jldoctest; filter = r" => .*\$"m
+julia> using PkgGraph.Internals
+
+julia> packages = packages_in_active_manifest();
+
+julia> only(packages["PkgGraph"])
+Dict{String, Any} with 4 entries:
+  "deps"    => ["DefaultApplication", "TOML", "URIs"]
+  "uuid"    => "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
+  "version" => "0.1.0"
+  "path"    => "C:\\Users\\tfiers\\.julia\\dev\\PkgGraph"
+```
 """
 packages_in_active_manifest() = packages_in(manifest(active_project()))
 
