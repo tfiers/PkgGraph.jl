@@ -1,5 +1,5 @@
 
-const rendering_websites = [
+const webapps = [
     "https://dreampuf.github.io/GraphvizOnline/#",     # Default
     "http://magjac.com/graphviz-visual-editor/?dot=",
     "https://edotor.net/?engine=dot#",
@@ -13,5 +13,5 @@ Note that these are 'base URLs', to which url-encoded
 dot-strings can be directly appended.
 
 Default contents:
-""" * join("1. [$r]($r)\n" for r in rendering_websites),
-rendering_websites)
+""" * join("1. [`$r`]($r)\n" for r in webapps),
+webapps)

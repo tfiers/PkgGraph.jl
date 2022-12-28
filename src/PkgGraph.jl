@@ -10,7 +10,7 @@ See [`PkgGraph.Internals`](@ref) for more functions.
 """
 module PkgGraph
 
-include("rendering_websites.jl")
+include("webapps.jl")
 
 
 """
@@ -44,7 +44,7 @@ module Internals
            output_path
 
     using URIs: escapeuri
-    using ..PkgGraph: rendering_websites
+    using ..PkgGraph: webapps
     include("internals/online.jl")
     export url
 end

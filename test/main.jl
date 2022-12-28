@@ -58,7 +58,7 @@ end
 
     @test url("TOML") == "https://dreampuf.github.io/GraphvizOnline/#" * urlencoded
 
-    @test url("TOML", last(PkgGraph.rendering_websites)) == "https://edotor.net/?engine=dot#" * urlencoded
+    @test url("TOML", last(PkgGraph.webapps)) == "https://edotor.net/?engine=dot#" * urlencoded
 
     @test url("TOML", style=[]) == "https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20TOML%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%7D%0A"
 end

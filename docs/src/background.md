@@ -8,27 +8,26 @@ PkgGraph-related trivia.
 
 ## Local vs 'online' rendering
 
-('online' is in quotes, because these websites ([`PkgGraph.rendering_websites`](@ref))
-use wasm-compiled versions of graphviz, i.e. in the end graphviz does run on your local
-computer. Though, alas, you do need an active internet connection to access them).
+('Online' is in quotes, because the ([`PkgGraph.webapps`](@ref))
+use wasm-compiled versions of graphviz. I.e. in the end, graphviz does run on your local
+computer. Though, alas, you do need an active internet connection to access these web-apps).
 
-The advantage of the web-interfaces is that they provide a nice interactive editor,
-for if you want to tweak your output.
+The advantage of the web-apps over local rendering is that they provide a nice
+interactive editor, for if you want to tweak your output.
 
 Magnus Jacobsson's [magjac.com/graphviz-visual-editor][mj] is especially good for
 this, as it provides a GUI interface for adding new nodes and changing styles.
-
 (It is also the renderer linked from the official [graphviz.org] website,
 and [its repository][gh] is receiving active updates at the time of writing).
 
-You can use that website by providing the following as second argument to
+You can use Magnus's app by providing the following as second argument to
 [`PkgGraph.open`](@ref):
 
 ```jldoctest; setup=:( using PkgGraph )
-julia> website = PkgGraph.rendering_websites[2]
+julia> base_url = PkgGraph.webapps[2]
 "http://magjac.com/graphviz-visual-editor/?dot="
 
-julia> # PkgGraph.open(:Test, website)
+julia> # PkgGraph.open(:Test, base_url)
 ```
 
 [mj]: http://magjac.com/graphviz-visual-editor

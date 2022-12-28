@@ -9,5 +9,5 @@ CurrentModule = PkgGraph
 PkgGraph
 open
 create
-rendering_websites
+webapps
 ```

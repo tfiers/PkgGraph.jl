@@ -1,15 +1,15 @@
 
 """
-    open(pkgname, website = first(rendering_websites))
+    open(pkgname, base_url = first(webapps))
 
 Open the browser to an image of `pkgname`'s dependency graph.
 
 The given package must be installed in the currently active project.
 
-See also [`rendering_websites`](@ref) and [`Internals.url`](@ref).
+See also [`webapps`](@ref) and [`Internals.url`](@ref).
 """
-function open(pkgname, website = first(rendering_websites))
-    DefaultApplication.open(url(pkgname, website))
+function open(pkgname, base_url = first(webapps))
+    DefaultApplication.open(url(pkgname, base_url))
     # ↪ Passing a URL (and not a file) opens the browser on all
     #   platforms. (Even though that is undocumented behaviour:
     #   https://github.com/tpapp/DefaultApplication.jl/issues/12)
