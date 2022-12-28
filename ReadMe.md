@@ -1,7 +1,7 @@
 
 # PkgGraph.jl &nbsp; [![][docbadge]][docs]
 
-Tiny tool to visualize the dependency graph of a Julia package.
+Small tool to visualize the dependency graph of a Julia package.
 
 ### Example
 
@@ -37,13 +37,13 @@ This will open the browser to [this url][dotlink], which renders the following i
 
 ### Local rendering
 
-If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use
+If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use something like
 ```julia
 julia> PkgGraph.create(:Unitful, ".", fmt=:svg)
 ```
 This will call `dot` to create an SVG image in the current directory (`"."`), and will open it with your default image viewer.
 
-If the directory is not specified, a `tempdir()` is used.
+If only the package-name is provided, a `tempdir()` and `fmt = :png` are used.
 
 
 ### Customization
