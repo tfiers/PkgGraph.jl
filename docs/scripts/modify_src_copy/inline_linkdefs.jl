@@ -141,3 +141,7 @@ end
 # gather all `[single brackets]`, `[double][bracktes]`
 # and `[linkdefs]: …` first.
 # And only then start replacing.
+
+
+# Broken atm: [[blah]] (to get a `[ ]` wrapped link).
+# (I replaced it with {[blah]} now, in bg/related-work, and bg/abbrevs)
