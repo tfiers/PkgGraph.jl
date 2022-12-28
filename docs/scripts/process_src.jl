@@ -64,3 +64,12 @@ correct_edit_link(html) = replace(
     Regex("(href *= *\"https://github.com/$repo/blob/$ref/docs)/$srcmod/")
     => SubstitutionString("\1/$src/")
 )
+
+
+
+# ~~wishlist~~
+
+# - Detect raw html, and wrap in ```@raw html … ```
+#       * Eg for <img width=…
+#       * (This would obviate comment removal btw)
+# - Proper package ;)

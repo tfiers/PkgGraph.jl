@@ -13,6 +13,7 @@ Internals
 
 ```@docs
 depgraph
+vertices
 packages_in_active_manifest
 ```
 

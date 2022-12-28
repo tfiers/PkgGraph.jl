@@ -60,3 +60,33 @@ Parsed contents of the 'dependencies' part of the active project's
 `Manifest.toml`.
 """
 packages_in_active_manifest() = packages_in(manifest(active_project()))
+
+
+"""
+    vertices(edges)
+
+Extract the unique nodes from the given list of edges.
+
+Useful when converting the output of [`depgraph`](@ref) to a `Graphs.jl`
+graph. (See the example script in [The Graphs.jl ecosystem](@ref)).
+
+## Example:
+
+```jldoctest
+julia> using PkgGraph.Internals
+
+julia> edges = depgraph(:Test);
+
+julia> vertices(edges)
+8-element Vector{String}:
+ "Test"
+ "InteractiveUtils"
+ "Markdown"
+ "Random"
+ "Base64"
+ "Logging"
+ "SHA"
+ "Serialization"
+```
+"""
+vertices(edges) = [first.(edges); last.(edges)] |> unique!

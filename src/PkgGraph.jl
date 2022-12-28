@@ -29,6 +29,7 @@ module Internals
     using Base: active_project
     include("internals/depgraph.jl")
     export depgraph,
+           vertices,
            packages_in_active_manifest
 
     include("internals/dot.jl")

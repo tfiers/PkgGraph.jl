@@ -39,13 +39,12 @@ julia> # PkgGraph.open(:Test, website)
 
 ## Styling Graphviz output
 
-The best place to find how to do something with the Graphviz options is probably
-[graphviz.org/gallery][1]. Every example comes with the DOT source that produced it.
+The fastest way to find how to do something with the Graphviz DOT language is probably to look at [graphviz.org/gallery][1], and find an example that does something similar to what you want. Every example comes with the DOT source that produced it.
 
 You could also take a look at the [Attributes documentation][2].
 
 Note that it is often hard or not feasible to achieve a particular graphic effect with
-Graphviz (see the quote by one of Graphviz's authors in [Graphviz today](@ref) below).
+Graphviz. (See the quote by one of Graphviz's authors in [Graphviz today](@ref) below).
 The better option, if you want a particular style, is probably to import the generated
 SVG image into a design program, and then edit that manually; or even to re-create the
 graph from scratch.
@@ -62,7 +61,7 @@ graph from scratch.
 Nice and actively maintained package that does a very similar thing to PkgGraph, and has
 no non-Julia dependencies. Prints package dependencies as a tree in the REPL. Because
 package dependencies are a DAG and not a tree, there are repeated names in the printout
-(they are marked with `(*)`).
+(those are marked with a `(*)`).
 
 #### [PkgDeps.jl]
 
@@ -72,18 +71,89 @@ Also has `dependencies(pkg)` and `direct_dependencies(pkg)` functions.
 
 #### [Graphviz.jl]
 
-Comes with [Graphviz_jll] from JuliaBinaryWrappers,
-providing Julia access to graphviz's C API.
-Not a lot of documentation.
+Bundles the `dot` binary (via [JuliaBinaryWrappers/Graphviz_jll][Graphviz_jll]), and
+provides access in Julia to graphviz's C API.
+Provides the `@dot_str` macro to render dot strings in a notebook.
 
-[PkgDependency.jl]: https://github.com/peng1999/PkgDependency.jl
-[PkgDeps.jl]:       https://github.com/JuliaEcosystem/PkgDeps.jl
-[Graphviz.jl]:      https://github.com/JuliaGraphs/GraphViz.jl
-[Graphviz_jll]:     https://github.com/JuliaBinaryWrappers/Graphviz_jll.jl
+#### [GraphvizDotLang.jl]
+
+Recent package, under active development at the time of writing. A beautiful package to
+generate and render dot-strings. Uses Julia's piping syntax. Had I discovered this
+package before writing PkgGraph, I might have used it as a dependency. (Replacing things
+like [`PkgGraph.Internals.to_dot_str`](@ref)).
+
+
+[PkgDependency.jl]:   https://github.com/peng1999/PkgDependency.jl
+[PkgDeps.jl]:         https://github.com/JuliaEcosystem/PkgDeps.jl
+[Graphviz.jl]:        https://github.com/JuliaGraphs/GraphViz.jl
+[Graphviz_jll]:       https://github.com/JuliaBinaryWrappers/Graphviz_jll.jl
+[GraphvizDotLang.jl]: https://github.com/jhidding/GraphvizDotLang.jl
+
+
+
+## The Graphs.jl ecosystem
+
+PkgGraph does not depend on any of the packages from [JuliaGraphs](https://juliagraphs.org/).
+
+You can easily convert the list of package dependencies to a type that supports
+the [graph interface], however. You are then able to use the ecosystem's powerful set of graph analysis tools.
+
+See [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) for how to obtain the graph edges and vertices respectively.
+
+See the script [`PkgGraph.jl/test/JuliaGraphs_interop.jl`][gh] for an example,
+where we analyze the dependency graph of `Tests`:
+
+```@raw html
+<img width=600
+     src="https://raw.githubusercontent.com/tfiers/PkgGraph.jl/main/docs/img/Test-deps.svg">
+```
+
+Some excerpts from the script:
+```julia
+@test outdegree(g, node(:Test)) == 4
+@test indegree(g, node(:Test)) == 0
+
+dijkstra_shortest_paths(g, node(:Test))
+# + some wrangling =
+"""
+Distance from Test to …
+              Test: 0
+  InteractiveUtils: 1
+          Markdown: 2
+            Random: 1
+            Base64: 3
+           Logging: 1
+               SHA: 2
+     Serialization: 1
+"""
+```
+
+Note that we use [MetaGraphsNext.jl] in the script to construct our graph. The
+`SimpleDiGraph` from the main package, Graphs.jl, requires nodes to be integers; and we
+want text labels.
+
+[graph interface]: https://juliagraphs.org/Graphs.jl/dev/ecosystem/interface/
+[gh]: https://github.com/tfiers/PkgGraph.jl/blob/main/test/JuliaGraphs_interop.jl
+[MetaGraphsNext.jl]: https://github.com/JuliaGraphs/MetaGraphsNext.jl
+
+
+## Júlio Hoffimann's notebook
+
+There is a notebook in [JuliaGraphsTutorials] that analyzes the complete graph of Julia package dependencies: [nbviewer link].
+
+Note that this is older code (Julia 0.6), from back when only 1500 packages were registered (circa 2017).
+
+See the links at the top of the notebook for interactive D3.js visualizations of the
+dependency graph, and of a world map of Julians.
+
+[JuliaGraphsTutorials]: https://github.com/JuliaGraphs/JuliaGraphsTutorials
+[nbviewer link]: https://nbviewer.org/github/JuliaGraphs/JuliaGraphsTutorials/blob/master/DAG-Julia-Pkgs.ipynb
 
 
 
 ## Alternatives to Graphviz
+
+### Mermaid
 
 '[Mermaid diagrams]' are something more newfangled than [Graphviz].
 
@@ -114,6 +184,18 @@ for better default DAG layouts.
 [Dagre.js]:         https://github.com/dagrejs/dagre
 [wiki]:             https://github.com/dagrejs/dagre/wiki#recommended-reading
 [mentions]:         https://github.com/search?q=repo:dagrejs/dagre%20gansner&type=code
+
+
+### Julia packages for DAG layout
+
+For graph layout and visualization there are [NetworkLayout.jl] (outputs coordinates)
+and [GraphPlot.jl] (outputs images).
+Neither work well with long-ish text labels, nor do they have any specific layout algorithms for DAGs.
+
+(See also, [The `dot` algorithm in Julia?](@ref))
+
+[NetworkLayout.jl]: https://github.com/JuliaGraphs/NetworkLayout.jl
+[GraphPlot.jl]: https://github.com/JuliaGraphs/GraphPlot.jl
 
 
 
@@ -150,8 +232,9 @@ From a [2020 Hacker News comment] by one of Graphviz's creators (edited):
 
 A fun project would be to translate the four-step DAG layout algorithm,
 described very well in [the original paper](@ref Gansner1993), to Julia.
-(The code would probably be shorter, and maybe more maintainable,
- than [the current C implementation][1]).
+
+The code would probably be shorter, and maybe more maintainable,
+than [the current C implementation][1].
 
 [1]: https://gitlab.com/graphviz/graphviz/-/tree/main/lib
 <!-- most salient is the 'common/' src dir; contains e.g network simplex code -->
@@ -178,5 +261,8 @@ For more publications on Graphviz, see [graphviz.org/theory](https://graphviz.or
 
 ---
 
-For more Graphviz-related resources in general, see the official website and forums, and
-this curated list: ['Awesome GraphViz'](https://github.com/CodeFreezr/awesome-graphviz#readme).
+For more on Graphviz, see
+- The official [website](https://graphviz.org),
+- This curated list of Graphviz-related resources: ['Awesome GraphViz'][1]
+
+[1]: https://github.com/CodeFreezr/awesome-graphviz#readme
