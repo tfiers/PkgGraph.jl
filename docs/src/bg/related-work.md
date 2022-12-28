@@ -43,13 +43,14 @@ like [`PkgGraph.Internals.to_dot_str`](@ref)).
 
 PkgGraph does not depend on any of the packages from [JuliaGraphs](https://juliagraphs.org/).
 
-You can easily convert the list of package dependencies to a type that supports
-the [graph interface], however. You are then able to use the ecosystem's powerful set of graph analysis tools.
+However, you can easily convert the list of package dependencies to a type that supports
+the [graph interface]. You are then able to use the ecosystem's powerful set of graph analysis tools.
 
-See [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) for how to obtain the graph edges and vertices respectively.
+See [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) for how to obtain the graph edges and vertices, respectively.
 
-See the script [`PkgGraph.jl/test/JuliaGraphs_interop.jl`][gh] for an example,
-where we analyze the dependency graph of `Tests`:
+For an example of using Graphs.jl functions on a package dependency DAG, see
+[`PkgGraph.jl/test/JuliaGraphs_interop.jl`][gh], where we analyze the dependency graph
+of `Tests`:
 
 ```@raw html
 <img width=400

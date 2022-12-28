@@ -5,8 +5,9 @@ PkgGraph.jl is a glue package: it gathers the package dependency graph, and conv
 to a text format that can be read by a [DAG](@ref) visualization program, which then
 does the real work.
 
-We choose to use [Graphviz] `dot` as DAG visualizer (i.e. to create the actual images).
-`dot` is probably the most well known program for visualizing dependency graphs.
+We choose to use [Graphviz]'s `dot` as DAG visualizer (i.e. to create the actual
+images). `dot` is probably the most well known program for visualizing dependency
+graphs.
 
 This page discusses Graphviz, and some possible alternatives.
 
@@ -18,9 +19,9 @@ This page discusses Graphviz, and some possible alternatives.
 
 ### Mermaid
 
-'[Mermaid diagrams]' are something more newfangled.
-
+'[Mermaid diagrams]' are something more newfangled than Graphviz.
 Mermaid uses the [Dagre.js] library for graph layout.
+
 Dagre.js is in part based on `dot`. From their [wiki]:
 > The general skeleton for Dagre comes from
 > [Gansner, et al., "A Technique for Drawing Directed Graphs"](@ref Gansner1993), 
@@ -31,7 +32,7 @@ Dagre.js is in part based on `dot`. From their [wiki]:
 > and we use the network simplex algorithm for ranking. 
 > If there is one paper to start with when learning about layered graph drawing,
 > this is it!
-(See also [mentions of the paper in Dagre's codebase][mentions]).
+(See also [mentions of the Gansner paper in Dagre's codebase][mentions]).
 
 Mermaid has prettier default styling than Graphviz.\
 But, I find that `dot` does a bit better at graph layout than Mermaid / Dagre.
@@ -50,9 +51,9 @@ for better default DAG layouts.
 
 ### Julia packages for DAG layout
 
-For graph layout and visualization there are [NetworkLayout.jl] (outputs coordinates)
-and [GraphPlot.jl] (outputs images).
-Neither work well with long-ish text labels, nor do they have any specific layout algorithms for DAGs.
+For graph layout and visualization there are [NetworkLayout.jl] (which outputs
+coordinates) and [GraphPlot.jl] (which outputs images). Neither work well with long-ish
+text labels, nor do they have any specific layout algorithms for DAGs.
 
 (See also, [The `dot` algorithm in Julia?](@ref))
 
@@ -71,7 +72,7 @@ My impressions from browsing through the [Graphviz Discourse forum] and [their G
 - The codebase – though working fantastically still in 2022 –
   seems a bit unwieldy to add new features to. See the following quote.
 
-From a [2020 Hacker News comment] by one of Graphviz's creators (edited):
+From a [2020 Hacker News comment] by one of the creators (edited):
 > We're reluctant to be exposed to too much anger about misfeatures in 20 year old code
 > that was basically a prototype that escaped from the lab, [..]
 >
@@ -80,7 +81,7 @@ From a [2020 Hacker News comment] by one of Graphviz's creators (edited):
 > could never find ourselves.
 > 
 > Improvements that would benefit the community the most?
-> - better default styles that don't look like troff from 1985
+> - better default styles that don't look like [troff] from 1985
 > - more expressive graph language with classes or templates
 > - better documentation to help people find useful tools or just know what they should be looking for
 > - it would be a big effort, but move the core algorithms to a framework that supports interaction with layout generation
@@ -88,6 +89,7 @@ From a [2020 Hacker News comment] by one of Graphviz's creators (edited):
 [Graphviz Discourse forum]: https://forum.graphviz.org/top?period=all
 [their GitLab]:             https://gitlab.com/graphviz/graphviz
 [2020 Hacker News comment]: https://news.ycombinator.com/item?id=23475225
+[troff]:                    https://www.troff.org/prog.html
 
 
 
