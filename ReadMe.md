@@ -66,10 +66,6 @@ functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 ```
 pkg> add PkgGraphs
 ```
-This gives you `v0.1`, which is [kinda broken](https://github.com/tfiers/PkgGraphs.jl/releases/tag/v0.1).
-While waiting for `v0.2` to be released, you can install
-a more up-to-date revision by specifying a URL directly
-(see [Unreleased Changes](#unreleased-changes--) below).
 
 
 ### Global Install
