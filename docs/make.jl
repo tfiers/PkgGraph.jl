@@ -66,6 +66,7 @@ makedocs(
             "ref/internal.md",
         ],
         "background.md",
+        "abbreviations.md"
     ],
 )
 
