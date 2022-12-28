@@ -65,8 +65,16 @@ makedocs(
             "ref/end-user.md",
             "ref/internal.md",
         ],
-        "background.md",
-        "abbreviations.md"
+        "Background" => [
+            # This would go in index page ("If I had one!"):
+            # Background: Explanation of choices and tradeoffs,
+            # discussion of alternatives, and other PkgGraph-related
+            # trivia.
+            "bg/usage-tips.md",
+            "bg/related-work.md",
+            "bg/graphviz.md",
+            "bg/abbrevs.md",
+        ],
     ],
 )
 
