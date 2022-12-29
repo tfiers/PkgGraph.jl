@@ -8,9 +8,9 @@ The given package must be installed in the currently active project.
 
 See also [`webapps`](@ref) and [`Internals.url`](@ref).
 """
-function open(pkgname, base_url = first(webapps))
-    DefaultApplication.open(url(pkgname, base_url))
-    # ↪ Passing a URL (and not a file) opens the browser on all
+function open(pkgname, base_url = first(webapps); kw...)
+    DefaultApplication.open(url(pkgname, base_url; kw...))
+    #   Passing a URL (and not a file) opens the browser on all
     #   platforms. (Even though that is undocumented behaviour:
     #   https://github.com/tpapp/DefaultApplication.jl/issues/12)
     return nothing
