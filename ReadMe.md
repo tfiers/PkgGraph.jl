@@ -170,7 +170,7 @@ How does shields.io do this btw? → Via an API call
 No progress guaranteed, _"Software provided 'as is'"_, etc.\
 Ideas for improvement are currently managed with GitHub Issues.
 
-For next release: <sub>![][mile-img]</sub>
+For next release: <sub>[![][mile-img]][milestone]</sub>
 
 [mile-img]: https://img.shields.io/github/milestones/progress/tfiers/PkgGraphs.jl/1?label=Milestone%20issues%20closed
 [milestone]: https://github.com/tfiers/PkgGraphs.jl/milestone/1
