@@ -80,23 +80,24 @@ makedocs(
 
 include("scripts/insert_readme_in_docs.jl")
 
-
 # From `process_src`
 correct_edit_links()
 
 
+devurl = "dev"
+
 if on_github
-    devurl = "dev"
     deploydocs(;
         repo = "github.com/$repo",
         devbranch = "main",
         # ↪ What 'dev' in the version dropdown points to.
         devurl,
         # ↪ The text of that 'dev' in the version dropdown (and in url)
-        versions = ["v#.#", devurl => devurl],
-        # ↪ Default, but without the `"stable" => "v^"`.
+        versions = ["v#.#", "stable" => "v^", devurl => devurl],
+        # ↪ (This is the default).
     )
 end
+
 
 # Open browser to the generated docs the first time this script is run / included.
 if first_run && !on_github
