@@ -37,7 +37,7 @@ if first_run
     DocMeta.setdocmeta!(PkgGraphs, :DocTestSetup, :(using PkgGraphs); recursive=true)
 end
 
-println("Running makedocs")
+println("<makedocs> (Including Documenter.HTML(…) construction call)")
 makedocs(
     source = srcmod,
     modules = [PkgGraphs],
@@ -77,6 +77,7 @@ makedocs(
         ],
     ],
 )
+println("</makedocs>")
 
 include("scripts/insert_readme_in_docs.jl")
 
