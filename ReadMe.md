@@ -117,12 +117,11 @@ You can install `PkgGraphs` at this latest commit using
 ```
 pkg> add https://github.com/tfiers/PkgGraphs.jl
 ```
-If you, wisely, do not want a moving `main` revision in your `Manifest.toml`,
-you can install at a fixed revision (commit) instead.
+It might be a good idea to install at a fixed revision instead.
 Preferably at a [commit that passed tests][testhist].
 For example:
 ```
-pkg> add https://github.com/tfiers/PkgGraphs.jl#fe17ba2
+pkg> add https://github.com/tfiers/PkgGraphs.jl#f6e83ca
 ```
 
 [testhist]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
