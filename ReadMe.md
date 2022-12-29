@@ -1,7 +1,9 @@
 
-# PkgGraphs.jl  &nbsp; [![][latestimg]][latest] [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devlink]
+# PkgGraphs.jl  &nbsp; [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devlink]
+<!-- add `[![][latestimg]][latest]` when 0.2 is out  -->
 
 Small tool to visualize the dependency graph of a Julia package.
+
 
 [latestimg]: https://img.shields.io/github/v/release/tfiers/PkgGraphs.jl?label=Latest%20release
 [latest]:    https://github.com/tfiers/PkgGraphs.jl/releases/latest
@@ -12,7 +14,7 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog-img]: https://img.shields.io/badge/🕑_Changelog-gray
 [chlog]: Changelog.md
 
-[devimg]: https://img.shields.io/badge/⚒️_dev-↓-gray
+[devimg]: https://img.shields.io/badge/⚒️_dev-gray
 [devlink]: #unreleased-changes--
 
 
@@ -111,6 +113,8 @@ CI status for the latest commit on `main`
 
 [![][testsimg]][tests] [![][docbuildimg]][docbuild]
 
+Documentation: <sub>[![][devdocs-img]][devdocs]</sub>
+
 You can install `PkgGraphs` at this latest commit using
 ```
 pkg> add https://github.com/tfiers/PkgGraphs.jl
@@ -159,13 +163,17 @@ How does shields.io do this btw? → Via an API call
 
 ## Development
 
+
 ### Roadmap
 
 No progress guaranteed, _"Software provided 'as is'"_, etc.\
-Ideas for improvement are currently managed with GitHub Issues.\
-See: [Issues <sub>with low-priority ones filtered out</sub>][1]
+Ideas for improvement are currently managed with GitHub Issues.
 
-[1]: https://github.com/tfiers/PkgGraphs.jl/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+-label%3A%22%5Ba%5D+priority%3Alow%22+
+For next release: <sub>![][mile-img]</sub>
+
+[mile-img]: https://img.shields.io/github/milestones/progress/tfiers/PkgGraphs.jl/1?label=Milestone%20issues%20closed
+[milestone]: https://github.com/tfiers/PkgGraphs.jl/milestone/1
+
 
 ### Contributions
 
@@ -175,6 +183,7 @@ Everyone is expected to adhere to the standards for constructive communication
 described in [this Code of Conduct][CoC].
 
 [CoC]: https://github.com/comob-project/snn-sound-localization/blob/17279f6/Code-of-Conduct.md
+
 
 ### Guide
 
