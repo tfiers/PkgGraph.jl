@@ -110,8 +110,8 @@ Type '`o`' to choose to install it in your base environment.
 
 For the latest commit on `main` (aka _dev_ and _unstable_):
 
-| CI status | <sub>[![][testsimg]][tests] [![][docbuildimg]][docbuild]</sub> |
-|:---------:|:--------------------------------------------------------------:|
+| CI status | <sub>[![][testsimg]][tests]</sub> | <sub>[![][docbuildimg]][docbuild]</sub> |
+|-----------|-----------------------------------|-----------------------------------------|
 
 You can install `PkgGraphs` at this latest commit using
 ```
