@@ -15,7 +15,7 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog]: Changelog.md
 
 [devimg]: https://img.shields.io/badge/⚒️_dev-gray
-[devlink]: #unreleased-changes--
+[devlink]: #unreleased-changes---
 
 
 ### Example
@@ -79,7 +79,7 @@ writing. When that is done, you'll be able to
 pkg> add PkgGraphs
 ```
 In the meantime, you can install by specifying a URL directly
-(see [Unreleased Changes](#unreleased-changes--) below).
+(see [Unreleased Changes][devlink] below).
 
 [The PR]: https://github.com/JuliaRegistries/General/pull/74747
 
