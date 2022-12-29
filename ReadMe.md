@@ -106,14 +106,12 @@ Type '`o`' to choose to install it in your base environment.
 
 <br>
 
-## Unreleased Changes &nbsp; <sub>[![][commitsimg]][latest]</sub>
+## Unreleased Changes &nbsp; <sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
 
-CI status for the latest commit on `main`
-(aka _dev_ and _unstable_):
+For the latest commit on `main` (aka _dev_ and _unstable_):
 
-[![][testsimg]][tests] [![][docbuildimg]][docbuild]
-
-Documentation: <sub>[![][devdocs-img]][devdocs]</sub>
+| CI status | <sub>[![][testsimg]][tests] [![][docbuildimg]][docbuild]</sub> |
+|:---------:|:--------------------------------------------------------------:|
 
 You can install `PkgGraphs` at this latest commit using
 ```
@@ -129,14 +127,17 @@ pkg> add https://github.com/tfiers/PkgGraphs.jl#fe17ba2
 
 [testhist]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
 
-[docbuildimg]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml/badge.svg
 [commitsimg]:  https://img.shields.io/github/commits-since/tfiers/PkgGraphs.jl/latest
-[testsimg]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml/badge.svg
-[docbuild]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml
-[tests]:       https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
+<!-- The link, 'latest', is defined above (at header. See html comment below). -->
 
 [devdocs-img]: https://img.shields.io/badge/📕_Documentation-dev-blue.svg
 [devdocs]:     https://tfiers.github.io/PkgGraphs.jl/dev
+
+[docbuildimg]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml/badge.svg
+[docbuild]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml
+
+[testsimg]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml/badge.svg
+[tests]:       https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
 
 <!-- 
 On the "Commits since [latest release]" badge.
