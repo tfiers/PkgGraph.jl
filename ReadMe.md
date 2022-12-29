@@ -1,5 +1,5 @@
 
-# PkgGraphs.jl  &nbsp; [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devlink]
+# PkgGraphs.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devanchor]
 <!-- add `[![][latestimg]][latest]` when 0.2 is out  -->
 
 Small tool to visualize the dependency graph of a Julia package.
@@ -15,7 +15,7 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog]: Changelog.md
 
 [devimg]: https://img.shields.io/badge/⚒️_dev-gray
-[devlink]: #unreleased-changes---
+[devanchor]: #unreleased-changes--
 
 
 ### Example
@@ -79,7 +79,7 @@ writing. When that is done, you'll be able to
 pkg> add PkgGraphs
 ```
 In the meantime, you can install by specifying a URL directly
-(see [Unreleased Changes][devlink] below).
+(see [Unreleased Changes][devanchor] below).
 
 [The PR]: https://github.com/JuliaRegistries/General/pull/74747
 
@@ -106,7 +106,7 @@ Type '`o`' to choose to install it in your base environment.
 
 <br>
 
-## Unreleased Changes &nbsp; <sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
+## Unreleased Changes &nbsp;<sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
 
 For the latest commit on `main` (aka _dev_ and _unstable_):
 
