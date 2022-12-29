@@ -1,7 +1,20 @@
 
-# PkgGraphs.jl &nbsp; [![][docbadge]][docs]
+# PkgGraphs.jl  &nbsp; [![][latestimg]][latest] [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devlink]
 
 Small tool to visualize the dependency graph of a Julia package.
+
+[latestimg]: https://img.shields.io/github/v/release/tfiers/PkgGraphs.jl?label=Latest%20release
+[latest]:    https://github.com/tfiers/PkgGraphs.jl/releases/latest
+
+[docbadge]: https://img.shields.io/badge/📕_Documentation-blue
+[docs]: https://tfiers.github.io/PkgGraphs.jl/
+
+[chlog-img]: https://img.shields.io/badge/🕑_Changelog-gray
+[chlog]: Changelog.md
+
+[devimg]: https://img.shields.io/badge/⚒️_dev-↓-gray
+[devlink]: #unreleased-changes--
+
 
 ### Example
 
@@ -53,10 +66,6 @@ above interface offers, you might be able to compose it from various internal
 functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 
-[docbadge]: https://img.shields.io/badge/📕_Documentation-blue
-[docs]: https://tfiers.github.io/PkgGraphs.jl/
-
-
 
 <br>
 
@@ -93,16 +102,9 @@ Type '`o`' to choose to install it in your base environment.
 </details>
 
 
-### Versions  &nbsp; <sub>[![][latestimg]][latest]</sub>
+<br>
 
-See [`Changelog.md`](Changelog.md) for a list of package versions, and the changes introduced in each.
-
-[latestimg]: https://img.shields.io/github/v/release/tfiers/PkgGraphs.jl?label=Latest%20release
-[latest]:    https://github.com/tfiers/PkgGraphs.jl/releases/latest
-
----
-
-### Unreleased Changes &nbsp; <sub>[![][commitsimg]][latest]</sub>
+## Unreleased Changes &nbsp; <sub>[![][commitsimg]][latest]</sub>
 
 CI status for the latest commit on `main`
 (aka _dev_ and _unstable_):
@@ -123,17 +125,17 @@ pkg> add https://github.com/tfiers/PkgGraphs.jl#fe17ba2
 
 [testhist]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
 
-
-
-<!-- Must have empty line before linkdefs. -->
 [docbuildimg]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml/badge.svg
 [commitsimg]:  https://img.shields.io/github/commits-since/tfiers/PkgGraphs.jl/latest
 [testsimg]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml/badge.svg
 [docbuild]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Docs.yml
 [tests]:       https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
 
+[devdocs-img]: https://img.shields.io/badge/📕_Documentation-dev-blue.svg
+[devdocs]:     https://tfiers.github.io/PkgGraphs.jl/dev
+
 <!-- 
-On the "Commits since [latest release]" button.
+On the "Commits since [latest release]" badge.
 
 Currently the user has to click through on the release page
 (on the gh-generated link "xx commits to main since this release").
