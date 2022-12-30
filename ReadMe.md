@@ -35,11 +35,6 @@ This will open the browser to [this url][dotlink], which renders the following i
      width=680
      alt="Dependency graph of Unitful, rendered with Graphviz dot">
 
-<br>
-
-To filter out [JLL packages] or packages from the Julia standard library, provide the `ignore_jlls=true` and `ignore_stdlibs=true` keyword arguments.
-
-[JLL packages]: https://docs.binarybuilder.org/stable/jll/
 
 <br>
 <details>
@@ -53,6 +48,13 @@ To filter out [JLL packages] or packages from the Julia standard library, provid
   so you don't have to switch projects at all.
 
 </details>
+
+
+
+
+To filter out [JLL packages] or packages from the Julia standard library, provide the `ignore_jlls=true` and `ignore_stdlibs=true` keyword arguments.
+
+[JLL packages]: https://docs.binarybuilder.org/stable/jll
 
 [unitful]: https://github.com/PainterQubits/Unitful.jl
 [dotlink]: https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20bgcolor%20%3D%20%22transparent%22%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%2C%20style%20%3D%20%22filled%22%2C%20fillcolor%20%3D%20%22white%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A
