@@ -36,6 +36,12 @@ This will open the browser to [this url][dotlink], which renders the following i
      alt="Dependency graph of Unitful, rendered with Graphviz dot">
 
 <br>
+
+To filter out [JLL packages] or packages from the Julia standard library, provide the `ignore_jlls=true` and `ignore_stdlibs=true` keyword arguments.
+
+[JLL packages]: https://docs.binarybuilder.org/stable/jll/
+
+<br>
 <details>
   
   The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.
