@@ -7,7 +7,7 @@
 
 julia&gt; PkgGraphs.open(:Unitful)
 
-julia&gt; PkgGraphs.open(:Unitful; ignore_stdlibs=true, ignore_jlls=true) # filter stdlibs and jlls
+
 </code></pre>
 <p>This will open the browser to <a href="https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20bgcolor%20%3D%20%22transparent%22%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%2C%20style%20%3D%20%22filled%22%2C%20fillcolor%20%3D%20%22white%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A">this url</a>, which renders the following image:</p>
 <!-- Generated with `PkgGraphs.create("Unitful", "docs/img/")` -->
@@ -16,8 +16,6 @@ julia&gt; PkgGraphs.open(:Unitful; ignore_stdlibs=true, ignore_jlls=true) # filt
 width=680
 alt="Dependency graph of Unitful, rendered with Graphviz dot"></p>
 <br>
-<p>To filter out <a href="https://docs.binarybuilder.org/stable/jll/">JLL packages</a> or packages from the Julia standard library, provide the <code>ignore_jlls=true</code> and <code>ignore_stdlibs=true</code> keyword arguments.</p>
-<br>
 <details>
 <p>The given package (here: <a href="https://github.com/PainterQubits/Unitful.jl">Unitful</a>) must be installed in the currently active project for this to work.</p>
 <p>Note that <code>PkgGraphs</code> does not have to be installed in the same project however:<br />
@@ -25,6 +23,7 @@ you can switch projects <em>after</em> <code>PkgGraphs</code> has been imported 
 <p>Even easier is to install <code>PkgGraphs</code> in your base environment (see <a href="#global-install">Global Install</a>),
 so you don't have to switch projects at all.</p>
 </details>
+<p>To filter out <a href="https://docs.binarybuilder.org/stable/jll">JLL packages</a> or packages from the Julia standard library, provide the <code>ignore_jlls=true</code> and <code>ignore_stdlibs=true</code> keyword arguments.</p>
 <h3>Local rendering</h3>
 <p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use something like</p>
 <pre><code class="language-julia">julia&gt; PkgGraphs.create(:Unitful, &quot;.&quot;, fmt=:svg)
@@ -114,4 +113,4 @@ section to the new version. Add a new, empty Unreleased section.
 component. This will 1) create a commit that updates the version in <code>Project.toml</code>,
 and 2) create a comment on that commit that opens a PR in the General registry.</li>
 </ol>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Friday 30 December 2022 12:19">Friday 30 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Friday 30 December 2022 12:45">Friday 30 December 2022</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
