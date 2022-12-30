@@ -28,8 +28,9 @@ digraph {
 deps_as_dot(
     pkgname;
     emptymsg = "($pkgname has no dependencies)",
+    ignore_stdlibs::Bool=false, ignore_jlls::Bool=false,
     kw...
-) = to_dot_str(depgraph(pkgname); emptymsg, kw...)
+) = to_dot_str(depgraph(pkgname; ignore_stdlibs, ignore_jlls); emptymsg, kw...)
 
 
 """

@@ -1,3 +1,17 @@
+const STDLIB_NAMES = Set{String}()
+let
+    for dir in readdir(Sys.STDLIB; join=true)
+        isdir(dir) || continue
+        name = TOML.parsefile(joinpath(dir, "Project.toml"))["name"]
+        push!(STDLIB_NAMES, name)
+    end
+end
+
+function ignore_package(name; ignore_stdlibs::Bool, ignore_jlls::Bool)
+    ignore_stdlibs && name in STDLIB_NAMES && return true
+    ignore_jlls && endswith(name, "_jll") && return true
+    return false
+end
 
 """
     depgraph(pkgname)
@@ -24,7 +38,7 @@ julia> depgraph(:Test)
              "Test" => "Serialization"
 ```
 """
-depgraph(pkgname) = begin
+depgraph(pkgname; ignore_stdlibs::Bool=false, ignore_jlls::Bool=false) = begin
     rootpkg = string(pkgname)
     packages = packages_in_active_manifest()
     if rootpkg ∉ keys(packages)
@@ -34,9 +48,11 @@ depgraph(pkgname) = begin
     end
     deps = Vector{Pair{String, String}}()
     add_deps_of(name) = begin
+        ignore_package(name; ignore_stdlibs, ignore_jlls) && return
         pkg_info = only(packages[name])  # Two packages with same name not supported.
         direct_deps = get(pkg_info, "deps", [])
         for dep in direct_deps
+            ignore_package(dep; ignore_stdlibs, ignore_jlls) && continue
             push!(deps, name => dep)
             add_deps_of(dep)
         end
