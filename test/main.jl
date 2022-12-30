@@ -17,6 +17,19 @@ using Test
             depgraph("DinnaeExist")
         )
     end
+
+    @test sort(depgraph("Graphs"; ignore_stdlibs=true, ignore_jlls=true)) == [
+        "ArnoldiMethod" => "StaticArrays"
+        "DataStructures" => "Compat"
+        "DataStructures" => "OrderedCollections"
+                "Graphs" => "ArnoldiMethod"
+                "Graphs" => "Compat"
+                "Graphs" => "DataStructures"
+                "Graphs" => "Inflate"
+                "Graphs" => "SimpleTraits"
+          "SimpleTraits" => "MacroTools"
+          "StaticArrays" => "StaticArraysCore"
+    ]
 end
 
 

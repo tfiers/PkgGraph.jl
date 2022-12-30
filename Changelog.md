@@ -41,7 +41,8 @@ Possible categories:
 ### Security
 -->
 
-{empty}
+- Added the keyword arguments `ignore_stdlibs` and `ignore_jlls` to not show stdlibs and jll packages respectively.
+  This can significantly declutter the graphs for packages with many such dependencies.
 
 
 [diff-unreleased]: https://github.com/tfiers/PkgGraphs.jl/compare/v0.2...main
