@@ -25,7 +25,7 @@ julia> using PkgGraphs
 
 julia> PkgGraphs.open(:Unitful)
 
-julia> PkgGraphs.open(:Unitful; ignore_stdlibs=true, ignore_jlls=true) # filter stdlibs and jlls
+
 ```
 This will open the browser to [this url][dotlink], which renders the following image:
 
