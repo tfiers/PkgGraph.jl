@@ -15,7 +15,7 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog]: Changelog.md
 
 [devimg]: https://img.shields.io/badge/⚒️_dev-gray
-[devanchor]: #unreleased-changes--
+[devanchor]: #development
 
 
 ### Example
@@ -89,7 +89,7 @@ writing. When that is done, you'll be able to
 pkg> add PkgGraphs
 ```
 In the meantime, you can install by specifying a URL directly
-(see [Unreleased Changes][devanchor] below).
+(see [Development][devanchor] below).
 
 [The PR]: https://github.com/JuliaRegistries/General/pull/74747
 
@@ -114,7 +114,10 @@ Type '`o`' to choose to install it in your base environment.
 </details>
 
 
+
 <br>
+
+## Development
 
 ## Unreleased Changes &nbsp;<sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
 
@@ -137,7 +140,7 @@ pkg> add https://github.com/tfiers/PkgGraphs.jl#f6e83ca
 [testhist]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
 
 [commitsimg]:  https://img.shields.io/github/commits-since/tfiers/PkgGraphs.jl/latest
-<!-- The link, 'latest', is defined above (at header. See html comment below). -->
+<!-- The link, 'latest', is defined above (at header. See html comment at bottom of file). -->
 
 [devdocs-img]: https://img.shields.io/badge/📕_Documentation-dev-blue.svg
 [devdocs]:     https://tfiers.github.io/PkgGraphs.jl/dev
@@ -147,31 +150,6 @@ pkg> add https://github.com/tfiers/PkgGraphs.jl#f6e83ca
 
 [testsimg]:    https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml/badge.svg
 [tests]:       https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Tests.yml
-
-<!-- 
-On the "Commits since [latest release]" badge.
-
-Currently the user has to click through on the release page
-(on the gh-generated link "xx commits to main since this release").
-
-We could add a `latest` tag (or branch?).
-It can be automated: https://github.com/marketplace/actions/latest-tag
-
-But moving a tag seems annoying, see https://pakstech.com/blog/move-git-tag/,
-"Pulling after a tag has been edited" (you need to delete the local tag).
-
-So, we rely on this click-through solution,
-with the (undocumented?) `/releases/latest` url.
-
-How does shields.io do this btw? → Via an API call
-(https://github.com/badges/shields/blob/7a38cfe/services/github/github-commits-since.service.js#L138)
--->
-
-<br>
-
-
-
-## Development
 
 
 ### Roadmap
@@ -195,7 +173,7 @@ described in [this Code of Conduct][CoC].
 [CoC]: https://github.com/comob-project/snn-sound-localization/blob/17279f6/Code-of-Conduct.md
 
 
-### Guide
+### How to
 
 Check out the code for development using
 ```
@@ -214,3 +192,25 @@ and build the documentation.
    and 2) create a comment on that commit that opens a PR in the General registry.
 
 [regCI]: https://github.com/tfiers/PkgGraphs.jl/actions/workflows/Register.yml
+
+
+
+
+<!-- 
+On the "Commits since [latest release]" badge.
+
+Currently the user has to click through on the release page
+(on the gh-generated link "xx commits to main since this release").
+
+We could add a `latest` tag (or branch?).
+It can be automated: https://github.com/marketplace/actions/latest-tag
+
+But moving a tag seems annoying, see https://pakstech.com/blog/move-git-tag/,
+"Pulling after a tag has been edited" (you need to delete the local tag).
+
+So, we rely on this click-through solution,
+with the (undocumented?) `/releases/latest` url.
+
+How does shields.io do this btw? → Via an API call
+(https://github.com/badges/shields/blob/7a38cfe/services/github/github-commits-since.service.js#L138)
+-->
