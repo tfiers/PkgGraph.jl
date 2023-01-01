@@ -1,5 +1,5 @@
 
-# PkgGraphs.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][devanchor]
+# PkgGraphs.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][#development]
 <!-- add `[![][latestimg]][latest]` when 0.2 is out  -->
 
 Small tool to visualize the dependency graph of a Julia package.
@@ -15,7 +15,6 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog]: Changelog.md
 
 [devimg]: https://img.shields.io/badge/⚒️_dev-gray
-[devanchor]: #development
 
 
 ### Example
@@ -24,8 +23,6 @@ Small tool to visualize the dependency graph of a Julia package.
 julia> using PkgGraphs
 
 julia> PkgGraphs.open(:Unitful)
-
-
 ```
 This will open the browser to [this url][dotlink], which renders the following image:
 
@@ -49,10 +46,7 @@ This will open the browser to [this url][dotlink], which renders the following i
 
 </details>
 
-
-
-
-To filter out [JLL packages] or packages from the Julia standard library, provide the `ignore_jlls=true` and `ignore_stdlibs=true` keyword arguments.
+To filter out binary dependencies ([JLL packages]) or packages from the Julia standard library, provide the `ignore_jlls=true` and `ignore_stdlibs=true` keyword arguments.
 
 [JLL packages]: https://docs.binarybuilder.org/stable/jll
 
@@ -89,7 +83,7 @@ writing. When that is done, you'll be able to
 pkg> add PkgGraphs
 ```
 In the meantime, you can install by specifying a URL directly
-(see [Development][devanchor] below).
+(see [Development][#development] below).
 
 [The PR]: https://github.com/JuliaRegistries/General/pull/74747
 

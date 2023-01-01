@@ -7,17 +7,17 @@ end
 
 substitutions = [
 
-    # Remove link to docs (the badge) from header
-    " &nbsp; [![][docbadge]][docs]" => "",
+    # Remove badges from header
+    r"^(# PkgGraphs\.jl).*$"m => s"\1",
 
     ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
      => "see [`PkgGraphs.Internals`](ref/internal$page_ext)."),
 
-    ("\n(see [Unreleased Changes](#unreleased-changes--) below)."
-     =>"; see [Unreleased Changes](https://github.com/tfiers/PkgGraphs.jl#unreleased-changes--) on GitHub."),
+    ("\n(see [Development][#development] below)."
+     =>"; see [Development](https://github.com/tfiers/PkgGraphs.jl#development) on GitHub."),
 
     # Remove sections at the end
-    r"### Versions.*$"s => "",
+    r"## Development.*$"s => "",
     # ↪ `s` flag to have `.` match newlines too
 ]
 
