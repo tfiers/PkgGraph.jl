@@ -13,7 +13,7 @@ substitutions = [
     ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
      => "see [`PkgGraphs.Internals`](ref/internal$page_ext)."),
 
-    ("\n(see [Development][#development] below)."
+    ("\n(see [Development](#development) below)."
      =>"; see [Development](https://github.com/tfiers/PkgGraphs.jl#development) on GitHub."),
 
     # Remove sections at the end

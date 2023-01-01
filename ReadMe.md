@@ -1,5 +1,5 @@
 
-# PkgGraphs.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]][#development]
+# PkgGraphs.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]](#development)
 <!-- add `[![][latestimg]][latest]` when 0.2 is out  -->
 
 Small tool to visualize the dependency graph of a Julia package.
@@ -83,7 +83,7 @@ writing. When that is done, you'll be able to
 pkg> add PkgGraphs
 ```
 In the meantime, you can install by specifying a URL directly
-(see [Development][#development] below).
+(see [Development](#development) below).
 
 [The PR]: https://github.com/JuliaRegistries/General/pull/74747
 
