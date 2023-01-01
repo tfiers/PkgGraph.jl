@@ -1,14 +1,14 @@
 
-using PkgGraphs
+using PkgGraph
 using Test
 
 print("Loading Graphs, MetaGraphsNext … ")
 using Graphs, MetaGraphsNext
 println("done")
 
-edges = PkgGraphs.depgraph(:Test)
+edges = PkgGraph.depgraph(:Test)
 
-packages = PkgGraphs.vertices(edges)
+packages = PkgGraph.vertices(edges)
 
 g = MetaGraph(DiGraph())
 

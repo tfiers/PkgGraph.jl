@@ -2,5 +2,5 @@
 CommonMark = "a80b9123-70ca-4bc0-993e-6e3bcb318db6"
 DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-PkgGraphs = "e1fb1e7a-e19f-4e1c-a7f1-cf21066b67cc"
+PkgGraph = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"

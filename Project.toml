@@ -1,5 +1,5 @@
-name = "PkgGraphs"
-uuid = "e1fb1e7a-e19f-4e1c-a7f1-cf21066b67cc"
+name = "PkgGraph"
+uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 authors = ["Tomas Fiers <tomas.fiers@gmail.com> and contributors"]
 version = "0.2.0"
 

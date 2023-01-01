@@ -6,7 +6,7 @@
 (See footnote[^1] for why 'online' is in scare-quotes).
 
 
-[^1]: The websites in [`PkgGraphs.webapps`](@ref) use Wasm-compiled versions of Graphviz
+[^1]: The websites in [`PkgGraph.webapps`](@ref) use Wasm-compiled versions of Graphviz
       (see e.g. [dreampuf/GraphvizOnline], which uses [mdaines/viz.js]). I.e. in the
       end, even for the 'online' option, Graphviz _does_ run on your local computer.
       (Though, alas, you do need an active internet connection to access these
@@ -21,13 +21,13 @@ this, as it provides a GUI interface for adding new nodes and changing styles.
 and [its repository][gh] is receiving active updates at the time of writing).
 
 You can use Magnus's app by providing the following as second argument to
-[`PkgGraphs.open`](@ref):
+[`PkgGraph.open`](@ref):
 
-```jldoctest; setup=:( using PkgGraphs )
-julia> base_url = PkgGraphs.webapps[2]
+```jldoctest; setup=:( using PkgGraph )
+julia> base_url = PkgGraph.webapps[2]
 "http://magjac.com/graphviz-visual-editor/?dot="
 
-julia> # PkgGraphs.open(:Test, base_url)
+julia> # PkgGraph.open(:Test, base_url)
 ```
 
 [mj]: http://magjac.com/graphviz-visual-editor

@@ -1,6 +1,6 @@
 using Test
 
-@testset "PkgGraphs.jl" verbose=true begin
+@testset "PkgGraph.jl" verbose=true begin
     # `verbose`, so that timings are always shown
 
     @testset "main" begin

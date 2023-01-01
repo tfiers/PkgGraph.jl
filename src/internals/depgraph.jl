@@ -24,7 +24,7 @@ The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs
 ## Example:
 
 ```jldoctest
-julia> using PkgGraphs.Internals
+julia> using PkgGraph.Internals
 
 julia> depgraph(:Test)
 8-element Vector{Pair{String, String}}:
@@ -81,16 +81,16 @@ packages would share the same name.
 ## Example:
 
 ```jldoctest; filter = r" => .*\$"m
-julia> using PkgGraphs.Internals
+julia> using PkgGraph.Internals
 
 julia> packages = packages_in_active_manifest();
 
-julia> only(packages["PkgGraphs"])
+julia> only(packages["PkgGraph"])
 Dict{String, Any} with 4 entries:
   "deps"    => ["DefaultApplication", "TOML", "URIs"]
   "uuid"    => "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
   "version" => "0.1.0"
-  "path"    => "C:\\Users\\tfiers\\.julia\\dev\\PkgGraphs"
+  "path"    => "C:\\Users\\tfiers\\.julia\\dev\\PkgGraph"
 ```
 """
 packages_in_active_manifest() = packages_in(manifest(active_project()))
@@ -107,7 +107,7 @@ graph. (See the example script in [The Graphs.jl ecosystem](@ref)).
 ## Example:
 
 ```jldoctest
-julia> using PkgGraphs.Internals
+julia> using PkgGraph.Internals
 
 julia> edges = depgraph(:Test);
 

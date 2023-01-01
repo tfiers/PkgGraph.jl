@@ -1,27 +1,27 @@
 """
 Visualize the dependency graph of a Julia package.
 
-Use [`PkgGraphs.open`](@ref) to view the graph in the browser,
-or [`PkgGraphs.create`](@ref) to generate an image locally.
+Use [`PkgGraph.open`](@ref) to view the graph in the browser,
+or [`PkgGraph.create`](@ref) to generate an image locally.
 
 (Note that these functions are not exported).
 
-See [`PkgGraphs.Internals`](@ref) for more functions.
+See [`PkgGraph.Internals`](@ref) for more functions.
 """
-module PkgGraphs
+module PkgGraph
 
 include("webapps.jl")
 
 
 """
-Namespace for the non-end-user functions in PkgGraphs.
+Namespace for the non-end-user functions in PkgGraph.
 
 For ease of experimentation, you can import these with
 ```
-using PkgGraphs.Internals
+using PkgGraph.Internals
 ```
 (They are also imported in the main module, so they
-can be accessed as `PkgGraphs.depgraph`, e.g).
+can be accessed as `PkgGraph.depgraph`, e.g).
 """
 module Internals
 
@@ -44,7 +44,7 @@ module Internals
            output_path
 
     using URIs: escapeuri
-    using ..PkgGraphs: webapps
+    using ..PkgGraph: webapps
     include("internals/online.jl")
     export url
 end

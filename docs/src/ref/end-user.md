@@ -1,12 +1,12 @@
 
 ```@meta
-CurrentModule = PkgGraphs
+CurrentModule = PkgGraph
 ```
 
 # End-user
 
 ```@docs
-PkgGraphs
+PkgGraph
 open
 create
 webapps

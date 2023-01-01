@@ -2,7 +2,7 @@
 
 julia_version = "1.8.1"
 manifest_format = "2.0"
-project_hash = "2b9e26598f1fe12a2caf73f1480442c4eec3b209"
+project_hash = "735496208f96d9f7398511a4838d0b781d7b5e2c"
 
 [[deps.ANSIColoredPrinters]]
 git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
@@ -172,10 +172,10 @@ deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markd
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 version = "1.8.0"
 
-[[deps.PkgGraphs]]
+[[deps.PkgGraph]]
 deps = ["DefaultApplication", "TOML", "URIs"]
 path = ".."
-uuid = "e1fb1e7a-e19f-4e1c-a7f1-cf21066b67cc"
+uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 version = "0.2.0"
 
 [[deps.Printf]]

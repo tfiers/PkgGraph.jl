@@ -1,6 +1,6 @@
 
 ```@meta
-CurrentModule = PkgGraphs.Internals
+CurrentModule = PkgGraph.Internals
 ```
 
 # Internal

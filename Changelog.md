@@ -1,7 +1,7 @@
 
 # Changelog
 
-This document summarizes the changes that were introduced in each new version of _PkgGraphs.jl_.
+This document summarizes the changes that were introduced in each new version of _PkgGraph.jl_.
 
 > With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
 
@@ -45,7 +45,7 @@ Possible categories:
   This can significantly declutter the graphs for packages with many such dependencies.
 
 
-[diff-unreleased]: https://github.com/tfiers/PkgGraphs.jl/compare/v0.2...main
+[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2...main
 
 <br>
 
@@ -53,13 +53,12 @@ Possible categories:
 <!-- ## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
 
 [v02-date-badge]: https://img.shields.io/badge/Released_on-2022--12--28-blue
-[v02-release]: https://github.com/tfiers/PkgGraphs.jl/releases/tag/v0.2.0 -->
+[v02-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.2.0 -->
 
-- Rename package, from `PkgGraph.jl` to `PkgGraphs.jl`
 - Rename the end-user API functions:
-  - `depgraph` → `PkgGraphs.open`
-  - `depgraph_local` → `PkgGraphs.create`
-- Organize API, with new `PkgGraphs.Internals` module
+  - `depgraph` → `PkgGraph.open`
+  - `depgraph_local` → `PkgGraph.create`
+- Organize API, with new `PkgGraph.Internals` module
 - Add backwards support for Julia 1.6
 - Removed `Pkg` dependency
 - Transparent background for generated images (instead of solid white)
@@ -81,22 +80,22 @@ And they found bugs:
 
 ### Fixed
 
-- `PkgGraphs.rendering_url = …` does not work.
+- `PkgGraph.rendering_url = …` does not work.
     - So we go the RefValue way.\
       → new `set_rendering_url(…)` end-user function.
 
 - When requested package is not in active project:\
   Error during creation of error message.
-  - [Fix](https://github.com/tfiers/PkgGraphs.jl/commit/f70e5aa#r92719993)
+  - [Fix](https://github.com/tfiers/PkgGraph.jl/commit/f70e5aa#r92719993)
     (scroll up a bit).
 
 ### Misc
 
 - Pin down minimum supported Julia version (~~1.2~~ → 1.7)
-  - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraphs.jl/commit/2e39f84))
+  - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
 
 [v01-date-badge]: https://img.shields.io/badge/Released_on-2022--12--12-blue
-[v01-release]: https://github.com/tfiers/PkgGraphs.jl/releases/tag/v0.1
+[v01-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1
 
 
 
@@ -106,10 +105,10 @@ And they found bugs:
 
 [Repo at code-import][@import] (2022-12-09)
 
-PkgGraphs.jl started with code imported from [tfiers/julia-sketches][sketches]
+PkgGraph.jl started with code imported from [tfiers/julia-sketches][sketches]
 (`pkg-deps-graphs`).\
 That project was started on 2022-11-06 ([commit history][pre-hist]).
 
-[@import]:  https://github.com/tfiers/PkgGraphs.jl/tree/sketch-import
+[@import]:  https://github.com/tfiers/PkgGraph.jl/tree/sketch-import
 [sketches]: https://github.com/tfiers/julia-sketches
 [pre-hist]: https://github.com/tfiers/julia-sketches/commits/main/pkg-deps-graph

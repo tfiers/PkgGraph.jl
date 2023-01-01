@@ -8,13 +8,13 @@ end
 substitutions = [
 
     # Remove badges from header
-    r"^(# PkgGraphs\.jl).*$"m => s"\1",
+    r"^(# PkgGraph\.jl).*$"m => s"\1",
 
     ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
-     => "see [`PkgGraphs.Internals`](ref/internal$page_ext)."),
+     => "see [`PkgGraph.Internals`](ref/internal$page_ext)."),
 
     ("\n(see [Development](#development) below)."
-     =>"; see [Development](https://github.com/tfiers/PkgGraphs.jl#development) on GitHub."),
+     =>"; see [Development](https://github.com/tfiers/PkgGraph.jl#development) on GitHub."),
 
     # Remove sections at the end
     r"## Development.*$"s => "",
