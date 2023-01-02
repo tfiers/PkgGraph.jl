@@ -41,10 +41,6 @@ Possible categories:
 ### Security
 -->
 
-- Added the keyword arguments `ignore_stdlibs` and `ignore_jlls` to not show stdlibs and jll packages respectively.
-  This can significantly declutter the graphs for packages with many such dependencies.
-
-
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2...main
 
 <br>
@@ -59,6 +55,10 @@ Possible categories:
   - `depgraph` → `PkgGraph.open`
   - `depgraph_local` → `PkgGraph.create`
 - Organize API, with new `PkgGraph.Internals` module
+- Added the keyword arguments `include_jll` and `include_stdlib` to be able to filter
+  binary 'JLL' dependencies and packages from the standard library. This can
+  significantly declutter the graphs for packages with many such dependencies.
+  Thanks @KristofferC
 - Add backwards support for Julia 1.6
 - Removed `Pkg` dependency
 - Transparent background for generated images (instead of solid white)
