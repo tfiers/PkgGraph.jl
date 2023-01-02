@@ -43,7 +43,7 @@ Possible categories:
 
 {nothing yet}
 
-[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2...main
+[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2.0...main
 
 <br>
 
@@ -96,7 +96,7 @@ And they found bugs:
   - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
 
 [v01-date-badge]: https://img.shields.io/badge/Released_on-2022--12--12-blue
-[v01-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1
+[v01-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1.0
 
 
 
