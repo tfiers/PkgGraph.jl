@@ -41,21 +41,22 @@ Possible categories:
 ### Security
 -->
 
+{nothing yet}
+
 [diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2...main
 
 <br>
 
-## v0.2 ([pending release](https://github.com/JuliaRegistries/General/pull/74906))
-<!-- ## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
+## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
 
-[v02-date-badge]: https://img.shields.io/badge/Released_on-2022--12--28-blue
-[v02-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.2.0 -->
+[v02-date-badge]: https://img.shields.io/badge/Released_on-2023--01--02-blue
+[v02-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.2.0
 
 - Rename the end-user API functions:
   - `depgraph` → `PkgGraph.open`
   - `depgraph_local` → `PkgGraph.create`
 - Organize API, with new `PkgGraph.Internals` module
-- Added the keyword arguments `include_jll` and `include_stdlib` to be able to filter
+- New options `include_jll` and `include_stdlib`, to be able to filter
   binary 'JLL' dependencies and packages from the standard library. This can
   significantly declutter the graphs for packages with many such dependencies.
   Thanks @KristofferC
