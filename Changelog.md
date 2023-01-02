@@ -45,7 +45,7 @@ Possible categories:
 
 <br>
 
-## v0.2 ([pending release](https://github.com/JuliaRegistries/General/pull/74747))
+## v0.2 ([pending release](https://github.com/JuliaRegistries/General/pull/74906))
 <!-- ## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
 
 [v02-date-badge]: https://img.shields.io/badge/Released_on-2022--12--28-blue

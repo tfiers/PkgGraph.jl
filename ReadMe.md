@@ -85,7 +85,7 @@ pkg> add PkgGraph
 In the meantime, you can install by specifying a URL directly
 (see [Development](#development) below).
 
-[The PR]: https://github.com/JuliaRegistries/General/pull/74747
+[The PR]: https://github.com/JuliaRegistries/General/pull/74906
 
 
 ### Global Install
