@@ -7,7 +7,7 @@ CurrentModule = PkgGraph
 
 ```@docs
 PkgGraph
-open
-create
-webapps
+PkgGraph.open
+PkgGraph.create
+PkgGraph.Options
 ```

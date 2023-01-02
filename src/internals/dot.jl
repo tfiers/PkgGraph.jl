@@ -1,52 +1,21 @@
 
 """
-    deps_as_dot(pkgname; emptymsg = "(\$pkgname has no dependencies)", kw...)
-
-Create the dependency graph of `pkgname` and render it as a Graphviz DOT string.
-
-See [`to_dot_str`](@ref) for keyword arguments.
-
-## Example:
-
-```jldoctest
-julia> PkgGraph.deps_as_dot(:Test) |> println
-digraph {
-    bgcolor = "transparent"
-    node [fontname = "sans-serif", style = "filled", fillcolor = "white"]
-    edge [arrowsize = 0.88]
-    Test -> InteractiveUtils
-    InteractiveUtils -> Markdown
-    Markdown -> Base64
-    Test -> Logging
-    Test -> Random
-    Random -> SHA
-    Random -> Serialization
-    Test -> Serialization
-}
-```
-"""
-deps_as_dot(
-    pkgname;
-    emptymsg = "($pkgname has no dependencies)",
-    ignore_stdlibs::Bool=false, ignore_jlls::Bool=false,
-    kw...
-) = to_dot_str(depgraph(pkgname; ignore_stdlibs, ignore_jlls); emptymsg, kw...)
-
-
-"""
     to_dot_str(edges; style = default_style, indent = 4, emptymsg = nothing)
 
 Build a string that represents the given directed graph in the
 [Graphviz DOT format ↗](https://graphviz.org/doc/info/lang.html).
 
-If there are no `edges`, a single node with `emptymsg` is created.
-If `emptymsg` is `nothing` (default), no nodes are created, and
-the image rendered from the DOT-string will be empty.
-
 `style` is a list of strings, inserted as lines in the output (just
 before the graph edge lines). To use Graphviz's default style, pass
-`style = []`. For more on how dot-graphs can be styled, see
-[Styling Graphviz output](@ref).
+`style = []`. For more on how dot-graphs can be styled, see [Styling
+Graphviz output](@ref).
+
+`indent` is the number of spaces to indent each line in the "`digraph`"
+block with.
+
+If there are no `edges`, a single node with `emptymsg` is created. If
+`emptymsg` is `nothing` (default), no nodes are created, and the image
+rendered from the DOT-string will be empty.
 
 ## Example:
 

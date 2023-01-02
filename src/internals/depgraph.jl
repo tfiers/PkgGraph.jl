@@ -1,25 +1,16 @@
-const STDLIB_NAMES = Set{String}()
-let
-    for dir in readdir(Sys.STDLIB; join=true)
-        isdir(dir) || continue
-        name = TOML.parsefile(joinpath(dir, "Project.toml"))["name"]
-        push!(STDLIB_NAMES, name)
-    end
-end
-
-function ignore_package(name; ignore_stdlibs::Bool, ignore_jlls::Bool)
-    ignore_stdlibs && name in STDLIB_NAMES && return true
-    ignore_jlls && endswith(name, "_jll") && return true
-    return false
-end
 
 """
-    depgraph(pkgname)
+    depgraph(pkgname; include_jll = true, include_stdlib = true)
 
 Build a directed graph of the dependencies of the given package, using
 the active project's Manifest file.
 
-The returned `deps` object is a flat list of `"PkgA" => "PkgB"` dependency pairs.
+The returned `deps` object is a flat list of `"PkgA" => "PkgB"`
+dependency pairs.
+
+Binary JLL dependencies and packages in the standard library can be
+filtered out from the result by setting `include_jll` and
+`include_stdlib` to `false`.
 
 ## Example:
 
@@ -38,7 +29,7 @@ julia> depgraph(:Test)
              "Test" => "Serialization"
 ```
 """
-depgraph(pkgname; ignore_stdlibs::Bool=false, ignore_jlls::Bool=false) = begin
+depgraph(pkgname; include_jll = true, include_stdlib = true) = begin
     rootpkg = string(pkgname)
     packages = packages_in_active_manifest()
     if rootpkg ∉ keys(packages)
@@ -48,13 +39,13 @@ depgraph(pkgname; ignore_stdlibs::Bool=false, ignore_jlls::Bool=false) = begin
     end
     deps = Vector{Pair{String, String}}()
     add_deps_of(name) = begin
-        ignore_package(name; ignore_stdlibs, ignore_jlls) && return
         pkg_info = only(packages[name])  # Two packages with same name not supported.
         direct_deps = get(pkg_info, "deps", [])
         for dep in direct_deps
-            ignore_package(dep; ignore_stdlibs, ignore_jlls) && continue
-            push!(deps, name => dep)
-            add_deps_of(dep)
+            if should_be_included(dep; include_jll, include_stdlib)
+                push!(deps, name => dep)
+                add_deps_of(dep)
+            end
         end
     end
     add_deps_of(rootpkg)
@@ -94,6 +85,39 @@ Dict{String, Any} with 4 entries:
 ```
 """
 packages_in_active_manifest() = packages_in(manifest(active_project()))
+
+
+should_be_included(pkg; include_jll, include_stdlib) =
+    if !include_jll && is_jll(pkg)
+        false
+    elseif !include_stdlib && is_stdlib(pkg)
+        false
+    else
+        true
+    end
+
+is_jll(pkg) = endswith(pkg, "_jll")
+is_stdlib(pkg) = pkg in stdlib_packages
+
+function get_stdlib_packages()
+    packages = Set{String}()
+    for path in readdir(Sys.STDLIB; join = true)
+        # ↪ `join` gets us complete paths
+        if isdir(path)
+            push!(packages, pkgname(path))
+        end
+    end
+    return packages
+end
+
+pkgname(dir) = begin
+    proj_file = joinpath(dir, "Project.toml")
+    toml_dict = TOML.parsefile(proj_file)
+    pkgname = toml_dict["name"]
+end
+
+const stdlib_packages = get_stdlib_packages()
+
 
 
 """

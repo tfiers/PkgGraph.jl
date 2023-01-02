@@ -10,8 +10,6 @@ See [`PkgGraph.Internals`](@ref) for more functions.
 """
 module PkgGraph
 
-include("webapps.jl")
-
 
 """
 Namespace for the non-end-user functions in PkgGraph.
@@ -20,8 +18,8 @@ For ease of experimentation, you can import these with
 ```
 using PkgGraph.Internals
 ```
-(They are also imported in the main module, so they
-can be accessed as `PkgGraph.depgraph`, e.g).
+They are also imported in the main module, so they
+can be accessed as `PkgGraph.depgraph`, e.g.
 """
 module Internals
 
@@ -29,12 +27,15 @@ module Internals
     using Base: active_project
     include("internals/depgraph.jl")
     export depgraph,
-           vertices,
-           packages_in_active_manifest
+           packages_in_active_manifest,
+           should_be_included,
+           is_jll,
+           is_stdlib,
+           stdlib_packages,
+           vertices
 
     include("internals/dot.jl")
-    export deps_as_dot,
-           to_dot_str,
+    export to_dot_str,
            default_style
 
     include("internals/local.jl")
@@ -44,14 +45,17 @@ module Internals
            output_path
 
     using URIs: escapeuri
-    using ..PkgGraph: webapps
     include("internals/online.jl")
-    export url
+    export url,
+           webapps
+
+    using Base: @kwdef
+    include("internals/options.jl")
+    export Options
 end
 
-using DefaultApplication
 using .Internals
-
+using DefaultApplication
 include("enduser.jl")
 
 # No package exports (no namespace pollution)

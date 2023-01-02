@@ -20,7 +20,6 @@ packages_in_active_manifest
 ## DOT strings
 
 ```@docs
-deps_as_dot
 to_dot_str
 default_style
 ```
@@ -29,4 +28,5 @@ default_style
 
 ```@docs
 url
+webapps
 ```
