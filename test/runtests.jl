@@ -11,6 +11,6 @@ using Test
         include("integration.jl")
     end
     @testset "JuliaGraphs_interop" verbose=true begin
-        # include("JuliaGraphs_interop.jl")
+        include("JuliaGraphs_interop.jl")
     end
 end
