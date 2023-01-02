@@ -1,27 +1,29 @@
 
 # Changelog
 
-This document summarizes the changes that were introduced in each new version of _PkgGraph.jl_.
+A summary of the changes introduced in each new version of `PkgGraph`.
 
-> With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.
-
-The version numbers roughly follow [SemVer](https://semver.org/):
-- <details>
+<details><summary>
+The version numbers roughly follow <a href="https://semver.org">SemVer</a>
+<sub>(expand for details).</sub>
+</summary>
 
   The version format is `major.minor.patch`,\
   with the latter two '`0`' if not specified.
 
-  For versions ≥ 1.0, we try to guarantee the following:
-    - `major` version increases are breaking
-      - i.e. they can make existing code error;
-    - `minor` version increases are not
-      - i.e. they are backwards compatible.
-    - `patch` versions are for e.g. bugfixes.
+  For versions ≥ `v1`, we try to guarantee that `minor` version increases 
+  are not breaking, i.e. that they are backwards compatible.
   
-  <br>
+  Before `v1` (so at `v0.x`), minor versions may be (and mostly are) breaking.
+  
+  `major` version increases are breaking, i.e. they can make existing
+  code error.
+  
+  `patch` versions are for e.g. bugfixes.
+</details>
 
-  Before `v1` (so at `v0.x`), minor versions may be breaking too (and mostly are).
-  </details>
+<sub>With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.</sub>
+
 
 -------------
 
