@@ -77,16 +77,10 @@ functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 ## Installation
 
-[The PR] to add `PkgGraph` to the general registry is not merged yet at the time of
-writing. When that is done, you'll be able to
+`PkgGraph` is available in the general registry and can be installed with
 ```
 pkg> add PkgGraph
 ```
-In the meantime, you can install by specifying a URL directly
-(see [Development](#development) below).
-
-[The PR]: https://github.com/JuliaRegistries/General/pull/74906
-
 
 ### Global Install
 
@@ -113,7 +107,7 @@ Type '`o`' to choose to install it in your base environment.
 
 ## Development
 
-## Unreleased Changes &nbsp;<sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
+### Unreleased Changes &nbsp;<sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
 
 For the latest commit on `main` (aka _dev_ and _unstable_):
 
