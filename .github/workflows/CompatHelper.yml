@@ -3,7 +3,6 @@ on:
   schedule:
     - cron: 0 0 * * *
     # Run every day at midnight.
-    # Hope it's not too wasteful.
   workflow_dispatch:
 jobs:
   CompatHelper:
@@ -15,10 +14,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMPATHELPER_PRIV: ${{ secrets.DOCUMENTER_KEY }}
-          # So need to set this manually ig (in repo settings)
-          # This is from here
-          # https://documenter.juliadocs.org/dev/man/hosting/#GitHub-Actions:~:text=TagBot%20%26%20tagged%20versions
-          #
-          # Same in TagBot.yml
-          #
         run: julia -e 'using CompatHelper; CompatHelper.main()'
