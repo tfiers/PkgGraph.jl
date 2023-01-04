@@ -76,10 +76,11 @@ functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 ## Installation
 
-`PkgGraph` is available in the general registry and can be installed with
+`PkgGraph` is available in the Julia General registry and can be installed [as usual] with
 ```
 pkg> add PkgGraph
 ```
+[as usual]: https://pkgdocs.julialang.org/v1/getting-started
 
 ### Global Install
 
