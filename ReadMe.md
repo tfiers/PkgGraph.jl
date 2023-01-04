@@ -1,6 +1,5 @@
 
-# PkgGraph.jl &nbsp;[![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]](#development)
-<!-- add `[![][latestimg]][latest]` when 0.2 is out  -->
+# PkgGraph.jl &nbsp;[![][latestimg]][latest] [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]](#development)
 
 Small tool to visualize the dependency graph of a Julia package.
 
