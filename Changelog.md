@@ -28,17 +28,17 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 
 
-<!-- <br>
+<br>
 
 ## v0.4  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
-[devlink]: https://github.com/tfiers/PkgGraph.jl#development -->
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development
 <!--
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
-<!-- {no changes yet} -->
+{no changes yet}
 
 
 
@@ -46,6 +46,8 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 <br>
 
 ## v0.3  &nbsp;<sub>[![][v03-date-badge]][v03-release]</sub>
+
+[Will be registered soon: https://github.com/JuliaRegistries/General/pull/75187]
 
 [v03-date-badge]: https://img.shields.io/badge/Released_on-2023--01--05-blue
 [v03-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.3.0
