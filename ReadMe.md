@@ -45,7 +45,7 @@ This will open the browser to [this url][dotlink], which renders something like 
 
 </details>
 
-To filter out binary dependencies ([JLL packages]) or packages from the Julia standard library, you can set the keyword arguments `include_jll = false` and `include_stdlib = false`.
+To filter out binary dependencies ([JLL packages]) or packages from the Julia standard library, you can set the keyword arguments `jll = false` and `stdlib = false`.
 
 [JLL packages]: https://docs.binarybuilder.org/stable/jll
 
