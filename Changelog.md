@@ -46,8 +46,7 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
-- Graphs.jl interop: we do the whole conversion. Just pass through the adjacency matrix.
-  (see `as_graphsjl_input`).
+- New functions `adjacency_matrix` and `as_graphsjl_input`, for even easier Graphs.jl interop.
 
 
 
