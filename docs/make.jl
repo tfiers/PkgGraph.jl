@@ -73,7 +73,7 @@ makedocs(
             "bg/usage-tips.md",
             "bg/related-work.md",
             "bg/graphviz.md",
-            "bg/graphs_jl_interop.md",
+            "bg/graphsjl_interop.md",
             "bg/abbrevs.md",
         ],
         "devguide.md",

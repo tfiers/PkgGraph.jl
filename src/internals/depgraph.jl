@@ -127,7 +127,7 @@ const STDLIB = stdlib_packages()
 Extract the unique nodes from the given list of edges.
 
 Useful when converting the output of [`depgraph`](@ref) to a `Graphs.jl`
-graph. (See the example script in [Graphs.jl interop](@ref)).
+graph. (See the example script in [Working with Graphs.jl](@ref)).
 
 ## Example:
 

@@ -1,14 +1,14 @@
 
-# Graphs.jl interop
+# Working with Graphs.jl
 
 PkgGraph does not depend on any of the packages from [JuliaGraphs](https://juliagraphs.org/).
 
 However, you can easily convert the list of package dependencies to a type that supports
-the [graph interface]. You are then able to use the ecosystem's powerful set of graph analysis tools.
+the [Graphs.jl interface]. You are then able to use the ecosystem's powerful set of graph analysis tools.
 
 Use [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) to obtain the graph edges and vertices, respectively.
 
-[graph interface]: https://juliagraphs.org/Graphs.jl/dev/ecosystem/interface/
+[Graphs.jl interface]: https://juliagraphs.org/Graphs.jl/dev/ecosystem/interface/
 
 
 
