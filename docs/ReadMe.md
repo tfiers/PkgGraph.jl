@@ -23,6 +23,10 @@ run:
 julia docs/scripts/update_imgs_and_url.jl
 ```
 
+This is not (yet) run automatically (in docs/make.jl),
+as that would require a `dot` installation on GH Actions.
+(re https://github.com/tfiers/PkgGraph.jl/issues/52)
+
 
 ## On project instantiation
 
