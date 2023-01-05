@@ -1,7 +1,7 @@
 
 """
 NOTE: When updating this script, make sure the distillation in
-docs/bg/graphsjl_interop.md is up-to-date too.
+docs/bg/graphsjl.md is up-to-date too.
 """
 
 using PkgGraph

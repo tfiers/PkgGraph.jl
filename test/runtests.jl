@@ -9,7 +9,7 @@ using Test
     @testset "integration" verbose=true begin
         include("integration.jl")
     end
-    @testset "Graphs.jl interop" verbose=true begin
-        include("graphsjl_interop.jl")
+    @testset "Graphs.jl example" verbose=true begin
+        include("graphsjl_example.jl")
     end
 end
