@@ -63,8 +63,8 @@ version = "0.9.2"
 
 [[deps.Documenter]]
 deps = ["ANSIColoredPrinters", "AbstractTrees", "Base64", "Dates", "DocStringExtensions", "IOCapture", "InteractiveUtils", "JSON", "LibGit2", "Logging", "Markdown", "MarkdownAST", "REPL", "Test", "Unicode"]
-git-tree-sha1 = "373f9606df32525c27904323eb7c815b6aa9348a"
-repo-rev = "79e2649"
+git-tree-sha1 = "de59c04e07a8944568eb6c391e9e2a72a86588b1"
+repo-rev = "dd1e334"
 repo-url = "https://github.com/JuliaDocs/Documenter.jl"
 uuid = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 version = "0.28.0-DEV"
@@ -194,7 +194,7 @@ version = "1.8.0"
 deps = ["DefaultApplication", "EzXML", "TOML", "URIs"]
 path = ".."
 uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
-version = "0.3.0-dev"
+version = "0.4.0-dev"
 
 [[deps.Preferences]]
 deps = ["TOML"]

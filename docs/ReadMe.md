@@ -44,10 +44,10 @@ manually, before running the build script.
 
 We use an unreleased version of Documenter, to get the newest features (see its [changelog]). (Most importantly, we want the link to the gh repo in the header, so you don't have to go through an "Edit" page every time).
 
-We added the latest commit (which passed CI), on 2022-12-12:
+We added the latest commit (which passed CI), on 2023-01-05:
 
-    (docs) pkg> add https://github.com/JuliaDocs/Documenter.jl#79e2649
+    (docs) pkg> add https://github.com/JuliaDocs/Documenter.jl#dd1e334
 
-(Diff of this commit w/ latest release: https://github.com/JuliaDocs/Documenter.jl/compare/v0.27.23...79e2649)
+(Diff of this commit w/ latest release: https://github.com/JuliaDocs/Documenter.jl/compare/v0.27.23...dd1e334)
 
 [changelog]: https://github.com/JuliaDocs/Documenter.jl/blob/master/CHANGELOG.md
