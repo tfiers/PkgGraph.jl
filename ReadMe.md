@@ -57,11 +57,11 @@ To filter out binary dependencies ([JLL packages]) or packages from the Julia st
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use something like
 ```julia
-julia> PkgGraph.create(:Unitful, ".", :svg)
+julia> PkgGraph.create(:Unitful, ".", fmt=:svg)
 ```
 This will call `dot` to create an SVG image in the current directory (`"."`), and will open it with your default image viewer.
 
-If only the package-name is provided, a `tempdir()` and `:png` are used.
+If only the package-name is provided, `tempdir()` and `fmt = :png` are used.
 
 
 ### Customization

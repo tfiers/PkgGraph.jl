@@ -20,7 +20,7 @@ function open(pkgname; test = false, kw...)
 end
 
 """
-    create(pkgname, dir = tempdir(), fmt = :png; kw...)
+    create(pkgname, dir = tempdir(); fmt = :png; kw...)
 
 Render the dependency graph of the given package as an image in `dir`,
 and open it with your default image viewer. Uses the external program
@@ -33,7 +33,7 @@ The given package must be installed in the currently active project.
 
 See [`PkgGraph.Options`](@ref) for possible keyword arguments.
 """
-function create(pkgname, dir = tempdir(), fmt = :png; test = false, kw...)
+function create(pkgname, dir = tempdir(); fmt = :png, test = false, kw...)
     if !is_dot_available() && !test
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
