@@ -75,6 +75,7 @@ makedocs(
             "bg/graphviz.md",
             "bg/abbrevs.md",
         ],
+        "devguide.md",
     ],
 )
 println("</makedocs>")
