@@ -27,17 +27,16 @@ and open it with your default image viewer. Uses the external program
 '`dot`' (see [graphviz.org](https://graphviz.org)), which must be
 available on `PATH`.
 
-`fmt` is an output file format supported by dot, such as `:svg` or `:png`.
-
-If `fmt` is `:svg`, the generated SVG file is post-processed to add
-light and dark-mode CSS.
-
-To only create the image without automatically opening it, pass
-`open = false`.
-
 The given package must be installed in the currently active project.
 
-See [`PkgGraph.Options`](@ref) for possible keyword arguments.
+`fmt` is an output file format supported by dot, such as `:svg` or `:png`.\\
+If `fmt` is `:svg`, the generated SVG file is post-processed, to add
+light and dark-mode CSS.
+
+To only create the image, without automatically opening it, pass
+`open = false`.
+
+See [`PkgGraph.Options`](@ref) for more keyword arguments.
 """
 function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = false, kw...)
     if !is_dot_available() && !dryrun
