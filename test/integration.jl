@@ -25,10 +25,10 @@ end
 @testset "graphsjl" begin
 
     edges = PkgGraph.depgraph("Test")
-    out = PkgGraph.as_graphsjl_input(edges)
-    @test out.vertices         == PkgGraph.vertices(edges)
-    @test out.indexof("SHA")   == PkgGraph.node_index(edges)("SHA")
-    @test out.adjacency_matrix == PkgGraph.adjacency_matrix(edges)
+    nt = PkgGraph.as_graphsjl_input(edges)
+    @test nt.vertices          == PkgGraph.vertices(edges)
+    @test nt.indexof("Base64") == PkgGraph.node_index(edges)("Base64")
+    @test nt.adjacency_matrix  == PkgGraph.adjacency_matrix(edges)
 end
 
 
