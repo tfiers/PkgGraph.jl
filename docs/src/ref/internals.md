@@ -3,7 +3,7 @@
 CurrentModule = PkgGraph.Internals
 ```
 
-# Internal
+# Internals
 
 ```@docs
 Internals
