@@ -20,13 +20,13 @@ you can switch projects <em>after</em> <code>PkgGraph</code> has been imported (
 <p>Even easier is to install <code>PkgGraph</code> in your base environment (see <a href="#global-install">Global Install</a>),
 so you don't have to switch projects at all.</p>
 </details>
-<p>To filter out binary dependencies (<a href="https://docs.binarybuilder.org/stable/jll">JLL packages</a>) or packages from the Julia standard library, you can set the keyword arguments <code>include_jll = false</code> and <code>include_stdlib = false</code>.</p>
+<p>To filter out binary dependencies (<a href="https://docs.binarybuilder.org/stable/jll">JLL packages</a>) or packages from the Julia standard library, you can set the keyword arguments <code>jll = false</code> and <code>stdlib = false</code>.</p>
 <h3>Local rendering</h3>
 <p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use something like</p>
-<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, &quot;.&quot;, :svg)
+<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, &quot;.&quot;, fmt=:svg)
 </code></pre>
 <p>This will call <code>dot</code> to create an SVG image in the current directory (<code>&quot;.&quot;</code>), and will open it with your default image viewer.</p>
-<p>If only the package-name is provided, a <code>tempdir()</code> and <code>:png</code> are used.</p>
+<p>If only the package-name is provided, <code>tempdir()</code> and <code>fmt = :png</code> are used.</p>
 <h3>Customization</h3>
 <p>The code tries to be modular. So if you want something a bit different than what the
 above interface offers, you might be able to compose it from various internal
@@ -50,4 +50,4 @@ and then <code>add PkgGraph</code> there.</p>
 Type '<code>o</code>' to choose to install it in your base environment.</p>
 </details>
 <br>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Thursday 5 January 2023 10:07">Thursday 5 January 2023</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Thursday 5 January 2023 10:30">Thursday 5 January 2023</span>. Using Julia version 1.8.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
