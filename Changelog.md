@@ -28,16 +28,28 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 
 
-<br>
+<!-- <br>
 
-## v0.3  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+## v0.4  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
-[devlink]: https://github.com/tfiers/PkgGraph.jl#development
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development -->
 <!--
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+<!-- {no changes yet} -->
+
+
+
+
+<br>
+
+## v0.3  &nbsp;<sub>[![][v03-date-badge]][v03-release]</sub>
+
+[v03-date-badge]: https://img.shields.io/badge/Released_on-2023--01--05-blue
+[v03-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.3.0
+
 - Add light & dark mode CSS to generated SVGs
 - `PkgGraph.create`:
   - Allow passing `open = false` to only create the image, and not automatically
@@ -46,7 +58,7 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
-- New functions `adjacency_matrix` and `as_graphsjl_input`, for even easier Graphs.jl interop.
+- New functions `adjacency_matrix` and `as_graphsjl_input`, for easier Graphs.jl interop.
 
 
 
