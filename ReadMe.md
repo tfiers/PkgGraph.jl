@@ -23,10 +23,9 @@ julia> using PkgGraph
 
 julia> PkgGraph.open(:Unitful)
 ```
-This will open the browser to [this url][dotlink], which renders something like the following image:
+This will open the browser to [this url][dotlink], which renders something like the following:
 
-<!-- Generated with `PkgGraph.create("Unitful", "docs/img/")` -->
-<!-- If updating this, update the link below too (`PkgGraph.Internals.url`) -->
+<!-- See docs/script/update_imgs_and_url.jl -->
 <img src="docs/img/Unitful-deps.svg"
      width=680
      alt="Dependency graph of Unitful, rendered with Graphviz dot">

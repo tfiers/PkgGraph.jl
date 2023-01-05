@@ -12,6 +12,18 @@ For faster rebuilds when editing docstrings, [Revise] is loaded by `make.jl`.
 [Revise]: https://timholy.github.io/Revise.jl
 
 
+## Updating static images
+
+To update
+1. The images in `img/` (used in the docs and in the main readme), and
+2. The long example URL in `../ReadMe.md`,
+
+run:
+```
+julia docs/scripts/update_imgs_and_url.jl
+```
+
+
 ## On project instantiation
 
 The build script (`make.jl`) will automatically instantiate the `docs` environment (i.e. will install the packages in `docs/Manifest.toml`), if it detects that the `docs/build/` dir is not present.
