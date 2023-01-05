@@ -8,14 +8,14 @@ The given package must be installed in the currently active project.
 
 See [`PkgGraph.Options`](@ref) for possible keyword arguments.
 """
-function open(pkgname; test = false, kw...)
+function open(pkgname; dryrun = false, kw...)
     link = url(pkgname, Options(; kw...))
-    if !test
+    if !dryrun
         DefaultApplication.open(link)
+        # ↪ Passing a URL (and not a file) opens the browser on all
+        #   platforms. (Even though that is undocumented behaviour:
+        #   https://github.com/tpapp/DefaultApplication.jl/issues/12)
     end
-    # ↪ Passing a URL (and not a file) opens the browser on all
-    #   platforms. (Even though that is undocumented behaviour:
-    #   https://github.com/tpapp/DefaultApplication.jl/issues/12)
     return nothing
 end
 
@@ -33,13 +33,13 @@ The given package must be installed in the currently active project.
 
 See [`PkgGraph.Options`](@ref) for possible keyword arguments.
 """
-function create(pkgname, dir = tempdir(); fmt = :png, test = false, kw...)
-    if !is_dot_available() && !test
+function create(pkgname, dir = tempdir(); fmt = :png, dryrun = false, kw...)
+    if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
     dotstr = to_dot_str(pkgname, Options(; kw...))
     imgpath = output_path(pkgname, dir, fmt)
-    if !test
+    if !dryrun
         create_dot_image(dotstr, fmt, imgpath)
         DefaultApplication.open(imgpath)
     end

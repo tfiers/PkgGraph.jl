@@ -5,8 +5,8 @@ using Test
 
 @testset "end-user" begin
 
-    @test isnothing(PkgGraph.open("Test", test = true))
-    @test isnothing(PkgGraph.create("Test", test = true))
+    @test isnothing(PkgGraph.open("Test", dryrun = true))
+    @test isnothing(PkgGraph.create("Test", dryrun = true))
 end
 
 
