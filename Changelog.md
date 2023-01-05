@@ -27,6 +27,7 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 -------------
 
 
+
 <br>
 
 ## v0.3  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
@@ -49,6 +50,7 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
   (see `as_graphsjl_input`).
 
 
+
 <br>
 
 ## v0.2  &nbsp;<sub>[![][v02-date-badge]][v02-release]</sub>
@@ -69,38 +71,32 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Transparent background for generated images (instead of solid white)
 - When no deps: a single node with "no deps" is drawn (instead of nothing)
 - User settings (`base_url`, `style`) are now set via kwargs and not mutating globals
-- (Docs & infra)
+- [Docs & infra]
   - Actual example in ReadMe
   - Lots (lots) of doc writing
     - Plus custom markdown (pre)processing scripts :)
   - This changelog
 
 
+
 <br>
 
 ## v0.1  &nbsp;<sub>[![][v01-date-badge]][v01-release]</sub>
 
-The first automated tests were added.\
-And they found bugs:
-
-### Fixed
-
-- `PkgGraph.rendering_url = …` does not work.
-    - So we go the RefValue way.\
-      → new `set_rendering_url(…)` end-user function.
-
-- When requested package is not in active project:\
-  Error during creation of error message.
-  - [Fix](https://github.com/tfiers/PkgGraph.jl/commit/f70e5aa#r92719993)
-    (scroll up a bit).
-
-### Misc
-
-- Pin down minimum supported Julia version (~~1.2~~ → 1.7)
-  - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
-
 [v01-date-badge]: https://img.shields.io/badge/Released_on-2022--12--12-blue
 [v01-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.1.0
+
+- The first automated tests were added.\
+  And they found bugs:
+  - `PkgGraph.rendering_url = …` does not work.
+      - So we go the RefValue way.\
+        → new `set_rendering_url(…)` end-user function.
+  - When requested package is not in active project:\
+    Error during creation of error message.
+    - [Fix](https://github.com/tfiers/PkgGraph.jl/commit/f70e5aa#r92719993)
+      (scroll up a bit).
+- Pin down minimum supported Julia version (~~1.2~~ → 1.7)
+  - 1.6 would be possible, but a bit of work (see [commit message](https://github.com/tfiers/PkgGraph.jl/commit/2e39f84))
 
 
 
