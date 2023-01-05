@@ -20,7 +20,7 @@ function open(pkgname; dryrun = false, kw...)
 end
 
 """
-    create(pkgname, dir = tempdir(); fmt = :png, kw...)
+    create(pkgname, dir = tempdir(); fmt = :png, open = true, kw...)
 
 Render the dependency graph of the given package as an image in `dir`,
 and open it with your default image viewer. Uses the external program
@@ -32,11 +32,14 @@ available on `PATH`.
 If `fmt` is `:svg`, the generated SVG file is post-processed to add
 light and dark-mode CSS.
 
+To only create the image without automatically opening it, pass
+`open = false`.
+
 The given package must be installed in the currently active project.
 
 See [`PkgGraph.Options`](@ref) for possible keyword arguments.
 """
-function create(pkgname, dir = tempdir(); fmt = :png, dryrun = false, kw...)
+function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = false, kw...)
     if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
@@ -47,7 +50,7 @@ function create(pkgname, dir = tempdir(); fmt = :png, dryrun = false, kw...)
         if fmt == :svg
             add_darkmode(imgpath)
         end
-        DefaultApplication.open(imgpath)
+        open && DefaultApplication.open(imgpath)
     end
     return nothing
 end

@@ -37,8 +37,10 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
-- In `PkgGraph.create("Pkg", "dir", fmt=:svg)`,
-  the file format is a keyword argument again (not positional)
+- `PkgGraph.create`:
+  - Allow passing `open = false` to only create the image, and not automatically
+    open it with the default image viewer too.
+  - The file format, `fmt`, is a keyword argument again (not positional)
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
