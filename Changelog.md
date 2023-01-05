@@ -47,8 +47,6 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 
 ## v0.3  &nbsp;<sub>[![][v03-date-badge]][v03-release]</sub>
 
-[Will be registered soon: https://github.com/JuliaRegistries/General/pull/75187]
-
 [v03-date-badge]: https://img.shields.io/badge/Released_on-2023--01--05-blue
 [v03-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.3.0
 
