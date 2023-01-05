@@ -107,7 +107,7 @@ Type '`o`' to choose to install it in your base environment.
 
 ## Development
 
-### Unreleased Changes &nbsp;<sub>[![][commitsimg]][latest] [![][devdocs-img]][devdocs]</sub>
+### Unreleased Changes &nbsp;<sub>[![][commitsimg]][difflink] [![][devdocs-img]][devdocs]</sub>
 
 For the latest commit on `main` (aka _dev_ and _unstable_):
 
@@ -128,7 +128,7 @@ pkg> add https://github.com/tfiers/PkgGraph.jl#f6e83ca
 [testhist]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
 
 [commitsimg]:  https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest
-<!-- The link, 'latest', is defined above (at header. See html comment at bottom of file). -->
+[difflink]:https://github.com/tfiers/PkgGraph.jl/compare/v0.2.0...main
 
 [devdocs-img]: https://img.shields.io/badge/📕_Documentation-dev-blue.svg
 [devdocs]:     https://tfiers.github.io/PkgGraph.jl/dev
@@ -173,23 +173,3 @@ for how to locally run the tests and build the documentation.
 See the [Developer Guide][1] in the documentation for more.
 
 [1]: https://tfiers.github.io/PkgGraph.jl/dev/devguide
-
-
-<!-- 
-On the "Commits since [latest release]" badge.
-
-Currently the user has to click through on the release page
-(on the gh-generated link "xx commits to main since this release").
-
-We could add a `latest` tag (or branch?).
-It can be automated: https://github.com/marketplace/actions/latest-tag
-
-But moving a tag seems annoying, see https://pakstech.com/blog/move-git-tag/,
-"Pulling after a tag has been edited" (you need to delete the local tag).
-
-So, we rely on this click-through solution,
-with the (undocumented?) `/releases/latest` url.
-
-How does shields.io do this btw? → Via an API call
-(https://github.com/badges/shields/blob/7a38cfe/services/github/github-commits-since.service.js#L138)
--->

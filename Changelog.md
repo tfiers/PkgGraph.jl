@@ -31,8 +31,6 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 ## v0.3  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
-[Diff. w/ latest release][compare-with-stable]
-
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 <!--
@@ -44,8 +42,6 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
-
-[compare-with-stable]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2.0...main
 
 
 <br>

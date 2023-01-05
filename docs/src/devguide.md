@@ -6,9 +6,8 @@
 - Roll-over [`Changelog.md`]:
     - Add a commented-out section above the new release, for the next
       version.
-    - Move the 'unreleased' badges and links of the new release to the commented out
-      section above. Replace them with new 'released' badges and links, in analogy
-      with previously released versions.
+    - Move the 'unreleased' badge to the commented out section. Replace with a new
+      'released' badge and link, in analogy with previously released versions.
 - Commit the above, and comment on this commit on GitHub
   with `@JuliaRegistrator register`. (This opens a PR in the General registry)
 
@@ -23,6 +22,7 @@ When the PR is merged:
 - The TagBot github action will automatically run, and create a git tag
   for the commented-on commit above.
 - If this is the first release, update the 'Installation' section of the ReadMe again.
+- Also in the Readme, update the git tag of the latest release in `[difflink]: …`.
 - Remove the temporary warning and PR link.
 
 [`Changelog.md`]: https://github.com/tfiers/PkgGraph.jl/edit/main/Changelog.md
