@@ -19,19 +19,19 @@ using Test
     end
 
     @test !is_jll("TOML")
-    @test is_stdlib("TOML")
+    @test is_in_stdlib("TOML")
     @test !is_jll("Graphs")
-    @test !is_stdlib("Graphs")
+    @test !is_in_stdlib("Graphs")
     @test is_jll("LibUV_jll")
-    @test is_stdlib("LibUV_jll")
+    @test is_in_stdlib("LibUV_jll")
 
-    @test  should_be_included("LibUV_jll", include_jll = true,  include_stdlib = true)
-    @test !should_be_included("LibUV_jll", include_jll = true,  include_stdlib = false)
-    @test !should_be_included("LibUV_jll", include_jll = false, include_stdlib = true)
-    @test !should_be_included("TOML",      include_jll = true,  include_stdlib = false)
-    @test  should_be_included("TOML",      include_jll = false, include_stdlib = true)
+    @test  should_be_included("LibUV_jll")
+    @test !should_be_included("LibUV_jll", include_stdlib = false)
+    @test !should_be_included("LibUV_jll", include_jll = false)
+    @test !should_be_included("TOML", include_stdlib = false)
+    @test  should_be_included("TOML", include_jll = false)
 
-    @test depgraph("Graphs"; include_jll = false, include_stdlib = false) == [
+    @test depgraph("Graphs"; jll = false, stdlib = false) == [
                "Graphs" => "ArnoldiMethod"
         "ArnoldiMethod" => "StaticArrays"
          "StaticArrays" => "StaticArraysCore"

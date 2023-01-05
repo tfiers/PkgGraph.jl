@@ -1,6 +1,6 @@
 
 """
-    depgraph(pkgname; include_jll = true, include_stdlib = true)
+    depgraph(pkgname; jll = true, stdlib = true)
 
 Build a directed graph of the dependencies of the given package, using
 the active project's Manifest file.
@@ -9,8 +9,7 @@ The returned `deps` object is a flat list of `"PkgA" => "PkgB"`
 dependency pairs.
 
 Binary JLL dependencies and packages in the standard library can be
-filtered out from the result by setting `include_jll` and
-`include_stdlib` to `false`.
+filtered out from the result by setting `jll` and `stdlib` to `false`.
 
 ## Example:
 
@@ -29,9 +28,11 @@ julia> depgraph(:Test)
              "Test" => "Serialization"
 ```
 """
-depgraph(pkgname; include_jll = true, include_stdlib = true) = begin
+depgraph(pkgname; jll = true, stdlib = true) = begin
     rootpkg = string(pkgname)
     packages = packages_in_active_manifest()
+    include_jll = jll
+    include_stdlib = stdlib
     if rootpkg ∉ keys(packages)
         error("""
         The given package ($pkgname) must be installed in the active project
@@ -87,19 +88,19 @@ Dict{String, Any} with 4 entries:
 packages_in_active_manifest() = packages_in(manifest(active_project()))
 
 
-should_be_included(pkg; include_jll, include_stdlib) =
+should_be_included(pkg; include_jll = true, include_stdlib = true) =
     if !include_jll && is_jll(pkg)
         false
-    elseif !include_stdlib && is_stdlib(pkg)
+    elseif !include_stdlib && is_in_stdlib(pkg)
         false
     else
         true
     end
 
 is_jll(pkg) = endswith(pkg, "_jll")
-is_stdlib(pkg) = pkg in stdlib_packages
+is_in_stdlib(pkg) = pkg in STDLIB
 
-function get_stdlib_packages()
+stdlib_packages() = begin
     packages = Set{String}()
     for path in readdir(Sys.STDLIB; join = true)
         # ↪ `join` gets us complete paths
@@ -107,7 +108,7 @@ function get_stdlib_packages()
             push!(packages, pkgname(path))
         end
     end
-    return packages
+    packages
 end
 
 pkgname(dir) = begin
@@ -116,7 +117,7 @@ pkgname(dir) = begin
     pkgname = toml_dict["name"]
 end
 
-const stdlib_packages = get_stdlib_packages()
+const STDLIB = stdlib_packages()
 
 
 

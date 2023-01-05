@@ -30,8 +30,8 @@ module Internals
            packages_in_active_manifest,
            should_be_included,
            is_jll,
-           is_stdlib,
-           stdlib_packages,
+           is_in_stdlib,
+           STDLIB,
            vertices
 
     include("internals/dot.jl")
