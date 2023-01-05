@@ -29,6 +29,9 @@ available on `PATH`.
 
 `fmt` is an output file format supported by dot, such as `:svg` or `:png`.
 
+If `fmt` is `:svg`, the generated SVG file is post-processed to add
+light and dark-mode CSS.
+
 The given package must be installed in the currently active project.
 
 See [`PkgGraph.Options`](@ref) for possible keyword arguments.
@@ -41,6 +44,9 @@ function create(pkgname, dir = tempdir(); fmt = :png, dryrun = false, kw...)
     imgpath = output_path(pkgname, dir, fmt)
     if !dryrun
         create_dot_image(dotstr, fmt, imgpath)
+        if fmt == :svg
+            add_darkmode(imgpath)
+        end
         DefaultApplication.open(imgpath)
     end
     return nothing

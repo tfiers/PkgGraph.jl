@@ -10,6 +10,17 @@ using Test
 end
 
 
+@testset "svg" begin
+
+    contents(file) = read(file, String)
+
+    infile = joinpath(@__DIR__, "simple-dot-output.svg")
+    outfile = tempname()
+    add_darkmode(infile, outfile)
+    expected = joinpath(@__DIR__, "simple-dot-with-darkmode.svg")
+    @test contents(outfile) == contents(expected)
+end
+
 @testset "dot" begin
 
     @test to_dot_str(:TOML, Options()) ==

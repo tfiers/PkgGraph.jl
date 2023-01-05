@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="744" height="661" viewBox="0 0 558 495.75"><style>
+svg { color-scheme: light dark }
+text {
+    text-anchor: middle;
+    font-family: sans-serif;
+}
+
+.node ellipse { stroke: black; fill: white }
+.node text    { fill: black }
+.edge path    { stroke: black }
+.edge polygon { stroke: black; fill: black }
+
+@media (prefers-color-scheme: dark) {
+.node ellipse { stroke: white; fill: black }
+.node text    { fill: white }
+.edge path    { stroke: white }
+.edge polygon { stroke: white; fill: white }
+}
+</style>
+<g id="graph0" class="graph" transform="translate(235.25,229.875) scale(1)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 58,-112 58,4 -4,4"/>
+<!-- TOML -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse cx="27" cy="-90" rx="27" ry="18"/>
+<text x="27" y="-85.8" font-size="14.00">A</text>
+</g>
+<!-- Dates -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse cx="27" cy="-18" rx="27" ry="18"/>
+<text x="27" y="-13.8" font-size="14.00">B</text>
+</g>
+<!-- TOML&#45;&gt;Dates -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" d="M27,-71.7C27,-63.98 27,-54.71 27,-46.11"/>
+<polygon points="30.5,-46.1 27,-36.1 23.5,-46.1 30.5,-46.1"/>
+</g>
+</g>
+</svg>

@@ -24,6 +24,12 @@ to_dot_str
 default_style
 ```
 
+## Post-processing of SVG files
+
+```@docs
+add_darkmode
+```
+
 ## Online rendering
 
 ```@docs

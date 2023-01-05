@@ -38,6 +38,10 @@ module Internals
     export to_dot_str,
            default_style
 
+    using EzXML
+    include("internals/svg.jl")
+    export add_darkmode
+
     include("internals/local.jl")
     export is_dot_available,
            create_dot_image,
