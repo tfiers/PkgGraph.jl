@@ -21,6 +21,17 @@ end
     @test contents(outfile) == contents(expected)
 end
 
+
+@testset "graphsjl" begin
+
+    edges = PkgGraph.depgraph("Test")
+    out = PkgGraph.as_graphsjl_input(edges)
+    @test out.vertices         == PkgGraph.vertices(edges)
+    @test out.indexof("SHA")   == PkgGraph.node_index(edges)("SHA")
+    @test out.adjacency_matrix == PkgGraph.adjacency_matrix(edges)
+end
+
+
 @testset "dot" begin
 
     @test to_dot_str(:TOML, Options()) ==

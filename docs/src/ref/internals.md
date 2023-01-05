@@ -13,7 +13,6 @@ Internals
 
 ```@docs
 depgraph
-vertices
 packages_in_active_manifest
 ```
 
@@ -41,4 +40,13 @@ webapps
 
 ```@docs
 Options
+```
+
+## Graphs.jl conversion
+
+```@docs
+vertices
+node_index
+adjacency_matrix
+as_graphsjl_input
 ```

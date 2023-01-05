@@ -110,42 +110,10 @@ stdlib_packages() = begin
     end
     packages
 end
-
-pkgname(dir) = begin
-    proj_file = joinpath(dir, "Project.toml")
+pkgname(pkgdir) = begin
+    proj_file = joinpath(pkgdir, "Project.toml")
     toml_dict = TOML.parsefile(proj_file)
     pkgname = toml_dict["name"]
 end
 
 const STDLIB = stdlib_packages()
-
-
-
-"""
-    vertices(edges)
-
-Extract the unique nodes from the given list of edges.
-
-Useful when converting the output of [`depgraph`](@ref) to a `Graphs.jl`
-graph. (See the example script in [Working with Graphs.jl](@ref)).
-
-## Example:
-
-```jldoctest
-julia> using PkgGraph.Internals
-
-julia> edges = depgraph(:Test);
-
-julia> vertices(edges)
-8-element Vector{String}:
- "Test"
- "InteractiveUtils"
- "Markdown"
- "Random"
- "Base64"
- "Logging"
- "SHA"
- "Serialization"
-```
-"""
-vertices(edges) = [first.(edges); last.(edges)] |> unique!

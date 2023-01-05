@@ -12,17 +12,15 @@ using Graphs
 println(" … done")
 
 edges = PkgGraph.depgraph("Test")
+
 packages = PkgGraph.vertices(edges)
+node     = PkgGraph.node_index(edges)
+A        = PkgGraph.adjacency_matrix(edges)
 
-g = DiGraph(length(packages))
+# Or, more efficiently:
+packages, node, A = PkgGraph.as_graphsjl_input(edges)
 
-# Graphs.jl needs nodes to be integers
-nodes = Dict(pkg => i for (i, pkg) in enumerate(packages))
-node(pkg) = nodes[pkg]
-
-for (pkg, dep) in edges
-    add_edge!(g, node(pkg), node(dep))
-end
+g = DiGraph(A)
 
 @test outdegree(g, node("Test")) == 4
 @test indegree(g, node("Test")) == 0

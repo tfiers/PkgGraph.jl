@@ -18,8 +18,16 @@ export depgraph,
        should_be_included,
        is_jll,
        is_in_stdlib,
-       STDLIB,
-       vertices
+       STDLIB
+
+include("graphsjl.jl")
+export vertices,
+       node_index,
+       adjacency_matrix,
+       as_graphsjl_input,
+       as_int_pairs,
+       EdgeList,
+       Edge
 
 include("dot.jl")
 export to_dot_str,
