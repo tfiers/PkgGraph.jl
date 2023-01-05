@@ -36,7 +36,7 @@ export is_dot_available,
        output_path
 
 using URIs: escapeuri
-include("online.jl")
+include("webapps.jl")
 export url,
        webapps
 
