@@ -14,17 +14,15 @@ See [Settings](@ref) for available properties.
     base_url  ::String          = first(webapps)
 end
 
-defaults = Options()
-
-depgraph(pkg, o::Options = defaults) =
+depgraph(pkg, o::Options) =
     depgraph(pkg; o.jll, o.stdlib)
 
-to_dot_str(pkg, o::Options = defaults) =
+to_dot_str(pkg, o::Options) =
     to_dot_str(
         depgraph(pkg, o);
         o.style,
         emptymsg = "($pkg has no dependencies)",
     )
 
-url(pkg, o::Options = defaults) =
+url(pkg, o::Options) =
     url(o.base_url, to_dot_str(pkg, o))
