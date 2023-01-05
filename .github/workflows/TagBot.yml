@@ -9,8 +9,38 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.actor == 'JuliaTagBot'
     runs-on: ubuntu-latest
     steps:
-      - uses: JuliaRegistries/TagBot@v1
+      - uses: JuliaRegistries/TagBot@v1  # https://github.com/JuliaRegistries/TagBot#readme
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          ssh: ${{ secrets.DOCUMENTER_KEY }}
-          draft: true  # Draft GH Release (not actual)
+          ssh: ${{ secrets.DOCUMENTER_KEY }}  # To be allowed to trigger docbuild (different workflow)
+          draft: true  # Draft Release & tag (not actually create them)
+          user: tfiers
+          email: tomas.fiers@gmail.com
+          changelog: |  # Note that this is the release/tag text. (Not my Changelog.md)
+                Human-written changelog: [**Changelog @ {{ version }}**][cl]
+
+                [cl]: https://github.com/tfiers/PkgGraph.jl/blob/main/Changelog.md#{{ version }}--
+
+                {% if custom %}
+                {{ custom }}
+                {% endif %}
+
+                {% if pulls %}
+                Merged PRs:
+                - <details><summary><sub>[Click to expand]</sub></summary>
+
+                  {% for pull in pulls %}
+                  - {{ pull.title }} (#{{ pull.number }}) (@{{ pull.author.username }})
+                  {% endfor %}
+                  </details>
+                {% endif %}
+
+                {% if issues %}
+                Closed issues:
+                - <details><summary><sub>[Click to expand]</sub></summary>
+
+                  {% for issue in issues %}
+                  - {{ issue.title }} (#{{ issue.number }})
+                  {% endfor %}
+                  </details>
+                {% endif %}
