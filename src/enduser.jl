@@ -20,7 +20,7 @@ function open(pkgname; test = false, kw...)
 end
 
 """
-    create(pkgname, dir = tempdir(); fmt = :png; kw...)
+    create(pkgname, dir = tempdir(); fmt = :png, kw...)
 
 Render the dependency graph of the given package as an image in `dir`,
 and open it with your default image viewer. Uses the external program
