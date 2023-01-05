@@ -46,10 +46,10 @@ PkgGraph does not depend on any of the packages from [JuliaGraphs](https://julia
 However, you can easily convert the list of package dependencies to a type that supports
 the [graph interface]. You are then able to use the ecosystem's powerful set of graph analysis tools.
 
-See [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) for how to obtain the graph edges and vertices, respectively.
+Use [`PkgGraph.depgraph`](@ref) and [`PkgGraph.vertices`](@ref) to obtain the graph edges and vertices, respectively.
 
 For an example of using Graphs.jl functions on a package dependency DAG, see
-[`PkgGraph.jl/test/JuliaGraphs_interop.jl`][gh], where we analyze the dependency graph
+[`test/JuliaGraphs_interop.jl`][gh], where we analyze the dependency graph
 of `Tests`:
 
 ```@raw html
@@ -57,20 +57,28 @@ of `Tests`:
      src="https://raw.githubusercontent.com/tfiers/PkgGraph.jl/main/docs/img/Test-deps.svg">
 ```
 
-Some excerpts from that script:
+A distillation of that script:
 ```julia
-edges = PkgGraph.depgraph(:Test)
+using Graphs
+
+edges = PkgGraph.depgraph("Test")
 packages = PkgGraph.vertices(edges)
 
-g = MetaGraph(DiGraph())
+g = DiGraph(length(packages))
 
-# [..adding nodes and edges to `g`..]
+# Graphs.jl needs nodes to be integers
+nodes = Dict(pkg => i for (i, pkg) in enumerate(packages))
+node(pkg) = nodes[pkg]
 
-@test outdegree(g, node(:Test)) == 4
-@test indegree(g, node(:Test)) == 0
+for (pkg, dep) in edges
+    add_edge!(g, node(pkg), node(dep))
+end
 
-ds = dijkstra_shortest_paths(g, node(:Test))
-# [..plus some wrangling & formatting, and..]
+@test outdegree(g, node("Test")) == 4
+@test indegree(g, node("Test")) == 0
+
+ds = dijkstra_shortest_paths(g, node("Test"))
+# ..plus some wrangling & formatting, and we get:
 """
 Distance from Test to …
               Test: 0
@@ -84,13 +92,8 @@ Distance from Test to …
 """
 ```
 
-Note that we use [MetaGraphsNext.jl] in the script to construct our graph. The
-`SimpleDiGraph` from the main package, Graphs.jl, requires nodes to be integers; and we
-want text labels.
-
 [graph interface]: https://juliagraphs.org/Graphs.jl/dev/ecosystem/interface/
 [gh]: https://github.com/tfiers/PkgGraph.jl/blob/main/test/JuliaGraphs_interop.jl
-[MetaGraphsNext.jl]: https://github.com/JuliaGraphs/MetaGraphsNext.jl
 
 
 

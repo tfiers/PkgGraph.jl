@@ -1,37 +1,37 @@
 
+"""
+NOTE: When updating this script, make sure the distillation in
+docs/related-work.md is up-to-date too.
+"""
+
 using PkgGraph
 using Test
 
-print("Loading Graphs, MetaGraphsNext … ")
-using Graphs, MetaGraphsNext
-println("done")
+println("Loading Graphs")
+using Graphs
+println(" … done")
 
-edges = PkgGraph.depgraph(:Test)
-
+edges = PkgGraph.depgraph("Test")
 packages = PkgGraph.vertices(edges)
 
-g = MetaGraph(DiGraph())
+g = DiGraph(length(packages))
 
-# Nodes must be created before edges can be added
-for pkg in packages
-    g[Symbol(pkg)] = nothing
-end
+# Graphs.jl needs nodes to be integers
+nodes = Dict(pkg => i for (i, pkg) in enumerate(packages))
+node(pkg) = nodes[pkg]
 
 for (pkg, dep) in edges
-    g[Symbol(pkg), Symbol(dep)] = nothing
+    add_edge!(g, node(pkg), node(dep))
 end
 
-node(s) = code_for(g, s)
+@test outdegree(g, node("Test")) == 4
+@test indegree(g, node("Test")) == 0
 
-@test outdegree(g, node(:Test)) == 4
-@test indegree(g, node(:Test)) == 0
-
-ds = dijkstra_shortest_paths(g, node(:Test))
+ds = dijkstra_shortest_paths(g, node("Test"))
 
 io = IOBuffer()
 println(io, "Distance from Test to …")
-for i in Graphs.vertices(g)
-    pkg = label_for(g, i)
+for (i, pkg) in enumerate(packages)
     dist = ds.dists[i]
     print(io, lpad(pkg, maximum(length, packages) + 2))
     println(io, ": ", Int(dist))
