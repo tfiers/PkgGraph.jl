@@ -7,7 +7,15 @@ CurrentModule = PkgGraph
 
 ```@docs
 PkgGraph
+```
+
+## Online
+```@docs
 PkgGraph.open
+```
+
+## Local
+```@docs
 PkgGraph.create
 ```
 
