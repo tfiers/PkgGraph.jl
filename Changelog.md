@@ -37,6 +37,7 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+- Add light & dark mode CSS to generated SVGs
 - `PkgGraph.create`:
   - Allow passing `open = false` to only create the image, and not automatically
     open it with the default image viewer too.
