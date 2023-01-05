@@ -2,28 +2,10 @@
 """
     Options(; kw...)
 
-Used by `PkgGraph.open` and `PkgGraph.create`, as settings to tweak
-their output.
+Convenience object to gather all settings (kwargs) of different
+functions in one place
 
-The fields of this struct are keyword arguments to the above end-user
-functions. I.e, no need to construct this object yourself.
-
-## Keyword arguments
-
-`jll`\\
-    Whether to include binary 'JLL' dependencies in the graph
-    (default: `true`)
-
-`stdlib`\\
-    Whether to include packages in the standard library
-    (default: `true`)
-
-`style`\\
-    Custom Graphviz styling. See [`default_style`](@ref).
-
-`base_url`\\
-    See [`url`](@ref).
-    By default, the first entry in [`webapps`](@ref).
+See [Settings](@ref) for available properties.
 """
 @kwdef struct Options
     jll       ::Bool            = true
@@ -33,7 +15,6 @@ functions. I.e, no need to construct this object yourself.
 end
 
 defaults = Options()
-
 
 depgraph(pkg, o::Options = defaults) =
     depgraph(pkg; o.jll, o.stdlib)

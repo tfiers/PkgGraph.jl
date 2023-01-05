@@ -6,7 +6,7 @@ Open the browser to an image of `pkgname`'s dependency graph.
 
 The given package must be installed in the currently active project.
 
-See [`PkgGraph.Options`](@ref) for possible keyword arguments.
+See [Settings](@ref) for possible keyword arguments.
 """
 function open(pkgname; dryrun = false, kw...)
     link = url(pkgname, Options(; kw...))
@@ -36,7 +36,7 @@ light and dark-mode CSS.
 To only create the image, without automatically opening it, pass
 `open = false`.
 
-See [`PkgGraph.Options`](@ref) for more keyword arguments.
+See [Settings](@ref) for more keyword arguments.
 """
 function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = false, kw...)
     if !is_dot_available() && !dryrun

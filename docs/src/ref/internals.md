@@ -36,3 +36,9 @@ add_darkmode
 url
 webapps
 ```
+
+## Options
+
+```@docs
+Options
+```
