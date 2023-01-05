@@ -5,7 +5,7 @@ A summary of the changes introduced in each new version of `PkgGraph`.
 
 <details><summary>
 The version numbers roughly follow <a href="https://semver.org">SemVer</a>
-<sub>(expand for details).</sub>
+<sub>(expand for details)</sub>
 </summary>
 
   The version format is `major.minor.patch`,\
@@ -24,28 +24,29 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 <sub>With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.</sub>
 
-
 -------------
+
 
 <br>
 
-## Unreleased
+## v0.3  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
-[Diff. w/ latest release][diff-unreleased]
+[Diff. w/ latest release][compare-with-stable]
 
+[unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development
 <!--
-Possible categories:
-### Added
-### Changed
-### Fixed
-### Deprecated  (for soon-to-be removed features)
-### Removed
-### Security
+Possible categories: [Added, Changed, Fixed, Removed, Security,
+                      Deprecated (for soon-to-be removed features)]
 -->
+- In `PkgGraph.create("Pkg", "dir", fmt=:svg)`,
+  the file format is a keyword argument again (not positional)
+- Shorten keyword arguments for excluding JLLs and standard library packages:
+  - ~~`include_jll`~~ → `jll`
+  - ~~`include_stdlib`~~ → `stdlib`
 
-{nothing yet}
+[compare-with-stable]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2.0...main
 
-[diff-unreleased]: https://github.com/tfiers/PkgGraph.jl/compare/v0.2.0...main
 
 <br>
 

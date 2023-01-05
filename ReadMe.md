@@ -13,7 +13,7 @@ Small tool to visualize the dependency graph of a Julia package.
 [chlog-img]: https://img.shields.io/badge/🕑_Changelog-gray
 [chlog]: Changelog.md
 
-[devimg]: https://img.shields.io/badge/⚒️_dev-gray
+[devimg]: https://img.shields.io/badge/⚒️_Development-gray
 
 
 ### Example
@@ -167,21 +167,12 @@ Check out the code for development using
 ```
 pkg> dev PkgGraph
 ```
-See the readmes [in `test/`](test/ReadMe.md) and [in `docs/`](docs/ReadMe.md) for how to locally run the tests
-and build the documentation.
+See the readmes [in `test/`](test/ReadMe.md) and [in `docs/`](docs/ReadMe.md)
+for how to locally run the tests and build the documentation.
 
-**Releasing a new version**
+See the [Developer Guide][1] in the documentation for more.
 
-1. Roll-over the [changelog](Changelog.md): rename the existing 'Unreleased'
-   section to the new version. Add a new, empty Unreleased section.
-   <!-- Could be automated prolly; add a step in Register.yml -->
-2. Click the _Run workflow_ button [here][regCI], and bump the relevant version
-   component. This will 1) create a commit that updates the version in `Project.toml`,
-   and 2) create a comment on that commit that opens a PR in the General registry.
-
-[regCI]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Register.yml
-
-
+[1]: https://tfiers.github.io/PkgGraph.jl/dev/devguide
 
 
 <!-- 
