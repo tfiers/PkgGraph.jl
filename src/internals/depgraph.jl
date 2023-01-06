@@ -97,7 +97,15 @@ should_be_included(pkg; include_jll = true, include_stdlib = true) =
         true
     end
 
+"""
+    is_jll(pkg)::Bool
+"""
 is_jll(pkg) = endswith(pkg, "_jll")
+
+
+"""
+    is_in_stdlib(pkg)::Bool
+"""
 is_in_stdlib(pkg) = pkg in STDLIB
 
 stdlib_packages() = begin
