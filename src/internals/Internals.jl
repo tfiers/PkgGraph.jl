@@ -35,7 +35,8 @@ export to_dot_str,
 
 using EzXML
 include("svg.jl")
-export add_darkmode
+using .SVG
+export SVG
 
 include("local.jl")
 export is_dot_available,

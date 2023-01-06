@@ -47,7 +47,7 @@ function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = fals
     if !dryrun
         create_dot_image(dotstr, fmt, imgpath)
         if fmt == :svg
-            add_darkmode(imgpath)
+            SVG.add_darkmode(imgpath)
         end
         open && DefaultApplication.open(imgpath)
     end
