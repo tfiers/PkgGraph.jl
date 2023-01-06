@@ -51,6 +51,7 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 [v03-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.3.0
 
 - Add light & dark mode CSS to generated SVGs
+  - This introduced a new dependency, [EzXML](https://github.com/JuliaIO/EzXML.jl)
 - `PkgGraph.create`:
   - Allow passing `open = false` to only create the image, and not automatically
     open it with the default image viewer too.
@@ -58,7 +59,8 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
-- New functions `adjacency_matrix` and `as_graphsjl_input`, for easier Graphs.jl interop.
+- New functions `adjacency_matrix`, `node_index`, and `as_graphsjl_input`, for easier
+  Graphs.jl interop.
 
 
 
