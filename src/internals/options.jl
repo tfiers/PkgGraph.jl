@@ -8,10 +8,13 @@ functions in one place
 See [Settings](@ref) for available properties.
 """
 @kwdef struct Options
+    # ↪ i.e. see docs/src/ref/end-user.md for field documentation.
     jll       ::Bool            = true
     stdlib    ::Bool            = true
     style     ::Vector{String}  = default_style
     base_url  ::String          = first(webapps)
+    mode      ::Symbol          = :light
+    bg        ::String          = "transparent"
 end
 
 depgraph(pkg, o::Options) =
@@ -21,6 +24,8 @@ to_dot_str(pkg, o::Options) =
     to_dot_str(
         depgraph(pkg, o);
         o.style,
+        o.mode,
+        o.bg,
         emptymsg = "($pkg has no dependencies)",
     )
 

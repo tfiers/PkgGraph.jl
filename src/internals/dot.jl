@@ -41,10 +41,19 @@ digraph {
 
 See also [`default_style`](@ref).
 """
-function to_dot_str(edges; style = default_style, indent = 4, emptymsg = nothing)
+function to_dot_str(
+    edges;
+    mode = :light,
+    bg = "transparent",
+    style = default_style,
+    indent = 4,
+    emptymsg = nothing
+)
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
-    for line in style
+    colourscheme = colourschemes[mode]
+    bgcolor = "bgcolor = \"$bg\""
+    for line in [style; colourscheme; bgcolor]
         push!(lines, tab * line)
     end
     for (m, n) in edges
@@ -61,8 +70,7 @@ single_node(text) = "onlynode [label = \" $text \", shape = \"plaintext\"]"
 # ↪ the extra spaces around the text are for some padding in the output png (eg)
 
 const default_style = [
-    "bgcolor = \"transparent\"",
-    "node [fontname = \"sans-serif\", style = \"filled\", fillcolor = \"white\"]",
+    "node [fontname = \"sans-serif\", style = \"filled\"]",
     "edge [arrowsize = 0.88]",
 ]
 @doc(
@@ -71,3 +79,13 @@ The default style used by [`to_dot_str`](@ref):
 
 """ * join("`$l`\\\n" for l in default_style),
 default_style)
+
+colouring(; paper, ink) = [
+    """node [fillcolor = "$paper", fontcolor = "$ink", color = "$ink"]""",
+    """edge [color = "$ink"]""",
+]
+
+const colourschemes = Dict(
+    :light => colouring(paper="white", ink="black"),
+    :dark  => colouring(paper="black", ink="white"),
+)
