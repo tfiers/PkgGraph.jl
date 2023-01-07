@@ -3,18 +3,18 @@
     Options(; kw...)
 
 Convenience object to gather all settings (kwargs) of different
-functions in one place
+functions in one place.
 
 See [Settings](@ref) for available properties.
 """
 @kwdef struct Options
     # ↪ i.e. see docs/src/ref/end-user.md for field documentation.
-    jll       ::Bool            = true
-    stdlib    ::Bool            = true
-    style     ::Vector{String}  = default_style
-    base_url  ::String          = first(webapps)
-    mode      ::Symbol          = :light
-    bg        ::String          = "transparent"
+    jll       = true
+    stdlib    = true
+    style     = default_style()
+    base_url  = first(webapps)
+    mode      = :light
+    bg        = "transparent"
 end
 
 depgraph(pkg, o::Options) =

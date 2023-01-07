@@ -1,5 +1,5 @@
 """
-    url(base, dotstr)
+    url(dotstr, base = first(webapps))
 
 Create a URL at which the given dot-string is rendered as an image,
 using an online Graphviz rendering service.
@@ -12,11 +12,11 @@ The dot-string is URL-encoded, and appended to a partly complete
 ```jldoctest
 julia> base = PkgGraph.webapps[2];
 
-julia> PkgGraph.url(base, "digraph {Here->There}")
+julia> PkgGraph.url("digraph {Here->There}", base)
 "http://magjac.com/graphviz-visual-editor/?dot=digraph%20%7BHere-%3EThere%7D"
 ```
 """
-url(base, dotstr) = base * escapeuri(dotstr)
+url(dotstr, base = first(webapps)) = base * escapeuri(dotstr)
 
 const webapps = [
     "https://dreampuf.github.io/GraphvizOnline/#",

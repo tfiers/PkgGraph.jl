@@ -51,21 +51,27 @@ end
 
     edges = [:A => :B, "yes" => "no"];
 
-    style = ["node [color = \"red\"]"];
+    style = ["node [color=\"red\"]"];
 
-    @test to_dot_str(edges; style, indent = 2) ==
+    @test to_dot_str(edges; style, bg=:blue, indent = 2) ==
         """
         digraph {
-          node [color = "red"]
+          bgcolor = "blue"
+          node [fillcolor="white", fontcolor="black", color="black"]
+          edge [color="black"]
+          node [color="red"]
           A -> B
           yes -> no
         }
         """
 
-    @test to_dot_str([], style=[], emptymsg="(empty graph)") ==
+    @test to_dot_str([], mode=:dark, style=[], emptymsg="(empty graph)") ==
         """
         digraph {
-            onlynode [label = \" (empty graph) \", shape = \"plaintext\"]
+            bgcolor = "transparent"
+            node [fillcolor="black", fontcolor="white", color="white"]
+            edge [color="white"]
+            onlynode [label=\" (empty graph) \", shape=\"plaintext\"]
         }
         """
 end
@@ -74,7 +80,7 @@ end
 @testset "urls" begin
 
     base = PkgGraph.webapps[2]
-    @test PkgGraph.url(base, "digraph {Here->There}") ==
+    @test PkgGraph.url("digraph {Here->There}", base) ==
         "http://magjac.com/graphviz-visual-editor/?dot=digraph%20%7BHere-%3EThere%7D"
 end
 

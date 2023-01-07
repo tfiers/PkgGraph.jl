@@ -28,7 +28,7 @@ default_style
 ## Post-processing of SVG files
 
 ```@docs
-add_darkmode
+SVG.add_darkmode
 ```
 
 ## Online rendering
@@ -38,7 +38,7 @@ url
 webapps
 ```
 
-## Settings objects
+## Settings object
 
 ```@docs
 Options
@@ -47,8 +47,8 @@ Options
 ## Graphs.jl conversion
 
 ```@docs
+as_graphsjl_input
 vertices
 node_index
 adjacency_matrix
-as_graphsjl_input
 ```

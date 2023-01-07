@@ -1,14 +1,25 @@
 
 """
-    to_dot_str(edges; style = default_style, indent = 4, emptymsg = nothing)
+    to_dot_str(
+        edges;
+        mode     = :light,
+        bg       = "transparent",
+        style    = default_style(),
+        indent   = 4,
+        emptymsg = nothing,
+    )
 
 Build a string that represents the given directed graph in the
 [Graphviz DOT format ↗](https://graphviz.org/doc/info/lang.html).
 
-`style` is a list of strings, inserted as lines in the output (just
-before the graph edge lines). To use Graphviz's default style, pass
-`style = []`. For more on how dot-graphs can be styled, see [Styling
-Graphviz output](@ref).
+`mode` and `bg` specify the colour scheme and background colour for the
+graph (see [Settings](@ref)).
+
+`style` is a list of strings, inserted as lines in the output (after the
+lines generated for `mode` and `bg`, and just before the graph edge
+lines). To use Graphviz's default style, pass `style = []`. For the
+default see [`default_style`](@ref). For more on how dot-graphs can be
+styled, see [Styling Graphviz output](@ref).
 
 `indent` is the number of spaces to indent each line in the "`digraph`"
 block with.
@@ -22,38 +33,44 @@ rendered from the DOT-string will be empty.
 ```jldoctest
 julia> edges = [:A => :B, "yes" => "no"];
 
-julia> style = ["node [color = \\"red\\"]"];
+julia> style = ["node [color=\\"red\\"]"];
 
 julia> using PkgGraph.Internals
 
-julia> to_dot_str(edges; style, indent = 2) |> println
+julia> to_dot_str(edges; style, bg=:blue, indent=2) |> println
 digraph {
-  node [color = "red"]
+  bgcolor = "blue"
+  node [fillcolor="white", fontcolor="black", color="black"]
+  edge [color="black"]
+  node [color="red"]
   A -> B
   yes -> no
 }
 
-julia> to_dot_str([], style=[], emptymsg="(empty graph)") |> println
+julia> emptymsg="(empty graph)";
+
+julia> to_dot_str([]; emptymsg, mode=:dark, style=[]) |> println
 digraph {
-    onlynode [label = \" (empty graph) \", shape = \"plaintext\"]
+    bgcolor = "transparent"
+    node [fillcolor="black", fontcolor="white", color="white"]
+    edge [color="white"]
+    onlynode [label=\" (empty graph) \", shape=\"plaintext\"]
 }
 ```
-
-See also [`default_style`](@ref).
 """
 function to_dot_str(
     edges;
-    mode = :light,
-    bg = "transparent",
-    style = default_style,
-    indent = 4,
-    emptymsg = nothing
+    mode     = :light,
+    bg       = "transparent",
+    style    = default_style(),
+    indent   = 4,
+    emptymsg = nothing,
 )
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
-    colourscheme = colourschemes[mode]
+    colourscheme = colourschemes()[mode]
     bgcolor = "bgcolor = \"$bg\""
-    for line in [style; colourscheme; bgcolor]
+    for line in [bgcolor; colourscheme; style]
         push!(lines, tab * line)
     end
     for (m, n) in edges
@@ -66,26 +83,28 @@ function to_dot_str(
     return join(lines, "\n") * "\n"
 end
 
-single_node(text) = "onlynode [label = \" $text \", shape = \"plaintext\"]"
+single_node(text) = "onlynode [label=\" $text \", shape=\"plaintext\"]"
 # ↪ the extra spaces around the text are for some padding in the output png (eg)
 
-const default_style = [
-    "node [fontname = \"sans-serif\", style = \"filled\"]",
-    "edge [arrowsize = 0.88]",
+default_style() = [
+    "node [fontname=\"sans-serif\", style=\"filled\"]",
+    "edge [arrowsize=0.88]",
 ]
 @doc(
 """
+    default_style()
+
 The default style used by [`to_dot_str`](@ref):
 
-""" * join("`$l`\\\n" for l in default_style),
+""" * join("`$l`\\\n" for l in default_style()),
 default_style)
 
 colouring(; paper, ink) = [
-    """node [fillcolor = "$paper", fontcolor = "$ink", color = "$ink"]""",
-    """edge [color = "$ink"]""",
+    """node [fillcolor="$paper", fontcolor="$ink", color="$ink"]""",
+    """edge [color="$ink"]""",
 ]
 
-const colourschemes = Dict(
+colourschemes() = Dict(
     :light => colouring(paper="white", ink="black"),
     :dark  => colouring(paper="black", ink="white"),
 )
