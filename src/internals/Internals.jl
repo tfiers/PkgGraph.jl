@@ -34,7 +34,7 @@ export to_dot_str,
        default_style
 
 using EzXML
-include("svg.jl")
+include("SVG.jl")
 using .SVG
 export SVG
 
