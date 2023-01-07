@@ -1,46 +1,64 @@
 # Building the docs
 
-To build the documentation locally, run, in the project root:
-```julia
-julia> include("docs/make.jl")
+To build the documentation locally, run
+```bash
+$ julia docs/serve.jl
 ```
-The first time this is run, it will open the browser to the generated docs.\
-(You can also manually open the generated `docs/build/index.html`).
+The first time this is run in a fresh repo clone, this will install the necessary
+packages.
 
-For faster rebuilds when editing docstrings, [Revise] is loaded by `make.jl`.
+Then, it will load [Revise] (to watch for docstring changes), [LiveServer], and
+PkgGraph. Finally, it calls LiveServer's [`servedocs`].
+
+`servedocs` will:
+1. Run `docs/make.jl`
+    - This takes a while the first time
+2. Start a local web server to show the results (which will be in `docs/build/`)
+    - Each page is also injected with a script that makes the page auto-reload if the
+      underlying file changes.
+    - The home page is automatically opened in the browser.
+3. Watch `src/` and `docs/src/` for any changes, and if so, re-run `make.jl`
+
+Note: live docstring changes do not work currently, for some reason.
 
 [Revise]: https://timholy.github.io/Revise.jl
+[LiveServer]: https://github.com/tlienart/LiveServer.jl
+[`servedocs`]: https://tlienart.github.io/LiveServer.jl/stable/man/functionalities/#servedocs
 
 
 ## Updating static images
 
 To update
-1. The images in `img/` (used in the docs and in the main readme), and
-2. The long example URL in `../ReadMe.md`,
+1. The images in `img/` (used in the docs and in the main readme); and
+2. the long example URL in `../ReadMe.md`,
 
 run:
 ```
 julia docs/scripts/update_imgs_and_url.jl
 ```
 
-This is not (yet) run automatically (in docs/make.jl),
+This is not yet run automatically (i.e. in `make.jl`),
 as that would require a `dot` installation on GH Actions.
 (re https://github.com/tfiers/PkgGraph.jl/issues/52)
 
 
-## On project instantiation
+## Project instantiation
 
-The build script (`make.jl`) will automatically instantiate the `docs` environment (i.e. will install the packages in `docs/Manifest.toml`), if it detects that the `docs/build/` dir is not present.
+`serve.jl` will automatically instantiate the `docs` environment (i.e. it will install
+the packages in `docs/Manifest.toml`), if it detects that the `docs/build/` dir is not
+present. (This is a heuristic to detect a fresh repo clone).
 
-If the build dir is already present, it will not `instantiate`, so as to speed up docs building time.
+If the build dir is already present, it will not `instantiate`, to save time.
 
-If that heuristic is incorrect, or if `docs/Manifest.toml` has changed since the last `instantiate`, run
+If the build-dir heuristic is not correct, or if `docs/Manifest.toml` has changed since
+the last `instantiate`, run
 ```
 (docs) pkg> instantiate
 ```
-manually, before running the build script.
+manually, before running `serve.jl`.
 
-## Documenter.jl
+
+## Documenter version
 
 We use an unreleased version of Documenter, to get the newest features (see its [changelog]). (Most importantly, we want the link to the gh repo in the header, so you don't have to go through an "Edit" page every time).
 

@@ -1,17 +1,11 @@
 
-if on_github
-    page_ext = ""
-else
-    page_ext = ".html"
-end
-
 substitutions = [
 
     # Remove badges from header
     r"^(# PkgGraph\.jl).*$"m => s"\1",
 
     ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
-     => "see [`PkgGraph.Internals`](ref/internals$page_ext)."),
+     => "see [`PkgGraph.Internals`](ref/internals)."),
 
     #  The below is only if no registered release yet :)
     # ("\n(see [Development](#development) below)."
