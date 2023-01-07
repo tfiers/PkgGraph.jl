@@ -1,6 +1,6 @@
 
-using Pkg
-Pkg.activate(@__DIR__)
+t₀ = time()
+println("\nRunning docs/make.jl")
 
 repo = "tfiers/PkgGraph.jl"
 ref = gitref = "main"
@@ -8,9 +8,10 @@ ref = gitref = "main"
 src = "src"
 srcmod = "src-mod"
 
-println("Pre-processing src/")
+print("Pre-processing docs/src/ … ")
 include("scripts/process_src.jl")
-process_src()
+process_src(verbose = false)
+println("done")
 
 using PkgGraph
 using Documenter
@@ -64,7 +65,7 @@ println("</makedocs>")
 include("scripts/insert_readme_in_docs.jl")
 
 # From `process_src`
-correct_edit_links()
+correct_edit_links(verbose=false)
 
 devurl = "dev"
 on_github = (get(ENV, "GITHUB_ACTIONS", "") == "true")
@@ -79,3 +80,6 @@ if on_github
         # ↪ (This is the default).
     )
 end
+
+Δt = round(time() - t₀, digits=1)
+println("docs/make.jl completed ($Δt seconds)")

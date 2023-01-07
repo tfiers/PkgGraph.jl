@@ -8,25 +8,28 @@ docdir = parentdir(@__DIR__)
 srcdir = joinpath(docdir, src)
 moddir = joinpath(docdir, srcmod)
 
-function process_src()
+function process_src(; verbose=true)
     copy_src()
-    modify_src_copy()
+    modify_src_copy(; verbose)
 end
 
 # Make a copy of the `src/` tree
 copy_src() = cp(srcdir, moddir, force = true)
 
-modify_src_copy() = modify_files(moddir, ".md") do file, md
-    println("Checking [$file]")
-    md |> rm_comments |> inline_linkdefs
-end
+modify_src_copy(; verbose=true) =
+    modify_files(moddir, ".md") do file, md
+        verbose && println("Checking [$file]")
+        md = rm_comments(md; verbose)
+        md = inline_linkdefs(md; verbose)
+    end
 
-htmlcomment = r"<!--.*?-->"s
+include("modify_src_copy/code_blocks.jl")
+include("modify_src_copy/inline_linkdefs.jl")
 
-rm_comments(md) = begin
+rm_comments(md; verbose=true) = begin
     for m in eachmatch(htmlcomment, md)
         comment = m.match
-        println("  Removing ", truncated(comment))
+        verbose && println("  Removing ", truncated(comment))
         if is_in_code_block(md, m)
             @warn "Removed a html comment in a code block."
         end
@@ -34,11 +37,12 @@ rm_comments(md) = begin
     replace(md, htmlcomment => "")
 end
 
+htmlcomment = r"<!--.*?-->"s
+
 truncated(s, l = 40) = first(s, l) * suffix(s, l)
 suffix(s, l) = length(s) ≤ l ? "" : " …"
 
-include("modify_src_copy/code_blocks.jl")
-include("modify_src_copy/inline_linkdefs.jl")
+
 
 modify_files(f, dir, ext) =
     for (root, _, files) in walkdir(dir), fname in files
@@ -50,12 +54,14 @@ modify_files(f, dir, ext) =
     end
 
 
+
 # After `makedocs` has ran, the 'Edit on GitHub' links
 # point to `src-mod`. So we need to change that back to `src`.
-correct_edit_links() = modify_files(builddir, ".html") do file, html
-    println("Correcting edit link in [$file]")
-    correct_edit_link(html)
-end
+correct_edit_links(; verbose=true) =
+    modify_files(builddir, ".html") do file, html
+        verbose && println("Correcting edit link in [$file]")
+        correct_edit_link(html)
+    end
 
 builddir = joinpath(docdir, "build")
 

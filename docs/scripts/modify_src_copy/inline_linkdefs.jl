@@ -50,11 +50,11 @@ first_couple(md) = begin
     return nothing
 end
 
-function inline_linkdef(md, couple)
+function inline_linkdef(md, couple; verbose=true)
     textbrak, linkd = couple
     text = textbrak.captures[1]
     url = linkd.captures[2]
-    println("  Inlining linkdef of [$text]")
+    verbose && println("  Inlining linkdef of [$text]")
     replace_matches(
         md,
         textbrak => "[$text]($url)",
@@ -104,13 +104,13 @@ function check_overlap(ranges)
     end
 end
 
-function inline_linkdefs(md)
+function inline_linkdefs(md; verbose=true)
     while true
         couple = first_couple(md)
         if isnothing(couple)
             return md
         else
-            md = inline_linkdef(md, couple)
+            md = inline_linkdef(md, couple; verbose)
         end
     end
 end

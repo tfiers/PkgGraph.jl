@@ -1,7 +1,7 @@
 
-function make_links_absolute(src)
+function make_links_absolute(src; verbose=true)
     for pat in link_patterns
-        r(matched_substr) = replacement(matched_substr, pat)
+        r(matched_substr) = replacement(matched_substr, pat; verbose)
         src = replace(src, pat=>r)
         # In `replace(str, pat=>r)`, the replacement `r`
         # can be a:
@@ -25,12 +25,12 @@ link_patterns = [
 
 captured_link(m::RegexMatch) = only(m.captures)
 
-replacement(substr, pattern) = begin
+replacement(substr, pattern; verbose=true) = begin
     link = captured_link(match(pattern, substr))
     if is_url(link) || is_anchor(link)
         substr
     else
-        println("  Making link [$link] absolute")
+        verbose && println("  Making link [$link] absolute")
         replace(substr, link => absolute(link))
     end
 end
