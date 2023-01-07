@@ -38,9 +38,23 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
-{no changes yet}
+- Dark-mode option for _all_ generated images\
+  <sup>(not just local SVGs; also PNGs and webapp URLs)</sup>
+  - Pass the `mode=:dark` keyword argument to `open` and `create` for this.
+  - There is also a new `bg` option to configure the background color
+    (default is transparent. But white is sometimes a good idea; see docs).
+  - Locally-generated SVGs still get both a light and a dark theme, using a CSS media
+    query (`prefers-color-scheme`).
 
+<details>
+<summary><em>Infra changes</em></summary>
 
+- Add LiveServer.jl, `docs/serve.jl`, 
+  and `docs/localdev/Project.toml`, for local doc-builds
+  - When editing docstrings, you might still want to use Revise and do
+    `include("docs/make.jl")` manually; it seems to not work well with LiveServer.
+- `docs/scripts/` in `make.jl` are less verbose now
+</details>
 
 
 <br>
@@ -53,14 +67,14 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Add light & dark mode CSS to generated SVGs
   - This introduced a new dependency, [EzXML](https://github.com/JuliaIO/EzXML.jl)
 - `PkgGraph.create`:
-  - Allow passing `open = false` to only create the image, and not automatically
+  - Allow passing `open=false` to only create the image, and not automatically
     open it with the default image viewer too.
   - The file format, `fmt`, is a keyword argument again (not positional)
 - Shorten keyword arguments for excluding JLLs and standard library packages:
   - ~~`include_jll`~~ → `jll`
   - ~~`include_stdlib`~~ → `stdlib`
-- New functions `adjacency_matrix`, `node_index`, and `as_graphsjl_input`, for easier
-  Graphs.jl interop.
+- New functions `adjacency_matrix`, `node_index`, and `as_graphsjl_input`
+  (→ easier Graphs.jl interop).
 
 
 
@@ -84,11 +98,11 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
 - Transparent background for generated images (instead of solid white)
 - When no deps: a single node with "no deps" is drawn (instead of nothing)
 - User settings (`base_url`, `style`) are now set via kwargs and not mutating globals
-- [Docs & infra]
+- _{Docs & infra}_
   - Actual example in ReadMe
   - Lots (lots) of doc writing
     - Plus custom markdown (pre)processing scripts :)
-  - This changelog
+  - Add this changelog
 
 
 
