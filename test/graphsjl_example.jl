@@ -35,8 +35,7 @@ for (i, pkg) in enumerate(packages)
     println(io, ": ", Int(dist))
 end
 printed = String(take!(io))
-if VERSION ≥ v"1.7"
-    expected = """
+@test printed == """
     Distance from Test to …
                   Test: 0
       InteractiveUtils: 1
@@ -47,17 +46,3 @@ if VERSION ≥ v"1.7"
                    SHA: 2
          Serialization: 1
     """
-else
-    expected = """
-    Distance from Test to …
-                  Test: 0
-      InteractiveUtils: 1
-              Markdown: 2
-                Random: 1
-                Base64: 3
-               Logging: 1
-         Serialization: 1
-    """
-    # Random added SHA dependency apparently in 1.7
-end
-@test printed == expected

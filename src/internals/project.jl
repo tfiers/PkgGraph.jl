@@ -14,11 +14,7 @@ all_deps(project) = begin
     if !isfile(mani)
         return Dict()
     end
-    @static if VERSION ≥ v"1.7"
-        deps = TOML.parsefile(mani)["deps"]
-    else
-        deps = TOML.parsefile(mani)
-    end
+    TOML.parsefile(mani)["deps"]
 end
 manifest(project) = replace(project, "Project.toml" => "Manifest.toml")
 

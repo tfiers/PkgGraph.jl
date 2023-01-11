@@ -1,7 +1,7 @@
 name = "PkgGraph"
 uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 authors = ["Tomas Fiers <tomas.fiers@gmail.com> and contributors"]
-version = "0.4.1-dev"
+version = "0.4.1"
 
 [deps]
 DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
@@ -15,4 +15,4 @@ UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 DefaultApplication = "1"
 EzXML = "1.1"
 URIs = "1"
-julia = "1.6"
+julia = "1.7"

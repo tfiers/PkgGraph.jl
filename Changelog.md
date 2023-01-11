@@ -26,21 +26,27 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 -------------
 
+<!-- ## v0.5  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
+[unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development -->
+<!--
+Possible categories: [Added, Changed, Fixed, Removed, Security,
+                      Deprecated (for soon-to-be removed features)]
+-->
 <!-- _{no changes yet}_ -->
 
 
 <br>
 
-## v0.4.1  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+## v0.4.1  &nbsp;<sub>[![][v0.4.1-date-badge]][v0.4.1-release]</sub>
 
-[unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
-[devlink]: https://github.com/tfiers/PkgGraph.jl#development
-<!--
-Possible categories: [Added, Changed, Fixed, Removed, Security,
-                      Deprecated (for soon-to-be removed features)]
--->
-- Patch `reachable_registries` for Julia 1.6  (not yet implemented)
+[v0.4.1-date-badge]: https://img.shields.io/badge/Released_on-2023--01--11-blue
+[v0.4.1-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.4.1
+
+- Remove support for Julia 1.6.\
+  (Due to registry crawling feature in 0.4; registry API is too
+  different in 1.6)
 
 
 <br>
