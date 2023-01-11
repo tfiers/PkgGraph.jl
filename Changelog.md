@@ -30,14 +30,21 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 <br>
 
-## v0.4  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+<!-- ## v0.5  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
-[devlink]: https://github.com/tfiers/PkgGraph.jl#development
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development -->
 <!--
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+
+
+## v0.4  &nbsp;<sub>[![][v04-date-badge]][v04-release]</sub>
+
+[v04-date-badge]: https://img.shields.io/badge/Released_on-2023--01--11-blue
+[v04-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.4.0
+
 - Remove limitation "package must be installed in active project".
   Any package in the General registry (and standard library) can now be
   queried from anywhere.
