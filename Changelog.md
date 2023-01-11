@@ -26,15 +26,15 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 -------------
 
-<!-- ## v0.5  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+## v0.5  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
-[devlink]: https://github.com/tfiers/PkgGraph.jl#development -->
+[devlink]: https://github.com/tfiers/PkgGraph.jl#development
 <!--
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
-<!-- _{no changes yet}_ -->
+_{no changes yet}_
 
 
 <br>
