@@ -1,12 +1,13 @@
-using Pkg.Registry: reachable_registries,
+using Pkg.Registry: RegistryInstance,
                     uuids_from_name,
                     init_package_info!,
                     initialize_uncompressed!,
                     JULIA_UUID
 
 
-const reg = first(reachable_registries())
-@assert reg.name == "General"
+const user_depot = first(DEPOT_PATH)
+const regpath = joinpath(user_depot, "registries", "General.toml")
+const reg = RegistryInstance(regpath)
 
 name(uuid::UUID) =
     if uuid in STDLIB_UUIDS
