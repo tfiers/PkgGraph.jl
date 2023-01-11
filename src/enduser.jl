@@ -4,8 +4,6 @@
 
 Open the browser to an image of `pkgname`'s dependency graph.
 
-The given package must be installed in the currently active project.
-
 See [Settings](@ref) for possible keyword arguments.
 """
 function open(pkgname; dryrun = false, kw...)
@@ -26,8 +24,6 @@ Render the dependency graph of the given package as an image in `dir`,
 and open it with your default image viewer. Uses the external program
 '`dot`' (see [graphviz.org](https://graphviz.org)), which must be
 available on `PATH`.
-
-The given package must be installed in the currently active project.
 
 `fmt` is an output file format supported by dot, such as `:svg` or `:png`.\\
 If `fmt` is `:svg`, the generated SVG file is post-processed, to add

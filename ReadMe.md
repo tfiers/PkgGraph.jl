@@ -30,19 +30,7 @@ This will open the browser to [this url][dotlink], which renders something like 
      width=680
      alt="Dependency graph of Unitful, rendered with Graphviz dot">
 
-
 <br>
-<details>
-  
-  The given package (here: [Unitful][unitful]) must be installed in the currently active project for this to work.
-
-  Note that `PkgGraph` does not have to be installed in the same project however:\
-  you can switch projects _after_ `PkgGraph` has been imported (using `pkg> activate …`).
-
-  Even easier is to install `PkgGraph` in your base environment (see [Global Install](#global-install)),
-  so you don't have to switch projects at all.
-
-</details>
 
 To filter out binary dependencies ([JLL packages]) or packages from the Julia standard library, you can set the keyword arguments `jll = false` and `stdlib = false`.
 
@@ -85,7 +73,7 @@ pkg> add PkgGraph
 
 You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
 You can then use it in any project, without having to install it in that project
-or having to always switch projects.
+or having to switch projects.
 
 <details>
 

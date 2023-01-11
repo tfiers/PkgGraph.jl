@@ -13,7 +13,6 @@ Internals
 
 ```@docs
 depgraph
-packages_in_active_manifest
 is_jll
 is_in_stdlib
 ```

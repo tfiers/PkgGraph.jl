@@ -7,6 +7,7 @@ using Test
 
     @test isnothing(PkgGraph.open("Test", dryrun = true))
     @test isnothing(PkgGraph.create("Test", dryrun = true))
+    @test isnothing(PkgGraph.create("PyPlot", dryrun = true))
 end
 
 

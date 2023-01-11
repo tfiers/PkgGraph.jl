@@ -13,7 +13,7 @@ using Test
 
     if VERSION ≥ v"1.8"  # Julia v1.7 does not support error string matching
         @test_throws(
-            "The given package (DinnaeExist) must be installed in the active project",
+            "Package `DinnaeExist` not found",
             depgraph("DinnaeExist")
         )
     end

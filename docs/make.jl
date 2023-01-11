@@ -22,7 +22,7 @@ DocMeta.setdocmeta!(PkgGraph, :DocTestSetup, :(using PkgGraph); recursive=true, 
 println("<makedocs>")  # ..including Documenter.HTML(…) construction call
 makedocs(
     source = srcmod,
-    modules = [PkgGraph],
+    # modules = [PkgGraph],
     # ↪ To get a warning if there are any docstrings not mentioned in the markdown.
     sitename = "PkgGraph.jl",
     # ↪ Displayed in page title and navbar.

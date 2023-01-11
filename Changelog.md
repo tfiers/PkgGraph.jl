@@ -38,6 +38,10 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+- Remove limitation "package must be installed in active project".
+  Any package in the General registry (and standard library) can now be
+  queried from anywhere.
+  - This (re)introduced dependencies: Pkg (a big one; but stdlib), and UUIDS.
 - Dark-mode option for _all_ generated images\
   <sup>(not just local SVGs; also PNGs and webapp URLs)</sup>
   - Pass the `mode=:dark` keyword argument to `open` and `create` for this.

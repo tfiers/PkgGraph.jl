@@ -11,10 +11,17 @@ can be accessed as `PkgGraph.depgraph`, e.g.
 module Internals
 
 using TOML
+using UUIDs
+include("stdlib.jl")
+
 using Base: active_project
+include("project.jl")
+
+using Pkg
+include("registry.jl")
+
 include("depgraph.jl")
 export depgraph,
-       packages_in_active_manifest,
        should_be_included,
        is_jll,
        is_in_stdlib,
