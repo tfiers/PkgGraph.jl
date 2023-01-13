@@ -1,13 +1,9 @@
 
 ```@meta
-CurrentModule = PkgGraph.Internals
+CurrentModule = PkgGraph
 ```
 
 # Internals
-
-```@docs
-Internals
-```
 
 ## Creating a dependency graph
 

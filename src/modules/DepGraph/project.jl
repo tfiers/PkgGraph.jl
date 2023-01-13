@@ -59,9 +59,9 @@ packages would share the same name.
 ## Example:
 
 ```jldoctest; filter = r" => .*\$"m
-julia> using PkgGraph.Internals
+julia> using PkgGraph
 
-julia> packages = packages_in_active_manifest();
+julia> packages = PkgGraph.packages_in_active_manifest();
 
 julia> only(packages["PkgGraph"])
 Dict{String, Any} with 4 entries:

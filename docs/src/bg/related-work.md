@@ -19,7 +19,8 @@ Also has `dependencies(pkg)` and `direct_dependencies(pkg)` functions.
 
 #### [Graphviz.jl]
 
-Bundles the graphviz binaries (including `dot`) (via [JuliaBinaryWrappers/Graphviz_jll][Graphviz_jll]), and provides access in Julia to graphviz's C API.
+Bundles the graphviz binaries (including `dot`) (via [JuliaBinaryWrappers/Graphviz_jll][Graphviz_jll]),
+and provides access in Julia to graphviz's C API.
 Provides the `@dot_str` macro to render dot strings in a notebook.
 
 #### [GraphvizDotLang.jl]
@@ -27,7 +28,7 @@ Provides the `@dot_str` macro to render dot strings in a notebook.
 Recent package, under active development at the time of writing. A beautiful package to
 generate and render dot-strings. Uses Julia's piping syntax. Had I discovered this
 package before writing PkgGraph, I might have used it as a dependency. (Replacing things
-like [`PkgGraph.Internals.to_dot_str`](@ref)).
+like [`PkgGraph.to_dot_str`](@ref)).
 
 
 [PkgDependency.jl]:   https://github.com/peng1999/PkgDependency.jl

@@ -5,20 +5,32 @@ Use [`PkgGraph.open`](@ref) to view the graph in the browser,
 or [`PkgGraph.create`](@ref) to generate an image locally.
 
 (Note that these functions are not exported).
-
-See [`PkgGraph.Internals`](@ref) for more functions.
 """
 module PkgGraph
 
-using TOML
-using EzXML
-using URIs: escapeuri
-include("internals/Internals.jl")
+
+include("modules/DepGraph.jl")
+using .DepGraph
+
+include("modules/LoadTime.jl")
+using .LoadTime
+
+include("modules/DotString.jl")
+using .DotString
+
+include("modules/SVG.jl")
+using .SVG
+
 
 using DefaultApplication
-using .Internals
-include("enduser.jl")
+using URIs: escapeuri
+using Base: @kwdef
+include("includes/dotcommand.jl")
+include("includes/webapps.jl")
+include("includes/options.jl")
+include("includes/enduser.jl")
 
 # No package exports (no namespace pollution)
+
 
 end # module

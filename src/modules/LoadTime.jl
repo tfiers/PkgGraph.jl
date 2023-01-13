@@ -35,7 +35,7 @@ function time_imports(pkg)
     loadtimes = parse_timeimports(output)
     return loadtimes
 end
-r
+
 
 timeimports_code(pkgname) =
     "using InteractiveUtils; @time_imports using $pkgname"

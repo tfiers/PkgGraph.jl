@@ -26,7 +26,7 @@ const webapps = [
 @doc(
 """
 A list of websites that can render Graphviz dot-formatted
-strings. Used by [`Internals.url`](@ref).
+strings. Used by [`url`](@ref).
 
 Note that these are 'base URLs', to which url-encoded
 dot-strings can be directly appended.

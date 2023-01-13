@@ -38,7 +38,7 @@ function create(pkgname, dir=tempdir(); fmt=:png, bg=bg(fmt), open=true, dryrun=
     if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
-    dotstr = to_dot_str(pkgname, Options(; kw...))
+    dotstr = to_dot_str(pkgname, Options(; bg, kw...))
     imgpath = output_path(pkgname, dir, fmt)
     if !dryrun
         create_dot_image(dotstr, fmt, imgpath)

@@ -17,10 +17,10 @@ See [Settings](@ref) for available properties.
     bg        = "transparent"
 end
 
-depgraph(pkg, o::Options) =
+DepGraph.depgraph(pkg, o::Options) =
     depgraph(pkg; o.jll, o.stdlib)
 
-to_dot_str(pkg, o::Options) =
+DotString.to_dot_str(pkg, o::Options) =
     to_dot_str(
         depgraph(pkg, o);
         o.style,

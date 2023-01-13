@@ -23,7 +23,7 @@ PkgGraph.create
 
 These are keyword arguments that can be used with [`PkgGraph.open`](@ref) and
 [`PkgGraph.create`](@ref).\
-(They are also fields to [`PkgGraph.Internals.Options`](@ref)).
+(They are also fields to [`PkgGraph.Options`](@ref)).
 
 #### `jll`
 Whether to include binary 'JLL' dependencies in the graph

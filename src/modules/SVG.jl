@@ -3,6 +3,8 @@ module SVG
 
 using EzXML
 
+export add_darkmode
+
 """
     add_darkmode(path, out = path)
 

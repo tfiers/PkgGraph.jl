@@ -1,4 +1,9 @@
 
+module DotString
+
+export to_dot_str,
+       default_style
+
 """
     to_dot_str(
         edges;
@@ -35,9 +40,9 @@ julia> edges = [:A => :B, "yes" => "no"];
 
 julia> style = ["node [color=\\"red\\"]"];
 
-julia> using PkgGraph.Internals
+julia> using PkgGraph
 
-julia> to_dot_str(edges; style, bg=:blue, indent=2) |> println
+julia> PkgGraph.to_dot_str(edges; style, bg=:blue, indent=2) |> println
 digraph {
   bgcolor = "blue"
   node [fillcolor="white", fontcolor="black", color="black"]
@@ -49,7 +54,7 @@ digraph {
 
 julia> emptymsg="(empty graph)";
 
-julia> to_dot_str([]; emptymsg, mode=:dark, style=[]) |> println
+julia> PkgGraph.to_dot_str([]; emptymsg, mode=:dark, style=[]) |> println
 digraph {
     bgcolor = "transparent"
     node [fillcolor="black", fontcolor="white", color="white"]
@@ -108,3 +113,5 @@ colourschemes() = Dict(
     :light => colouring(paper="white", ink="black"),
     :dark  => colouring(paper="black", ink="white"),
 )
+
+end

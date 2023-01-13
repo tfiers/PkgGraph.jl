@@ -33,11 +33,11 @@ Extract the unique nodes from the given list of edges.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.Internals
+julia> using PkgGraph
 
-julia> edges = depgraph(:Test);
+julia> edges = PkgGraph.depgraph(:Test);
 
-julia> vertices(edges)
+julia> PkgGraph.vertices(edges)
 8-element Vector{String}:
  "Test"
  "InteractiveUtils"
@@ -65,11 +65,11 @@ This is useful because Graphs.jl requires vertices to be integers.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.Internals
+julia> using PkgGraph
 
 julia> edges = ["A"=>"B", "B"=>"C"];
 
-julia> node = node_index(edges);
+julia> node = PkgGraph.node_index(edges);
 
 julia> node("C")
 3
