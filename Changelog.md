@@ -34,7 +34,14 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
-_{no changes yet}_
+- `PkgGraph.create`: default background colour is now `:white` if 
+  `fmt=:png` (which is the default format)
+  - Why?\
+    (1). PNG is default, because the default Windows image viewer allows
+    you to pan zoom PNGs. Not so with SVGs (which open in
+    Firefox, which has no image panning)\
+    (2). See note on white bg and darkmode in docs>Settings>`bg`
+  - Default background colour is still `:transparent` for `fmt=:svg`
 
 
 <br>

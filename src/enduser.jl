@@ -34,7 +34,7 @@ To only create the image, without automatically opening it, pass
 
 See [Settings](@ref) for more keyword arguments.
 """
-function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = false, kw...)
+function create(pkgname, dir=tempdir(); fmt=:png, bg=bg(fmt), open=true, dryrun=false, kw...)
     if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
@@ -49,3 +49,5 @@ function create(pkgname, dir = tempdir(); fmt = :png, open = true, dryrun = fals
     end
     return nothing
 end
+
+bg(fmt) = (fmt == :png ? :white : :transparent)
