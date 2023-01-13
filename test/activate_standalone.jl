@@ -14,7 +14,7 @@ using Test
 testdir = @__DIR__
 reporoot = dirname(testdir)
 
-Pkg.activate("standalone/")
+Pkg.activate(joinpath(testdir, "standalone"))
 Pkg.develop(path=reporoot)
 
 if isdefined(Main, :PkgGraph)
