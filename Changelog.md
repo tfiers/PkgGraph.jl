@@ -44,6 +44,8 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
   - Default background colour is still `:transparent` for `fmt=:svg`
 - `Internals` module removed and split up into different submodules
   (`DotString`, `DepGraph`, …)
+- `Options` struct removed (no duplication; refer to `depgraph` and
+  `to_dot_str`'s keyword arguments directly).
 
 
 <br>
