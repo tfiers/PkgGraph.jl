@@ -4,65 +4,7 @@ module DotString
 export to_dot_str,
        default_style
 
-"""
-    to_dot_str(
-        edges;
-        mode     = :light,
-        bg       = "transparent",
-        style    = default_style(),
-        indent   = 4,
-        emptymsg = nothing,
-    )
-
-Build a string that represents the given directed graph in the
-[Graphviz DOT format ↗](https://graphviz.org/doc/info/lang.html).
-
-`mode` and `bg` specify the colour scheme and background colour for the
-graph (see [Settings](@ref)).
-
-`style` is a list of strings, inserted as lines in the output (after the
-lines generated for `mode` and `bg`, and just before the graph edge
-lines). To use Graphviz's default style, pass `style = []`. For the
-default see [`default_style`](@ref). For more on how dot-graphs can be
-styled, see [Styling Graphviz output](@ref).
-
-`indent` is the number of spaces to indent each line in the "`digraph`"
-block with.
-
-If there are no `edges`, a single node with `emptymsg` is created. If
-`emptymsg` is `nothing` (default), no nodes are created, and the image
-rendered from the DOT-string will be empty.
-
-## Example:
-
-```jldoctest
-julia> edges = [:A => :B, "yes" => "no"];
-
-julia> style = ["node [color=\\"red\\"]"];
-
-julia> using PkgGraph
-
-julia> PkgGraph.to_dot_str(edges; style, bg=:blue, indent=2) |> println
-digraph {
-  bgcolor = "blue"
-  node [fillcolor="white", fontcolor="black", color="black"]
-  edge [color="black"]
-  node [color="red"]
-  A -> B
-  yes -> no
-}
-
-julia> emptymsg="(empty graph)";
-
-julia> PkgGraph.to_dot_str([]; emptymsg, mode=:dark, style=[]) |> println
-digraph {
-    bgcolor = "transparent"
-    node [fillcolor="black", fontcolor="white", color="white"]
-    edge [color="white"]
-    onlynode [label=\" (empty graph) \", shape=\"plaintext\"]
-}
-```
-"""
+@doc readchomp(joinpath(@__DIR__, "to_dot_string.md"))
 function to_dot_str(
     edges;
     mode     = :light,

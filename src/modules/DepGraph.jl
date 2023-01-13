@@ -10,6 +10,7 @@ export STDLIB,
        STDLIB_NAMES
 
 include("DepGraph/project.jl")
+export packages_in_active_manifest
 
 include("DepGraph/registry.jl")
 

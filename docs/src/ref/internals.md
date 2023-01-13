@@ -33,12 +33,6 @@ url
 webapps
 ```
 
-## Settings object
-
-```@docs
-Options
-```
-
 ## Graphs.jl conversion
 
 ```@docs

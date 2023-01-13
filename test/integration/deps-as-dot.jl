@@ -1,9 +1,7 @@
 
-using PkgGraph: Options
-
 @testset "deps-as-dot" begin
 
-    @test PkgGraph.to_dot_str(:TOML, Options()) ==
+    @test PkgGraph.depgraph_as_dotstr(:TOML) ==
         """
         digraph {
             bgcolor = "transparent"
@@ -17,7 +15,7 @@ using PkgGraph: Options
         }
         """
 
-    @test PkgGraph.to_dot_str(:TOML, Options(style=[], mode=:dark, bg=:white)) ==
+    @test PkgGraph.depgraph_as_dotstr(:TOML, style=[], mode=:dark, bg=:white) ==
         """
         digraph {
             bgcolor = "white"
@@ -29,7 +27,7 @@ using PkgGraph: Options
         }
         """
 
-    @test PkgGraph.to_dot_str(:URIs, Options(style=[])) ==
+    @test PkgGraph.depgraph_as_dotstr(:URIs, style=[]) ==
         """
         digraph {
             bgcolor = "transparent"

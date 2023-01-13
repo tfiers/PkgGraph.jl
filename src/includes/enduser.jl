@@ -1,13 +1,15 @@
 
 """
-    open(pkgname; kw...)
+    open(pkgname, base_url = first(webapps); kw...)
 
 Open the browser to an image of `pkgname`'s dependency graph.
 
-See [Settings](@ref) for possible keyword arguments.
+See [`url`](@ref) for more on `base_url`, and for possible keyword
+arguments see [`depgraph`](@ref) and [`to_dot_str`](@ref) .
 """
-function open(pkgname; dryrun = false, kw...)
-    link = url(pkgname, Options(; kw...))
+function open(pkgname, base_url = first(webapps); dryrun = false, kw...)
+    dotstr = depgraph_as_dotstr(pkgname; kw...)
+    link = url(dotstr, base_url)
     if !dryrun
         DefaultApplication.open(link)
         # ↪ Passing a URL (and not a file) opens the browser on all
@@ -32,13 +34,14 @@ light and dark-mode CSS.
 To only create the image, without automatically opening it, pass
 `open = false`.
 
-See [Settings](@ref) for more keyword arguments.
+See [`depgraph`](@ref) and [`to_dot_str`](@ref) for more keyword
+arguments.
 """
 function create(pkgname, dir=tempdir(); fmt=:png, bg=bg(fmt), open=true, dryrun=false, kw...)
     if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end
-    dotstr = to_dot_str(pkgname, Options(; bg, kw...))
+    dotstr = depgraph_as_dotstr(pkgname; bg, kw...)
     imgpath = output_path(pkgname, dir, fmt)
     if !dryrun
         create_dot_image(dotstr, fmt, imgpath)
@@ -51,3 +54,25 @@ function create(pkgname, dir=tempdir(); fmt=:png, bg=bg(fmt), open=true, dryrun=
 end
 
 bg(fmt) = (fmt == :png ? :white : :transparent)
+
+depgraph_as_dotstr(pkgname; kw...) = begin
+    edges = depgraph(pkgname; select(kw, depgraph)...)
+    dotstr = to_dot_str(
+        edges;
+        select(kw, to_dot_str)...,
+        emptymsg="($pkgname has no dependencies)",
+    )
+end
+
+"""
+Extract the keyword arguments from `kw` that are applicable to the
+single-method function `f`.
+"""
+select(kw, f) = begin
+    m = only(methods(f))
+    kwargnames_f = Base.kwarg_decl(m)
+    selected_kw = [
+        name => val for (name, val) in kw
+        if name in kwargnames_f
+    ]
+end

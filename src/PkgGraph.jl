@@ -27,7 +27,6 @@ using URIs: escapeuri
 using Base: @kwdef
 include("includes/dotcommand.jl")
 include("includes/webapps.jl")
-include("includes/options.jl")
 include("includes/enduser.jl")
 
 # No package exports (no namespace pollution)
