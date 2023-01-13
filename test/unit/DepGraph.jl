@@ -38,7 +38,10 @@ using Test
         # The latter does not have Graphs in its manifest; so it comes from registry, and there
         # deps have different order (also on julia 1.6 there's no registry querying).
         # Heeence, why `../standalone` exists.
-        @assert dirname(Base.active_project()) == dirname(@__DIR__) "Please use [activate_standalone.jl]"
+
+        using Pkg
+        deps = Pkg.dependencies()
+        @assert "Graphs" in [dep.name for dep in values(deps)] "Please use [activate_standalone.jl]"
         @test PkgGraph.depgraph("Graphs"; jll = false, stdlib = false) == [
                     "Graphs" => "ArnoldiMethod"
             "ArnoldiMethod" => "StaticArrays"
