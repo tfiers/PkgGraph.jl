@@ -1,53 +1,82 @@
 
-# julia> @time_imports using UnicodePlots
-output = """
-      0.6 ms  SnoopPrecompile
-      6.1 ms  StaticArraysCore
-    910.7 ms  StaticArrays
-     86.0 ms  FixedPointNumbers
-    111.7 ms  ColorTypes 7.03% compilation time
-     66.9 ms  Crayons
-      1.3 ms  ConstructionBase
-    593.1 ms  Unitful
-      2.4 ms  DataAPI
-      1.4 ms  Compat
-     14.1 ms  OrderedCollections
-    113.0 ms  DataStructures
-      0.8 ms  SortingAlgorithms
-     13.6 ms  Missings
-      6.1 ms  DocStringExtensions 64.90% compilation time
-    105.1 ms  ChainRulesCore
-     25.8 ms  ChangesOfVariables
-      3.1 ms  InverseFunctions
-     12.8 ms  IrrationalConstants
-      1.4 ms  LogExpFunctions
-      0.6 ms  StatsAPI
-     43.0 ms  StatsBase
-    178.2 ms  MarchingCubes
-      0.4 ms  Reexport
-    534.3 ms  Colors
-      0.3 ms  OpenLibm_jll
-     34.0 ms  Preferences
-      0.6 ms  JLLWrappers
-     87.7 ms  CompilerSupportLibraries_jll
-    456.5 ms  OpenSpecFun_jll 94.97% compilation time (99% recompilation)
-     31.4 ms  SpecialFunctions
-      0.5 ms  TensorCore
-    280.2 ms  ColorVectorSpace 2.60% compilation time
-     25.4 ms  ColorSchemes
-      0.5 ms  Requires
-      0.6 ms  NaNMath
-      5.1 ms  Contour
-    418.7 ms  FileIO 4.33% compilation time (15% recompilation)
-     28.2 ms  Bzip2_jll
-      0.4 ms  Zlib_jll
-     30.4 ms  FreeType2_jll
-      7.2 ms  CEnum
-     11.1 ms  FreeType
-   2348.7 ms  UnicodePlots 2.32% compilation time
-"""
+module LoadTime
 
-lines = split(strip(output), "\n")
+export time_imports
+
+"""
+    time_imports(pkg)
+
+Measure load times of the given package and its dependencies, by running
+`@time_imports` in a new julia process, and parsing its output.
+
+## Example:
+```jldoctest; filter = r"\\d.*\$"m
+julia> using PkgGraph.LoadTime
+
+julia> loadtimes = time_imports("EzXML");
+┌ Info: Running command:
+│ `julia --startup-file=no --project=. -e 'using InteractiveUtils; @time_imports using EzXML'`
+└ Live output:
+    423.5 ms  Preferences
+      0.7 ms  JLLWrappers
+      0.3 ms  Zlib_jll
+      9.3 ms  Libiconv_jll 40.60% compilation time
+      4.4 ms  XML2_jll
+     54.1 ms  EzXML 53.25% compilation time
+
+julia> last(loadtimes)
+(pkgname = "EzXML", time_ms = 54.1)
+"""
+function time_imports(pkg)
+    code = timeimports_code(pkg)
+    proj = activeproject_short()
+    cmd = julia_cmd(code, proj)
+    output = run_verbose(cmd)
+    loadtimes = parse_timeimports(output)
+    return loadtimes
+end
+r
+
+timeimports_code(pkgname) =
+    "using InteractiveUtils; @time_imports using $pkgname"
+    # ↪ str, not expr, as that's noisy (`begin` and LineNumberNodes)
+
+activeproject_short() = relpath(dirname(Base.active_project()))
+
+julia_cmd(code, proj) =
+    `julia --startup-file=no --project=$proj -e $code`
+
+"""
+Run the given command, capturing and returning its stdout as a String;
+but also live-printing that stdout to the current process's stdout.
+"""
+run_verbose(cmd) = begin
+    buf = IOBuffer()
+    pos = 0
+    @info "Running command:\n$cmd\nLive output:"
+    p = run(pipeline(cmd, buf), wait=false)
+    while process_running(p)
+        sleep(0.1)
+        seek(buf, pos)
+        new = read(buf, String)
+        print(new)
+        pos += sizeof(new)
+    end
+    return output = String(take!(buf))
+end
+
+parse_timeimports(output) = begin
+    lines = split(strip(output), "\n")
+    return [parse_line(l) for l in lines]
+end
+
+
+# Some example output lines of a `@time_import` call:
+#
+#     456.5 ms  OpenSpecFun_jll 94.97% compilation time (99% recompilation)
+#      31.4 ms  SpecialFunctions
+#       0.5 ms  TensorCore
+#     280.2 ms  ColorVectorSpace 2.60% compilation time
 parse_line(l) = begin
     parts = split(l, limit = 4)
     time_ms = parse(Float64, parts[1])
@@ -56,29 +85,5 @@ parse_line(l) = begin
     extra_info = (length(parts) > 3 ? last(parts) : nothing)
     (; pkgname, time_ms)
 end
-loadtimes = parse_line.(lines)
 
-pkgname = "Revise"
-
-proj = relpath(dirname(Base.active_project()))
-code = "using InteractiveUtils; @time_imports using $pkgname"
-# ↪ not using expr, as that's noisy (`begin` and LineNumberNodes)
-cmd = `julia --startup-file=no --project=$proj -e $code`
-
-# Relevant thread, on Tee:
-# https://discourse.julialang.org/t/write-to-file-and-stdout/35042/2
-
-begin
-    buf = IOBuffer()
-    pos = 0
-    process = run(pipeline(cmd, buf), wait=false)
-    while process_running(process)
-        sleep(0.1)
-        seek(buf, pos)
-        new = read(buf, String)
-        print(new)
-        pos += sizeof(new)
-    end
-    println()
-    output = String(take!(buf))
 end
