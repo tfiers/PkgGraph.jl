@@ -42,6 +42,8 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
     Firefox, which has no image panning)\
     (2). See note on white bg and darkmode in docs>Settings>`bg`
   - Default background colour is still `:transparent` for `fmt=:svg`
+- `Internals` module removed and split up into different submodules
+  (`DotString`, `DepGraph`, …)
 
 
 <br>
