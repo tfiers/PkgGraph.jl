@@ -24,16 +24,32 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 
 <sub>With thanks to [Keep a Changelog](https://keepachangelog.com) for the format and inspiration.</sub>
 
+<!--
+Keep a Changelog recommends these categories for organizing changes
+per version: [Added, Changed, Fixed, Removed, Security,
+              Deprecated (for soon-to-be removed features)]
+-->
+
 -------------
 
-## v0.5  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+
+<br>
+
+<!-- ## v0.6  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
-<!--
-Possible categories: [Added, Changed, Fixed, Removed, Security,
-                      Deprecated (for soon-to-be removed features)]
--->
+
+_{no changes yet}_ -->
+
+
+<br>
+
+## v0.5  &nbsp;<sub>[![][v0.5-date-badge]][v0.5-release]</sub>
+
+[v0.5-date-badge]: https://img.shields.io/badge/Released_on-2023--01--14-blue
+[v0.5-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.5
+
 - Rename and export the end-user API functions:
   - `PkgGraph.open` → `depgraph_web`
   - `PkgGraph.create` → `depgraph_image`
@@ -49,8 +65,9 @@ Possible categories: [Added, Changed, Fixed, Removed, Security,
   - Default background colour is still `:transparent` for `fmt=:svg`
 - `Internals` module removed and split up into different submodules
   (`DotString`, `DepGraph`, …)
-- `Options` struct removed (no duplication; refer to `depgraph` and
-  `to_dot_str`'s keyword arguments directly).
+- `Options` struct removed (→ no more duplication of documentation for
+  kwargs; we now refer to `depgraph` and `to_dot_str`'s docstrings
+  directly).
 
 
 <br>
