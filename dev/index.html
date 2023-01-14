@@ -4,7 +4,7 @@
 <h3>Example</h3>
 <pre><code class="language-julia">julia&gt; using PkgGraph
 
-julia&gt; PkgGraph.open(:Unitful)
+julia&gt; depgraph_web(:Unitful)
 </code></pre>
 <p>This will open the browser to <a href="https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20bgcolor%20%3D%20%22transparent%22%0A%20%20%20%20node%20%5Bfontname%20%3D%20%22sans-serif%22%2C%20style%20%3D%20%22filled%22%2C%20fillcolor%20%3D%20%22white%22%5D%0A%20%20%20%20edge%20%5Barrowsize%20%3D%200.88%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%0A%20%20%20%20Unitful%20-%3E%20Dates%0A%20%20%20%20Dates%20-%3E%20Printf%0A%20%20%20%20Printf%20-%3E%20Unicode%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%0A%20%20%20%20Unitful%20-%3E%20Random%0A%20%20%20%20Random%20-%3E%20SHA%0A%20%20%20%20Random%20-%3E%20Serialization%0A%7D%0A">this url</a>, which renders something like the following:</p>
 <!-- See docs/script/update_imgs_and_url.jl -->
@@ -15,7 +15,7 @@ alt="Dependency graph of Unitful, rendered with Graphviz dot"></p>
 <p>To filter out binary dependencies (<a href="https://docs.binarybuilder.org/stable/jll">JLL packages</a>) or packages from the Julia standard library, you can set the keyword arguments <code>jll = false</code> and <code>stdlib = false</code>.</p>
 <h3>Local rendering</h3>
 <p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use something like</p>
-<pre><code class="language-julia">julia&gt; PkgGraph.create(:Unitful, &quot;.&quot;, fmt=:svg)
+<pre><code class="language-julia">julia&gt; depgraph_image(:Unitful, &quot;.&quot;, fmt=:svg)
 </code></pre>
 <p>This will call <code>dot</code> to create an SVG image in the current directory (<code>&quot;.&quot;</code>), and will open it with your default image viewer.</p>
 <p>If only the package-name is provided, <code>tempdir()</code> and <code>fmt = :png</code> are used.</p>
@@ -42,4 +42,4 @@ and then <code>add PkgGraph</code> there.</p>
 Type '<code>o</code>' to choose to install it in your base environment.</p>
 </details>
 <br>
-</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Saturday 14 January 2023 08:52">Saturday 14 January 2023</span>. Using Julia version 1.8.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Saturday 14 January 2023 09:44">Saturday 14 January 2023</span>. Using Julia version 1.8.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
