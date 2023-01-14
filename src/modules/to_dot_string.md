@@ -51,7 +51,7 @@ its incoming and outgoing edges -- should be drawn in gray. If `nothing`
 (default), no nodes are faded.
 
 ### `nodeinfo`
-A mapping `nodeinfo => String`, or `nothing` (default).
+A mapping `node::String => info::String`, or `nothing` (default).
 For any node present in this mapping, its info is printed underneath its
 name in the graph.
 
