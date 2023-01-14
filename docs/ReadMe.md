@@ -7,19 +7,26 @@ $ julia docs/serve.jl
 The first time this is run in a fresh repo clone, this will install the necessary
 packages.
 
-Then, it will load [Revise] (to watch for docstring changes), [LiveServer], and
-PkgGraph. Finally, it calls LiveServer's [`servedocs`].
+Then, it will load [Revise] (to watch for docstring changes),
+[LiveServer], and PkgGraph. Next, it will:
 
-`servedocs` will:
 1. Run `docs/make.jl`
     - This takes a while the first time
-2. Start a local web server to show the results (which will be in `docs/build/`)
+2. Start a local web server, using LiveServer's `serve` to show the
+   results (which will be in `docs/build/`)
     - Each page is also injected with a script that makes the page auto-reload if the
       underlying file changes.
+        - This seems to not always work: sometimes a manual page reload
+          is necessary.
     - The home page is automatically opened in the browser.
 3. Watch `src/` and `docs/src/` for any changes, and if so, re-run `make.jl`
 
-Note: live docstring changes do not work currently, for some reason.
+This is the same as what LiveServer's [`servedocs`] does; however in my
+testing it failed to update on doc-string changes; so we do it
+ourselves.
+
+In principle you can quit with `Ctrl-C`; but this doesn't seem to work
+well, so you'll have to kill the terminal 🤷
 
 [Revise]: https://timholy.github.io/Revise.jl
 [LiveServer]: https://github.com/tlienart/LiveServer.jl
