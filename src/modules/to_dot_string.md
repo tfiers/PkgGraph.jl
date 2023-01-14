@@ -64,7 +64,7 @@ digraph {
 
 julia> emptymsg="(empty graph)";
 
-julia> PkgGraph.to_dot_str([]; emptymsg, mode=:dark, style=[]) |> println
+julia> PkgGraph.to_dot_str([]; emptymsg, dark=true, style=[]) |> println
 digraph {
     bgcolor = "transparent"
     node [fillcolor="black", fontcolor="white", color="white"]

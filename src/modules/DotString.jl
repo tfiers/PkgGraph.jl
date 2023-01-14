@@ -4,7 +4,9 @@ module DotString
 export to_dot_str,
        default_style
 
-@doc readchomp(joinpath(@__DIR__, "to_dot_string.md"))
+docstr_file = joinpath(@__DIR__, "to_dot_string.md")
+include_dependency(docstr_file)
+@doc readchomp(docstr_file)
 function to_dot_str(
     edges;
     dark     = false,
