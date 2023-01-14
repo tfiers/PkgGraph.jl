@@ -1,11 +1,12 @@
 ```julia
 to_dot_str(
     edges;
-    dark     = false,
-    bg       = "transparent",
-    style    = default_style(),
-    indent   = 4,
-    emptymsg = nothing,
+    dark        = false,
+    bg          = "transparent",
+    style       = default_style(),
+    indent      = 4,
+    emptymsg    = nothing,
+    fade_stdlib = true,
 )
 ```
 
@@ -42,6 +43,11 @@ The number of spaces to indent each line in the "`digraph`" block with.
 If there are no `edges`, a single node with `emptymsg` is created. If
 `emptymsg` is `nothing` (default), no nodes are created, and the image
 rendered from the DOT-string will be empty.
+
+### `fade_stdlib`
+Whether to draw packages in the Julia standard library in gray. Note
+that they can be excluded entirely by setting `stdlib = false` in
+[`depgraph`](@ref)
 
 ## Example:
 
