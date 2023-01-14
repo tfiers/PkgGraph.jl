@@ -44,15 +44,15 @@ using Test
         @assert "Graphs" in [dep.name for dep in values(deps)] "Please use [activate_standalone.jl]"
         @test PkgGraph.depgraph("Graphs"; jll = false, stdlib = false) == [
                     "Graphs" => "ArnoldiMethod"
-            "ArnoldiMethod" => "StaticArrays"
-            "StaticArrays" => "StaticArraysCore"
+             "ArnoldiMethod" => "StaticArrays"
+              "StaticArrays" => "StaticArraysCore"
                     "Graphs" => "Compat"
                     "Graphs" => "DataStructures"
             "DataStructures" => "Compat"
             "DataStructures" => "OrderedCollections"
                     "Graphs" => "Inflate"
                     "Graphs" => "SimpleTraits"
-            "SimpleTraits" => "MacroTools"
+              "SimpleTraits" => "MacroTools"
         ]
     end
 
