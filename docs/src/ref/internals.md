@@ -20,7 +20,7 @@ to_dot_str
 default_style
 ```
 
-## Package graphs as dot strings
+## Package graph as Dot-string
 
 ```@docs
 depgraph_as_dotstr

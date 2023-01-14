@@ -5,7 +5,7 @@ substitutions = [
     r"^(# PkgGraph\.jl).*$"m => s"\1",
 
     ("see the Reference section in the <sub>[![][docbadge]][docs]</sub>."
-     => "see [`PkgGraph.Internals`](ref/internals)."),
+     => "see [Internals](ref/internals)."),
 
     #  The below is only if no registered release yet :)
     # ("\n(see [Development](#development) below)."

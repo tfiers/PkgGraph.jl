@@ -5,7 +5,7 @@
 Open the browser to an image of `pkgname`'s dependency graph.
 
 See [`url`](@ref) for more on `base_url`. Keyword arguments are passed
-on to [`depgraph`](@ref) and [`to_dot_str`](@ref).
+on to [`depgraph_as_dotstr`](@ref)
 """
 function depgraph_web(pkgname, base_url=first(webapps); dryrun=false, kw...)
     dotstr = depgraph_as_dotstr(pkgname; kw...)
@@ -34,8 +34,7 @@ light and dark-mode CSS.
 To only create the image, without automatically opening it, pass
 `open = false`.
 
-Other keyword arguments are passed on to [`depgraph`](@ref) and
-[`to_dot_str`](@ref).
+Other keyword arguments are passed on to [`depgraph_as_dotstr`](@ref)
 """
 function depgraph_image(
     pkgname,
