@@ -7,6 +7,7 @@ to_dot_str(
     indent    = 4,
     emptymsg  = nothing,
     faded     = nothing,
+    nodeinfo  = nothing,
 )
 ```
 
@@ -48,6 +49,11 @@ rendered from the DOT-string will be empty.
 A function `(nodename) -> Bool` that determines whether this node -- and
 its incoming and outgoing edges -- should be drawn in gray. If `nothing`
 (default), no nodes are faded.
+
+### `nodeinfo`
+A mapping `nodeinfo => String`, or `nothing` (default).
+For any node present in this mapping, its info is printed underneath its
+name in the graph.
 
 ## Example:
 

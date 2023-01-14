@@ -10,6 +10,7 @@ Measure load times of the given package and its dependencies, by running
 `@time_imports` in a new julia process, and parsing its output.
 
 ## Example:
+
 ```jldoctest; filter = r"\\d.*\$"m
 julia> using PkgGraph.LoadTime
 
@@ -26,6 +27,7 @@ julia> loadtimes = time_imports("EzXML");
 
 julia> last(loadtimes)
 (pkgname = "EzXML", time_ms = 54.1)
+```
 """
 function time_imports(pkg)
     code = timeimports_code(pkg)

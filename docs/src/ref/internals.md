@@ -26,6 +26,11 @@ default_style
 depgraph_as_dotstr
 ```
 
+## Measuring load time
+
+```@docs
+time_imports
+```
 
 ## Post-processing of SVG files
 
