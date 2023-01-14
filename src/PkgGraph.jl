@@ -9,7 +9,7 @@ or [`PkgGraph.create`](@ref) to generate an image locally.
 module PkgGraph
 
 
-include("modules/DepGraph.jl")
+include("modules/DepGraph/DepGraph.jl")
 using .DepGraph
 
 include("modules/LoadTime.jl")

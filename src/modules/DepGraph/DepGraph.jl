@@ -5,23 +5,23 @@ using TOML
 using UUIDs
 using Base: active_project
 
-include("DepGraph/stdlib.jl")
+include("stdlib.jl")
 export STDLIB,
        STDLIB_NAMES
 
-include("DepGraph/project.jl")
+include("project.jl")
 export packages_in_active_manifest
 
-include("DepGraph/registry.jl")
+include("registry.jl")
 
-include("DepGraph/main.jl")
+include("main.jl")
 export depgraph,
        should_be_included,
        is_jll,
        is_in_stdlib,
        STDLIB
 
-include("DepGraph/graphsjl.jl")
+include("graphsjl.jl")
 export vertices,
        node_index,
        adjacency_matrix,
