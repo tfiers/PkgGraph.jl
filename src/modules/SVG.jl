@@ -32,7 +32,10 @@ function remove_nonDRY_attrs!(svg)
     for (xpath, attrs) in attrs_to_remove()
         for node in findall(xpath, svg, ns)
             for attr in attrs
-                delete!(node, attr)
+                # Keep `faded` nodes 'n edges (see to_dot_str)
+                if node[attr] != "gray"
+                    delete!(node, attr)
+                end
             end
         end
     end
