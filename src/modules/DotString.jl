@@ -7,7 +7,7 @@ export to_dot_str,
 @doc readchomp(joinpath(@__DIR__, "to_dot_string.md"))
 function to_dot_str(
     edges;
-    mode     = :light,
+    dark     = false,
     bg       = "transparent",
     style    = default_style(),
     indent   = 4,
@@ -15,7 +15,7 @@ function to_dot_str(
 )
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
-    colourscheme = colourschemes()[mode]
+    colourscheme = dark ? darkmode : lightmode
     bgcolor = "bgcolor = \"$bg\""
     for line in [bgcolor; colourscheme; style]
         push!(lines, tab * line)
@@ -51,9 +51,7 @@ colouring(; paper, ink) = [
     """edge [color="$ink"]""",
 ]
 
-colourschemes() = Dict(
-    :light => colouring(paper="white", ink="black"),
-    :dark  => colouring(paper="black", ink="white"),
-)
+const lightmode = colouring(paper="white", ink="black")
+const darkmode  = colouring(paper="black", ink="white")
 
 end

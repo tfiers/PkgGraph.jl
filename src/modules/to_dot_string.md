@@ -1,7 +1,7 @@
 ```julia
 to_dot_str(
     edges;
-    mode     = :light,
+    dark     = false,
     bg       = "transparent",
     style    = default_style(),
     indent   = 4,
@@ -14,24 +14,23 @@ Build a string that represents the given directed graph in the
 
 ## Keyword arguments
 
-### `mode`
-Either `:light` (default) or `:dark`.\
-Whether to use black lines and black text on a white background, or vice
-versa.\
-Note that locally-generated SVGs get both colour-schemes simultaneously,
-so this option is irrelevant for them.
+### `dark`
+Default is `false` i.e. light-mode: black lines and black text with
+white backgrounds. For `dark = true`, it's white lines and white text,
+with black backgrounds. Note that locally-generated SVGs get both
+colour-schemes simultaneously, so this option is irrelevant for them.
 
 ### `bg`
 Background colour for the image.\
 Default is `"transparent"`.\
-`"white"` (in combination with `mode = :light`) might be a sensible
+`"white"` (in combination with `dark = false`) might be a sensible
 value when you are creating a PNG but do not know on what background it
 will be seen. (A light-mode PNG with transparent background looks bad on
 a dark background).
 
 ### `style`
 A list of strings, inserted as lines in the output (after the lines
-generated for `mode` and `bg`, and just before the graph edge lines). To
+generated for `dark` and `bg`, and just before the graph edge lines). To
 use Graphviz's default style, pass `style = []`. For the default see
 [`default_style`](@ref). For more on how dot-graphs can be styled, see
 [Styling Graphviz output](@ref).
@@ -39,7 +38,7 @@ use Graphviz's default style, pass `style = []`. For the default see
 ### `indent`
 The number of spaces to indent each line in the "`digraph`" block with.
 
-### `emtpymsg`
+### `emptymsg`
 If there are no `edges`, a single node with `emptymsg` is created. If
 `emptymsg` is `nothing` (default), no nodes are created, and the image
 rendered from the DOT-string will be empty.

@@ -34,6 +34,8 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+- Keyword `mode=:dark` renamed to `dark=true` (default is still
+  light-mode i.e. `dark=false`)
 - `PkgGraph.create`: default background colour is now `:white` if 
   `fmt=:png` (which is the default format)
   - Why?\

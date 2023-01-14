@@ -15,7 +15,7 @@
         }
         """
 
-    @test PkgGraph.depgraph_as_dotstr(:TOML, style=[], mode=:dark, bg=:white) ==
+    @test PkgGraph.depgraph_as_dotstr(:TOML, style=[], dark=true, bg=:white) ==
         """
         digraph {
             bgcolor = "white"

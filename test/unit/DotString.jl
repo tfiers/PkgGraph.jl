@@ -20,7 +20,7 @@ using Test
         }
         """
 
-    @test PkgGraph.to_dot_str([], mode=:dark, style=[], emptymsg="(empty graph)") ==
+    @test PkgGraph.to_dot_str([], dark=true, style=[], emptymsg="(empty graph)") ==
         """
         digraph {
             bgcolor = "transparent"
