@@ -12,12 +12,12 @@ include_dependency(docstr)
 @doc readchomp(docstr)
 function to_dot_str(
     edges;
-    dark        = false,
-    bg          = "transparent",
-    style       = default_style(),
-    indent      = 4,
-    emptymsg    = nothing,
-    fade_stdlib = true,
+    dark      = false,
+    bg        = "transparent",
+    style     = default_style(),
+    indent    = 4,
+    emptymsg  = nothing,
+    faded     = nothing,
 )
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
@@ -26,17 +26,17 @@ function to_dot_str(
     for line in [bgcolor; colourscheme; style]
         push!(lines, tab * line)
     end
-    for (pkg, dep) in edges
-        if fade_stdlib && any(is_in_stdlib, [pkg, dep])
-            push!(lines, tab * "$pkg -> $dep [color=gray]")
+    for (m, n) in edges
+        if !isnothing(faded) && any(faded, [m, n])
+            push!(lines, tab * "$m -> $n [color=gray]")
         else
-            push!(lines, tab * "$pkg -> $dep")
+            push!(lines, tab * "$m -> $n")
         end
     end
-    if fade_stdlib
-        for pkg in vertices(edges)
-            if is_in_stdlib(pkg)
-                push!(lines, tab * "$pkg [color=gray fontcolor=gray]")
+    if !isnothing(faded)
+        for node in vertices(edges)
+            if faded(node)
+                push!(lines, tab * "$node [color=gray fontcolor=gray]")
             end
         end
     end

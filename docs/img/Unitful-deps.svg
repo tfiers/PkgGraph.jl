@@ -45,7 +45,7 @@ text {
 <g id="node3" class="node">
 <title>LinearAlgebra</title>
 <ellipse cx="387.55" cy="-306" rx="66.89" ry="18"/>
-<text x="387.55" y="-302.3" font-size="14.00">LinearAlgebra</text>
+<text x="387.55" y="-302.3" font-size="14.00" fill="gray">LinearAlgebra</text>
 </g>
 <!-- Unitful&#45;&gt;LinearAlgebra -->
 <g id="edge16" class="edge">
@@ -57,7 +57,7 @@ text {
 <g id="node9" class="node">
 <title>Dates</title>
 <ellipse cx="531.55" cy="-378" rx="33.6" ry="18"/>
-<text x="531.55" y="-374.3" font-size="14.00">Dates</text>
+<text x="531.55" y="-374.3" font-size="14.00" fill="gray">Dates</text>
 </g>
 <!-- Unitful&#45;&gt;Dates -->
 <g id="edge13" class="edge">
@@ -69,7 +69,7 @@ text {
 <g id="node12" class="node">
 <title>Random</title>
 <ellipse cx="628.55" cy="-378" rx="44.69" ry="18"/>
-<text x="628.55" y="-374.3" font-size="14.00">Random</text>
+<text x="628.55" y="-374.3" font-size="14.00" fill="gray">Random</text>
 </g>
 <!-- Unitful&#45;&gt;Random -->
 <g id="edge17" class="edge">
@@ -87,7 +87,7 @@ text {
 <g id="node4" class="node">
 <title>Libdl</title>
 <ellipse cx="366.55" cy="-18" rx="29.8" ry="18"/>
-<text x="366.55" y="-14.3" font-size="14.00">Libdl</text>
+<text x="366.55" y="-14.3" font-size="14.00" fill="gray">Libdl</text>
 </g>
 <!-- LinearAlgebra&#45;&gt;Libdl -->
 <g id="edge3" class="edge">
@@ -99,7 +99,7 @@ text {
 <g id="node5" class="node">
 <title>libblastrampoline_jll</title>
 <ellipse cx="274.55" cy="-234" rx="90.98" ry="18"/>
-<text x="274.55" y="-230.3" font-size="14.00">libblastrampoline_jll</text>
+<text x="274.55" y="-230.3" font-size="14.00" fill="gray">libblastrampoline_jll</text>
 </g>
 <!-- LinearAlgebra&#45;&gt;libblastrampoline_jll -->
 <g id="edge4" class="edge">
@@ -117,7 +117,7 @@ text {
 <g id="node6" class="node">
 <title>Artifacts</title>
 <ellipse cx="43.55" cy="-18" rx="43.59" ry="18"/>
-<text x="43.55" y="-14.3" font-size="14.00">Artifacts</text>
+<text x="43.55" y="-14.3" font-size="14.00" fill="gray">Artifacts</text>
 </g>
 <!-- libblastrampoline_jll&#45;&gt;Artifacts -->
 <g id="edge5" class="edge">
@@ -129,7 +129,7 @@ text {
 <g id="node7" class="node">
 <title>OpenBLAS_jll</title>
 <ellipse cx="244.55" cy="-162" rx="64.19" ry="18"/>
-<text x="244.55" y="-158.3" font-size="14.00">OpenBLAS_jll</text>
+<text x="244.55" y="-158.3" font-size="14.00" fill="gray">OpenBLAS_jll</text>
 </g>
 <!-- libblastrampoline_jll&#45;&gt;OpenBLAS_jll -->
 <g id="edge7" class="edge">
@@ -153,7 +153,7 @@ text {
 <g id="node8" class="node">
 <title>CompilerSupportLibraries_jll</title>
 <ellipse cx="195.55" cy="-90" rx="124.28" ry="18"/>
-<text x="195.55" y="-86.3" font-size="14.00">CompilerSupportLibraries_jll</text>
+<text x="195.55" y="-86.3" font-size="14.00" fill="gray">CompilerSupportLibraries_jll</text>
 </g>
 <!-- OpenBLAS_jll&#45;&gt;CompilerSupportLibraries_jll -->
 <g id="edge9" class="edge">
@@ -177,7 +177,7 @@ text {
 <g id="node10" class="node">
 <title>Printf</title>
 <ellipse cx="531.55" cy="-306" rx="32.49" ry="18"/>
-<text x="531.55" y="-302.3" font-size="14.00">Printf</text>
+<text x="531.55" y="-302.3" font-size="14.00" fill="gray">Printf</text>
 </g>
 <!-- Dates&#45;&gt;Printf -->
 <g id="edge14" class="edge">
@@ -189,7 +189,7 @@ text {
 <g id="node11" class="node">
 <title>Unicode</title>
 <ellipse cx="531.55" cy="-234" rx="43.59" ry="18"/>
-<text x="531.55" y="-230.3" font-size="14.00">Unicode</text>
+<text x="531.55" y="-230.3" font-size="14.00" fill="gray">Unicode</text>
 </g>
 <!-- Printf&#45;&gt;Unicode -->
 <g id="edge15" class="edge">
@@ -201,7 +201,7 @@ text {
 <g id="node13" class="node">
 <title>SHA</title>
 <ellipse cx="618.55" cy="-306" rx="27.9" ry="18"/>
-<text x="618.55" y="-302.3" font-size="14.00">SHA</text>
+<text x="618.55" y="-302.3" font-size="14.00" fill="gray">SHA</text>
 </g>
 <!-- Random&#45;&gt;SHA -->
 <g id="edge18" class="edge">
@@ -213,7 +213,7 @@ text {
 <g id="node14" class="node">
 <title>Serialization</title>
 <ellipse cx="723.55" cy="-306" rx="59.29" ry="18"/>
-<text x="723.55" y="-302.3" font-size="14.00">Serialization</text>
+<text x="723.55" y="-302.3" font-size="14.00" fill="gray">Serialization</text>
 </g>
 <!-- Random&#45;&gt;Serialization -->
 <g id="edge19" class="edge">

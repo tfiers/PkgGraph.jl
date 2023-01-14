@@ -1,12 +1,12 @@
 ```julia
 to_dot_str(
     edges;
-    dark        = false,
-    bg          = "transparent",
-    style       = default_style(),
-    indent      = 4,
-    emptymsg    = nothing,
-    fade_stdlib = true,
+    dark      = false,
+    bg        = "transparent",
+    style     = default_style(),
+    indent    = 4,
+    emptymsg  = nothing,
+    faded     = nothing,
 )
 ```
 
@@ -44,10 +44,10 @@ If there are no `edges`, a single node with `emptymsg` is created. If
 `emptymsg` is `nothing` (default), no nodes are created, and the image
 rendered from the DOT-string will be empty.
 
-### `fade_stdlib`
-Whether to draw packages in the Julia standard library in gray. Note
-that they can be excluded entirely by setting `stdlib = false` in
-[`depgraph`](@ref)
+### `faded`
+A function `(nodename) -> Bool` that determines whether this node -- and
+its incoming and outgoing edges -- should be drawn in gray. If `nothing`
+(default), no nodes are faded.
 
 ## Example:
 

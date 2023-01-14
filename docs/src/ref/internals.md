@@ -5,7 +5,7 @@ CurrentModule = PkgGraph
 
 # Internals
 
-## Creating a dependency graph
+## Package dependency graphs
 
 ```@docs
 depgraph
@@ -13,12 +13,19 @@ is_jll
 is_in_stdlib
 ```
 
-## DOT strings
+## Dot-strings
 
 ```@docs
 to_dot_str
 default_style
 ```
+
+## Package graphs as dot strings
+
+```@docs
+depgraph_as_dotstr
+```
+
 
 ## Post-processing of SVG files
 

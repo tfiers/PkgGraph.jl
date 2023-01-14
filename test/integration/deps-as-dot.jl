@@ -9,13 +9,17 @@
             edge [color="black"]
             node [fontname="sans-serif", style="filled"]
             edge [arrowsize=0.88]
-            TOML -> Dates
-            Dates -> Printf
-            Printf -> Unicode
+            TOML -> Dates [color=gray]
+            Dates -> Printf [color=gray]
+            Printf -> Unicode [color=gray]
+            TOML [color=gray fontcolor=gray]
+            Dates [color=gray fontcolor=gray]
+            Printf [color=gray fontcolor=gray]
+            Unicode [color=gray fontcolor=gray]
         }
         """
 
-    @test PkgGraph.depgraph_as_dotstr(:TOML, style=[], dark=true, bg=:white) ==
+    @test PkgGraph.depgraph_as_dotstr(:TOML, style=[], dark=true, bg=:white, faded=nothing) ==
         """
         digraph {
             bgcolor = "white"
