@@ -1,10 +1,10 @@
 
-using PkgGraph
+using PkgGraph.DepGraph
 using Test
 
 @testset "DepGraph" begin
 
-    @test PkgGraph.depgraph("TOML") == [
+    @test depgraph("TOML") == [
         "TOML" => "Dates",
         "Dates" => "Printf",
         "Printf" => "Unicode"
@@ -13,7 +13,7 @@ using Test
     if VERSION ≥ v"1.8"  # Julia v1.7 does not support error string matching
         @test_throws(
             "Package `DinnaeExist` not found",
-            PkgGraph.depgraph("DinnaeExist")
+            depgraph("DinnaeExist")
         )
     end
 
@@ -42,7 +42,7 @@ using Test
         using Pkg
         deps = Pkg.dependencies()
         @assert "Graphs" in [dep.name for dep in values(deps)] "Please use [activate_standalone.jl]"
-        @test PkgGraph.depgraph("Graphs"; jll = false, stdlib = false) == [
+        @test depgraph("Graphs"; jll = false, stdlib = false) == [
                     "Graphs" => "ArnoldiMethod"
              "ArnoldiMethod" => "StaticArrays"
               "StaticArrays" => "StaticArraysCore"
@@ -59,10 +59,10 @@ using Test
 
     @testset "Graphs.jl export" begin
 
-        edges = PkgGraph.depgraph("Test")
-        nt = PkgGraph.as_graphsjl_input(edges)
-        @test nt.vertices          == PkgGraph.vertices(edges)
-        @test nt.indexof("Base64") == PkgGraph.node_index(edges)("Base64")
-        @test nt.adjacency_matrix  == PkgGraph.adjacency_matrix(edges)
+        edges = depgraph("Test")
+        nt = as_graphsjl_input(edges)
+        @test nt.vertices          == vertices(edges)
+        @test nt.indexof("Base64") == node_index(edges)("Base64")
+        @test nt.adjacency_matrix  == adjacency_matrix(edges)
     end
 end

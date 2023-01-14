@@ -1,5 +1,5 @@
 
-using PkgGraph
+using PkgGraph.SVG
 using Test
 
 @testset "SVG" begin
@@ -10,7 +10,7 @@ using Test
     expected = joinpath(@__DIR__, "svg", "simple-dot-with-darkmode.svg")
     outfile = tempname()
 
-    PkgGraph.SVG.add_darkmode(infile, outfile)
+    add_darkmode(infile, outfile)
 
     @test contents(outfile) == contents(expected)
 end

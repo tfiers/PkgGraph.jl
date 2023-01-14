@@ -33,11 +33,11 @@ Extract the unique nodes from the given list of edges.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph
+julia> using PkgGraph.DepGraph
 
-julia> edges = PkgGraph.depgraph(:Test);
+julia> edges = depgraph(:Test);
 
-julia> PkgGraph.vertices(edges)
+julia> vertices(edges)
 8-element Vector{String}:
  "Test"
  "InteractiveUtils"
@@ -65,11 +65,11 @@ This is useful because Graphs.jl requires vertices to be integers.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph
+julia> using PkgGraph.DepGraph
 
 julia> edges = ["A"=>"B", "B"=>"C"];
 
-julia> node = PkgGraph.node_index(edges);
+julia> node = node_index(edges);
 
 julia> node("C")
 3
@@ -89,6 +89,23 @@ as_int_pairs(edges, f = node_index(edges)) =
 
 A square bitmatrix `A` that is `0` everywhere except at `A[i,j]` when there
 is a connection _from_ the node with index `i` to the node with index `j`.
+
+## Example:
+```jldoctest
+julia> using PkgGraph.DepGraph
+
+julia> edges = [
+           :A => :A
+           :A => :B
+           :B => :C
+       ];
+
+julia> adjacency_matrix(edges)
+3×3 BitMatrix:
+ 1  1  0
+ 0  0  1
+ 0  0  0
+```
 """
 adjacency_matrix(edges) = adjacency_matrix(as_int_pairs(edges))
 adjacency_matrix(
