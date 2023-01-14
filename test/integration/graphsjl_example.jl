@@ -8,8 +8,14 @@ using PkgGraph
 using Test
 
 println("Loading Graphs")
-using Graphs
+using Graphs: DiGraph,
+              outdegree,
+              indegree,
+              dijkstra_shortest_paths
 println(" … done")
+# When running full test suite, `vertices` is still loaded from another
+# test file, and we get a "conflict" warning if we just do `using
+# Graphs`. Hence this specific list of names.
 
 edges = PkgGraph.depgraph("Test")
 
