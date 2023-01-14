@@ -50,6 +50,9 @@ _{no changes yet}_ -->
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 
+- Measure import times of dependencies and display in the graph.
+  To use, specify `time = true` in `depgraph_web` or `depgraph_image`
+  (This is a keyword passed on to `depgraph_to_dotstr`).
 - New keyword `faded` for `to_dot_str`.
   Packages in the standard library are by default faded out.
 
