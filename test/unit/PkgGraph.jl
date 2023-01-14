@@ -23,8 +23,8 @@ using Test
 
     @testset "end-user" begin
 
-        @test isnothing(PkgGraph.open("Test", dryrun = true))
-        @test isnothing(PkgGraph.create("Test", dryrun = true))
-        @test isnothing(PkgGraph.create("PyPlot", dryrun = true))
+        @test isnothing(depgraph_web("Test", dryrun = true))
+        @test isnothing(depgraph_image("Test", dryrun = true))
+        @test isnothing(depgraph_image("PyPlot", dryrun = true))
     end
 end

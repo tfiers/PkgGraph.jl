@@ -34,9 +34,12 @@ The version numbers roughly follow <a href="https://semver.org">SemVer</a>
 Possible categories: [Added, Changed, Fixed, Removed, Security,
                       Deprecated (for soon-to-be removed features)]
 -->
+- Rename and export the end-user API functions:
+  - `PkgGraph.open` → `depgraph_web`
+  - `PkgGraph.create` → `depgraph_image`
 - Keyword `mode=:dark` renamed to `dark=true` (default is still
   light-mode i.e. `dark=false`)
-- `PkgGraph.create`: default background colour is now `:white` if 
+- `depgraph_image`: default background colour is now `:white` if 
   `fmt=:png` (which is the default format)
   - Why?\
     (1). PNG is default, because the default Windows image viewer allows

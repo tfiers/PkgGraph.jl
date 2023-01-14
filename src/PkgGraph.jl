@@ -1,10 +1,8 @@
 """
 Visualize the dependency graph of a Julia package.
 
-Use [`PkgGraph.open`](@ref) to view the graph in the browser,
-or [`PkgGraph.create`](@ref) to generate an image locally.
-
-(Note that these functions are not exported).
+Use [`depgraph_web`](@ref) to view the graph in the browser,
+or [`depgraph_image`](@ref) to generate an image locally.
 """
 module PkgGraph
 
@@ -30,7 +28,7 @@ include("includes/dotcommand.jl")
 include("includes/webapps.jl")
 include("includes/enduser.jl")
 
-# No package exports (no namespace pollution)
+export depgraph_web, depgraph_image
 
 
 end # module

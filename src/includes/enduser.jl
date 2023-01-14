@@ -1,13 +1,13 @@
 
 """
-    open(pkgname, base_url = first(webapps); kw...)
+    depgraph_web(pkgname, base_url = first(webapps); kw...)
 
 Open the browser to an image of `pkgname`'s dependency graph.
 
-See [`url`](@ref) for more on `base_url`, and for possible keyword
-arguments see [`depgraph`](@ref) and [`to_dot_str`](@ref) .
+See [`url`](@ref) for more on `base_url`. Keyword arguments are passed
+on to [`depgraph`](@ref) and [`to_dot_str`](@ref).
 """
-function open(pkgname, base_url = first(webapps); dryrun = false, kw...)
+function depgraph_web(pkgname, base_url=first(webapps); dryrun=false, kw...)
     dotstr = depgraph_as_dotstr(pkgname; kw...)
     link = url(dotstr, base_url)
     if !dryrun
@@ -20,7 +20,7 @@ function open(pkgname, base_url = first(webapps); dryrun = false, kw...)
 end
 
 """
-    create(pkgname, dir = tempdir(); fmt = :png, open = true, kw...)
+    depgraph_image(pkgname, dir = tempdir(); fmt = :png, open = true, kw...)
 
 Render the dependency graph of the given package as an image in `dir`,
 and open it with your default image viewer. Uses the external program
@@ -34,10 +34,18 @@ light and dark-mode CSS.
 To only create the image, without automatically opening it, pass
 `open = false`.
 
-See [`depgraph`](@ref) and [`to_dot_str`](@ref) for more keyword
-arguments.
+Other keyword arguments are passed on to [`depgraph`](@ref) and
+[`to_dot_str`](@ref).
 """
-function create(pkgname, dir=tempdir(); fmt=:png, bg=bg(fmt), open=true, dryrun=false, kw...)
+function depgraph_image(
+    pkgname,
+    dir    = tempdir();
+    fmt    = :png,
+    bg     = bg(fmt),
+    open   = true,
+    dryrun = false,
+    kw...
+)
     if !is_dot_available() && !dryrun
         error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
     end

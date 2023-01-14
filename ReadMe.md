@@ -21,7 +21,7 @@ Small tool to visualize the dependency graph of a Julia package.
 ```julia
 julia> using PkgGraph
 
-julia> PkgGraph.open(:Unitful)
+julia> depgraph_web(:Unitful)
 ```
 This will open the browser to [this url][dotlink], which renders something like the following:
 
@@ -44,7 +44,7 @@ To filter out binary dependencies ([JLL packages]) or packages from the Julia st
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use something like
 ```julia
-julia> PkgGraph.create(:Unitful, ".", fmt=:svg)
+julia> depgraph_image(:Unitful, ".", fmt=:svg)
 ```
 This will call `dot` to create an SVG image in the current directory (`"."`), and will open it with your default image viewer.
 

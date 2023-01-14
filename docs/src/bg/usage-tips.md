@@ -21,13 +21,13 @@ this, as it provides a GUI interface for adding new nodes and changing styles.
 and [its repository][gh] is receiving active updates at the time of writing).
 
 You can use Magnus's app by providing the following as keyword argument to
-[`PkgGraph.open`](@ref):
+[`depgraph_web`](@ref):
 
 ```jldoctest; setup=:( using PkgGraph )
 julia> base_url = PkgGraph.webapps[2]
 "http://magjac.com/graphviz-visual-editor/?dot="
 
-julia> # PkgGraph.open(:Test; base_url)
+julia> # depgraph_web(:Test; base_url)
 ```
 
 [mj]: http://magjac.com/graphviz-visual-editor

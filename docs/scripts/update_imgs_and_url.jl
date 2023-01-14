@@ -12,9 +12,9 @@ cd("../..")
 
 Pkg.activate("test")
 
-PkgGraph.create("Unitful", "docs/img/", fmt=:png, open=false)
-PkgGraph.create("Unitful", "docs/img/", fmt=:svg, open=false)
-PkgGraph.create("Test", "docs/img/", fmt=:svg, open=false)
+depgraph_image("Unitful", "docs/img/", fmt=:png, open=false)
+depgraph_image("Unitful", "docs/img/", fmt=:svg, open=false)
+depgraph_image("Test", "docs/img/", fmt=:svg, open=false)
 
 f = "ReadMe.md"
 md = read(f, String)

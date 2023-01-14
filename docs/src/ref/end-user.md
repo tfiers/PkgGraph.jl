@@ -11,10 +11,10 @@ PkgGraph
 
 ## Online
 ```@docs
-PkgGraph.open
+depgraph_web
 ```
 
 ## Local
 ```@docs
-PkgGraph.create
+depgraph_image
 ```
