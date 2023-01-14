@@ -25,6 +25,7 @@ using .SVG
 using DefaultApplication
 using URIs: escapeuri
 using Base: @kwdef
+include("includes/deps-as-dot.jl")
 include("includes/dotcommand.jl")
 include("includes/webapps.jl")
 include("includes/enduser.jl")
