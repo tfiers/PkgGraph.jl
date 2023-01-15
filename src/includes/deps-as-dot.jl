@@ -15,7 +15,7 @@ on the result. Keyword arguments are passed on to whichever of those two
 functions accepts them.
 
 By default, packages in the Julia standard library are drawn in gray. To
-disable this, pass `faded = nothing`.\
+disable this, pass `faded = nothing`.\\
 Note that standard library packages can be filtered out entirely by
 passing `stdlib = false` (see [`depgraph`](@ref)).
 
