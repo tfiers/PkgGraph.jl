@@ -32,7 +32,12 @@ This will open the browser to [this url][dotlink], which renders something like 
 
 <br>
 
-To filter out binary dependencies ([JLL packages]) or packages from the Julia standard library, you can set the keyword arguments `jll = false` and `stdlib = false`.
+Packages in the Julia standard library are by default faded-out.
+To remove them entirely from the graph, set the keyword argument
+`stdlib = false`.
+
+Similarly, you can filter out binary dependencies ([JLL packages])
+by setting `jll = false`.
 
 [JLL packages]: https://docs.binarybuilder.org/stable/jll
 
