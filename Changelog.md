@@ -50,11 +50,25 @@ _{no changes yet}_ -->
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 
-- Measure import times of dependencies and display in the graph.
-  To use, specify `time = true` in `depgraph_web` or `depgraph_image`
-  (This is a keyword passed on to `depgraph_to_dotstr`).
+- Measure import times of dependencies, and display in the graph.
+  - To use:\
+    `depgraph_web(:MyPkg, time=true)` or\
+    `depgraph_image(:MyPkg, time=true)`
+    - The new `time` keyword argument gets passed on to the new internal
+      function [`depgraph_to_dotstr`]
+  - This uses the `@time_imports` macro, [added] in Julia 1.8 by Ian
+    Butterworth.
+      - Hence the `time` keyword is not supported for Julia 1.6 and 1.7.
+  - This introduced the new internal function [`time_imports`], which
+    you might find useful.
 - New keyword `faded` for `to_dot_str`.
-  Packages in the standard library are by default faded out.
+  - Packages in the standard library are by default faded out.
+
+[added]: https://github.com/tfiers/PkgGraph.jl/issues/64#issuecomment-1380193445
+[`depgraph_to_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_to_dotstr
+[`time_imports`]:       https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.LoadTime.time_imports
+[`to_dot_str`]:         https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.DotString.to_dot_str
+<!-- Update the '/dev/' part in the url here to '/v0.6/' on release -->
 
 
 <br>
