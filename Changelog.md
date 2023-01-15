@@ -55,12 +55,12 @@ _{no changes yet}_ -->
     `depgraph_web(:MyPkg, time = true)` or\
     `depgraph_image(:MyPkg, time = true)`.
     - The **`time`** keyword argument is passed on to the new internal
-      function [`depgraph_to_dotstr`]
+      function [`depgraph_as_dotstr`]
   - Uses the `@time_imports` macro, [introduced] in Julia 1.8
       - Hence, the `time` keyword is not supported for Julia 1.6 and 1.7
   - Makes use of the new internal function [`time_imports`], which runs
     `@time_imports using MyPkg` in a new process, and parses the output.
-- New keyword **`faded`** (see [`depgraph_to_dotstr`] and [`to_dot_str`])
+- New keyword **`faded`** (see [`depgraph_as_dotstr`] and [`to_dot_str`])
   - Packages in the standard library are now faded out, by default.\
     To get the old behaviour back, pass `faded = false` to the end-user
     functions.
@@ -73,7 +73,7 @@ _{no changes yet}_ -->
     [`SVG.add_darkmode`])
 
 [introduced]: https://github.com/tfiers/PkgGraph.jl/issues/64#issuecomment-1380193445
-[`depgraph_to_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_to_dotstr
+[`depgraph_as_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_as_dotstr
 [`time_imports`]:       https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.LoadTime.time_imports
 [`to_dot_str`]:         https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.DotString.to_dot_str
 [`SVG.add_darkmode`]:   https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.SVG.add_darkmode
