@@ -14,7 +14,7 @@ using Test
          54.1 ms  EzXML 53.25% compilation time
     """
 
-    @test parse_timeimports(example_stdout) == expected = [
+    @test parse_timeimports(example_stdout) == [
             (pkgname = "OpenSpecFun_jll", time_ms = 99456.5),
             (pkgname = "Preferences",     time_ms = 423.5),
             (pkgname = "JLLWrappers",     time_ms = 0.7),
@@ -24,6 +24,6 @@ using Test
             (pkgname = "EzXML",           time_ms = 54.1),
         ]
 
-    # We do not check for Julia version here, as we only test the parsing method
-    # (not the main one, that calls `@time_imports`)
+    # We do not check for Julia version here, as we only test the
+    # parsing method (not the main one, that calls `@time_imports`)
 end
