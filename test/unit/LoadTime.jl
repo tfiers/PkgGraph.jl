@@ -14,8 +14,7 @@ using Test
          54.1 ms  EzXML 53.25% compilation time
     """
 
-    if VERSION ≥ v"1.8"
-        expected = [
+    @test parse_timeimports(example_stdout) == expected = [
             (pkgname = "OpenSpecFun_jll", time_ms = 99456.5),
             (pkgname = "Preferences",     time_ms = 423.5),
             (pkgname = "JLLWrappers",     time_ms = 0.7),
@@ -24,40 +23,7 @@ using Test
             (pkgname = "XML2_jll",        time_ms = 4.4),
             (pkgname = "EzXML",           time_ms = 54.1),
         ]
-    else
-        expected = []
-    end
-    @test parse_timeimports(example_stdout) == expected
+
+    # We do not check for Julia version here, as we only test the parsing method
+    # (not the main one, that calls `@time_imports`)
 end
-
-
-
-# NamedTuple{(:pkgname,:time_ms),Tuple{SubString{String},Float64}}[(pkgname = "OpenSpecFun_jll",
-# time_ms = 99456.5),
-# (pkgname = "Preferences",
-# time_ms = 423.5),
-# (pkgname = "JLLWrappers",
-# time_ms = 0.7),
-# (pkgname = "Zlib_jll",
-# time_ms = 0.3),
-# (pkgname = "Libiconv_jll",
-# time_ms = 9.3),
-# (pkgname = "XML2_jll",
-# time_ms = 4.4),
-# (pkgname = "EzXML",
-# time_ms = 54.1)]
-#  ==
-# NamedTuple{(:pkgname,:time_ms),Tuple{String,Float64}}[(pkgname = "OpenSpecFun_jll",
-# time_ms = 99456.5),
-# (pkgname = "Preference",
-# time_ms = 423.5),
-# (pkgname = "JLLWrapper",
-# time_ms = 0.7),
-# (pkgname = "Zlib_jl",
-# time_ms = 0.3),
-# (pkgname = "Libiconv_jll",
-# time_ms = 9.3),
-# (pkgname = "XML2_jl",
-# time_ms = 4.4),
-# (pkgname = "EzXML",
-# time_ms = 54.1)]
