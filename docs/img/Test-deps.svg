@@ -4,12 +4,6 @@
  -->
 <!-- Pages: 1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="449pt" height="260pt" viewBox="0.00 0.00 448.99 260.00"><style>
-svg { color-scheme: light dark }
-text {
-    text-anchor: middle;
-    font-family: sans-serif;
-}
-
 .node ellipse { stroke: black; fill: white }
 .node text    { fill: black }
 .edge path    { stroke: black }
@@ -21,6 +15,14 @@ text {
 .edge path    { stroke: white }
 .edge polygon { stroke: white; fill: white }
 }
+
+svg { color-scheme: light dark }
+text {
+    text-anchor: middle;
+    font-family: sans-serif;
+}
+.faded-fill { fill: gray !important }
+.faded-stroke { stroke: gray !important }
 </style>
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
 <!-- Test -->

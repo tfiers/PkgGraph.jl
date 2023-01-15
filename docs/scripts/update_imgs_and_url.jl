@@ -4,11 +4,14 @@ and the long URL in [root]/ReadMe.md
 """
 
 using Pkg
-using PkgGraph
 
 cd(@__DIR__)
 cd("../..")
 @show pwd()
+
+Pkg.activate(".")
+
+using PkgGraph
 
 Pkg.activate("test")
 

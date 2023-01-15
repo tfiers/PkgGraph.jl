@@ -18,6 +18,7 @@ function add_darkmode(path, out = path)
     print("Adding darkmode to [$path] … ")
     doc = readxml(path)
     svg = root(doc)
+    add_class_to_faded_elements!(svg)
     remove_nonDRY_attrs!(svg)
     add_css!(svg)
     write(out, doc)
@@ -27,15 +28,30 @@ function add_darkmode(path, out = path)
     end
 end
 
+function add_class_to_faded_elements!(svg)
+    ns = namespaces_patched_for_xpath(svg)
+    for el in findall("//*[@stroke=\"gray\"]", svg, ns)
+        add_class!(el, "faded-stroke")
+    end
+    for el in findall("//*[@fill=\"gray\"]", svg, ns)
+        add_class!(el, "faded-fill")
+    end
+end
+
+function add_class!(el, cls)
+    if haskey(el, "class")
+        el["class"] = el["class"] * " " * cls
+    else
+        el["class"] = cls
+    end
+end
+
 function remove_nonDRY_attrs!(svg)
     ns = namespaces_patched_for_xpath(svg)
     for (xpath, attrs) in attrs_to_remove()
         for node in findall(xpath, svg, ns)
             for attr in attrs
-                # Keep `faded` nodes 'n edges (see to_dot_str)
-                if node[attr] != "gray"
-                    delete!(node, attr)
-                end
+                delete!(node, attr)
             end
         end
     end
@@ -75,9 +91,9 @@ end
 css() = "\n" * join(styles(), "\n")
 
 styles() = [
-    common_style(),
     lightmode(),
     prefers("dark", darkmode()),
+    common_style(),
 ]
 
 common_style() =
@@ -87,6 +103,8 @@ common_style() =
         text-anchor: middle;
         font-family: sans-serif;
     }
+    .faded-fill { fill: gray !important }
+    .faded-stroke { stroke: gray !important }
     """
 
 lightmode() = colouring(ink="black", paper="white")
