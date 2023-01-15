@@ -12,9 +12,9 @@ cd("../..")
 
 Pkg.activate("test")
 
-depgraph_image("Unitful", "docs/img/", fmt=:png, open=false)
-depgraph_image("Unitful", "docs/img/", fmt=:svg, open=false)
-depgraph_image("Test", "docs/img/", fmt=:svg, faded=nothing, open=false)
+depgraph_image("Unitful", dir="docs/img/", fmt=:png, open=false)
+depgraph_image("Unitful", dir="docs/img/", fmt=:svg, open=false)
+depgraph_image("Test", dir="docs/img/", fmt=:svg, faded=nothing, open=false)
 
 readme = "ReadMe.md"
 md = read(readme, String)
@@ -23,7 +23,8 @@ m = match(current, md)
 isnothing(m) && error("[$current] not found in [$readme]")
 current_url = m.captures[1]
 
-new = PkgGraph.url(PkgGraph.depgraph_as_dotstr("Unitful"))
+dotstr = PkgGraph.depgraph_as_dotstr("Unitful")
+new = PkgGraph.url(dotstr)
 
 if current_url == new
     @info "Current url in [$readme] still up to date"
