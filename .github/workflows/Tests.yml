@@ -42,6 +42,9 @@ jobs:
         with:
           version: ${{ matrix.version }}
       - uses: julia-actions/cache@v1
+        with:
+          cache-compiled: true
+          # See https://github.com/julia-actions/cache#inputs and the linked #11
       - uses: julia-actions/julia-runtest@v1
         with:
           annotate: true
