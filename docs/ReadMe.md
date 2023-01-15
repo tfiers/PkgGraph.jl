@@ -1,5 +1,24 @@
 # Building the docs
 
+The 'Live build' method, described below, does not work well.\
+(Revise's `entr` does not work well, it seems, and neither does LiveServer).
+
+So, to build docs, do it manually:
+```julia
+julia> using Revise  # Install in your global project if you haven't yet
+
+(PkgGraph) pkg> activate docs
+
+(docs) pkg> instantiate  # (On a new repo clone only)
+
+julia> include("docs/make.jl")  # Re-run this after making a change
+```
+To view the results, start a local server – like the VS Code extension 'Live Server' – in `docs/build/`.
+
+
+
+## Live build
+
 To build the documentation locally, run
 ```bash
 $ julia docs/serve.jl
