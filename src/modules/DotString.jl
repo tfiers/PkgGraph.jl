@@ -35,19 +35,15 @@ function to_dot_str(
             add("$m -> $n")
         end
     end
-    if !isnothing(faded)
-        for node in vertices(edges)
-            if faded(node)
-                add("$node [color=gray fontcolor=gray]")
-            end
+    isnothing(faded) || for node in vertices(edges)
+        if faded(node)
+            add("$node [color=gray fontcolor=gray]")
         end
     end
-    if !isnothing(nodeinfo)
-        for node in vertices(edges)
-            if node in keys(nodeinfo)
-                info = nodeinfo[node]
-                add("$node [label=\"$node\\n$info\"]")
-            end
+    isnothing(nodeinfo) || for node in vertices(edges)
+        if node in keys(nodeinfo)
+            info = nodeinfo[node]
+            add("$node [label=\"$node\\n$info\"]")
         end
     end
     if !isnothing(emptymsg) && isempty(edges)
