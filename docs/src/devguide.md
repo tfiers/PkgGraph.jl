@@ -26,7 +26,6 @@
   - This will also trigger a DocBuild run, creating a new directory for the tagged
     version on the gh-pages branch.
 - If this is the first release, update the 'Installation' section of the [ReadMe] again.
-- Also in the ReadMe, update the git tag of the latest release in `[difflink]: …`.
 - Remove the temporary warning and PR link.
 
 [`Project.toml`]: https://github.com/tfiers/PkgGraph.jl/edit/main/Project.toml
