@@ -27,7 +27,8 @@ You can use Magnus's app by providing the following as keyword argument to
 julia> base_url = PkgGraph.webapps[2]
 "http://magjac.com/graphviz-visual-editor/?dot="
 
-julia> # depgraph_web(:Test; base_url)
+julia> # And then:
+       # depgraph_web(:MyPackage; base_url)
 ```
 
 [mj]: http://magjac.com/graphviz-visual-editor
