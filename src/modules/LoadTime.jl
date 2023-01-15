@@ -9,6 +9,9 @@ export time_imports
 Measure load times of the given package and its dependencies, by running
 `@time_imports` in a new julia process, and parsing its output.
 
+`@time_imports` is new in Julia 1.8. If called with a lower Julia
+version, this method prints a warning and returns an empty list.
+
 ## Example:
 
 ```jldoctest; filter = r"\\d.*\$"m
@@ -30,6 +33,10 @@ julia> last(loadtimes)
 ```
 """
 function time_imports(pkg)
+    if VERSION < v"1.8"
+        @warn "`@time_imports` requires Julia 1.8 or higher"
+        return []
+    end
     code = timeimports_code(pkg)
     proj = activeproject_short()
     cmd = julia_cmd(code, proj)
