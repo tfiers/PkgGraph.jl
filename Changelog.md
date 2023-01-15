@@ -54,15 +54,14 @@ _{no changes yet}_ -->
   - To use:\
     `depgraph_web(:MyPkg, time=true)` or\
     `depgraph_image(:MyPkg, time=true)`
-    - The new `time` keyword argument gets passed on to the new internal
+    - The **`time`** keyword argument is passed on to the new internal
       function [`depgraph_to_dotstr`]
-  - This uses the `@time_imports` macro, [added] in Julia 1.8 by Ian
-    Butterworth.
-      - Hence the `time` keyword is not supported for Julia 1.6 and 1.7.
+  - This uses the `@time_imports` macro, [added] in Julia 1.8
+      - Hence the `time` keyword is not supported for Julia 1.6 and 1.7
   - This introduced the new internal function [`time_imports`], which
-    you might find useful.
-- New keyword `faded` for `to_dot_str`.
-  - Packages in the standard library are by default faded out.
+    you might find useful on its own
+- New keyword **`faded`** for [`to_dot_str`]
+  - Packages in the standard library are by default faded out
 
 [added]: https://github.com/tfiers/PkgGraph.jl/issues/64#issuecomment-1380193445
 [`depgraph_to_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_to_dotstr
