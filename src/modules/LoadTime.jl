@@ -14,7 +14,7 @@ version, this method prints a warning and returns an empty list.
 
 ## Example:
 
-```jldoctest; filter = r"\\d.*\$"m
+```
 julia> using PkgGraph.LoadTime
 
 julia> loadtimes = time_imports("EzXML");
@@ -33,6 +33,10 @@ julia> last(loadtimes)
 ```
 """
 function time_imports(pkg)
+    # On the docstring: note that we don't jldoctest this.
+    # Locally, on my Windows laptop, the doctest works (with `; filter = r"\\d.*\$"m`)
+    # But on CI, it does not (re https://github.com/tfiers/PkgGraph.jl/issues/81)
+    # Hence, no doctest.
     if VERSION < v"1.8"
         @warn "`@time_imports` requires Julia 1.8 or higher"
         return []
