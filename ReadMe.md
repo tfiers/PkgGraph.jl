@@ -99,6 +99,8 @@ Type '`o`' to choose to install it in your base environment.
 
 ## Development
 
+([back to top](#start-of-content))
+
 ### Unreleased Changes &nbsp;<sub>[![][commitsimg]][difflink] [![][devdocs-img]][devdocs]</sub>
 
 For the latest commit on `main` (aka _dev_ and _unstable_):
