@@ -120,7 +120,7 @@ pkg> add https://github.com/tfiers/PkgGraph.jl#f6e83ca
 [testhist]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
 
 [commitsimg]:  https://img.shields.io/github/commits-since/tfiers/PkgGraph.jl/latest
-[difflink]:https://github.com/tfiers/PkgGraph.jl/compare/v0.3.0...main
+[difflink]:    https://github.com/tfiers/PkgGraph.jl/compare/v0.5.0...main
 
 [devdocs-img]: https://img.shields.io/badge/📕_Documentation-dev-blue.svg
 [devdocs]:     https://tfiers.github.io/PkgGraph.jl/dev
