@@ -50,27 +50,25 @@ _{no changes yet}_ -->
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 
-- Measure import times of dependencies, and display them in the graph
-  - To use:\
-    `depgraph_web(:MyPkg, time = true)` or\
-    `depgraph_image(:MyPkg, time = true)`.
-    - The **`time`** keyword argument is passed on to the new internal
-      function [`depgraph_as_dotstr`]
+- New keyword argument **`time`**, to measure import times of dependencies,
+  and display them in the graph
+  - Example: `depgraph_web(:MyPkg, time = true)`
+  - `time` is passed on to the new internal function [`depgraph_as_dotstr`]
   - Uses the `@time_imports` macro, [introduced] in Julia 1.8
-      - Hence, the `time` keyword is not supported for Julia 1.6 and 1.7
+      - Hence, `time` is not supported for Julia 1.6 and 1.7
   - Makes use of the new internal function [`time_imports`], which runs
     `@time_imports using MyPkg` in a new process, and parses the output.
-- New keyword **`faded`** (see [`depgraph_as_dotstr`] and [`to_dot_str`])
+- New keyword argument **`faded`** (see [`depgraph_as_dotstr`] and [`to_dot_str`])
   - Packages in the standard library are now faded out, by default.\
     To get the old behaviour back, pass `faded = false` to the end-user
     functions.
 - `depgraph_image`:
   - The output directory is now a keyword (**`dir`**), instead of a
     positional argument
-  - New keyword argument **`post`**, to allow disabling the SVG
+  - New keyword argument **`post`**, to allow disabling of the SVG
     post-processing. By default, `post = true`, and the SVG is still
-    post-processed to add automatic dark & light mode switching (see
-    [`SVG.add_darkmode`])
+    post-processed like before, to add automatic dark & light mode
+    switching (see [`SVG.add_darkmode`])
 
 [introduced]: https://github.com/tfiers/PkgGraph.jl/issues/64#issuecomment-1380193445
 [`depgraph_as_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_as_dotstr
