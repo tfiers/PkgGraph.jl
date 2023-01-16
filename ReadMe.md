@@ -64,6 +64,15 @@ above interface offers, you might be able to compose it from various internal
 functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 
+### Limitations
+
+- See [**Known limitations & Bugs**][limbugs] in the issue tracker
+- Also see [Roadmap]
+
+[limbugs]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3A%22known+limitation%22%2Cbug+is%3Aopen
+[Roadmap]: https://github.com/tfiers/PkgGraph.jl#roadmap--
+
+
 
 <br>
 
@@ -114,10 +123,10 @@ You can install `PkgGraph` at this latest commit using
 pkg> add https://github.com/tfiers/PkgGraph.jl
 ```
 It might be a good idea to install at a fixed revision instead.
-Preferably at a [commit that passed tests][testhist].
+Preferably at one that [passed tests][testhist].
 For example:
 ```
-pkg> add https://github.com/tfiers/PkgGraph.jl#f6e83ca
+pkg> add https://github.com/tfiers/PkgGraph.jl#50bc308 
 ```
 
 [testhist]: https://github.com/tfiers/PkgGraph.jl/actions/workflows/Tests.yml
@@ -173,3 +182,19 @@ for how to locally run the tests and build the documentation.
 See the [Developer Guide][1] in the documentation for more.
 
 [1]: https://tfiers.github.io/PkgGraph.jl/dev/devguide
+
+
+
+<br>
+
+## Alternatives
+
+Julia packages similar to PkgGraph:
+- [PkgDependency.jl]
+- [PkgDeps.jl]
+
+See **[Related work]** in the documentation for more info.
+
+[PkgDependency.jl]: https://github.com/peng1999/PkgDependency.jl
+[PkgDeps.jl]: https://github.com/JuliaEcosystem/PkgDeps.jl
+[Related work]: https://tfiers.github.io/PkgGraph.jl/dev/bg/related-work/
