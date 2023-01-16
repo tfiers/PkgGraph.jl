@@ -1,7 +1,7 @@
 
 # PkgGraph.jl &nbsp;[![][latestimg]][latest] [![][docbadge]][docs] [![][chlog-img]][chlog] [![][devimg]](#development)
 
-Small tool to visualize the dependency graph of a Julia package.
+Visualize the dependency graph of a Julia package
 
 
 [latestimg]: https://img.shields.io/github/v/release/tfiers/PkgGraph.jl?label=Latest%20release
@@ -19,9 +19,10 @@ Small tool to visualize the dependency graph of a Julia package.
 ### Example
 
 ```julia
-julia> using PkgGraph
-
-julia> depgraph_web(:Unitful)
+using PkgGraph
+```
+```julia
+depgraph_web(:Unitful)
 ```
 This will open the browser to [this url][dotlink], which renders something like the following:
 
@@ -49,7 +50,7 @@ by setting `jll = false`.
 
 If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use something like
 ```julia
-julia> depgraph_image(:Unitful, dir=".", fmt=:svg)
+depgraph_image(:Unitful, dir=".", fmt=:svg)
 ```
 This will call `dot` to create an SVG image in the current directory (`"."`), and will open it with your default image viewer.
 
