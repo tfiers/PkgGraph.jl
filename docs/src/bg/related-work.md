@@ -7,9 +7,10 @@
 #### [PkgDependency.jl]
 
 Nice and actively maintained package that does a very similar thing to PkgGraph, and has
-no non-Julia dependencies. Prints package dependencies as a tree in the REPL. Because
-package dependencies are a DAG and not a tree, there are repeated names in the printout
-(those are marked with a `(*)`).
+no non-stdlib dependencies.\
+Prints package dependencies as a tree in the REPL. Because package dependencies are a DAG 
+and not a tree, there are repeated names in the printout (those are marked with a `(*)`).\
+For each dependency, shows the version, and optionally compat info and the repository link.
 
 #### [PkgDeps.jl]
 
