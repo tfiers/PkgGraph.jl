@@ -50,7 +50,7 @@ _{no changes yet}_ -->
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 
-- Measure **import times** of dependencies, and display them in the graph
+- Measure import times of dependencies, and display them in the graph
   - To use:\
     `depgraph_web(:MyPkg, time = true)` or\
     `depgraph_image(:MyPkg, time = true)`.
