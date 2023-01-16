@@ -180,8 +180,8 @@ Check out the code for development using
 pkg> dev PkgGraph
 ```
 One fun way to hack on the code is to open one of the source files
-in VS Code, and execute individual lines in the [integrated Julia REPL][1],
-maybe copying over some dummy input data from [`test/`].
+in, e.g, VS Code, and execute individual lines in the [integrated Julia REPL][1],
+maybe copying over some dummy input data from [`test/`](test).
 
 See the readmes [in `test/`](test/ReadMe.md) and [in `docs/`](docs/ReadMe.md)
 for how to locally run the tests and build the documentation.
