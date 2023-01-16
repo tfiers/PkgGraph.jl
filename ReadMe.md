@@ -146,7 +146,8 @@ pkg> add https://github.com/tfiers/PkgGraph.jl#50bc308
 
 ### Roadmap &nbsp;<sub>[![][open-img]][open-url] [![][close-img]][close-url]</sub>
 
-Ideas for improvement are currently managed with GitHub issues.
+Ideas for improvement are currently managed with GitHub issues.\
+User-visible enhancements to [`src/`](src) are labelled with <sub>[![][feat-img]][feat-url]</sub>.
 
 For `v1`: <sub>[![][mile-img]][milestone]</sub>
 
@@ -158,14 +159,16 @@ No progress guaranteed, _Software provided 'as is'_, etc.
 [close-url]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aclosed+sort%3Aupdated-desc
 [mile-img]: https://img.shields.io/github/milestones/progress/tfiers/PkgGraph.jl/1?label=Milestone%20issues%20closed
 [milestone]: https://github.com/tfiers/PkgGraph.jl/milestone/1
+[feat-img]: https://img.shields.io/badge/-feature-%23215B25
+[feat-url]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3Afeature+
 
 
 ### Contributions
 
 Well-considered PRs, Issues, and Discussions are welcome.
 
-Everyone is expected to adhere to the standards for constructive communication
-described in [this Code of Conduct][CoC].
+Participants are expected to adhere to the standards for constructive communication
+as e.g. described in [this Code of Conduct][CoC].
 
 [CoC]: https://github.com/comob-project/snn-sound-localization/blob/17279f6/Code-of-Conduct.md
 
@@ -189,7 +192,7 @@ See the [Developer Guide][1] in the documentation for more.
 
 ## Alternatives
 
-Julia packages similar to PkgGraph:
+Julia packages similar to PkgGraph.jl:
 - [PkgDependency.jl]
 - [PkgDeps.jl]
 
