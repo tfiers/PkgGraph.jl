@@ -68,7 +68,7 @@ builddir = joinpath(docdir, "build")
 correct_edit_link(html) = replace(
     html,
     Regex("(href *= *\"https://github.com/$repo/blob/$ref/docs)/$srcmod/")
-    => SubstitutionString("\1/$src/")
+    => SubstitutionString("\\1/$src/")
 )
 
 
