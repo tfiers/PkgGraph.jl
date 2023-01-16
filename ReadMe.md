@@ -143,8 +143,8 @@ For `v1`: <sub>[![][mile-img]][milestone]</sub>
 
 No progress guaranteed, _Software provided 'as is'_, etc.
 
-[open-img]: https://img.shields.io/github/issues-raw/tfiers/PkgGraph.jl?label=issues%20open
-[close-img]: https://img.shields.io/github/issues-closed-raw/tfiers/PkgGraph.jl?label=closed
+[open-img]: https://img.shields.io/github/issues-raw/tfiers/PkgGraph.jl?label=issues%20open&color=blue
+[close-img]: https://img.shields.io/github/issues-closed-raw/tfiers/PkgGraph.jl?label=closed&color=blue
 [open-url]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc
 [close-url]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+is%3Aclosed+sort%3Aupdated-desc
 [mile-img]: https://img.shields.io/github/milestones/progress/tfiers/PkgGraph.jl/1?label=Milestone%20issues%20closed
