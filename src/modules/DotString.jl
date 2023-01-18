@@ -54,11 +54,11 @@ function to_dot_str(
     return join(lines, "\n") * "\n"
 end
 
-single_node(text) = "onlynode [label=\" $text \", shape=\"plaintext\"]"
+single_node(text) = "onlynode [label=\" $text \", shape=plaintext]"
 # ↪ the extra spaces around the text are for some padding in the output png (eg)
 
 default_style() = [
-    "node [fontname=\"sans-serif\", style=\"filled\"]",
+    "node [fontname=\"sans-serif\", style=filled]",
     "edge [arrowsize=0.88]",
 ]
 @doc(
