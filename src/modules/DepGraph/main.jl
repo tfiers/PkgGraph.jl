@@ -63,9 +63,9 @@ should_be_included(pkg; include_jll = true, include_stdlib = true) =
 """
     is_jll(pkg)::Bool
 """
-is_jll(pkg) = endswith(pkg, "_jll")
+is_jll(pkg) = endswith(string(pkg), "_jll")
 
 """
     is_in_stdlib(pkg)::Bool
 """
-is_in_stdlib(pkg) = pkg in STDLIB_NAMES
+is_in_stdlib(pkg) = string(pkg) in STDLIB_NAMES
