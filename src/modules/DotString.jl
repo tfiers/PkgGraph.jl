@@ -23,32 +23,32 @@ function to_dot_str(
 )
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
-    colourscheme = dark ? darkmode : lightmode
+    addline(l) = push!(lines, tab * l)
     bgcolor = "bgcolor = \"$bg\""
-    add(str) = push!(lines, tab * str)
-    for line in [bgcolor; colourscheme; style]
-        add(line)
+    colourscheme = dark ? darkmode : lightmode
+    for str in [bgcolor; colourscheme; style]
+        addline(str)
     end
     for (m, n) in edges
         if !isnothing(faded) && any(faded, [m, n])
-            add("$m -> $n [color=gray]")
+            addline("$m -> $n [color=gray]")
         else
-            add("$m -> $n")
+            addline("$m -> $n")
         end
     end
     isnothing(faded) || for node in vertices(edges)
         if faded(node)
-            add("$node [color=gray fontcolor=gray]")
+            addline("$node [color=gray fontcolor=gray]")
         end
     end
     isnothing(nodeinfo) || for node in vertices(edges)
         if node in keys(nodeinfo)
             info = nodeinfo[node]
-            add("$node [label=\"$node\\n$info\"]")
+            addline("$node [label=\"$node\\n$info\"]")
         end
     end
     if !isnothing(emptymsg) && isempty(edges)
-        add(single_node(emptymsg))
+        addline(single_node(emptymsg))
     end
     push!(lines, "}")
     return join(lines, "\n") * "\n"
