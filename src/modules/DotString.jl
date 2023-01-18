@@ -38,7 +38,7 @@ function to_dot_str(
     end
     isnothing(faded) || for node in vertices(edges)
         if faded(node)
-            addline("$node [color=gray fontcolor=gray]")
+            addline("$node [fontcolor=gray]")
         end
     end
     isnothing(nodeinfo) || for node in vertices(edges)
@@ -58,8 +58,11 @@ single_node(text) = "onlynode [label=\" $text \", shape=plaintext]"
 # ↪ the extra spaces around the text are for some padding in the output png (eg)
 
 default_style() = [
-    "node [fontname=\"sans-serif\", style=filled]",
-    "edge [arrowsize=0.88]",
+    "node [fontname=\"sans-serif\", fontsize=14]",  # 14 is default
+    "node [color=none, shape=box, width=1, height=0.5]",
+    # Default width is 0.75 (but expands for label), height 0.5
+    # Larger width spaces nodes out more
+    "edge [arrowsize=0.8]",
 ]
 @doc(
 """
@@ -70,12 +73,11 @@ The default style used by [`to_dot_str`](@ref):
 """ * join("`$l`\\\n" for l in default_style()),
 default_style)
 
-colouring(; paper, ink) = [
-    """node [fillcolor="$paper", fontcolor="$ink", color="$ink"]""",
+colouring(; ink) = [
+    """node [fontcolor="$ink"]""",
     """edge [color="$ink"]""",
 ]
-
-const lightmode = colouring(paper="white", ink="black")
-const darkmode  = colouring(paper="black", ink="white")
+const lightmode = colouring(ink="black")
+const darkmode  = colouring(ink="white")
 
 end
