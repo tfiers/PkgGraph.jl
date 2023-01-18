@@ -6,7 +6,6 @@ using Pkg.Registry: reachable_registries,
 
 regs = reachable_registries()
 const reg = regs[findfirst(reg.name == "General" for reg in regs)]
-@assert reg.name == "General"
 
 name(uuid::UUID) =
     if uuid in STDLIB_UUIDS

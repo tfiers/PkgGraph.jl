@@ -69,6 +69,8 @@ _{no changes yet}_ -->
     post-processing. By default, `post = true`, and the SVG is still
     post-processed like before, to add automatic dark & light mode
     switching (see [`SVG.add_darkmode`])
+- A bug preventing the package from precompiling when more than one registry
+  is registered has been fixed.
 
 [introduced]: https://github.com/tfiers/PkgGraph.jl/issues/64#issuecomment-1380193445
 [`depgraph_as_dotstr`]: https://tfiers.github.io/PkgGraph.jl/dev/ref/internals/#PkgGraph.depgraph_as_dotstr
