@@ -4,8 +4,8 @@ using Pkg.Registry: reachable_registries,
                     initialize_uncompressed!,
                     JULIA_UUID
 
-const reg = first(reachable_registries())
-@assert reg.name == "General"
+regs = reachable_registries()
+const reg = regs[findfirst(reg.name == "General" for reg in regs)]
 
 name(uuid::UUID) =
     if uuid in STDLIB_UUIDS
