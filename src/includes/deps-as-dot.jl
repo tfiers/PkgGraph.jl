@@ -25,7 +25,7 @@ results in the graph. (Julia 1.8 and higher only).
 depgraph_as_dotstr(
     pkgname;
     emptymsg = "($pkgname has no dependencies)",
-    faded    = is_in_stdlib,
+    faded    = is_in_stdlib(pkgname) ? nothing : is_in_stdlib,
     time     = false,
     kw...
 ) = begin
@@ -47,6 +47,14 @@ depgraph_as_dotstr(
         nodeinfo,
     )
 end
+
+"""
+    print_dotstr(pkgname; kw...)
+
+Like [`depgraph_as_dotstr`](@ref) but prints the result instead of
+returning a string.
+"""
+print_dotstr(pkg; kw...) = depgraph_as_dotstr(pkg; kw...) |> println
 
 """
 Extract the keyword arguments from `kw` that are applicable to the

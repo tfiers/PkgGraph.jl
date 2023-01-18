@@ -24,6 +24,7 @@ default_style
 
 ```@docs
 depgraph_as_dotstr
+print_dotstr
 ```
 
 ## Measuring load time
