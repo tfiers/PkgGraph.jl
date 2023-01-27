@@ -4,14 +4,9 @@
 ## Releasing a new version
 
 #### The release commit:
-- In [`Project.toml`], remove the `-dev` suffix from `version`.
-- Roll-over [`Changelog.md`]:
-    - Add a commented-out section above the new release, for the next
-      version.
-    - Move the 'unreleased' badge to the commented out section. Replace with a new
-      'released' badge and link, in analogy with previously released versions.
-- Commit the above, and comment on this commit on GitHub
-  with `@JuliaRegistrator register`. (This opens a PR in the General registry)
+See the readme in [`release/`].
+
+[`release`]: https://github.com/tfiers/PkgGraph.jl/tree/main/release#readme
 
 #### In the next commit:
 - In [`Project.toml`], bump the relevant version component, and add `-dev` again.

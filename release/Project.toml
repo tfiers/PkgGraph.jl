@@ -1,0 +1,8 @@
+[deps]
+Crayons = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
+Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+LibGit2 = "76f85450-5226-5b5a-8eaa-529ad045b433"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
