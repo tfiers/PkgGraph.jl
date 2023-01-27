@@ -33,17 +33,17 @@ per version: [Added, Changed, Fixed, Removed, Security,
 -------------
 
 
-<!--
+
 <br>
 
-## v…  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+## v0.7  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
 
 
 _{no changes yet}_
--->
+
 
 
 <br>

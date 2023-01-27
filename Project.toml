@@ -1,7 +1,7 @@
 name = "PkgGraph"
 uuid = "f9c1b9e4-72e8-4a14-ade5-14f45fc35f11"
 authors = ["Tomas Fiers <tomas.fiers@gmail.com> and contributors"]
-version = "0.6.0"
+version = "0.7.0-dev"
 
 [deps]
 DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
