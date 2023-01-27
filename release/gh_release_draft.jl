@@ -36,28 +36,27 @@ release_body = """
 
     """
 if !isempty(merged_PRs)
-    PR_line(; title, nr, author) = "  - $title (#$nr) (@$author)"
+    PR_line(; title, nr, author) = "- $title (#$nr) (@$author)"
     PR_lines = [PR_line(; PR...) for PR in merged_PRs]
     PR_list = join(PR_lines, "\n")
     release_body *= """
     Merged PRs:
-    - <details><summary><sub>[Click to expand]</sub></summary>
-
     $PR_list
-      </details>
 
     """
 end
 if !isempty(closed_issues)
-    issue_line(; title, nr) = "  - $title (#$nr)"
+    issue_line(; title, nr) = "- $title (#$nr)"
     issue_lines = [issue_line(; iss...) for iss in closed_issues]
     issue_list = join(issue_lines, "\n")
     release_body *= """
-    Closed issues:
-    - <details><summary><sub>[Click to expand]</sub></summary>
+    <details>
+    <summary>
+    Closed issues <sub>[Click to expand]</sub>
+    </summary>
 
     $issue_list
-      </details>
+    </details>
     """
 end
 
@@ -68,7 +67,8 @@ cmd = `gh api \
     -f tag_name=$v_short \
     -f body=$release_body \
     -F draft=true`
-# Interpolation don't work with e.g. `tag_name='$v_short'`
+# Note: interpolation doesn't work with quotes (e.g. `tag_name='$v_short'`)
+# The Cmd backticks `` do the quoting for us.
 
 println("done")
 confirm_or_quit("Send release draft to GitHub and open in browser?")
