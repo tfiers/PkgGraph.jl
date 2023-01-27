@@ -8,20 +8,23 @@ julia release.jl
 
 This script will:
 - In `Project.toml`, remove the `-dev` suffix from `version`
-- Roll-over `Changelog.md`:
-    - Add a commented-out section above the new release, for the next
-      version
-    - Move the 'unreleased' badge to the commented out section. Replace
-      with a new 'released' badge and link
+- Roll-over `Changelog.md` (replace the 'unreleased' badge with a
+  released one)
 - Commit the above, and have you comment on this commit on GitHub with
   `@JuliaRegistrator register`. (This opens a PR in the General
   registry)
-- Draft a GitHub release
+- Draft a GitHub release, and have you check and publish it
+  - GitHub will make a new tag for this release.\
+    This tag will trigger a special run of the Documenter CI, creating a
+    new directory for the newly released version on the gh-pages branch.
+- Update `Project.toml` and `Changelog.md` again, for the new dev
+  version
+
 
 ## Requirements
 
-- The [GitHub CLI] (`gh`) must be installed and available on your path,
-  and you've run `gh auth login`
-- `]activate release` and `]instantiate`
+- The [GitHub CLI] (`gh`) must be installed and available on your PATH,
+  and `gh auth login` must have been run succesfully
+- In this dir: `pkg> activate .` and `(release) pkg> instantiate`
 
 [GitHub CLI]: https://github.com/cli/cli
