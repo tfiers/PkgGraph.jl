@@ -5,7 +5,6 @@ Pkg.activate(@__DIR__)
 using Base: prompt
 using Pkg
 using Dates
-using LibGit2: GitRepo, isdirty, add!, commit, push
 using Crayons
 using DefaultApplication
 using Downloads

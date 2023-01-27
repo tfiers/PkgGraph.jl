@@ -1,4 +1,6 @@
 
+using LibGit2: GitRepo, isdirty, add!, commit
+
 # Step 3: Commit
 # --------------
 
@@ -16,7 +18,7 @@ else
 end
 println("Made commit ", blue(short_sha), " (\"$msg\")")
 confirm_or_quit("Push?")
-!dryrun && push(repo)
+!dryrun && run(`git push`)  # Not `push(repo)`; auth needed
 commit_url = "https://github.com/$ghrepo/commits/$short_sha"
 println("Commit pushed. Url: ", blue(commit_url))
 magic_phrase = "@JuliaRegistrator register"

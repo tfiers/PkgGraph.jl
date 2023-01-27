@@ -28,14 +28,15 @@ for issue_obj in issues_list
         push!(closed_issues, (; title, nr))
     end
 end
+anchor = replace(v_short, "."=>"") * "--"
 release_body = """
     Human-written changelog: [**Changelog @ $v_short**][cl]
 
-    [cl]: https://github.com/$ghrepo/blob/main/$changelog_file#$v_short--
+    [cl]: https://github.com/$ghrepo/blob/main/$changelog_file#$anchor
 
     """
 if !isempty(merged_PRs)
-    PR_line(; title, nr, author) = "  - $title (#$nr) ($author)"
+    PR_line(; title, nr, author) = "  - $title (#$nr) (@$author)"
     PR_lines = [PR_line(; PR...) for PR in merged_PRs]
     PR_list = join(PR_lines, "\n")
     release_body *= """
@@ -64,11 +65,12 @@ cmd = `gh api \
     --method POST \
     -H "Accept: application/vnd.github+json" \
     /repos/$ghrepo/releases \
-    -f tag_name='$v_short' \
-    -f body='$release_body' \
+    -f tag_name=$v_short \
+    -f body=$release_body \
     -F draft=true`
+# Interpolation don't work with e.g. `tag_name='$v_short'`
 
 println("done")
 confirm_or_quit("Send release draft to GitHub and open in browser?")
-!dryrun && run(cmd)
+!dryrun && run(pipeline(cmd, devnull))
 DefaultApplication.open("https://github.com/$ghrepo/releases")
