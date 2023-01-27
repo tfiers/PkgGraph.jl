@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Home · PkgGraph.jl</title><meta name="title" content="Home · PkgGraph.jl"/><meta property="og:title" content="Home · PkgGraph.jl"/><meta property="twitter:title" content="Home · PkgGraph.jl"/><meta name="description" content="Documentation for PkgGraph.jl."/><meta property="og:description" content="Documentation for PkgGraph.jl."/><meta property="twitter:description" content="Documentation for PkgGraph.jl."/><meta property="og:url" content="https://tfiers.github.io/PkgGraph.jl/stable/"/><meta property="twitter:url" content="https://tfiers.github.io/PkgGraph.jl/stable/"/><link rel="canonical" href="https://tfiers.github.io/PkgGraph.jl/stable/"/><script data-outdated-warner src="assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.045/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.24/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="assets/documenter.js"></script><script src="siteinfo.js"></script><script src="../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href>PkgGraph.jl</a></span></div><form class="docs-search" action="search/"><input class="docs-search-query" id="documenter-search-query" name="q" type="text" placeholder="Search docs"/></form><ul class="docs-menu"><li class="is-active"><a class="tocitem" href>Home</a></li><li><span class="tocitem">Reference</span><ul><li><a class="tocitem" href="ref/end-user/">End-user</a></li><li><a class="tocitem" href="ref/internals/">Internals</a></li></ul></li><li><span class="tocitem">Background</span><ul><li><a class="tocitem" href="bg/usage-tips/">Usage tips</a></li><li><a class="tocitem" href="bg/related-work/">Related work</a></li><li><a class="tocitem" href="bg/graphviz/">Graphviz &amp; DAG visualization</a></li><li><a class="tocitem" href="bg/graphsjl/">Working with Graphs.jl</a></li><li><a class="tocitem" href="bg/abbrevs/">Abbreviations</a></li></ul></li><li><a class="tocitem" href="devguide/">Developer Guide</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Home</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Home</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl" title="View the repository on GitHub"><span class="docs-icon fab"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/tfiers/PkgGraph.jl/blob/main/docs/src/index.md" title="Edit source on GitHub"><span class="docs-icon fas"></span></a><a class="docs-settings-button docs-navbar-link fas fa-cog" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-sidebar-button docs-navbar-link fa fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a></div></header><article class="content" id="documenter-page"><h1>PkgGraph.jl</h1>
+<p>Visualize the dependency graph of a Julia package</p>
+<h3>Example</h3>
+<pre><code class="language-julia">using PkgGraph
+</code></pre>
+<pre><code class="language-julia">depgraph_web(:Unitful)
+</code></pre>
+<p>This will open the browser to <a href="https://dreampuf.github.io/GraphvizOnline/#digraph%20%7B%0A%20%20%20%20bgcolor%20%3D%20%22transparent%22%0A%20%20%20%20node%20%5Bfontcolor%3D%22black%22%5D%0A%20%20%20%20edge%20%5Bcolor%3D%22black%22%5D%0A%20%20%20%20node%20%5Bfontname%3D%22sans-serif%22%2C%20fontsize%3D14%5D%0A%20%20%20%20node%20%5Bcolor%3Dnone%2C%20shape%3Dbox%2C%20width%3D1%2C%20height%3D0.5%5D%0A%20%20%20%20edge%20%5Barrowsize%3D0.8%5D%0A%20%20%20%20Unitful%20-%3E%20ConstructionBase%0A%20%20%20%20ConstructionBase%20-%3E%20LinearAlgebra%20%5Bcolor%3Dgray%5D%0A%20%20%20%20LinearAlgebra%20-%3E%20Libdl%20%5Bcolor%3Dgray%5D%0A%20%20%20%20LinearAlgebra%20-%3E%20libblastrampoline_jll%20%5Bcolor%3Dgray%5D%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Artifacts%20%5Bcolor%3Dgray%5D%0A%20%20%20%20libblastrampoline_jll%20-%3E%20Libdl%20%5Bcolor%3Dgray%5D%0A%20%20%20%20libblastrampoline_jll%20-%3E%20OpenBLAS_jll%20%5Bcolor%3Dgray%5D%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Artifacts%20%5Bcolor%3Dgray%5D%0A%20%20%20%20OpenBLAS_jll%20-%3E%20CompilerSupportLibraries_jll%20%5Bcolor%3Dgray%5D%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Artifacts%20%5Bcolor%3Dgray%5D%0A%20%20%20%20CompilerSupportLibraries_jll%20-%3E%20Libdl%20%5Bcolor%3Dgray%5D%0A%20%20%20%20OpenBLAS_jll%20-%3E%20Libdl%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Unitful%20-%3E%20Dates%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Dates%20-%3E%20Printf%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Printf%20-%3E%20Unicode%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Unitful%20-%3E%20LinearAlgebra%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Unitful%20-%3E%20Random%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Random%20-%3E%20SHA%20%5Bcolor%3Dgray%5D%0A%20%20%20%20Random%20-%3E%20Serialization%20%5Bcolor%3Dgray%5D%0A%20%20%20%20LinearAlgebra%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20libblastrampoline_jll%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20OpenBLAS_jll%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20CompilerSupportLibraries_jll%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Dates%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Printf%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Random%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Libdl%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Artifacts%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Unicode%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20SHA%20%5Bfontcolor%3Dgray%5D%0A%20%20%20%20Serialization%20%5Bfontcolor%3Dgray%5D%0A%7D%0A">this url</a>, which renders something like the following:</p>
+<!-- See docs/script/update_imgs_and_url.jl -->
+<p><img src="https://raw.githubusercontent.com/tfiers/PkgGraph.jl/main/docs/img/Unitful-deps.svg"
+width=680
+alt="Dependency graph of Unitful, rendered with Graphviz dot"></p>
+<br>
+<p>Packages in the Julia standard library are by default faded-out.
+To remove them entirely from the graph, set the keyword argument
+<code>stdlib = false</code>.</p>
+<p>Similarly, you can filter out binary dependencies (<a href="https://docs.binarybuilder.org/stable/jll">JLL packages</a>)
+by setting <code>jll = false</code>.</p>
+<h3>Local rendering</h3>
+<p>If you are offline and have <a href="https://graphviz.org">Graphviz <code>dot</code></a> installed on your PATH, you can use something like</p>
+<pre><code class="language-julia">depgraph_image(:Unitful, dir=&quot;.&quot;, fmt=:svg)
+</code></pre>
+<p>This will call <code>dot</code> to create an SVG image in the current directory (<code>&quot;.&quot;</code>), and will open it with your default image viewer.</p>
+<p>If only the package-name is provided, <code>dir = tempdir()</code> and <code>fmt = :png</code> are used.</p>
+<h3>Customization</h3>
+<p>The code tries to be modular. So if you want something a bit different than what the
+above interface offers, you might be able to compose it from various internal
+functions: see <a href="ref/internals">Internals</a>.</p>
+<h3>Limitations</h3>
+<ul>
+<li>See <a href="https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3A%22known+limitation%22%2Cbug+is%3Aopen"><strong>Known limitations &amp; Bugs</strong></a> in the issue tracker</li>
+<li>Also see <a href="https://github.com/tfiers/PkgGraph.jl#roadmap--">Roadmap</a></li>
+</ul>
+<br>
+<h2>Installation</h2>
+<p>PkgGraph is available in the Julia general registry and can be installed <a href="https://pkgdocs.julialang.org/v1/getting-started">as usual</a> with</p>
+<pre><code>pkg&gt; add PkgGraph
+</code></pre>
+<h3>Global Install</h3>
+<p>You might want to install <code>PkgGraph</code> in your base environment (e.g. <code>v1.8</code>).<br />
+You can then use it in any project, without having to install it in that project
+or having to switch projects.</p>
+<details>
+<p>You can activate your base environment using <code>] activate</code> (i.e. activate 'nothing'),
+and then <code>add PkgGraph</code> there.</p>
+<p>Another way to obtain a global install is to run – from within <em>any</em> environment:</p>
+<pre><code>julia&gt; using PkgGraph
+</code></pre>
+<p>If the package is not found, Julia will offer to install it.<br />
+Type '<code>o</code>' to choose to install it in your base environment.</p>
+</details>
+<br>
+</article><nav class="docs-footer"><a class="docs-footer-nextpage" href="ref/end-user/">End-user »</a><div class="flexbox-break"></div></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.28.0-DEV on <span class="colophon-date" title="Friday 27 January 2023 15:20">Friday 27 January 2023</span>. Using Julia version 1.8.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
