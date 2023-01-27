@@ -33,12 +33,26 @@ per version: [Added, Changed, Fixed, Removed, Security,
 -------------
 
 
+<!--
 <br>
 
-## v0.6  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
+## v…  &nbsp;<sub>[![][unreleased-badge]][devlink]</sub>
 
 [unreleased-badge]: https://img.shields.io/badge/Unreleased-orange
 [devlink]: https://github.com/tfiers/PkgGraph.jl#development
+
+
+_{no changes yet}_
+-->
+
+
+<br>
+
+## v0.6  &nbsp;<sub>[![][v0.6-date-badge]][v0.6-release]</sub>
+
+[v0.6-date-badge]: https://img.shields.io/badge/Released_on-2023--01--27-blue
+[v0.6-release]: https://github.com/tfiers/PkgGraph.jl/releases/tag/v0.6
+
 
 - New keyword argument **`time`**, to measure import times of dependencies,
   and display them in the graph
