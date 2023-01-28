@@ -31,9 +31,7 @@ end
     )
 
 Render the dependency graph of the given package as an image in `dir`,
-and open it with your default image viewer. Uses the external program
-'`dot`' (see [graphviz.org](https://graphviz.org)), which must be
-available on `PATH`.
+and open it with your default image viewer.
 
 `bg`: background colour for the image. Default is `:white` if `fmt =
 :png`, and `:transparent` otherwise.
@@ -58,10 +56,6 @@ function depgraph_image(
     kw...
 )
     fmt = Symbol(lowercase(string(fmt)))
-    if !is_dot_available() && !dryrun
-        @error "`dot` program not found on `PATH`. Get it at https://graphviz.org/download/"
-        return
-    end
     dotstr = depgraph_as_dotstr(pkgname; bg, kw...)
     imgpath = output_path(pkgname, dir, fmt)
     if !dryrun

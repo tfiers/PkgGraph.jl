@@ -20,9 +20,8 @@ Also has `dependencies(pkg)` and `direct_dependencies(pkg)` functions.
 
 #### [Graphviz.jl]
 
-Bundles the graphviz binaries (including `dot`) (via [JuliaBinaryWrappers/Graphviz_jll][Graphviz_jll]),
-and provides access in Julia to graphviz's C API.
-Provides the `@dot_str` macro to render dot strings in a notebook.
+Bundles the graphviz binaries (including `dot`; via [JuliaBinaryWrappers/Graphviz_jll][Graphviz_jll]),
+and provides a `@dot_str` macro to render dot strings in a notebook.
 
 #### [GraphvizDotLang.jl]
 

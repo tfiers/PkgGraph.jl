@@ -22,6 +22,7 @@ using .SVG
 
 using DefaultApplication
 using URIs: escapeuri
+using Graphviz_jll: dot
 include("deps-as-dot.jl")
 include("dotcommand.jl")
 include("webapps.jl")

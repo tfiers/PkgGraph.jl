@@ -1,6 +1,7 @@
 
 using PkgGraph
 using Test
+using Graphviz_jll: dot
 
 @testset "PkgGraph" begin
 
@@ -14,10 +15,8 @@ using Test
 
     @testset "local" begin
 
-        @test PkgGraph.is_dot_available() isa Bool
-
         @test PkgGraph.output_path(:Test, ".", :svg) == joinpath(".", "Test-deps.svg")
-        @test PkgGraph.dotcommand(:png, "infile", "outfile") == `dot -Tpng -ooutfile infile`
+        @test PkgGraph.dotcommand(:png, "infile", "outfile") == `$(dot()) -Tpng -ooutfile infile`
     end
 
 

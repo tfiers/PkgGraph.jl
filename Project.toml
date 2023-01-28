@@ -6,6 +6,7 @@ version = "0.7.0-dev"
 [deps]
 DefaultApplication = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
 EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+Graphviz_jll = "3c863552-8265-54e4-a6dc-903eb78fde85"
 Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 SnoopPrecompile = "66db9d55-30c0-4569-8b51-7e840670fc0c"

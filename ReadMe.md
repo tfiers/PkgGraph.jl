@@ -48,7 +48,7 @@ by setting `jll = false`.
 
 ### Local rendering
 
-If you are offline and have [Graphviz `dot`](https://graphviz.org) installed on your PATH, you can use something like
+If you are offline, you can use something like
 ```julia
 depgraph_image(:Unitful, dir=".", fmt=:svg)
 ```
