@@ -33,13 +33,18 @@ depgraph(pkgname; jll = true, stdlib = true, verbose = false) = begin
     if is_in_project(rootpkg)
         verbose && @info "Package `$rootpkg` found in active project. Using Manifest.toml"
         direct_deps = direct_deps_from_project()
+        spin = false
     else
-        verbose && @info "Package `$rootpkg` not found in active project. Using General registry"
+        @info "Package \"$rootpkg\" not found in active project. Using General registry"
         direct_deps = direct_deps_from_registry
+        spin = true
+        spinner = "🌑🌒🌓🌔🌕🌖🌗🌘"
     end
+    spin && (p = ProgressUnknown("Crawling registry", spinner=true))
     deps = Vector{Pair{String, String}}()
     add_deps_of(pkg) = begin
         for dep in direct_deps(pkg)
+            spin && ProgressMeter.next!(p; spinner)
             if should_be_included(dep, include_jll=jll, include_stdlib=stdlib)
                 push!(deps, pkg => dep)
                 add_deps_of(dep)
@@ -47,6 +52,7 @@ depgraph(pkgname; jll = true, stdlib = true, verbose = false) = begin
         end
     end
     add_deps_of(rootpkg)
+    spin && ProgressMeter.finish!(p)
     return unique!(deps)  # Could use a SortedSet instead; but this spares a pkg load.
 end
 

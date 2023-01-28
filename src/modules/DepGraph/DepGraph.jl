@@ -3,6 +3,7 @@ module DepGraph
 using Pkg
 using TOML
 using UUIDs
+using ProgressMeter
 using Base: active_project
 
 include("stdlib.jl")
