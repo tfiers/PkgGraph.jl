@@ -7,25 +7,25 @@ or [`depgraph_image`](@ref) to generate an image locally.
 module PkgGraph
 
 
-include("modules/DepGraphs/DepGraphs.jl")
+include("DepGraphs/DepGraphs.jl")
 using .DepGraphs
 
-include("modules/LoadTime.jl")
+include("LoadTime.jl")
 using .LoadTime
 
-include("modules/DotString.jl")
+include("DotString/DotString.jl")
 using .DotString
 
-include("modules/SVG.jl")
+include("SVG.jl")
 using .SVG
 
 
 using DefaultApplication
 using URIs: escapeuri
-include("includes/deps-as-dot.jl")
-include("includes/dotcommand.jl")
-include("includes/webapps.jl")
-include("includes/enduser.jl")
+include("deps-as-dot.jl")
+include("dotcommand.jl")
+include("webapps.jl")
+include("enduser.jl")
 
 export depgraph_web, depgraph_image
 
