@@ -59,7 +59,7 @@ single_node(text) = "onlynode [label=\" $text \", shape=plaintext]"
 
 default_style() = [
     "node [fontname=\"sans-serif\", fontsize=14]",  # 14 is default
-    "node [color=none, shape=box, width=1, height=0.5]",
+    "node [color=none, width=1, height=0.3]",
     # Default width is 0.75 (but expands for label), height 0.5
     # Larger width spaces nodes out more
     "edge [arrowsize=0.8]",

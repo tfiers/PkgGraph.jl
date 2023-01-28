@@ -8,7 +8,7 @@
             node [fontcolor="black"]
             edge [color="black"]
             node [fontname="sans-serif", fontsize=14]
-            node [color=none, shape=box, width=1, height=0.5]
+            node [color=none, width=1, height=0.3]
             edge [arrowsize=0.8]
             TOML -> Dates
             Dates -> Printf
