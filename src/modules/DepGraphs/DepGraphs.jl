@@ -1,4 +1,4 @@
-module DepGraph
+module DepGraphs
 
 using Pkg
 using TOML

@@ -33,7 +33,7 @@ Extract the unique nodes from the given list of edges.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.DepGraph
+julia> using PkgGraph.DepGraphs
 
 julia> edges = depgraph(:Test);
 
@@ -65,7 +65,7 @@ This is useful because Graphs.jl requires vertices to be integers.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.DepGraph
+julia> using PkgGraph.DepGraphs
 
 julia> edges = ["A"=>"B", "B"=>"C"];
 
@@ -92,7 +92,7 @@ is a connection _from_ the node with index `i` to the node with index `j`.
 
 ## Example:
 ```jldoctest
-julia> using PkgGraph.DepGraph
+julia> using PkgGraph.DepGraphs
 
 julia> edges = [
            :A => :A

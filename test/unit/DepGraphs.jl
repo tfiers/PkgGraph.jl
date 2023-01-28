@@ -1,5 +1,5 @@
 
-using PkgGraph.DepGraph
+using PkgGraph.DepGraphs
 using Test
 
 @testset "DepGraph" begin

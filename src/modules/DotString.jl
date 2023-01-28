@@ -1,7 +1,7 @@
 
 module DotString
 
-using ..DepGraph: vertices, is_in_stdlib, depgraph
+using ..DepGraphs: vertices, is_in_stdlib, depgraph
 # The latter two are imported for reference in the docstring
 
 export to_dot_str,

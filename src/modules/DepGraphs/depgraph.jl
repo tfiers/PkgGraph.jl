@@ -14,7 +14,7 @@ filtered out from the result by setting `jll` and `stdlib` to `false`.
 ## Example:
 
 ```jldoctest
-julia> using PkgGraph.DepGraph
+julia> using PkgGraph.DepGraphs
 
 julia> depgraph(:Test)
 8-element Vector{Pair{String, String}}:

@@ -3,7 +3,7 @@ using PkgGraph
 using Test
 
 @testset "unit" verbose=true begin
-    include("DepGraph.jl")
+    include("DepGraphs.jl")
     include("DotString.jl")
     include("LoadTime.jl")
     include("SVG.jl")
