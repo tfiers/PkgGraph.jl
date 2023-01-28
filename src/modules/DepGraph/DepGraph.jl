@@ -15,7 +15,7 @@ export packages_in_active_manifest
 
 include("registry.jl")
 
-include("main.jl")
+include("depgraph.jl")
 export depgraph,
        should_be_included,
        is_jll,
