@@ -107,12 +107,11 @@ common_style() =
     .faded-stroke { stroke: gray !important }
     """
 
-lightmode() = colouring(ink="black", paper="white")
-darkmode() = colouring(paper="black", ink="white")
+lightmode() = colouring("black")
+darkmode() = colouring("white")
 
-colouring(; ink, paper) =
+colouring(ink) =
     """
-    .node ellipse { stroke: $ink; fill: $paper }
     .node text    { fill: $ink }
     .edge path    { stroke: $ink }
     .edge polygon { stroke: $ink; fill: $ink }
