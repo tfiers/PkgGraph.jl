@@ -59,7 +59,8 @@ function depgraph_image(
 )
     fmt = Symbol(lowercase(string(fmt)))
     if !is_dot_available() && !dryrun
-        error("`dot` program not found on `PATH`. Get it at https://graphviz.org/download/")
+        @error "`dot` program not found on `PATH`. Get it at https://graphviz.org/download/"
+        return
     end
     dotstr = depgraph_as_dotstr(pkgname; bg, kw...)
     imgpath = output_path(pkgname, dir, fmt)
