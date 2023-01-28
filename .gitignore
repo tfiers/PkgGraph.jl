@@ -2,6 +2,7 @@
 /docs/build/
 /docs/src-mod/
 /docs/localdev/Manifest.toml
+/test/Manifest.toml
 /test/standalone/Manifest.toml
 /local
 /release/Manifest.toml
