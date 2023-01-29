@@ -33,7 +33,7 @@ function to_dot_str(
         addline(str)
     end
     for (m, n) in edges
-        if !isnothing(faded) && any(faded, [m, n])
+        if (!isnothing(faded) && any(faded, [m, n]))
             addline("$m -> $n [color=gray]")
         else
             addline("$m -> $n")
@@ -47,7 +47,10 @@ function to_dot_str(
     isnothing(nodeinfo) || for node in vertices(edges)
         if node in keys(nodeinfo)
             info = nodeinfo[node]
-            addline("$node [label=\"$node\\n$info\"]")
+            # https://graphviz.org/doc/info/shapes.html#html
+            addline("""$node [label=<$node<br/>
+                <font color="gray">$info</font>>]"""
+            )
         end
     end
     isnothing(relsize) || for node in vertices(edges)
