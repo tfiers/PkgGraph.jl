@@ -7,7 +7,8 @@
             bgcolor = "transparent"
             node [fontcolor="black"]
             edge [color="black"]
-            node [fontname="sans-serif", fontsize=14]
+            node [fontsize=14]
+            node [fontname="sans-serif"]
             node [color=none, width=1, height=0.3]
             edge [arrowsize=0.8]
             TOML -> Dates
@@ -22,6 +23,7 @@
             bgcolor = "transparent"
             node [fontcolor="black"]
             edge [color="black"]
+            node [fontsize=14]
             onlynode [label=\" (URIs has no dependencies) \", shape=plaintext]
         }
         """

@@ -20,13 +20,16 @@ function to_dot_str(
     emptymsg  = nothing,
     faded     = nothing,
     nodeinfo  = nothing,
+    fontsize  = 14,         # 14 is dot default
+    relsize   = nothing,
 )
     lines = ["digraph {"]  # DIrected graph
     tab = " "^indent
     addline(l) = push!(lines, tab * l)
     bgcolor = "bgcolor = \"$bg\""
+    nodefontsize = "node [fontsize=$fontsize]"
     colourscheme = dark ? darkmode : lightmode
-    for str in [bgcolor; colourscheme; style]
+    for str in [bgcolor; colourscheme; nodefontsize; style]
         addline(str)
     end
     for (m, n) in edges
@@ -47,6 +50,13 @@ function to_dot_str(
             addline("$node [label=\"$node\\n$info\"]")
         end
     end
+    isnothing(relsize) || for node in vertices(edges)
+        if node in keys(relsize)
+            relsize_ = relsize[node]
+            fontsize_ = relsize_ * fontsize
+            addline("$node [fontsize=$fontsize_]")
+        end
+    end
     if !isnothing(emptymsg) && isempty(edges)
         addline(single_node(emptymsg))
     end
@@ -58,7 +68,7 @@ single_node(text) = "onlynode [label=\" $text \", shape=plaintext]"
 # ↪ the extra spaces around the text are for some padding in the output png (eg)
 
 default_style() = [
-    "node [fontname=\"sans-serif\", fontsize=14]",  # 14 is default
+    "node [fontname=\"sans-serif\"]",
     "node [color=none, width=1, height=0.3]",
     # Default width is 0.75 (but expands for label), height 0.5
     # Larger width spaces nodes out more

@@ -14,6 +14,7 @@ using Test
           bgcolor = "blue"
           node [fontcolor="black"]
           edge [color="black"]
+          node [fontsize=14]
           node [color="red"]
           A -> B
           yes -> no
@@ -26,6 +27,7 @@ using Test
             bgcolor = "transparent"
             node [fontcolor="white"]
             edge [color="white"]
+            node [fontsize=14]
             onlynode [label=\" (empty graph) \", shape=plaintext]
         }
         """

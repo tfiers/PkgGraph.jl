@@ -24,20 +24,26 @@ results in the graph. (Julia 1.8 and higher only).
 """
 depgraph_as_dotstr(
     pkgname;
-    emptymsg = "($pkgname has no dependencies)",
-    faded    = is_in_stdlib(pkgname) ? nothing : is_in_stdlib,
-    time     = false,
+    emptymsg  = "($pkgname has no dependencies)",
+    faded     = is_in_stdlib(pkgname) ? nothing : is_in_stdlib,
+    time      = false,
+    loadtimes = nothing,  # For if precalculated (quick iteration in dev)
     kw...
 ) = begin
     edges = depgraph(pkgname; select(kw, depgraph)...)
     if time
         loadtimes = time_imports(pkgname)
+    end
+    if !isnothing(loadtimes)
         nodeinfo = Dict(
             pkgname => "[$time ms]"
             for (pkgname, time) in loadtimes
         )
+        fontsize, relsize = time_to_size(loadtimes)
     else
         nodeinfo = nothing
+        fontsize = 14
+        relsize  = nothing
     end
     dotstr = to_dot_str(
         edges;
@@ -45,6 +51,8 @@ depgraph_as_dotstr(
         emptymsg,
         faded,
         nodeinfo,
+        fontsize,
+        relsize,
     )
 end
 
@@ -68,3 +76,36 @@ select(kw, f) = begin
         if name in kwargnames_f
     ]
 end
+
+function time_to_size(loadtimes)
+    min_fontsize = 7
+    max_fontsize = 24
+    max_rel = max_fontsize / min_fontsize
+    max_time = maximum(x.time_ms for x in loadtimes)
+    input_range = 0:max_time
+    output_range = 1:max_rel
+    f = sqrt
+    relsize = Dict(
+        pkgname => remap(time, input_range, output_range, f)
+        for (pkgname, time) in loadtimes
+    )
+    (; fontsize = min_fontsize, relsize)
+end
+
+function remap(x, input_range, output_range, f=identity)
+    # 24 and (20,30) becomes 0.4
+    y = fraction(x, input_range)
+    # `f` is a function mapping [0, 1] to [0, 1]
+    z = f(y)
+    # 0.2 and (100,200) becomes 120
+    w = lerp(z, output_range)
+end
+
+"Linearly interpolate ('lerp') between `a` (`t = 0`) and `b` (`t = 1`)"
+lerp(t, a, b) = a + t * (b - a)
+lerp(t, range) = lerp(t, first(range), last(range))
+
+"Map `v` ∈ [`a`, `b`] to a a fraction ∈ [0, 1]"
+fraction(v, a, b) = (v - a) / (b - a)
+fraction(v, range) = fraction(v, first(range), last(range))
+# aka 'inverse lerp'
