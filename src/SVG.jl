@@ -112,6 +112,7 @@ darkmode() = colouring("white")
 
 colouring(ink) =
     """
+    .node ellipse { fill: none }
     .node text    { fill: $ink }
     .edge path    { stroke: $ink }
     .edge polygon { stroke: $ink; fill: $ink }
