@@ -92,20 +92,20 @@ function time_to_size(loadtimes)
     (; fontsize = min_fontsize, relsize)
 end
 
-function remap(x, input_range, output_range, f=identity)
-    # 24 and (20,30) becomes 0.4
-    y = fraction(x, input_range)
+function remap(v, input_range, output_range, f=identity)
+    # (20,30) and 24 becomes 0.4
+    s = fraction(v, input_range)
     # `f` is a function mapping [0, 1] to [0, 1]
-    z = f(y)
-    # 0.2 and (100,200) becomes 120
-    w = lerp(z, output_range)
+    t = f(s)
+    # (100,200) and 0.2 becomes 120
+    w = lerp(output_range, t)
 end
-
-"Linearly interpolate ('lerp') between `a` (`t = 0`) and `b` (`t = 1`)"
-lerp(t, a, b) = a + t * (b - a)
-lerp(t, range) = lerp(t, first(range), last(range))
 
 "Map `v` ∈ [`a`, `b`] to a a fraction ∈ [0, 1]"
 fraction(v, a, b) = (v - a) / (b - a)
 fraction(v, range) = fraction(v, first(range), last(range))
 # aka 'inverse lerp'
+
+"Linearly interpolate ('lerp') between `a` (`t = 0`) and `b` (`t = 1`)"
+lerp(a, b, t) = a + t * (b - a)
+lerp(range, t) = lerp(first(range), last(range), t)
