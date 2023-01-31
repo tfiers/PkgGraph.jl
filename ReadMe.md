@@ -66,8 +66,7 @@ functions: see the Reference section in the <sub>[![][docbadge]][docs]</sub>.
 
 ### Limitations
 
-- See [**Known limitations & Bugs**][limbugs] in the issue tracker
-- Also see [Roadmap]
+See '[Known limitations & Bugs][limbugs]' in the issue tracker. Also see [Roadmap].
 
 [limbugs]: https://github.com/tfiers/PkgGraph.jl/issues?q=is%3Aissue+sort%3Aupdated-desc+label%3A%22known+limitation%22%2Cbug+is%3Aopen
 [Roadmap]: https://github.com/tfiers/PkgGraph.jl#roadmap--
@@ -82,11 +81,13 @@ PkgGraph is available in the Julia general registry and can be installed [as usu
 ```
 pkg> add PkgGraph
 ```
+It supports Julia versions down to 1.6
+
 [as usual]: https://pkgdocs.julialang.org/v1/getting-started
 
 ### Global Install
 
-You might want to install `PkgGraph` in your base environment (e.g. `v1.8`).\
+You might want to install `PkgGraph` in your base environment (e.g. `v1.9`).\
 You can then use it in any project, without having to install it in that project
 or having to switch projects.
 
