@@ -17,7 +17,7 @@ This page discusses Graphviz, and some possible alternatives.
 
 ## Alternatives to Graphviz
 
-### Mermaid
+### Mermaid & Dagre
 
 '[Mermaid diagrams]' are something more newfangled than Graphviz.
 Mermaid uses the [Dagre.js] library for graph layout.
